@@ -1,0 +1,334 @@
+Decoded DTVCC / CEA-708 for Asset: ./tmp/NightOfTheLivingDead-S1.708 - Service: 1
+00:02:52:12 - {DSW:00000001}
+00:02:52:13 - {DLW:00000010} {DF1:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C3} "They ought to make the" {SPL:R2-C3} "day the time changes" {SPL:R3-C3} "the first day of summer."
+00:02:57:12 - {CLW:00000001}
+00:02:57:12 - {HDW:00000001}
+00:02:57:13 - {DSW:00000010}
+00:02:57:14 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C0} "- What? - Well, it's 8" {SPL:R2-C0} "o'clock and it's still light."
+00:03:00:24 - {CLW:00000010}
+00:03:00:24 - {HDW:00000010}
+00:03:00:25 - {DSW:00000001}
+00:03:00:26 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C3} "A lot of good the" {SPL:R2-C3} "extra daylight does us."
+00:03:04:04 - {CLW:00000001}
+00:03:04:04 - {HDW:00000001}
+00:03:04:05 - {DSW:00000010}
+00:03:04:06 - {DLW:00000001} {DF0:PopUp-TransBG:R4-C31:Anchor-UL-V44-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C3} "Now, we've still got a" {SPL:R2-C3} "three-hour drive back." {SPL:R3-C3} "We're not gonna be home" {SPL:R4-C3} "until after midnight."
+00:03:06:24 - {CLW:00000010}
+00:03:06:24 - {HDW:00000010}
+00:03:06:25 - {DSW:00000001}
+00:03:06:26 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C0} "Well, if it really bugged you," {SPL:R2-C0} "Johnny, you wouldn't do it."
+00:03:10:20 - {CLW:00000001}
+00:03:10:20 - {HDW:00000001}
+00:03:10:21 - {DSW:00000010}
+00:03:10:22 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C0} "You think I wanna blow Sunday" {SPL:R2-C0} "on a scene like this?"
+00:03:13:12 - {CLW:00000010}
+00:03:13:12 - {HDW:00000010}
+00:03:13:13 - {DSW:00000001}
+00:03:13:14 - {DLW:00000010} {DF1:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C3} "You know, I figure we're" {SPL:R2-C3} "either gonna have to" {SPL:R3-C3} "move Mother out here,"
+00:03:16:15 - {CLW:00000001}
+00:03:16:15 - {HDW:00000001}
+00:03:16:16 - {DSW:00000010}
+00:03:16:17 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C6} "or move the grave" {SPL:R2-C6} "into Pittsburgh."
+00:03:19:09 - {CLW:00000010}
+00:03:19:09 - {HDW:00000010}
+00:03:19:10 - {DSW:00000001}
+00:03:19:11 - {DLW:00000010} {DF1:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C3} "- She can't make a trip" {SPL:R2-C3} "like this. - Oh, I don't" {SPL:R3-C3} "know that she can't."
+00:03:21:09 - {CLW:00000001}
+00:03:21:09 - {HDW:00000001}
+00:03:21:10 - {DSW:00000010}
+00:03:21:11 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C7} "Is there any of" {SPL:R2-C7} "that candy left?"
+00:03:25:17 - {CLW:00000010}
+00:03:25:17 - {HDW:00000010}
+00:03:25:18 - {DSW:00000001}
+00:03:25:19 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C13} "No."
+00:03:28:03 - {CLW:00000001}
+00:03:28:03 - {HDW:00000001}
+00:03:28:04 - {DSW:00000010}
+00:03:28:05 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C5} "Look at this thing." {SPL:R2-C5} ""We still remember.""
+00:03:29:13 - {CLW:00000010}
+00:03:29:13 - {HDW:00000010}
+00:03:29:14 - {DSW:00000001}
+00:03:29:15 - {DLW:00000010} {DF1:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C3} "I don't. You know, I" {SPL:R2-C3} "don't even remember" {SPL:R3-C3} "what the man looks like."
+00:03:31:20 - {CLW:00000001}
+00:03:31:20 - {HDW:00000001}
+00:03:31:21 - {DSW:00000010}
+00:03:31:22 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C6} "Johnny, it takes" {SPL:R2-C6} "you five minutes."
+00:03:35:06 - {CLW:00000010}
+00:03:35:06 - {HDW:00000010}
+00:03:35:07 - {DSW:00000001}
+00:03:35:08 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C0} "Yeah, five minutes" {SPL:R2-C0} "to put the wreath on the grave"
+00:03:37:07 - {CLW:00000001}
+00:03:37:07 - {HDW:00000001}
+00:03:37:08 - {DSW:00000010}
+00:03:37:09 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C4} "and six hours to" {SPL:R2-C4} "drive back and forth."
+00:03:39:12 - {CLW:00000010}
+00:03:39:12 - {HDW:00000010}
+00:03:39:13 - {DSW:00000001}
+00:03:39:14 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C0} "Mother wants to remember, so we" {SPL:R2-C0} "trot 200 miles into the country"
+00:03:41:28 - {CLW:00000001}
+00:03:41:28 - {HDW:00000001}
+00:03:41:29 - {DSW:00000010}
+00:03:42:00 - {DLW:00000001} {DF0:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C4} "- and she stays at" {SPL:R2-C4} "home. - Well, we're" {SPL:R3-C4} "here, John. All right?"
+00:03:45:07 - {CLW:00000010}
+00:03:45:07 - {HDW:00000010}
+00:03:46:15 - {DSW:00000001}
+00:03:46:16 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C0} "<i>Testing. Are we back on?</i>"
+00:03:51:15 - {CLW:00000001}
+00:03:51:15 - {HDW:00000001}
+00:03:51:16 - {DSW:00000010}
+00:03:51:17 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C5} "<i>Oh. Uh, ladies" {SPL:R2-C5} "and gentlemen...</i>"
+00:03:53:24 - {CLW:00000010}
+00:03:53:24 - {HDW:00000010}
+00:03:53:25 - {DSW:00000001}
+00:03:53:26 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C10} "Hey, do..."
+00:03:56:13 - {CLW:00000001}
+00:03:56:13 - {HDW:00000001}
+00:03:56:14 - {DSW:00000010}
+00:03:56:15 - {DLW:00000001} {DF0:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C1} "<i>we're coming back on the" {SPL:R2-C1} "air after an interruption" {SPL:R3-C1} "due to technicalprobl...</i>"
+00:03:57:17 - {CLW:00000010}
+00:03:57:17 - {HDW:00000010}
+00:04:08:20 - {DSW:00000001}
+00:04:08:21 - {DLW:00000010} {DF1:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C3} "There's nothing wrong" {SPL:R2-C3} "with the radio. Must've" {SPL:R3-C3} "been the station."
+00:04:13:20 - {CLW:00000001}
+00:04:13:20 - {HDW:00000001}
+00:04:13:21 - {DSW:00000010}
+00:04:13:22 - {DLW:00000001} {DF0:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C5} "Which row is it in?"
+00:04:16:27 - {CLW:00000010}
+00:04:16:27 - {HDW:00000010}
+00:04:34:07 - {DSW:00000001}
+00:04:34:08 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C1} "Boy, there's no one around."
+00:04:39:07 - {CLW:00000001}
+00:04:39:07 - {HDW:00000001}
+00:04:39:08 - {DSW:00000010}
+00:04:39:09 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C0} "Well, it's late." {SPL:R2-C0} "If you'd gotten up earlier..."
+00:04:41:07 - {CLW:00000010}
+00:04:41:07 - {HDW:00000010}
+00:04:41:08 - {DSW:00000001}
+00:04:41:09 - {DLW:00000010} {DF1:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C5} "Oh, look, I already" {SPL:R2-C5} "lost an hour's sleep" {SPL:R3-C5} "on the time change."
+00:04:44:01 - {CLW:00000001}
+00:04:44:01 - {HDW:00000001}
+00:04:44:02 - {DSW:00000010}
+00:04:44:03 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C1} "I think you complain" {SPL:R2-C1} "just to hear yourself talk."
+00:04:47:07 - {CLW:00000010}
+00:04:47:07 - {HDW:00000010}
+00:04:47:08 - {DSW:00000001}
+00:04:47:09 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C9} "There it is."
+00:04:50:12 - {CLW:00000001}
+00:04:50:12 - {HDW:00000001}
+00:05:02:21 - {DSW:00000010}
+00:05:02:22 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C2} "I wonder what happened" {SPL:R2-C2} "to the one from last year."
+00:05:07:21 - {CLW:00000010}
+00:05:07:21 - {HDW:00000010}
+00:05:07:22 - {DSW:00000001}
+00:05:07:23 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C0} "Each year we spend good money" {SPL:R2-C0} "on these things."
+00:05:11:10 - {CLW:00000001}
+00:05:11:10 - {HDW:00000001}
+00:05:11:11 - {DSW:00000010}
+00:05:11:12 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C1} "We come out here, and the" {SPL:R2-C1} "one from last year is gone."
+00:05:13:25 - {CLW:00000010}
+00:05:13:25 - {HDW:00000010}
+00:05:13:26 - {DSW:00000001}
+00:05:13:27 - {DLW:00000010} {DF1:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C2} "Well, the flowers die," {SPL:R2-C2} "and the caretaker or" {SPL:R3-C2} "somebody takes them away."
+00:05:16:16 - {CLW:00000001}
+00:05:16:16 - {HDW:00000001}
+00:05:16:17 - {DSW:00000010}
+00:05:16:18 - {DLW:00000001} {DF0:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C2} "Yeah, a little spit and" {SPL:R2-C2} "polish, he can clean this" {SPL:R3-C2} "up, sell it next year."
+00:05:21:14 - {CLW:00000010}
+00:05:21:14 - {HDW:00000010}
+00:05:21:15 - {DSW:00000001}
+00:05:21:16 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C2} "Wonder how many times" {SPL:R2-C2} "we've bought the same one."
+00:05:26:09 - {CLW:00000001}
+00:05:26:09 - {HDW:00000001}
+00:05:41:21 - {DSW:00000010}
+00:05:41:22 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C0} "Hey, come on, Barb." {SPL:R2-C0} "Church was this morning, huh?"
+00:05:46:21 - {CLW:00000010}
+00:05:46:21 - {HDW:00000010}
+00:06:03:21 - {DSW:00000001}
+00:06:03:22 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C4} "Hey, I mean, praying's" {SPL:R2-C4} "for church, huh?"
+00:06:08:21 - {CLW:00000001}
+00:06:08:21 - {HDW:00000001}
+00:06:08:22 - {DSW:00000010}
+00:06:08:23 - {DLW:00000001} {DF0:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C11} "Come on."
+00:06:11:13 - {CLW:00000010}
+00:06:11:13 - {HDW:00000010}
+00:06:11:14 - {DSW:00000001}
+00:06:11:15 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C6} "I haven't seen you" {SPL:R2-C6} "in church lately."
+00:06:13:11 - {CLW:00000001}
+00:06:13:11 - {HDW:00000001}
+00:06:13:12 - {DSW:00000010}
+00:06:13:13 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C1} "Well, there's not much sense" {SPL:R2-C1} "in my going to church."
+00:06:16:00 - {CLW:00000010}
+00:06:16:00 - {HDW:00000010}
+00:06:16:01 - {DSW:00000001}
+00:06:16:02 - {DLW:00000010} {DF1:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C3} "Do you remember one" {SPL:R2-C3} "time when we were" {SPL:R3-C3} "small, we were out here?"
+00:06:21:00 - {CLW:00000001}
+00:06:21:00 - {HDW:00000001}
+00:06:21:01 - {DSW:00000010}
+00:06:21:02 - {DLW:00000001} {DF0:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C0} "It was from right over there."
+00:06:24:24 - {CLW:00000010}
+00:06:24:24 - {HDW:00000010}
+00:06:24:25 - {DSW:00000001}
+00:06:24:26 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C5} "I jumped out at you" {SPL:R2-C5} "from behind a tree,"
+00:06:26:15 - {CLW:00000001}
+00:06:26:15 - {HDW:00000001}
+00:06:26:16 - {DSW:00000010}
+00:06:26:17 - {DLW:00000001} {DF0:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C2} "and Grandpa got all" {SPL:R2-C2} "excited, and he shook his" {SPL:R3-C2} "fist at me and he said,"
+00:06:28:15 - {CLW:00000010}
+00:06:28:15 - {HDW:00000010}
+00:06:28:16 - {DSW:00000001}
+00:06:28:17 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C7} ""Boy, you'll be" {SPL:R2-C7} "damned to hell.""
+00:06:31:15 - {CLW:00000001}
+00:06:31:15 - {HDW:00000001}
+00:06:31:16 - {DSW:00000010}
+00:06:31:17 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C6} "Remember that?" {SPL:R2-C6} "Right over there."
+00:06:34:05 - {CLW:00000010}
+00:06:34:05 - {HDW:00000010}
+00:06:34:06 - {DSW:00000001}
+00:06:34:07 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C6} "You used to really" {SPL:R2-C6} "be scared here."
+00:06:36:26 - {CLW:00000001}
+00:06:36:26 - {HDW:00000001}
+00:06:36:27 - {DSW:00000010}
+00:06:36:28 - {DLW:00000001} {DF0:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C11} "Johnny."
+00:06:39:29 - {CLW:00000010}
+00:06:39:29 - {HDW:00000010}
+00:06:40:00 - {DSW:00000001}
+00:06:40:01 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C2} "Hey, you're still afraid."
+00:06:41:22 - {CLW:00000001}
+00:06:41:22 - {HDW:00000001}
+00:06:41:23 - {DSW:00000010}
+00:06:41:24 - {DLW:00000001} {DF0:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C3} "Stop it now. I mean it."
+00:06:43:14 - {CLW:00000010}
+00:06:43:14 - {HDW:00000010}
+00:06:44:06 - {DSW:00000001}
+00:06:44:07 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C6} "They're coming to" {SPL:R2-C6} "get you, Barbra."
+00:06:49:06 - {CLW:00000001}
+00:06:49:06 - {HDW:00000001}
+00:06:49:07 - {DSW:00000010}
+00:06:49:08 - {DLW:00000001} {DF0:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C2} "Stop it! You're ignorant!"
+00:06:52:28 - {CLW:00000010}
+00:06:52:28 - {HDW:00000010}
+00:06:52:29 - {DSW:00000001}
+00:06:53:00 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C0} "They're coming for you, Barbra."
+00:06:55:04 - {CLW:00000001}
+00:06:55:04 - {HDW:00000001}
+00:06:55:05 - {DSW:00000010}
+00:06:55:06 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C5} "Stop it. You're" {SPL:R2-C5} "acting like a child."
+00:06:58:05 - {CLW:00000010}
+00:06:58:05 - {HDW:00000010}
+00:06:58:06 - {DSW:00000001}
+00:06:58:07 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C3} "They're coming for you."
+00:07:00:23 - {CLW:00000001}
+00:07:00:23 - {HDW:00000001}
+00:07:00:24 - {DSW:00000010}
+00:07:00:25 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C6} "Look! There comes" {SPL:R2-C6} "one of them now!"
+00:07:02:23 - {CLW:00000010}
+00:07:02:23 - {HDW:00000010}
+00:07:02:24 - {DSW:00000001}
+00:07:02:25 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C5} "- He'll hear you." {SPL:R2-C5} "- Here he comes now."
+00:07:06:09 - {CLW:00000001}
+00:07:06:09 - {HDW:00000001}
+00:07:06:10 - {DSW:00000010}
+00:07:06:11 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C2} "- I'm getting out of here." {SPL:R2-C2} "- Johnny!"
+00:07:08:17 - {CLW:00000010}
+00:07:08:17 - {HDW:00000010}
+00:07:13:22 - {DSW:00000001}
+00:07:13:23 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C13} "No!"
+00:07:18:22 - {CLW:00000001}
+00:07:18:22 - {HDW:00000001}
+00:07:18:23 - {DSW:00000010}
+00:07:18:24 - {DLW:00000001} {DF0:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C9} "No! Johnny!"
+00:07:21:01 - {CLW:00000010}
+00:07:21:01 - {HDW:00000010}
+00:07:21:02 - {DSW:00000001}
+00:07:21:03 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C8} "Help me! Help!"
+00:07:22:23 - {CLW:00000001}
+00:07:22:23 - {HDW:00000001}
+00:14:28:13 - {DSW:00000010}
+00:14:28:14 - {DLW:00000001} {DF0:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C7} "It's all right."
+00:14:33:13 - {CLW:00000010}
+00:14:33:13 - {HDW:00000010}
+00:14:33:16 - {DSW:00000001}
+00:14:33:17 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C4} "Don't worry about" {SPL:R2-C4} "him. I can handle him."
+00:14:38:16 - {CLW:00000001}
+00:14:38:16 - {HDW:00000001}
+00:14:38:17 - {DSW:00000010}
+00:14:38:18 - {DLW:00000001} {DF0:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C3} "Probably be a lot more" {SPL:R2-C3} "of them as soon as" {SPL:R3-C3} "they find out about us."
+00:14:40:16 - {CLW:00000010}
+00:14:40:16 - {HDW:00000010}
+00:14:41:27 - {DSW:00000001}
+00:14:41:28 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C5} "Truck is out of gas."
+00:14:46:27 - {CLW:00000001}
+00:14:46:27 - {HDW:00000001}
+00:14:46:28 - {DSW:00000010}
+00:14:46:29 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C3} "This pump out here is" {SPL:R2-C3} "locked. Is there a key?"
+00:14:48:09 - {CLW:00000010}
+00:14:48:09 - {HDW:00000010}
+00:14:48:10 - {DSW:00000001}
+00:14:48:11 - {DLW:00000010} {DF1:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C3} "We can try to get out of" {SPL:R2-C3} "here if we can get some" {SPL:R3-C3} "gas. Is there a key?"
+00:14:52:06 - {CLW:00000001}
+00:14:52:06 - {HDW:00000001}
+00:15:00:06 - {DSW:00000010}
+00:15:00:07 - {DLW:00000001} {DF0:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C1} "I suppose you've tried this."
+00:15:05:04 - {CLW:00000010}
+00:15:05:04 - {HDW:00000010}
+00:15:12:01 - {DSW:00000001}
+00:15:12:02 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C6} "Do you live here?"
+00:15:17:01 - {CLW:00000001}
+00:15:17:01 - {HDW:00000001}
+00:15:26:15 - {DSW:00000010}
+00:15:26:16 - {DLW:00000001} {DF0:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C12} "Jesus."
+00:15:31:15 - {CLW:00000010}
+00:15:31:15 - {HDW:00000010}
+00:15:36:23 - {DSW:00000001}
+00:15:36:24 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C1} "We've gotta get out of here."
+00:15:41:23 - {CLW:00000001}
+00:15:41:23 - {HDW:00000001}
+00:15:41:24 - {DSW:00000010}
+00:15:41:25 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C1} "We have to get to where" {SPL:R2-C1} "there are some other people."
+00:15:43:23 - {CLW:00000010}
+00:15:43:23 - {HDW:00000010}
+00:15:44:12 - {DSW:00000001}
+00:15:44:13 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C6} "M-Maybe we better" {SPL:R2-C6} "take some food."
+00:15:49:12 - {CLW:00000001}
+00:15:49:12 - {HDW:00000001}
+00:15:49:13 - {DSW:00000010}
+00:15:49:14 - {DLW:00000001} {DF0:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C6} "I'll see if I can" {SPL:R2-C6} "find some food."
+00:15:52:02 - {CLW:00000010}
+00:15:52:02 - {HDW:00000010}
+00:16:33:27 - {DSW:00000001}
+00:16:33:28 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C3} "- What's happening?" {SPL:R2-C3} "- I'll be just a second."
+00:16:38:27 - {CLW:00000001}
+00:16:38:27 - {HDW:00000001}
+00:16:38:28 - {DSW:00000010}
+00:16:38:29 - {DLW:00000001} {DF0:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C6} "What's happening?"
+00:16:42:23 - {CLW:00000010}
+00:16:42:23 - {HDW:00000010}
+00:16:52:19 - {DSW:00000001}
+00:16:52:20 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C9} "Two of them."
+00:16:57:19 - {CLW:00000001}
+00:16:57:19 - {HDW:00000001}
+00:16:59:09 - {DSW:00000010}
+00:16:59:10 - {DLW:00000001} {DF0:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C3} "There are two of them" {SPL:R2-C3} "out there. Have you seen" {SPL:R3-C3} "any more around here?"
+00:17:04:09 - {CLW:00000010}
+00:17:04:09 - {HDW:00000010}
+00:17:04:10 - {DSW:00000001}
+00:17:04:11 - {DLW:00000010} {DF1:PopUp-TransBG:R2-C31:Anchor-UL-V54-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C0} "- I can take care of those two." {SPL:R2-C0} "- I don't know. I don't know."
+00:17:07:05 - {CLW:00000001}
+00:17:07:05 - {HDW:00000001}
+00:17:07:06 - {DSW:00000010}
+00:17:07:07 - {DLW:00000001} {DF0:PopUp-TransBG:R3-C31:Anchor-UL-V49-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C2} "- I know you're afraid," {SPL:R2-C2} "but we have to... - I" {SPL:R3-C2} "don't know! I don't know!"
+00:17:09:22 - {CLW:00000010}
+00:17:09:22 - {HDW:00000010}
+00:17:09:23 - {DSW:00000001}
+00:17:09:24 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C6} "What's happening?"
+00:17:14:01 - {CLW:00000001}
+00:17:14:01 - {HDW:00000001}
+00:19:29:06 - {DSW:00000010}
+00:19:29:07 - {DLW:00000001} {DF0:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C1} "They know we're in here now."
+00:19:34:06 - {CLW:00000010}
+00:19:34:06 - {HDW:00000010}
+00:19:46:03 - {DSW:00000001}
+00:19:46:04 - {DLW:00000010} {DF1:PopUp-TransBG:R1-C31:Anchor-UL-V59-H0:Pen-MonoSerif:Pr-0} {CW1} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-TtoB:Snap-1.0sec-LtoR} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} {SPL:R1-C6} "Don't look at it."
+00:19:51:03 - {CLW:00000001}
+00:19:51:03 - {HDW:00000001}
+00:19:52:15 - {DSW:00000010}

@@ -1,0 +1,40 @@
+Decoded DTVCC / CEA-708 for Asset: ./tmp/BigBuckBunny_256x144-24fps-S1.708 - Service: 1 {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "- 2020." {SPL:R1-C0} "- THAT'S A STRETCH."
+00:00:01,209 - {HDW:11111111}
+00:00:01,418 - {TGW:00000001}
+00:00:01,584 - {DLW:00000010} {DF1:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H85:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "- FINE." {SPL:R1-C1} "2024."
+00:00:03,586 - {HDW:11111111}
+00:00:03,753 - {TGW:00000010}
+00:00:03,962 - {DLW:00000001} {DF0:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H60:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C6} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "I WIN," {SPL:R1-C0} "WE MOVE IN THERE."
+00:00:06,047 - {HDW:11111111}
+00:00:06,256 - {TGW:00000001}
+00:00:06,423 - {DLW:00000010} {DF1:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H45:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "I'LL TAKE THE WEST WING." {SPL:R1-C0} "YOU TAKE THE EAST WING."
+00:00:08,675 - {HDW:11111111}
+00:00:08,883 - {TGW:00000010}
+00:00:09,092 - {DLW:00000001} {DF0:PopUp-Cntrd:R0-C41:Anchor-UL-V70-H0:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "YOU CAN BE THE FIRST GENTLEMAN."
+00:00:11,177 - {HDW:11111111}
+00:00:11,386 - {TGW:00000001}
+00:00:11,594 - {DLW:00000010} {DF1:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H45:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "- ACTUALLY, THAT SOUNDS" {SPL:R1-C5} "KIND OF GREAT."
+00:00:13,304 - {HDW:11111111}
+00:00:13,513 - {TGW:00000010}
+00:00:13,722 - {DLW:00000001} {DF0:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H40:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "THANKS FOR COMING WITH ME" {SPL:R1-C5} "TO GET MY STUFF."
+00:00:15,390 - {HDW:11111111}
+00:00:15,598 - {TGW:00000001}
+00:00:15,765 - {DLW:00000010} {DF1:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H50:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "- HOW COULD I PASS UP" {SPL:R1-C4} "AN OPPORTUNITY"
+00:00:17,517 - {HDW:11111111}
+00:00:17,726 - {TGW:00000010}
+00:00:17,934 - {DLW:00000001} {DF0:PopUp-Cntrd:R0-C41:Anchor-UL-V70-H35:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "TO LOOK AT OUR FUTURE HOUSE?"
+00:00:19,144 - {HDW:11111111}
+00:00:19,352 - {TGW:00000001}
+00:00:19,561 - {DLW:00000010} {DF1:PopUp-Cntrd:R0-C41:Anchor-UL-V70-H50:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "- OH, JUST REMEMBERED."
+00:00:20,270 - {HDW:11111111}
+00:00:20,478 - {TGW:00000010}
+00:00:20,687 - {DLW:00000001} {DF0:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H50:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C2} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "I KIND OF GOT YOU" {SPL:R1-C0} "AN ENGAGEMENT PRESENT."
+00:00:22,188 - {HDW:11111111}
+00:00:22,397 - {TGW:00000001}
+00:00:22,605 - {DLW:00000010} {DF1:PopUp-Cntrd:R0-C41:Anchor-UL-V70-H45:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "- IS IT A WAFFLE TOWER?"
+00:00:24,649 - {HDW:11111111}
+00:00:24,858 - {TGW:00000010}
+00:00:25,066 - {DLW:00000001} {DF0:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H30:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "- I MEAN, IT'S A LITTLE BETTER" {SPL:R1-C10} "THAN THAT."
+00:00:26,443 - {HDW:11111111}
+00:00:26,609 - {TGW:00000001}
+00:00:26,818 - {DLW:00000010} {DF1:PopUp-Cntrd:R0-C41:Anchor-UL-V70-H55:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "[background chatter]

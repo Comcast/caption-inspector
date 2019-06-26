@@ -1,0 +1,3441 @@
+Decoded Line 21 / CEA-608 for Asset: ./tmp/Plan9fromOuterSpace-C1 - Channel: 1
+00:00:00:00 - {EDM}
+00:00:00:01 - {EDM}
+00:00:24:22 - {RCL}
+00:00:24:23 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "Criswell Predicts..."
+00:00:25:16 - {EOC}
+00:00:25:17 - {EOC}
+00:00:29:12 - {EDM}
+00:00:29:13 - {EDM}
+00:00:35:13 - {RCL}
+00:00:35:14 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Greetings, my friend. We are" {R15:C0} {R15:C0} {R2:C16:UL} "all interested in the future,"
+00:00:37:04 - {EOC}
+00:00:37:05 - {EOC}
+00:00:41:00 - {EDM}
+00:00:41:01 - {EDM}
+00:00:41:02 - {RCL}
+00:00:41:03 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "for that is where you" {R14:C4} {R14:C4} "and I are going to spend" {R15:C4} {R15:C4} "the rest of our lives."
+00:00:42:22 - {EOC}
+00:00:42:23 - {EOC}
+00:00:43:19 - {RCL}
+00:00:43:20 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "And remember my friend, future" {R14:C0} {R14:C0} {R2:C16:UL} "events such as these will" {R15:C0} {R15:C0} {R2:C16:UL} "affect you in the future."
+00:00:46:01 - {EOC}
+00:00:46:02 - {EOC}
+00:00:50:15 - {EDM}
+00:00:50:16 - {EDM}
+00:00:50:17 - {RCL}
+00:00:50:18 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "You are interested in the" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "unknown, the mysterious," {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "the unexplainable."
+00:00:52:22 - {EOC}
+00:00:52:23 - {EOC}
+00:00:57:03 - {EDM}
+00:00:57:04 - {EDM}
+00:00:57:05 - {RCL}
+00:00:57:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "That is why you are here." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "And now, for the first time,"
+00:00:58:20 - {EOC}
+00:00:58:21 - {EOC}
+00:01:00:02 - {RCL}
+00:01:00:03 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "we are bringing to you the" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "full story of what happened" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "on that fateful day."
+00:01:02:07 - {EOC}
+00:01:02:08 - {EOC}
+00:01:07:03 - {EDM}
+00:01:07:04 - {EDM}
+00:01:07:05 - {RCL}
+00:01:07:06 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "We are giving you all the" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "evidence, based only on" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "the secret testimonies"
+00:01:09:12 - {EOC}
+00:01:09:13 - {EOC}
+00:01:11:09 - {RCL}
+00:01:11:10 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "of the miserable" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "souls who survived"
+00:01:12:16 - {EOC}
+00:01:12:17 - {EOC}
+00:01:15:00 - {RCL}
+00:01:15:01 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "this terrifying ordeal. The" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "incidents, the places,"
+00:01:16:13 - {EOC}
+00:01:16:14 - {EOC}
+00:01:18:07 - {RCL}
+00:01:18:08 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "my friend we cannot keep" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "this a secret any longer." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Let us punish the guilty,"
+00:01:20:16 - {EOC}
+00:01:20:17 - {EOC}
+00:01:25:06 - {EDM}
+00:01:25:07 - {EDM}
+00:01:25:08 - {RCL}
+00:01:25:09 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "let us reward the" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "innocent. My friend,"
+00:01:26:15 - {EOC}
+00:01:26:16 - {EOC}
+00:01:31:06 - {EDM}
+00:01:31:07 - {EDM}
+00:01:31:08 - {RCL}
+00:01:31:09 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} {R2:C16:UL} "can your heart stand" {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "the shocking facts" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "about grave robbers"
+00:01:33:05 - {EOC}
+00:01:33:06 - {EOC}
+00:01:36:21 - {EDM}
+00:01:36:22 - {EDM}
+00:01:36:23 - {RCL}
+00:01:37:00 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "from outer space?"
+00:01:37:17 - {EOC}
+00:01:37:18 - {EOC}
+00:01:38:03 - {EDM}
+00:01:38:04 - {EDM}
+00:01:53:01 - {RCL}
+00:01:53:02 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} "Plan 9 From Outer Space"
+00:01:53:19 - {EOC}
+00:01:53:20 - {EOC}
+00:01:57:15 - {EDM}
+00:01:57:16 - {EDM}
+00:02:57:03 - {RCL}
+00:02:57:04 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "All of us on this earth, know" {R15:C0} {R15:C0} {R2:C16:UL} "that there is a time to live,"
+00:02:58:19 - {EOC}
+00:02:58:20 - {EOC}
+00:03:02:15 - {EDM}
+00:03:02:16 - {EDM}
+00:03:02:17 - {RCL}
+00:03:02:18 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "and that there is a time to die," {R15:C0} {R15:C0} "yet death is always a shock"
+00:03:04:07 - {EOC}
+00:03:04:08 - {EOC}
+00:03:07:00 - {EDM}
+00:03:07:01 - {EDM}
+00:03:07:02 - {RCL}
+00:03:07:03 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} "to those left behind."
+00:03:07:22 - {EOC}
+00:03:07:23 - {EOC}
+00:03:10:03 - {EDM}
+00:03:10:04 - {EDM}
+00:03:10:05 - {RCL}
+00:03:10:06 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "It is even more of a shock,when" {R14:C0} {R14:C0} "death, the proud brother," {R15:C0} {R15:C0} "comes suddenly without warning."
+00:03:12:12 - {EOC}
+00:03:12:13 - {EOC}
+00:03:16:03 - {EDM}
+00:03:16:04 - {EDM}
+00:03:18:09 - {RCL}
+00:03:18:10 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} "Just at sundown, a small group,"
+00:03:19:07 - {EOC}
+00:03:19:08 - {EOC}
+00:03:21:14 - {RCL}
+00:03:21:15 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "gathered in silent prayer around" {R15:C0} {R15:C0} "the newly-opened grave"
+00:03:23:01 - {EOC}
+00:03:23:02 - {EOC}
+00:03:24:12 - {RCL}
+00:03:24:13 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "of the beloved wife of an" {R15:C0} {R15:C0} "elderly man. Sundown of the day,"
+00:03:26:01 - {EOC}
+00:03:26:02 - {EOC}
+00:03:30:21 - {EDM}
+00:03:30:22 - {EDM}
+00:03:30:23 - {RCL}
+00:03:31:00 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "yet also the sundown" {R15:C4} {R15:C4} "of the old man's heart,"
+00:03:32:05 - {EOC}
+00:03:32:06 - {EOC}
+00:03:35:00 - {EDM}
+00:03:35:01 - {EDM}
+00:03:35:05 - {RCL}
+00:03:35:06 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "for the shadows of grief" {R15:C4} {R15:C4} "clouded his very reason."
+00:03:36:13 - {EOC}
+00:03:36:14 - {EOC}
+00:03:40:15 - {EDM}
+00:03:40:16 - {EDM}
+00:03:51:20 - {RCL}
+00:03:51:21 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "The funeral over, the saddened" {R15:C0} {R15:C0} {R2:C16:UL} "group left the graveside."
+00:03:53:10 - {EOC}
+00:03:53:11 - {EOC}
+00:03:57:00 - {EDM}
+00:03:57:01 - {EDM}
+00:04:19:17 - {RCL}
+00:04:19:18 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "It was when the gravediggers" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "started their task"
+00:04:21:04 - {EOC}
+00:04:21:05 - {EOC}
+00:04:22:17 - {RCL}
+00:04:22:18 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "that strange things" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "began to take place."
+00:04:24:01 - {EOC}
+00:04:24:02 - {EOC}
+00:04:27:21 - {EDM}
+00:04:27:22 - {EDM}
+00:04:31:02 - {RCL}
+00:04:31:03 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} "Fifteen to four."
+00:04:31:16 - {EOC}
+00:04:31:17 - {EOC}
+00:04:32:17 - {RCL}
+00:04:32:18 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "Yup, right on schedule. There's" {R15:C0} {R15:C0} "the ol' San Fernando Valley"
+00:04:34:07 - {EOC}
+00:04:34:08 - {EOC}
+00:04:35:00 - {RCL}
+00:04:35:01 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "out there now." {R15:C4} {R15:C4} {R2:C16:UL} "- You better radio in"
+00:04:36:04 - {EOC}
+00:04:36:05 - {EOC}
+00:04:38:09 - {RCL}
+00:04:38:10 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "for landing instructions, Danny." {R15:C0} {R15:C0} "- Right, Jeff."
+00:04:39:16 - {EOC}
+00:04:39:17 - {EOC}
+00:04:41:22 - {RCL}
+00:04:41:23 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "Burbank Tower, this is American" {R15:C0} {R15:C0} "Flight 812, over."
+00:04:43:07 - {EOC}
+00:04:43:08 - {EOC}
+00:04:47:03 - {EDM}
+00:04:47:04 - {EDM}
+00:04:47:05 - {RCL}
+00:04:47:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "Wouldn't surprise me any if he's" {R15:C0} {R15:C0} "asleep this time of the morning."
+00:04:48:21 - {EOC}
+00:04:48:22 - {EOC}
+00:04:51:06 - {EDM}
+00:04:51:07 - {EDM}
+00:04:51:08 - {RCL}
+00:04:51:09 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "American Flight 812, this is" {R15:C0} {R15:C0} "Burbank Tower. If I were asleep"
+00:04:52:22 - {EOC}
+00:04:52:23 - {EOC}
+00:04:53:17 - {RCL}
+00:04:53:18 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "you'd never get on the ground" {R14:C0} {R14:C0} {R2:C16:UL} "! Your case maybe you'd be" {R15:C0} {R15:C0} {R2:C16:UL} "up there for good. Over."
+00:04:55:22 - {EOC}
+00:04:55:23 - {EOC}
+00:04:59:12 - {EDM}
+00:04:59:13 - {EDM}
+00:04:59:14 - {RCL}
+00:04:59:15 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "You got me that time, Mac. This" {R15:C0} {R15:C0} "American Flight 812 requesting -"
+00:05:01:06 - {EOC}
+00:05:01:07 - {EOC}
+00:05:04:18 - {EDM}
+00:05:04:19 - {EDM}
+00:05:10:04 - {RCL}
+00:05:10:05 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Burbank Tower to American" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Flight 812, over."
+00:05:11:16 - {EOC}
+00:05:11:17 - {EOC}
+00:05:13:04 - {RCL}
+00:05:13:05 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Burbank Tower to American" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Flight 812, over."
+00:05:14:16 - {EOC}
+00:05:14:17 - {EOC}
+00:05:18:06 - {EDM}
+00:05:18:07 - {EDM}
+00:05:18:08 - {RCL}
+00:05:18:09 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Holy mackeral. - Burbank" {R15:C0} {R15:C0} {R2:C16:UL} "Tower to American Flight 812,"
+00:05:19:21 - {EOC}
+00:05:19:22 - {EOC}
+00:05:21:19 - {RCL}
+00:05:21:20 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "are you in trouble?"
+00:05:22:13 - {EOC}
+00:05:22:14 - {EOC}
+00:05:25:03 - {EDM}
+00:05:25:04 - {EDM}
+00:05:25:05 - {RCL}
+00:05:25:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "- Trouble ?" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "- Take a look for yourself."
+00:05:26:13 - {EOC}
+00:05:26:14 - {EOC}
+00:05:29:06 - {EDM}
+00:05:29:07 - {EDM}
+00:05:30:01 - {RCL}
+00:05:30:02 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "- What in the world... -" {R15:C0} {R15:C0} "That's nothing from this world."
+00:05:31:13 - {EOC}
+00:05:31:14 - {EOC}
+00:05:33:04 - {RCL}
+00:05:33:05 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Burbank Tower to American" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "Flight 812, are you in" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "trouble? Are you in trouble?"
+00:05:35:10 - {EOC}
+00:05:35:11 - {EOC}
+00:05:37:07 - {RCL}
+00:05:37:08 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "- Mayday, mayday. Stand" {R14:C0} {R14:C0} {R2:C16:UL} "by, Burbank Tower. - Do you" {R15:C0} {R15:C0} {R2:C16:UL} "suppose the passengers saw it?"
+00:05:39:13 - {EOC}
+00:05:39:14 - {EOC}
+00:05:43:03 - {EDM}
+00:05:43:04 - {EDM}
+00:05:43:05 - {RCL}
+00:05:43:06 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "I doubt it. Most of them" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "are asleep. But it was quite" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "a jolt, Jeff. I'll check."
+00:05:45:12 - {EOC}
+00:05:45:13 - {EOC}
+00:05:45:14 - {RCL}
+00:05:45:15 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Good. We'll get them ready" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "for landing. Keep it quiet" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "until we get instructions."
+00:05:48:00 - {EOC}
+00:05:48:01 - {EOC}
+00:05:49:04 - {RCL}
+00:05:49:05 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "- Right. - American" {R14:C4} {R14:C4} "Flight 812 reporting" {R15:C4} {R15:C4} "to Burbank Tower, over."
+00:05:50:22 - {EOC}
+00:05:50:23 - {EOC}
+00:05:54:12 - {EDM}
+00:05:54:13 - {EDM}
+00:06:19:20 - {RCL}
+00:06:19:21 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "- D'you hear anything ?" {R15:C4} {R15:C4} "- I thought I did."
+00:06:21:01 - {EOC}
+00:06:21:02 - {EOC}
+00:06:22:00 - {RCL}
+00:06:22:01 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Don't like hearin' noises." {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "'Specially when there" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "ain't s'posed to be any."
+00:06:24:07 - {EOC}
+00:06:24:08 - {EOC}
+00:06:25:06 - {RCL}
+00:06:25:07 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Yeah, sorta spooky-like."
+00:06:26:04 - {EOC}
+00:06:26:05 - {EOC}
+00:06:28:08 - {RCL}
+00:06:28:09 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "- Maybe we're getting' old." {R15:C0} {R15:C0} "- Whatever it is it's gone now."
+00:06:29:22 - {EOC}
+00:06:29:23 - {EOC}
+00:06:32:05 - {RCL}
+00:06:32:06 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "- That's the best" {R15:C4} {R15:C4} "thing for us too. Gone."
+00:06:33:10 - {EOC}
+00:06:33:11 - {EOC}
+00:06:34:04 - {RCL}
+00:06:34:05 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Yeah, let's go."
+00:06:34:22 - {EOC}
+00:06:34:23 - {EOC}
+00:06:38:18 - {EDM}
+00:06:38:19 - {EDM}
+00:07:11:09 - {RCL}
+00:07:11:10 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} "The grief of his wife's death"
+00:07:12:07 - {EOC}
+00:07:12:08 - {EOC}
+00:07:14:07 - {RCL}
+00:07:14:08 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "became greater" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "and greater agony."
+00:07:15:13 - {EOC}
+00:07:15:14 - {EOC}
+00:07:19:09 - {EDM}
+00:07:19:10 - {EDM}
+00:07:23:03 - {RCL}
+00:07:23:04 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "The home they had so long" {R15:C0} {R15:C0} "shared together, became a tomb."
+00:07:24:16 - {EOC}
+00:07:24:17 - {EOC}
+00:07:28:06 - {EDM}
+00:07:28:07 - {EDM}
+00:07:28:17 - {RCL}
+00:07:28:18 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "A sweet memory of" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "her joyous living."
+00:07:30:01 - {EOC}
+00:07:30:02 - {EOC}
+00:07:33:21 - {EDM}
+00:07:33:22 - {EDM}
+00:07:33:23 - {RCL}
+00:07:34:00 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "The sky to which she had" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "once looked, was now only a" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "covering for her dead body."
+00:07:36:07 - {EOC}
+00:07:36:08 - {EOC}
+00:07:39:18 - {EDM}
+00:07:39:19 - {EDM}
+00:07:54:06 - {RCL}
+00:07:54:07 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "The ever-beautiful flowers she" {R15:C0} {R15:C0} {R2:C16:UL} "had planted with her own hand,"
+00:07:55:22 - {EOC}
+00:07:55:23 - {EOC}
+00:08:00:18 - {EDM}
+00:08:00:19 - {EDM}
+00:08:00:20 - {RCL}
+00:08:00:21 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "became nothing more than the" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "lost roses of her cheeks."
+00:08:02:11 - {EOC}
+00:08:02:12 - {EOC}
+00:08:05:03 - {EDM}
+00:08:05:04 - {EDM}
+00:08:10:16 - {RCL}
+00:08:10:17 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "Confused by his great" {R15:C4} {R15:C4} {R2:C16:UL} "loss, the old man"
+00:08:11:22 - {EOC}
+00:08:11:23 - {EOC}
+00:08:13:20 - {RCL}
+00:08:13:21 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "left that home," {R15:C4} {R15:C4} {R2:C16:UL} "never to return again."
+00:08:15:01 - {EOC}
+00:08:15:02 - {EOC}
+00:08:18:21 - {EDM}
+00:08:18:22 - {EDM}
+00:08:31:00 - {RCL}
+00:08:31:01 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "At the funeral of the old man," {R15:C0} {R15:C0} {R2:C16:UL} "unknown to his mourners,"
+00:08:32:13 - {EOC}
+00:08:32:14 - {EOC}
+00:08:36:03 - {EDM}
+00:08:36:04 - {EDM}
+00:08:36:15 - {RCL}
+00:08:36:16 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "his dead wife was watching."
+00:08:37:13 - {EOC}
+00:08:37:14 - {EOC}
+00:08:41:09 - {EDM}
+00:08:41:10 - {EDM}
+00:08:41:11 - {RCL}
+00:08:41:12 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- First his wife, then he." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Tragic."
+00:08:42:19 - {EOC}
+00:08:42:20 - {EOC}
+00:08:43:19 - {RCL}
+00:08:43:20 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "- Tell me something. Why was his" {R15:C0} {R15:C0} "wife buried in the ground, and"
+00:08:45:10 - {EOC}
+00:08:45:11 - {EOC}
+00:08:47:02 - {RCL}
+00:08:47:03 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "he sealed in a crypt?" {R14:C4} {R14:C4} {R2:C16:UL} "- Something to do" {R15:C4} {R15:C4} {R2:C16:UL} "with family tradition."
+00:08:48:22 - {EOC}
+00:08:48:23 - {EOC}
+00:08:50:15 - {RCL}
+00:08:50:16 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "A superstition of some sort."
+00:08:51:13 - {EOC}
+00:08:51:14 - {EOC}
+00:08:53:04 - {RCL}
+00:08:53:05 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Well, it's getting' dark." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "We'd best be on our way."
+00:08:54:19 - {EOC}
+00:08:54:20 - {EOC}
+00:08:58:15 - {EDM}
+00:08:58:16 - {EDM}
+00:09:01:16 - {RCL}
+00:09:01:17 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Then, as two of his mourners" {R15:C0} {R15:C0} {R2:C16:UL} "left his final resting place."
+00:09:03:07 - {EOC}
+00:09:03:08 - {EOC}
+00:09:07:03 - {EDM}
+00:09:07:04 - {EDM}
+00:09:40:23 - {RCL}
+00:09:41:00 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Minutes later, the police," {R15:C0} {R15:C0} {R2:C16:UL} "lead by Inspector Daniel Clay,"
+00:09:42:13 - {EOC}
+00:09:42:14 - {EOC}
+00:09:44:16 - {RCL}
+00:09:44:17 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} "arrived at the scene."
+00:09:45:10 - {EOC}
+00:09:45:11 - {EOC}
+00:09:46:09 - {RCL}
+00:09:46:10 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "- Who found him ?" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "- The man and girl."
+00:09:47:16 - {EOC}
+00:09:47:17 - {EOC}
+00:09:49:08 - {RCL}
+00:09:49:09 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "- Medical, uh, examiner been" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "'round yet? - Just left."
+00:09:50:22 - {EOC}
+00:09:50:23 - {EOC}
+00:09:54:18 - {EDM}
+00:09:54:19 - {EDM}
+00:09:54:20 - {RCL}
+00:09:54:21 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "The morgue wagon oughta be along" {R15:C0} {R15:C0} "most any time. - You get their"
+00:09:56:11 - {EOC}
+00:09:56:12 - {EOC}
+00:09:56:13 - {RCL}
+00:09:56:14 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "statement ? Yeah, much as we" {R15:C0} {R15:C0} {R2:C16:UL} "could. They're pretty scared."
+00:09:58:04 - {EOC}
+00:09:58:05 - {EOC}
+00:10:02:00 - {EDM}
+00:10:02:01 - {EDM}
+00:10:02:02 - {RCL}
+00:10:02:03 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "- Finding a mess like this" {R15:C0} {R15:C0} {R2:C16:UL} "oughta make anyone frightened."
+00:10:03:16 - {EOC}
+00:10:03:17 - {EOC}
+00:10:06:12 - {EDM}
+00:10:06:13 - {EDM}
+00:10:06:14 - {RCL}
+00:10:06:15 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Have one of the boys take" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "the guy and the girl back" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "to town. You take charge."
+00:10:09:00 - {EOC}
+00:10:09:01 - {EOC}
+00:10:10:21 - {EDM}
+00:10:10:22 - {EDM}
+00:10:10:23 - {RCL}
+00:10:11:00 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "- Okay Inspector." {R15:C4} {R15:C4} {R2:C16:UL} "What're you gonna do?"
+00:10:12:05 - {EOC}
+00:10:12:06 - {EOC}
+00:10:12:17 - {RCL}
+00:10:12:18 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "- Look around a little." {R15:C4} {R15:C4} "- Pretty dark out there."
+00:10:14:01 - {EOC}
+00:10:14:02 - {EOC}
+00:10:15:09 - {RCL}
+00:10:15:10 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "Once you get beyond those lights" {R14:C0} {R14:C0} "you won't be able to see your" {R15:C0} {R15:C0} "hand in front of your face."
+00:10:17:16 - {EOC}
+00:10:17:17 - {EOC}
+00:10:19:04 - {RCL}
+00:10:19:05 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "- I will get one of the" {R15:C0} {R15:C0} "flashlights from the patrol car."
+00:10:20:16 - {EOC}
+00:10:20:17 - {EOC}
+00:10:22:06 - {RCL}
+00:10:22:07 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "- You be careful Clay." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "- I'm a big boy now, Johnny."
+00:10:23:19 - {EOC}
+00:10:23:20 - {EOC}
+00:10:27:15 - {EDM}
+00:10:27:16 - {EDM}
+00:11:22:21 - {RCL}
+00:11:22:22 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "Looks like a bobcat" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "tore through them."
+00:11:24:04 - {EOC}
+00:11:24:05 - {EOC}
+00:11:26:12 - {RCL}
+00:11:26:13 - {RCL} {ENM} {ENM} {R15:C12} {R15:C12} {R2:C16:UL} "Yeah."
+00:11:27:00 - {EOC}
+00:11:27:01 - {EOC}
+00:11:29:00 - {EDM}
+00:11:29:01 - {EDM}
+00:11:31:08 - {RCL}
+00:11:31:09 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} "Say Lieutenant,"
+00:11:32:00 - {EOC}
+00:11:32:01 - {EOC}
+00:11:33:02 - {RCL}
+00:11:33:03 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "d'you get that funny odour ?" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "- How could I miss it ?"
+00:11:34:16 - {EOC}
+00:11:34:17 - {EOC}
+00:11:38:06 - {EDM}
+00:11:38:07 - {EDM}
+00:11:38:08 - {RCL}
+00:11:38:09 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Oh, that'll be the" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "morgue wagon now."
+00:11:39:16 - {EOC}
+00:11:39:17 - {EOC}
+00:11:41:21 - {EDM}
+00:11:41:22 - {EDM}
+00:11:41:23 - {RCL}
+00:11:42:00 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "- That's the fifth siren" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "in the last hour. - Oh," {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "something's happened down at"
+00:11:44:05 - {EOC}
+00:11:44:06 - {EOC}
+00:11:44:22 - {RCL}
+00:11:44:23 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "the cemetery. A lot of police" {R14:C0} {R14:C0} {R2:C16:UL} "cars and lights. I stopped" {R15:C0} {R15:C0} {R2:C16:UL} "but I didn't see anything."
+00:11:47:04 - {EOC}
+00:11:47:05 - {EOC}
+00:11:50:18 - {EDM}
+00:11:50:19 - {EDM}
+00:11:50:20 - {RCL}
+00:11:50:21 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "Oh well, whatever it is," {R14:C4} {R14:C4} "the morning paper will" {R15:C4} {R15:C4} "carry the whole story."
+00:11:52:16 - {EOC}
+00:11:52:17 - {EOC}
+00:11:55:15 - {EDM}
+00:11:55:16 - {EDM}
+00:12:01:05 - {RCL}
+00:12:01:06 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "You seem to still be" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "up there somewhere."
+00:12:02:13 - {EOC}
+00:12:02:14 - {EOC}
+00:12:04:23 - {RCL}
+00:12:05:00 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} {R2:C16:UL} {R2:C16:UL} "Maybe I am."
+00:12:05:13 - {EOC}
+00:12:05:14 - {EOC}
+00:12:06:15 - {RCL}
+00:12:06:16 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "I don't think I've ever seen you" {R15:C0} {R15:C0} "in this mood before."
+00:12:08:01 - {EOC}
+00:12:08:02 - {EOC}
+00:12:11:21 - {EDM}
+00:12:11:22 - {EDM}
+00:12:12:03 - {RCL}
+00:12:12:04 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "I guess it's because I've" {R15:C0} {R15:C0} "never been in this mood before."
+00:12:13:16 - {EOC}
+00:12:13:17 - {EOC}
+00:12:17:12 - {EDM}
+00:12:17:13 - {EDM}
+00:12:20:12 - {RCL}
+00:12:20:13 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} "Something about your flight ?"
+00:12:21:10 - {EOC}
+00:12:21:11 - {EOC}
+00:12:24:00 - {RCL}
+00:12:24:01 - {RCL} {ENM} {ENM} {R15:C12} {R15:C12} {R2:C16:UL} "Yeah."
+00:12:24:10 - {EOC}
+00:12:24:11 - {EOC}
+00:12:26:13 - {RCL}
+00:12:26:14 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} "What happened, Jeff ?"
+00:12:27:07 - {EOC}
+00:12:27:08 - {EOC}
+00:12:31:03 - {EDM}
+00:12:31:04 - {EDM}
+00:12:35:05 - {RCL}
+00:12:35:06 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "- I saw a flying saucer." {R15:C4} {R15:C4} "- A saucer ?"
+00:12:36:07 - {EOC}
+00:12:36:08 - {EOC}
+00:12:38:10 - {RCL}
+00:12:38:11 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "You mean the kind from up there" {R15:C0} {R15:C0} "? - Yeah, or its counterpart."
+00:12:40:01 - {EOC}
+00:12:40:02 - {EOC}
+00:12:43:21 - {EDM}
+00:12:43:22 - {EDM}
+00:12:43:23 - {RCL}
+00:12:44:00 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "I was shaped like a huge cigar." {R15:C0} {R15:C0} "Dan [something] saw it too."
+00:12:45:13 - {EOC}
+00:12:45:14 - {EOC}
+00:12:47:04 - {RCL}
+00:12:47:05 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "When it passed over, the" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "whole compartment lighted" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "up with a blinding glare."
+00:12:49:13 - {EOC}
+00:12:49:14 - {EOC}
+00:12:53:03 - {EDM}
+00:12:53:04 - {EDM}
+00:12:53:05 - {RCL}
+00:12:53:06 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Then there was a tremendous" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "wind that practically" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "knocked us off our course."
+00:12:55:11 - {EOC}
+00:12:55:12 - {EOC}
+00:12:55:13 - {RCL}
+00:12:55:14 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "- Well did you report" {R14:C0} {R14:C0} {R2:C16:UL} "it ? - Yeah, radioed in" {R15:C0} {R15:C0} {R2:C16:UL} "immediately and they said well"
+00:12:57:16 - {EOC}
+00:12:57:17 - {EOC}
+00:13:00:10 - {EDM}
+00:13:00:11 - {EDM}
+00:13:00:12 - {RCL}
+00:13:00:13 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "keep it quiet until you land." {R14:C0} {R14:C0} {R2:C16:UL} "Then as soon as we landed," {R15:C0} {R15:C0} {R2:C16:UL} "big army brass grabbed us"
+00:13:02:18 - {EOC}
+00:13:02:19 - {EOC}
+00:13:04:12 - {EDM}
+00:13:04:13 - {EDM}
+00:13:04:14 - {RCL}
+00:13:04:15 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "and made us swear to" {R15:C0} {R15:C0} {R2:C16:UL} "secrecy about the whole thing."
+00:13:06:01 - {EOC}
+00:13:06:02 - {EOC}
+00:13:08:18 - {EDM}
+00:13:08:19 - {EDM}
+00:13:08:20 - {RCL}
+00:13:08:21 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "Oh, it burns me up. These" {R14:C0} {R14:C0} "things have been seen for years." {R15:C0} {R15:C0} "They're here, it's a fact."
+00:13:11:00 - {EOC}
+00:13:11:01 - {EOC}
+00:13:12:21 - {EDM}
+00:13:12:22 - {EDM}
+00:13:12:23 - {RCL}
+00:13:13:00 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "And the public oughta know about" {R14:C0} {R14:C0} "it. - There must be something" {R15:C0} {R15:C0} "more you can do about it."
+00:13:15:05 - {EOC}
+00:13:15:06 - {EOC}
+00:13:15:07 - {RCL}
+00:13:15:08 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "Oh no there isn't. Oh," {R14:C4} {R14:C4} {R2:C16:UL} "but what's the point" {R15:C4} {R15:C4} {R2:C16:UL} "of making a fuss."
+00:13:17:02 - {EOC}
+00:13:17:03 - {EOC}
+00:13:20:21 - {EDM}
+00:13:20:22 - {EDM}
+00:13:20:23 - {RCL}
+00:13:21:00 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "Last night I saw a flying" {R14:C0} {R14:C0} {R2:C16:UL} "object that couldn't possibly" {R15:C0} {R15:C0} {R2:C16:UL} "have been from this planet."
+00:13:23:06 - {EOC}
+00:13:23:07 - {EOC}
+00:13:25:12 - {EDM}
+00:13:25:13 - {EDM}
+00:13:25:14 - {RCL}
+00:13:25:15 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "But I can't say a word. I'm" {R14:C0} {R14:C0} {R2:C16:UL} "muzzled by army brass! I can't" {R15:C0} {R15:C0} {R2:C16:UL} "even admit I saw the thing!"
+00:13:27:22 - {EOC}
+00:13:27:23 - {EOC}
+00:13:31:03 - {EDM}
+00:13:31:04 - {EDM}
+00:15:34:00 - {RCL}
+00:15:34:01 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} "Sounds like Clay's in trouble."
+00:15:34:22 - {EOC}
+00:15:34:23 - {EOC}
+00:15:36:18 - {EDM}
+00:15:36:19 - {EDM}
+00:15:44:15 - {RCL}
+00:15:44:16 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Bet that apparition we saw had" {R15:C0} {R15:C0} {R2:C16:UL} "something to do with it."
+00:15:46:04 - {EOC}
+00:15:46:05 - {EOC}
+00:15:47:12 - {RCL}
+00:15:47:13 - {RCL} {ENM} {ENM} {R15:C12} {R15:C12} "Come on."
+00:15:48:00 - {EOC}
+00:15:48:01 - {EOC}
+00:15:49:00 - {EDM}
+00:15:49:01 - {EDM}
+00:16:11:16 - {RCL}
+00:16:11:17 - {RCL} {ENM} {ENM} {R14:C8} {R14:C8} {R2:C16:UL} "- Is he dead ?" {R15:C8} {R15:C8} {R2:C16:UL} "- Yeah."
+00:16:12:13 - {EOC}
+00:16:12:14 - {EOC}
+00:16:16:09 - {EDM}
+00:16:16:10 - {EDM}
+00:16:16:11 - {RCL}
+00:16:16:12 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "He's messed up as bad" {R15:C4} {R15:C4} "as those two back there."
+00:16:17:18 - {EOC}
+00:16:17:19 - {EOC}
+00:16:19:02 - {RCL}
+00:16:19:03 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "S'pose that saucer or" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "whatever it was had" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "something to do with this?"
+00:16:21:07 - {EOC}
+00:16:21:08 - {EOC}
+00:16:23:07 - {RCL}
+00:16:23:08 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "Your guess is as" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "good as mine, Larry."
+00:16:24:13 - {EOC}
+00:16:24:14 - {EOC}
+00:16:26:05 - {RCL}
+00:16:26:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "But one thing's sure." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Inspector Clay is dead..."
+00:16:27:19 - {EOC}
+00:16:27:20 - {EOC}
+00:16:30:04 - {RCL}
+00:16:30:05 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "murdered...and" {R15:C4} {R15:C4} "somebody's responsible!"
+00:16:31:07 - {EOC}
+00:16:31:08 - {EOC}
+00:16:35:03 - {EDM}
+00:16:35:04 - {EDM}
+00:16:35:05 - {RCL}
+00:16:35:06 - {RCL} {ENM} {ENM} {R14:C8} {R14:C8} "You're in charge" {R15:C8} {R15:C8} "now, Lieutenant."
+00:16:36:05 - {EOC}
+00:16:36:06 - {EOC}
+00:16:36:23 - {RCL}
+00:16:37:00 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "- Yeah, guess I am. Kelton." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "- Yes Sir ?"
+00:16:38:07 - {EOC}
+00:16:38:08 - {EOC}
+00:16:39:12 - {RCL}
+00:16:39:13 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Get back up to the car and" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "get on the radio. Tell the" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "coroner he's gotta make" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "another trip out here."
+00:16:42:13 - {EOC}
+00:16:42:14 - {EOC}
+00:16:46:03 - {EDM}
+00:16:46:04 - {EDM}
+00:16:46:05 - {RCL}
+00:16:46:06 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} "Well how 'bout the lab boys ?"
+00:16:47:03 - {EOC}
+00:16:47:04 - {EOC}
+00:16:47:05 - {RCL}
+00:16:47:06 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Well who do you think we" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "left back at the car, boy" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "scouts ? Come on, Larry."
+00:16:49:13 - {EOC}
+00:16:49:14 - {EOC}
+00:16:52:00 - {EDM}
+00:16:52:01 - {EDM}
+00:16:57:07 - {RCL}
+00:16:57:08 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "Greater love hath no" {R14:C4} {R14:C4} {R2:C16:UL} "man, than to lay down" {R15:C4} {R15:C4} {R2:C16:UL} "his life for another."
+00:16:59:04 - {EOC}
+00:16:59:05 - {EOC}
+00:17:04:00 - {EDM}
+00:17:04:01 - {EDM}
+00:17:04:07 - {RCL}
+00:17:04:08 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "It is always difficult" {R15:C4} {R15:C4} {R2:C16:UL} "to have last words"
+00:17:05:13 - {EOC}
+00:17:05:14 - {EOC}
+00:17:06:17 - {RCL}
+00:17:06:18 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "over the grave of a" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "friend. And Inspector" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Daniel Clay was a friend."
+00:17:08:22 - {EOC}
+00:17:08:23 - {EOC}
+00:17:13:12 - {EDM}
+00:17:13:13 - {EDM}
+00:17:13:14 - {RCL}
+00:17:13:15 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "A dear friend to me" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "and to all of us."
+00:17:14:21 - {EOC}
+00:17:14:22 - {EOC}
+00:17:18:03 - {EDM}
+00:17:18:04 - {EDM}
+00:17:18:05 - {RCL}
+00:17:18:06 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "The bell has rung" {R15:C4} {R15:C4} {R2:C16:UL} "upon his great career."
+00:17:19:11 - {EOC}
+00:17:19:12 - {EOC}
+00:17:22:21 - {EDM}
+00:17:22:22 - {EDM}
+00:17:22:23 - {RCL}
+00:17:23:00 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "Now we lay him to rest. A rest" {R15:C0} {R15:C0} "well deserved, but so premature."
+00:17:24:14 - {EOC}
+00:17:24:15 - {EOC}
+00:17:28:09 - {EDM}
+00:17:28:10 - {EDM}
+00:17:41:16 - {RCL}
+00:17:41:17 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "People turning south" {R14:C4} {R14:C4} {R2:C16:UL} "from the freeway were" {R15:C4} {R15:C4} {R2:C16:UL} "startled when they saw"
+00:17:43:13 - {EOC}
+00:17:43:14 - {EOC}
+00:17:45:13 - {RCL}
+00:17:45:14 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "flying saucers high over" {R15:C4} {R15:C4} "Hollywood Boulevard."
+00:17:46:19 - {EOC}
+00:17:46:20 - {EOC}
+00:17:50:15 - {EDM}
+00:17:50:16 - {EDM}
+00:17:55:01 - {RCL}
+00:17:55:02 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "135 00:18:04,500 -->" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "00:18:08,500 A woman," {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "startled by the sight in the" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "sky, telephones the police."
+00:17:57:22 - {EOC}
+00:17:57:23 - {EOC}
+00:18:01:06 - {EDM}
+00:18:01:07 - {EDM}
+00:18:31:00 - {RCL}
+00:18:31:01 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "There comes a time" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "in each man's life,"
+00:18:32:07 - {EOC}
+00:18:32:08 - {EOC}
+00:18:34:04 - {RCL}
+00:18:34:05 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "when he can't even" {R15:C4} {R15:C4} {R2:C16:UL} "believe his own eyes."
+00:18:35:10 - {EOC}
+00:18:35:11 - {EOC}
+00:18:39:06 - {EDM}
+00:18:39:07 - {EDM}
+00:18:41:03 - {RCL}
+00:18:41:04 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "Saucers seen over Hollywood!"
+00:18:42:01 - {EOC}
+00:18:42:02 - {EOC}
+00:18:45:21 - {EDM}
+00:18:45:22 - {EDM}
+00:18:46:05 - {RCL}
+00:18:46:06 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "Flying saucers seen" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "over Washington D.C."
+00:18:47:13 - {EOC}
+00:18:47:14 - {EOC}
+00:18:51:03 - {EDM}
+00:18:51:04 - {EDM}
+00:18:56:05 - {RCL}
+00:18:56:06 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "The army convoy" {R15:C4} {R15:C4} {R2:C16:UL} "moved into the field."
+00:18:57:10 - {EOC}
+00:18:57:11 - {EOC}
+00:19:01:00 - {EDM}
+00:19:01:01 - {EDM}
+00:19:12:03 - {RCL}
+00:19:12:04 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "Rockets were quickly set up."
+00:19:13:03 - {EOC}
+00:19:13:04 - {EOC}
+00:19:14:01 - {RCL}
+00:19:14:02 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Colonel Tom Edwards, in charge" {R15:C0} {R15:C0} {R2:C16:UL} "of saucer field activities,"
+00:19:15:16 - {EOC}
+00:19:15:17 - {EOC}
+00:19:18:05 - {RCL}
+00:19:18:06 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "was to make the greatest" {R15:C4} {R15:C4} "decision of his career."
+00:19:19:13 - {EOC}
+00:19:19:14 - {EOC}
+00:19:21:04 - {RCL}
+00:19:21:05 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "He made that decision. Colonel" {R15:C0} {R15:C0} "Edwards gave the signal to fire."
+00:19:22:19 - {EOC}
+00:19:22:20 - {EOC}
+00:19:26:09 - {EDM}
+00:19:26:10 - {EDM}
+00:20:30:04 - {RCL}
+00:20:30:05 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Then as swiftly as they" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "had come, they were gone."
+00:20:31:19 - {EOC}
+00:20:31:20 - {EOC}
+00:20:33:20 - {RCL}
+00:20:33:21 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "Even to the piercing" {R14:C4} {R14:C4} {R2:C16:UL} "eye of radar and the" {R15:C4} {R15:C4} {R2:C16:UL} "speeding jet fighters."
+00:20:35:16 - {EOC}
+00:20:35:17 - {EOC}
+00:20:39:06 - {EDM}
+00:20:39:07 - {EDM}
+00:20:45:05 - {RCL}
+00:20:45:06 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "- Quite a sight, wasn't" {R14:C4} {R14:C4} "it Sir. - A sight I'd" {R15:C4} {R15:C4} "rather not be seeing."
+00:20:47:01 - {EOC}
+00:20:47:02 - {EOC}
+00:20:49:18 - {RCL}
+00:20:49:19 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Are you worried" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "about them Sir ?"
+00:20:51:01 - {EOC}
+00:20:51:02 - {EOC}
+00:20:51:18 - {RCL}
+00:20:51:19 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "Well, they must have a" {R15:C4} {R15:C4} "reason for their visits."
+00:20:53:01 - {EOC}
+00:20:53:02 - {EOC}
+00:20:53:03 - {RCL}
+00:20:53:04 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "Visits? Well that would indicate" {R14:C0} {R14:C0} "visitors! Are big guns the" {R15:C0} {R15:C0} "usual way of welcoming visitors?"
+00:20:55:10 - {EOC}
+00:20:55:11 - {EOC}
+00:20:59:21 - {EDM}
+00:20:59:22 - {EDM}
+00:21:02:03 - {RCL}
+00:21:02:04 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} "We haven't always fired at them."
+00:21:03:03 - {EOC}
+00:21:03:04 - {EOC}
+00:21:04:16 - {RCL}
+00:21:04:17 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "For a time we tried to contact" {R15:C0} {R15:C0} "them by radio, but no response."
+00:21:06:07 - {EOC}
+00:21:06:08 - {EOC}
+00:21:10:03 - {EDM}
+00:21:10:04 - {EDM}
+00:21:10:05 - {RCL}
+00:21:10:06 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "Then they attacked a town. A" {R14:C0} {R14:C0} {R2:C16:UL} "small town, I'll admit. But" {R15:C0} {R15:C0} {R2:C16:UL} "nevertheless a town of people."
+00:21:12:13 - {EOC}
+00:21:12:14 - {EOC}
+00:21:15:06 - {EDM}
+00:21:15:07 - {EDM}
+00:21:15:23 - {RCL}
+00:21:16:00 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "People who died." {R15:C0} {R15:C0} "- I never heard about that Sir."
+00:21:17:07 - {EOC}
+00:21:17:08 - {EOC}
+00:21:19:06 - {RCL}
+00:21:19:07 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Well, it was covered up by the" {R15:C0} {R15:C0} {R2:C16:UL} "higher echelon. Take any fire,"
+00:21:20:22 - {EOC}
+00:21:20:23 - {EOC}
+00:21:25:18 - {EDM}
+00:21:25:19 - {EDM}
+00:21:25:20 - {RCL}
+00:21:25:21 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "any earthquake," {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "any major disaster,"
+00:21:27:02 - {EOC}
+00:21:27:03 - {EOC}
+00:21:28:17 - {RCL}
+00:21:28:18 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "then wonder." {R15:C4} {R15:C4} "Flying saucers, Captain,"
+00:21:29:19 - {EOC}
+00:21:29:20 - {EOC}
+00:21:32:15 - {EDM}
+00:21:32:16 - {EDM}
+00:21:32:17 - {RCL}
+00:21:32:18 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "are still a rumour."
+00:21:33:11 - {EOC}
+00:21:33:12 - {EOC}
+00:21:34:20 - {RCL}
+00:21:34:21 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} {R2:C16:UL} {R2:C16:UL} "Officially."
+00:21:35:10 - {EOC}
+00:21:35:11 - {EOC}
+00:21:35:21 - {EDM}
+00:21:35:22 - {EDM}
+00:21:38:15 - {RCL}
+00:21:38:16 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "Looks like we beat" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "them off again Sir."
+00:21:39:22 - {EOC}
+00:21:39:23 - {EOC}
+00:21:40:03 - {RCL}
+00:21:40:04 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "What do they want...where" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "are they from...where" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "are they going..."
+00:21:42:07 - {EOC}
+00:21:42:08 - {EOC}
+00:21:45:21 - {EDM}
+00:21:45:22 - {EDM}
+00:21:46:01 - {RCL}
+00:21:46:02 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "They, Sir ? Who ?"
+00:21:46:22 - {EOC}
+00:21:46:23 - {EOC}
+00:21:47:04 - {RCL}
+00:21:47:05 - {RCL} {ENM} {ENM} {R12:C4} {R12:C4} "Oh, this is a training" {R13:C4} {R13:C4} "manoeuver, Sir. We only" {R14:C4} {R14:C4} "did a little practice" {R15:C4} {R15:C4} "firing at the clouds."
+00:21:49:13 - {EOC}
+00:21:49:14 - {EOC}
+00:21:53:12 - {EDM}
+00:21:53:13 - {EDM}
+00:21:54:19 - {RCL}
+00:21:54:20 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "Yeah. I wonder what" {R15:C4} {R15:C4} "their next move will be."
+00:21:56:01 - {EOC}
+00:21:56:02 - {EOC}
+00:21:57:21 - {EDM}
+00:21:57:22 - {EDM}
+00:22:12:15 - {RCL}
+00:22:12:16 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} "What will their next move be ?"
+00:22:13:13 - {EOC}
+00:22:13:14 - {EOC}
+00:22:15:09 - {EDM}
+00:22:15:10 - {EDM}
+00:22:19:22 - {RCL}
+00:22:19:23 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "Your space commander" {R15:C4} {R15:C4} "has returned from Earth."
+00:22:21:04 - {EOC}
+00:22:21:05 - {EOC}
+00:22:23:05 - {RCL}
+00:22:23:06 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} {R2:C16:UL} {R2:C16:UL} "Send him in."
+00:22:23:21 - {EOC}
+00:22:23:22 - {EOC}
+00:22:24:21 - {EDM}
+00:22:24:22 - {EDM}
+00:22:32:07 - {RCL}
+00:22:32:08 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} "You have your report ?"
+00:22:33:03 - {EOC}
+00:22:33:04 - {EOC}
+00:22:33:05 - {RCL}
+00:22:33:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "We had to pull in here to Space" {R15:C0} {R15:C0} "Station 7 for regeneration."
+00:22:34:19 - {EOC}
+00:22:34:20 - {EOC}
+00:22:36:03 - {RCL}
+00:22:36:04 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "We're returning to the planet" {R15:C0} {R15:C0} {R2:C16:UL} "Earth immediately thereafter."
+00:22:37:19 - {EOC}
+00:22:37:20 - {EOC}
+00:22:40:09 - {EDM}
+00:22:40:10 - {EDM}
+00:22:40:11 - {RCL}
+00:22:40:12 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "- What progress has been" {R14:C4} {R14:C4} "made ? - We contacted" {R15:C4} {R15:C4} "government officials."
+00:22:42:07 - {EOC}
+00:22:42:08 - {EOC}
+00:22:45:03 - {EDM}
+00:22:45:04 - {EDM}
+00:22:45:05 - {RCL}
+00:22:45:06 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "They refuse over existence."
+00:22:46:05 - {EOC}
+00:22:46:06 - {EOC}
+00:22:47:03 - {EDM}
+00:22:47:04 - {EDM}
+00:22:48:03 - {RCL}
+00:22:48:04 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} "What plan will you follow now ?"
+00:22:49:04 - {EOC}
+00:22:49:05 - {EOC}
+00:22:49:06 - {RCL}
+00:22:49:07 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Plan 9. It's been absolutely" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "impossible to work through" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "these Earth creatures."
+00:22:51:12 - {EOC}
+00:22:51:13 - {EOC}
+00:22:55:03 - {EDM}
+00:22:55:04 - {EDM}
+00:22:55:05 - {RCL}
+00:22:55:06 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} "Their soul is too controlled."
+00:22:56:03 - {EOC}
+00:22:56:04 - {EOC}
+00:22:56:21 - {EDM}
+00:22:56:22 - {EDM}
+00:22:58:12 - {RCL}
+00:22:58:13 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} "Plan 9...ah yes. Plan 9 deals"
+00:22:59:10 - {EOC}
+00:22:59:11 - {EOC}
+00:23:03:06 - {EDM}
+00:23:03:07 - {EDM}
+00:23:03:08 - {RCL}
+00:23:03:09 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "with the resurrection" {R15:C4} {R15:C4} {R2:C16:UL} "of the dead."
+00:23:04:11 - {EOC}
+00:23:04:12 - {EOC}
+00:23:04:13 - {RCL}
+00:23:04:14 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "Long-distance electrodes shot" {R14:C0} {R14:C0} {R2:C16:UL} "into the pinion pituitary" {R15:C0} {R15:C0} {R2:C16:UL} "glands of recent dead."
+00:23:06:17 - {EOC}
+00:23:06:18 - {EOC}
+00:23:10:00 - {EDM}
+00:23:10:01 - {EDM}
+00:23:10:02 - {RCL}
+00:23:10:03 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "Have you attempted any of this" {R15:C0} {R15:C0} "plan as yet ? - Yes Excellency."
+00:23:11:17 - {EOC}
+00:23:11:18 - {EOC}
+00:23:13:09 - {RCL}
+00:23:13:10 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "How successful has it been ?"
+00:23:14:07 - {EOC}
+00:23:14:08 - {EOC}
+00:23:15:01 - {RCL}
+00:23:15:02 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "We have risen two so" {R14:C4} {R14:C4} {R2:C16:UL} "far. We shall be just" {R15:C4} {R15:C4} {R2:C16:UL} "as successful on more."
+00:23:16:22 - {EOC}
+00:23:16:23 - {EOC}
+00:23:20:18 - {EDM}
+00:23:20:19 - {EDM}
+00:23:20:20 - {RCL}
+00:23:20:21 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "The living...they have no" {R15:C0} {R15:C0} {R2:C16:UL} "suspicion of your movements ?"
+00:23:22:10 - {EOC}
+00:23:22:11 - {EOC}
+00:23:25:18 - {EDM}
+00:23:25:19 - {EDM}
+00:23:25:20 - {RCL}
+00:23:25:21 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "We had to dispose" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "of one policeman."
+00:23:27:04 - {EOC}
+00:23:27:05 - {EOC}
+00:23:27:06 - {RCL}
+00:23:27:07 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "However, none of those risen" {R14:C0} {R14:C0} "have been seen. At least, not by" {R15:C0} {R15:C0} "anyone who still remains alive."
+00:23:29:14 - {EOC}
+00:23:29:15 - {EOC}
+00:23:32:09 - {EDM}
+00:23:32:10 - {EDM}
+00:23:32:11 - {RCL}
+00:23:32:12 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "It's too bad it must be handled" {R15:C0} {R15:C0} "this way. However it must."
+00:23:34:00 - {EOC}
+00:23:34:01 - {EOC}
+00:23:37:15 - {EDM}
+00:23:37:16 - {EDM}
+00:23:37:17 - {RCL}
+00:23:37:18 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Those who take from the" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "grave will lead the way" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "for our other operations."
+00:23:40:01 - {EOC}
+00:23:40:02 - {EOC}
+00:23:41:03 - {RCL}
+00:23:41:04 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "Yes, Excellency." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "- Continue on. Report to me"
+00:23:42:13 - {EOC}
+00:23:42:14 - {EOC}
+00:23:45:10 - {RCL}
+00:23:45:11 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "in two Earth days."
+00:23:46:04 - {EOC}
+00:23:46:05 - {EOC}
+00:23:48:00 - {EDM}
+00:23:48:01 - {EDM}
+00:23:50:12 - {RCL}
+00:23:50:13 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "I feared His Excellency wouldn't" {R15:C0} {R15:C0} "take our report this well."
+00:23:52:01 - {EOC}
+00:23:52:02 - {EOC}
+00:23:52:08 - {RCL}
+00:23:52:09 - {RCL} {ENM} {ENM} {R12:C4} {R12:C4} "Well had he been dealing" {R13:C4} {R13:C4} "with our own people his" {R14:C4} {R14:C4} "reaction would have been" {R15:C4} {R15:C4} "completely different."
+00:23:54:19 - {EOC}
+00:23:54:20 - {EOC}
+00:23:57:18 - {EDM}
+00:23:57:19 - {EDM}
+00:23:57:20 - {RCL}
+00:23:57:21 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "He understands the" {R15:C0} {R15:C0} "difficulties of the Earth race."
+00:23:59:05 - {EOC}
+00:23:59:06 - {EOC}
+00:23:59:07 - {RCL}
+00:23:59:08 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "What do you think will be" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "the next obstacle the Earth" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "people will put in our way?"
+00:24:01:16 - {EOC}
+00:24:01:17 - {EOC}
+00:24:05:00 - {EDM}
+00:24:05:01 - {EDM}
+00:24:05:02 - {RCL}
+00:24:05:03 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Well, as long as they can" {R15:C0} {R15:C0} {R2:C16:UL} "think we'll have our problems."
+00:24:06:16 - {EOC}
+00:24:06:17 - {EOC}
+00:24:09:03 - {EDM}
+00:24:09:04 - {EDM}
+00:24:09:05 - {RCL}
+00:24:09:06 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "But those whom we're using" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "cannot think. They are the" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "dead. Brought to a simulated" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "life by our electrode guns."
+00:24:12:07 - {EOC}
+00:24:12:08 - {EOC}
+00:24:15:03 - {EDM}
+00:24:15:04 - {EDM}
+00:24:15:05 - {RCL}
+00:24:15:06 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "You know, it's an interesting" {R14:C0} {R14:C0} {R2:C16:UL} "think when you consider...the" {R15:C0} {R15:C0} {R2:C16:UL} "Earth people, who can think,"
+00:24:17:14 - {EOC}
+00:24:17:15 - {EOC}
+00:24:21:18 - {EDM}
+00:24:21:19 - {EDM}
+00:24:21:20 - {RCL}
+00:24:21:21 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "are so frightened by those" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "who cannot: the dead."
+00:24:23:10 - {EOC}
+00:24:23:11 - {EOC}
+00:24:26:15 - {EDM}
+00:24:26:16 - {EDM}
+00:24:26:17 - {RCL}
+00:24:26:18 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} {R2:C16:UL} "Well our ship should" {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "be regenerated. We" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "better get started."
+00:24:28:14 - {EOC}
+00:24:28:15 - {EOC}
+00:24:31:15 - {EDM}
+00:24:31:16 - {EDM}
+00:25:23:12 - {RCL}
+00:25:23:13 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "I still think you oughta go" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "in town and stay with your" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "mother until I get back."
+00:25:25:19 - {EOC}
+00:25:25:20 - {EOC}
+00:25:29:09 - {EDM}
+00:25:29:10 - {EDM}
+00:25:29:14 - {RCL}
+00:25:29:15 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "This is our home and nothing's" {R15:C0} {R15:C0} {R2:C16:UL} "going to take me from it."
+00:25:31:04 - {EOC}
+00:25:31:05 - {EOC}
+00:25:32:17 - {RCL}
+00:25:32:18 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Besides, most men try" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "and keep their wives" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "from going home to Momma."
+00:25:34:22 - {EOC}
+00:25:34:23 - {EOC}
+00:25:38:12 - {EDM}
+00:25:38:13 - {EDM}
+00:25:38:14 - {RCL}
+00:25:38:15 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "- That's not the point." {R14:C4} {R14:C4} "- That's all the point" {R15:C4} {R15:C4} "there's going to be."
+00:25:40:09 - {EOC}
+00:25:40:10 - {EOC}
+00:25:41:04 - {RCL}
+00:25:41:05 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Now toddle off and fly your" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "flying machine, Darling." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "But if you see any more"
+00:25:43:10 - {EOC}
+00:25:43:11 - {EOC}
+00:25:45:07 - {RCL}
+00:25:45:08 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "flying saucers, will" {R14:C4} {R14:C4} {R2:C16:UL} "you tell them to pick" {R15:C4} {R15:C4} {R2:C16:UL} "another house to buzz?"
+00:25:47:04 - {EOC}
+00:25:47:05 - {EOC}
+00:25:51:15 - {EDM}
+00:25:51:16 - {EDM}
+00:25:51:17 - {RCL}
+00:25:51:18 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} "Don't worry about me."
+00:25:52:11 - {EOC}
+00:25:52:12 - {EOC}
+00:25:54:00 - {RCL}
+00:25:54:01 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Oh you're the only thing I" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "do worry about. Oh forget" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "about the flying saucers."
+00:25:56:10 - {EOC}
+00:25:56:11 - {EOC}
+00:25:58:13 - {RCL}
+00:25:58:14 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "They're up there. But there's" {R15:C0} {R15:C0} {R2:C16:UL} "something in that cemetery,"
+00:26:00:04 - {EOC}
+00:26:00:05 - {EOC}
+00:26:05:00 - {EDM}
+00:26:05:01 - {EDM}
+00:26:05:13 - {RCL}
+00:26:05:14 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "and that's too" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "close for comfort."
+00:26:06:19 - {EOC}
+00:26:06:20 - {EOC}
+00:26:08:08 - {RCL}
+00:26:08:09 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "The saucers are up there." {R15:C0} {R15:C0} {R2:C16:UL} "And the cemetery's out there."
+00:26:09:22 - {EOC}
+00:26:09:23 - {EOC}
+00:26:12:00 - {RCL}
+00:26:12:01 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "But I'll be locked up" {R14:C4} {R14:C4} "in there. Now off to" {R15:C4} {R15:C4} "your wild blue yonders."
+00:26:13:19 - {EOC}
+00:26:13:20 - {EOC}
+00:26:18:15 - {EDM}
+00:26:18:16 - {EDM}
+00:26:19:14 - {RCL}
+00:26:19:15 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "You promise you'll lock" {R15:C4} {R15:C4} "the doors immediately ?"
+00:26:20:22 - {EOC}
+00:26:20:23 - {EOC}
+00:26:21:04 - {RCL}
+00:26:21:05 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "I promise. Besides, I'll be in" {R15:C0} {R15:C0} "bed before half an hour is gone,"
+00:26:22:19 - {EOC}
+00:26:22:20 - {EOC}
+00:26:25:10 - {RCL}
+00:26:25:11 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "with your pillow beside me." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "- My pillow ?"
+00:26:26:19 - {EOC}
+00:26:26:20 - {EOC}
+00:26:28:00 - {RCL}
+00:26:28:01 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Well, I have to have" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "something to keep me" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "company while you're away."
+00:26:30:04 - {EOC}
+00:26:30:05 - {EOC}
+00:26:34:00 - {EDM}
+00:26:34:01 - {EDM}
+00:26:34:02 - {RCL}
+00:26:34:03 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} "Sometimes in the night when" {R13:C0} {R13:C0} "it does get a little lonely, I" {R14:C0} {R14:C0} "reach over and touch it, then it" {R15:C0} {R15:C0} "doesn't seem so lonely anymore."
+00:26:37:03 - {EOC}
+00:26:37:04 - {EOC}
+00:26:40:03 - {EDM}
+00:26:40:04 - {EDM}
+00:26:45:05 - {RCL}
+00:26:45:06 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} {R2:C16:UL} {R2:C16:UL} "A crazy kid."
+00:26:45:21 - {EOC}
+00:26:45:22 - {EOC}
+00:26:47:03 - {EDM}
+00:26:47:04 - {EDM}
+00:26:55:10 - {RCL}
+00:26:55:11 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} "I do love you, Darlin'."
+00:26:56:04 - {EOC}
+00:26:56:05 - {EOC}
+00:26:59:00 - {EDM}
+00:26:59:01 - {EDM}
+00:27:11:02 - {RCL}
+00:27:11:03 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "See you Thursday." {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Goodbye, Honey."
+00:27:12:10 - {EOC}
+00:27:12:11 - {EOC}
+00:27:16:06 - {EDM}
+00:27:16:07 - {EDM}
+00:27:18:01 - {RCL}
+00:27:18:02 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "You know I'm not leaving" {R14:C4} {R14:C4} "here until you're" {R15:C4} {R15:C4} "locked safely inside."
+00:27:19:19 - {EOC}
+00:27:19:20 - {EOC}
+00:27:21:13 - {RCL}
+00:27:21:14 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "All right, Darling."
+00:27:22:07 - {EOC}
+00:27:22:08 - {EOC}
+00:27:26:03 - {EDM}
+00:27:26:04 - {EDM}
+00:27:34:03 - {RCL}
+00:27:34:04 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "If you're especially nice I" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "may even lock the side door."
+00:27:35:19 - {EOC}
+00:27:35:20 - {EOC}
+00:27:39:15 - {EDM}
+00:27:39:16 - {EDM}
+00:27:39:17 - {RCL}
+00:27:39:18 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "And be sure you keep" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "the yard lights on."
+00:27:41:01 - {EOC}
+00:27:41:02 - {EOC}
+00:27:44:00 - {EDM}
+00:27:44:01 - {EDM}
+00:28:04:01 - {RCL}
+00:28:04:02 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "You're mighty silent" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "this trip, Jeff."
+00:28:05:07 - {EOC}
+00:28:05:08 - {EOC}
+00:28:07:06 - {RCL}
+00:28:07:07 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "You haven't spoken ten" {R15:C4} {R15:C4} {R2:C16:UL} "words since takeoff."
+00:28:08:13 - {EOC}
+00:28:08:14 - {EOC}
+00:28:09:15 - {RCL}
+00:28:09:16 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} "I guess I'm preoccupied, Danny."
+00:28:10:13 - {EOC}
+00:28:10:14 - {EOC}
+00:28:11:19 - {RCL}
+00:28:11:20 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "We've got thirty-three" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "passengers back there that" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "have time to be preoccupied."
+00:28:14:01 - {EOC}
+00:28:14:02 - {EOC}
+00:28:15:07 - {RCL}
+00:28:15:08 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "Flying this flybird doesn't" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "give you that opportunity."
+00:28:16:22 - {EOC}
+00:28:16:23 - {EOC}
+00:28:19:09 - {RCL}
+00:28:19:10 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "I guess you're right, Danny."
+00:28:20:07 - {EOC}
+00:28:20:08 - {EOC}
+00:28:22:11 - {RCL}
+00:28:22:12 - {RCL} {ENM} {ENM} {R14:C8} {R14:C8} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Paula ?" {R15:C8} {R15:C8} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Yeah."
+00:28:23:10 - {EOC}
+00:28:23:11 - {EOC}
+00:28:25:02 - {RCL}
+00:28:25:03 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "- There's nothing wrong" {R14:C4} {R14:C4} "between you two ? - Oh" {R15:C4} {R15:C4} "no, nothing like that."
+00:28:26:22 - {EOC}
+00:28:26:23 - {EOC}
+00:28:27:19 - {RCL}
+00:28:27:20 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "Just that I'm worried, she being" {R14:C0} {R14:C0} "there alone and those strange" {R15:C0} {R15:C0} "things flying over the house and"
+00:28:30:04 - {EOC}
+00:28:30:05 - {EOC}
+00:28:31:10 - {RCL}
+00:28:31:11 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "those incidents in the" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "graveyard the past few days." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "It's just got me worried."
+00:28:33:16 - {EOC}
+00:28:33:17 - {EOC}
+00:28:37:18 - {EDM}
+00:28:37:19 - {EDM}
+00:28:37:20 - {RCL}
+00:28:37:21 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Well, I haven't figured out" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "those crazy skybirds yet but" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "I give you fifty to one odds"
+00:28:40:06 - {EOC}
+00:28:40:07 - {EOC}
+00:28:42:07 - {EDM}
+00:28:42:08 - {EDM}
+00:28:42:09 - {RCL}
+00:28:42:10 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "the police have figured out" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "that cemetery thing by now."
+00:28:44:01 - {EOC}
+00:28:44:02 - {EOC}
+00:28:44:03 - {RCL}
+00:28:44:04 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "- I hope so. - If you're really" {R14:C0} {R14:C0} "that worried Jeff why don't" {R15:C0} {R15:C0} "you radio in and find out?"
+00:28:46:08 - {EOC}
+00:28:46:09 - {EOC}
+00:28:48:12 - {EDM}
+00:28:48:13 - {EDM}
+00:28:48:14 - {RCL}
+00:28:48:15 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Mac should be on duty" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "at the field by now." {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "He could call Paula and" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "relay the message to you."
+00:28:51:12 - {EOC}
+00:28:51:13 - {EOC}
+00:28:53:12 - {EDM}
+00:28:53:13 - {EDM}
+00:28:53:14 - {RCL}
+00:28:53:15 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Hi Edith. - Hi Silents." {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "I haven't heard a word" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "from this end of the plane" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "since we left the field."
+00:28:56:15 - {EOC}
+00:28:56:16 - {EOC}
+00:28:58:06 - {EDM}
+00:28:58:07 - {EDM}
+00:28:58:08 - {RCL}
+00:28:58:09 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Jeff's been giving me himself" {R15:C0} {R15:C0} {R2:C16:UL} "and me a study in silence."
+00:28:59:22 - {EOC}
+00:28:59:23 - {EOC}
+00:29:00:15 - {RCL}
+00:29:00:16 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "- You boys are'nt feudin'?" {R15:C0} {R15:C0} "- Oh no Edie, nothing like that."
+00:29:02:04 - {EOC}
+00:29:02:05 - {EOC}
+00:29:03:18 - {RCL}
+00:29:03:19 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Hey Edie, how about you and me" {R15:C0} {R15:C0} {R2:C16:UL} "balling it up in Albuquerque ?"
+00:29:05:10 - {EOC}
+00:29:05:11 - {EOC}
+00:29:06:00 - {RCL}
+00:29:06:01 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Albuquerque ? Have you" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "read that flight schedule" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Boy ? - What about it ?"
+00:29:08:07 - {EOC}
+00:29:08:08 - {EOC}
+00:29:10:00 - {RCL}
+00:29:10:01 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "We land in Albuquerque" {R14:C4} {R14:C4} "at 4 am. That's strictly" {R15:C4} {R15:C4} "a nine o'clock town."
+00:29:11:19 - {EOC}
+00:29:11:20 - {EOC}
+00:29:15:09 - {EDM}
+00:29:15:10 - {EDM}
+00:29:15:11 - {RCL}
+00:29:15:12 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "Well I know a friend" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "that'll help us --"
+00:29:16:18 - {EOC}
+00:29:16:19 - {EOC}
+00:29:16:20 - {RCL}
+00:29:16:21 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Let's have a problem" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "first, huh Danny. - Ah" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "he's worried about Paula."
+00:29:19:02 - {EOC}
+00:29:19:03 - {EOC}
+00:29:19:04 - {RCL}
+00:29:19:05 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "I read about that cemetery" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "business. I tried to get" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "you kids to not buy too" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "near one of those things."
+00:29:22:06 - {EOC}
+00:29:22:07 - {EOC}
+00:29:26:06 - {EDM}
+00:29:26:07 - {EDM}
+00:29:28:04 - {RCL}
+00:29:28:05 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "He thought it'd be quiet" {R15:C4} {R15:C4} "and peaceful there."
+00:29:29:10 - {EOC}
+00:29:29:11 - {EOC}
+00:29:29:21 - {RCL}
+00:29:29:22 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "No doubt about that." {R15:C0} {R15:C0} "It's quiet alright, like a tomb."
+00:29:31:07 - {EOC}
+00:29:31:08 - {EOC}
+00:29:34:09 - {EDM}
+00:29:34:10 - {EDM}
+00:29:35:04 - {RCL}
+00:29:35:05 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "I'm sorry Jeff," {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "that was a bad joke."
+00:29:36:10 - {EOC}
+00:29:36:11 - {EOC}
+00:29:36:12 - {RCL}
+00:29:36:13 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Say., I almost forgot what" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "I came in here for. How's" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "the coffee situation?"
+00:29:38:20 - {EOC}
+00:29:38:21 - {EOC}
+00:29:39:23 - {RCL}
+00:29:40:00 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "- Mmmm that's for me." {R14:C4} {R14:C4} {R2:C16:UL} "- That sure wouldn't" {R15:C4} {R15:C4} {R2:C16:UL} "hurt anything, Edie."
+00:29:41:19 - {EOC}
+00:29:41:20 - {EOC}
+00:29:43:02 - {RCL}
+00:29:43:03 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "Okay, I'll be right" {R14:C4} {R14:C4} "back. And say Jeff, make" {R15:C4} {R15:C4} "that call to your wife."
+00:29:44:22 - {EOC}
+00:29:44:23 - {EOC}
+00:29:48:12 - {EDM}
+00:29:48:13 - {EDM}
+00:29:48:14 - {RCL}
+00:29:48:15 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "Huh, not only will she throw" {R14:C0} {R14:C0} "water on my Albuquerque plan" {R15:C0} {R15:C0} "but now she's repeating herself."
+00:29:50:20 - {EOC}
+00:29:50:21 - {EOC}
+00:29:53:03 - {EDM}
+00:29:53:04 - {EDM}
+00:29:53:05 - {RCL}
+00:29:53:06 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "- How 'bout that Albuquerque" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "ball ? - I can't resist" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "your charm, Danny Boy."
+00:29:55:10 - {EOC}
+00:29:55:11 - {EOC}
+00:29:57:03 - {EDM}
+00:29:57:04 - {EDM}
+00:30:01:14 - {RCL}
+00:30:01:15 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Residents near the cemetery" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "paid little attention" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "to the blast of thunder"
+00:30:03:19 - {EOC}
+00:30:03:20 - {EOC}
+00:30:08:09 - {EDM}
+00:30:08:10 - {EDM}
+00:30:08:11 - {RCL}
+00:30:08:12 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "and the flash of lightning."
+00:30:09:09 - {EOC}
+00:30:09:10 - {EOC}
+00:30:09:19 - {RCL}
+00:30:09:20 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "But from the blast," {R14:C4} {R14:C4} "arose the moving figure" {R15:C4} {R15:C4} "of the dead old man."
+00:30:11:13 - {EOC}
+00:30:11:14 - {EOC}
+00:30:16:03 - {EDM}
+00:30:16:04 - {EDM}
+00:30:43:23 - {RCL}
+00:30:44:00 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} {R2:C16:UL} "Hello ? Who ?"
+00:30:44:13 - {EOC}
+00:30:44:14 - {EOC}
+00:30:48:09 - {EDM}
+00:30:48:10 - {EDM}
+00:30:48:11 - {RCL}
+00:30:48:12 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "Mac ? Well, hi Mac !"
+00:30:49:05 - {EOC}
+00:30:49:06 - {EOC}
+00:30:52:12 - {EDM}
+00:30:52:13 - {EDM}
+00:30:52:14 - {RCL}
+00:30:52:15 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "Sure I'm all right."
+00:30:53:08 - {EOC}
+00:30:53:09 - {EOC}
+00:30:54:04 - {RCL}
+00:30:54:05 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "I just fell asleep."
+00:30:55:01 - {EOC}
+00:30:55:02 - {EOC}
+00:30:57:00 - {EDM}
+00:30:57:01 - {EDM}
+00:30:58:10 - {RCL}
+00:30:58:11 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} "Tell Jeff I'm all right."
+00:30:59:04 - {EOC}
+00:30:59:05 - {EOC}
+00:31:01:08 - {RCL}
+00:31:01:09 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "Okay Mac. Thanks for" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "calling. Goodnight."
+00:31:02:16 - {EOC}
+00:31:02:17 - {EOC}
+00:31:06:12 - {EDM}
+00:31:06:13 - {EDM}
+00:34:29:04 - {RCL}
+00:34:29:05 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "Mrs. Trent ! Mrs." {R15:C4} {R15:C4} {R2:C16:UL} "Trent ! What's wrong ?"
+00:34:30:10 - {EOC}
+00:34:30:11 - {EOC}
+00:34:34:00 - {EDM}
+00:34:34:01 - {EDM}
+00:36:43:19 - {RCL}
+00:36:43:20 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "They'll be at the hatch" {R14:C4} {R14:C4} "in a moment. You can" {R15:C4} {R15:C4} "open it now, Tanna."
+00:36:45:13 - {EOC}
+00:36:45:14 - {EOC}
+00:36:49:03 - {EDM}
+00:36:49:04 - {EDM}
+00:37:08:20 - {RCL}
+00:37:08:21 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "Turn off the electrodes" {R14:C4} {R14:C4} "quickly. They can't tell" {R15:C4} {R15:C4} "us from anyone else."
+00:37:10:16 - {EOC}
+00:37:10:17 - {EOC}
+00:37:14:06 - {EDM}
+00:37:14:07 - {EDM}
+00:37:37:18 - {RCL}
+00:37:37:19 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "It's tough to find something" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "when you don't know" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "what you're looking for."
+00:37:39:22 - {EOC}
+00:37:39:23 - {EOC}
+00:37:40:00 - {RCL}
+00:37:40:01 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "- I don't think the" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Lieutenant does either. -" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "Then what're doing out here?" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "I was off duty an hour ago."
+00:37:42:23 - {EOC}
+00:37:43:00 - {EOC}
+00:37:46:00 - {EDM}
+00:37:46:01 - {EDM}
+00:37:46:02 - {RCL}
+00:37:46:03 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "Ah don't ask me any" {R14:C4} {R14:C4} "questions. I'm just a" {R15:C4} {R15:C4} "hardhand just like you."
+00:37:47:21 - {EOC}
+00:37:47:22 - {EOC}
+00:37:50:12 - {EDM}
+00:37:50:13 - {EDM}
+00:37:57:19 - {RCL}
+00:37:57:20 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "What do you suppose" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "that noise was?"
+00:37:59:01 - {EOC}
+00:37:59:02 - {EOC}
+00:37:59:03 - {RCL}
+00:37:59:04 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "Whatever it was it's no more" {R14:C0} {R14:C0} "strange than the other things" {R15:C0} {R15:C0} "happening around this cemetery."
+00:38:01:10 - {EOC}
+00:38:01:11 - {EOC}
+00:38:03:06 - {RCL}
+00:38:03:07 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "Spirits like Old Farmer" {R15:C4} {R15:C4} "Caulder talked about."
+00:38:04:13 - {EOC}
+00:38:04:14 - {EOC}
+00:38:06:01 - {RCL}
+00:38:06:02 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "- Heh. Maybe. - The only" {R14:C0} {R14:C0} {R2:C16:UL} "spirits he saw tonight were" {R15:C0} {R15:C0} {R2:C16:UL} "those I smelled on his breath."
+00:38:08:07 - {EOC}
+00:38:08:08 - {EOC}
+00:38:11:21 - {EDM}
+00:38:11:22 - {EDM}
+00:38:11:23 - {RCL}
+00:38:12:00 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Well don't forget Mrs." {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Trent claims to have seen" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "them too. She didn't have" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "anything on her breath."
+00:38:15:00 - {EOC}
+00:38:15:01 - {EOC}
+00:38:15:02 - {RCL}
+00:38:15:03 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "- She was hysterical. - Well" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "true, she was frightened," {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "and in a state of shock."
+00:38:17:09 - {EOC}
+00:38:17:10 - {EOC}
+00:38:19:21 - {EDM}
+00:38:19:22 - {EDM}
+00:38:19:23 - {RCL}
+00:38:20:00 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "But, don't forget that" {R14:C4} {R14:C4} {R2:C16:UL} "torn nightgown and" {R15:C4} {R15:C4} {R2:C16:UL} "the scratched feet."
+00:38:21:18 - {EOC}
+00:38:21:19 - {EOC}
+00:38:24:06 - {EDM}
+00:38:24:07 - {EDM}
+00:38:24:08 - {RCL}
+00:38:24:09 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "Yeah I hadn't thought of" {R14:C0} {R14:C0} {R2:C16:UL} "that. I guess that's why" {R15:C0} {R15:C0} {R2:C16:UL} "you're a detective lieutenant"
+00:38:26:12 - {EOC}
+00:38:26:13 - {EOC}
+00:38:30:09 - {EDM}
+00:38:30:10 - {EDM}
+00:38:31:00 - {RCL}
+00:38:31:01 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} "and I'm still a uniformed cop."
+00:38:32:00 - {EOC}
+00:38:32:01 - {EOC}
+00:38:33:03 - {RCL}
+00:38:33:04 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "Sometimes it's only" {R14:C4} {R14:C4} "the breaks, Larry. In" {R15:C4} {R15:C4} "the meantime let's get-"
+00:38:34:22 - {EOC}
+00:38:34:23 - {EOC}
+00:38:35:07 - {RCL}
+00:38:35:08 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "- Lieutenant, Lieutenant" {R14:C4} {R14:C4} "! Did you hear that ? -" {R15:C4} {R15:C4} "How could we help it ?"
+00:38:37:04 - {EOC}
+00:38:37:05 - {EOC}
+00:38:38:18 - {RCL}
+00:38:38:19 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "- It sure was strange." {R15:C4} {R15:C4} {R2:C16:UL} "- Know what it was ?"
+00:38:40:01 - {EOC}
+00:38:40:02 - {EOC}
+00:38:40:03 - {RCL}
+00:38:40:04 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "- No more than you do. - If" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "it weren't for orders I'd" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "get out of here right now."
+00:38:42:11 - {EOC}
+00:38:42:12 - {EOC}
+00:38:43:14 - {RCL}
+00:38:43:15 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "- It was a saucer. -" {R14:C4} {R14:C4} {R2:C16:UL} "A flying saucer ? What" {R15:C4} {R15:C4} {R2:C16:UL} "makes you say that ?"
+00:38:45:10 - {EOC}
+00:38:45:11 - {EOC}
+00:38:46:01 - {RCL}
+00:38:46:02 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "You remember the noise we" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "heard the other night ?"
+00:38:47:16 - {EOC}
+00:38:47:17 - {EOC}
+00:38:48:21 - {RCL}
+00:38:48:22 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "We were knocked to the" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "ground, how could I forget ?"
+00:38:50:10 - {EOC}
+00:38:50:11 - {EOC}
+00:38:51:11 - {RCL}
+00:38:51:12 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "Exactly, but you're not" {R15:C4} {R15:C4} "remembering that sound."
+00:38:52:19 - {EOC}
+00:38:52:20 - {EOC}
+00:38:54:03 - {RCL}
+00:38:54:04 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} "There you're wrong, Lieutenant." {R13:C0} {R13:C0} "I'm with a fact the sound" {R14:C0} {R14:C0} "is similar, but what" {R15:C0} {R15:C0} "about the blinding light?"
+00:38:56:19 - {EOC}
+00:38:56:20 - {EOC}
+00:39:01:09 - {EDM}
+00:39:01:10 - {EDM}
+00:39:01:11 - {RCL}
+00:39:01:12 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "Well haven't you heard" {R14:C4} {R14:C4} {R2:C16:UL} "? Many times a saucer" {R15:C4} {R15:C4} {R2:C16:UL} "hasn't had a glow,"
+00:39:03:07 - {EOC}
+00:39:03:08 - {EOC}
+00:39:04:00 - {RCL}
+00:39:04:01 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "or a light of any kind for" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "that matter. - That proves" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "it. What next Lietenant ?"
+00:39:06:10 - {EOC}
+00:39:06:11 - {EOC}
+00:39:10:15 - {EDM}
+00:39:10:16 - {EDM}
+00:39:10:17 - {RCL}
+00:39:10:18 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "Maybe this doesn't mean" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "much, but uh Jamie and me" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "found a grave that looks" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "like it's been busting into."
+00:39:13:16 - {EOC}
+00:39:13:17 - {EOC}
+00:39:16:06 - {EDM}
+00:39:16:07 - {EDM}
+00:39:17:01 - {RCL}
+00:39:17:02 - {RCL} {ENM} {ENM} {R14:C8} {R14:C8} "- What ? Where ?" {R15:C8} {R15:C8} "- Why uh why..."
+00:39:18:01 - {EOC}
+00:39:18:02 - {EOC}
+00:39:18:03 - {RCL}
+00:39:18:04 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "- Come on man out with it, we" {R15:C0} {R15:C0} {R2:C16:UL} "haven't got all day to waste."
+00:39:19:19 - {EOC}
+00:39:19:20 - {EOC}
+00:39:20:22 - {RCL}
+00:39:20:23 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "- Uh, just over there" {R14:C4} {R14:C4} "beyond the crypt. - All" {R15:C4} {R15:C4} "right, show us the way !"
+00:39:22:19 - {EOC}
+00:39:22:20 - {EOC}
+00:39:26:09 - {EDM}
+00:39:26:10 - {EDM}
+00:39:27:12 - {RCL}
+00:39:27:13 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "Look, here it is Lieutenant."
+00:39:28:10 - {EOC}
+00:39:28:11 - {EOC}
+00:39:32:06 - {EDM}
+00:39:32:07 - {EDM}
+00:39:34:04 - {RCL}
+00:39:34:05 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "Ah it's been broken" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "into all right."
+00:39:35:10 - {EOC}
+00:39:35:11 - {EOC}
+00:39:35:15 - {RCL}
+00:39:35:16 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Strange. If someone had" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "broken in, the dirt should" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "be piled up here somewhere."
+00:39:37:22 - {EOC}
+00:39:37:23 - {EOC}
+00:39:41:12 - {EDM}
+00:39:41:13 - {EDM}
+00:39:41:14 - {RCL}
+00:39:41:15 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "It looks like it's fallen" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "in into the grave. - Larry" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "you'll be out of that" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "uniform before you know it."
+00:39:44:13 - {EOC}
+00:39:44:14 - {EOC}
+00:39:47:09 - {EDM}
+00:39:47:10 - {EDM}
+00:39:47:11 - {RCL}
+00:39:47:12 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Do we have the right to" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "look down there Lieutenant" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "? - Ah, technically no."
+00:39:49:20 - {EOC}
+00:39:49:21 - {EOC}
+00:39:50:04 - {RCL}
+00:39:50:05 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} "Well, this spot looks familiar," {R13:C0} {R13:C0} "though. We shouldn't investigate" {R14:C0} {R14:C0} "any further without the" {R15:C0} {R15:C0} "permission of next of kin."
+00:39:53:01 - {EOC}
+00:39:53:02 - {EOC}
+00:39:57:15 - {EDM}
+00:39:57:16 - {EDM}
+00:39:58:04 - {RCL}
+00:39:58:05 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Let's go get it !"
+00:39:59:00 - {EOC}
+00:39:59:01 - {EOC}
+00:39:59:04 - {RCL}
+00:39:59:05 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "- How ? - I see what you mean," {R15:C0} {R15:C0} {R2:C16:UL} "the gravestone's down there."
+00:40:00:19 - {EOC}
+00:40:00:20 - {EOC}
+00:40:04:03 - {EDM}
+00:40:04:04 - {EDM}
+00:40:04:05 - {RCL}
+00:40:04:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "Well, let's go down and" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "find out who's grave it is."
+00:40:05:19 - {EOC}
+00:40:05:20 - {EOC}
+00:40:06:01 - {RCL}
+00:40:06:02 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "- How ? - By going" {R15:C4} {R15:C4} {R2:C16:UL} "down and finding out !"
+00:40:07:07 - {EOC}
+00:40:07:08 - {EOC}
+00:40:09:01 - {RCL}
+00:40:09:02 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "- Are you sure you mean that" {R14:C0} {R14:C0} "Lieutenant ? - If I didn't mean" {R15:C0} {R15:C0} "it I wouldn't have said it."
+00:40:11:07 - {EOC}
+00:40:11:08 - {EOC}
+00:40:14:21 - {EDM}
+00:40:14:22 - {EDM}
+00:40:14:23 - {RCL}
+00:40:15:00 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Scared ? - Well, why" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "do I always get hooked up" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "with these spook details?"
+00:40:17:07 - {EOC}
+00:40:17:08 - {EOC}
+00:40:19:00 - {EDM}
+00:40:19:01 - {EDM}
+00:40:19:02 - {RCL}
+00:40:19:03 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "Monsters, graves, bodies,..."
+00:40:20:00 - {EOC}
+00:40:20:01 - {EOC}
+00:40:22:08 - {RCL}
+00:40:22:09 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} "oooh all right."
+00:40:23:00 - {EOC}
+00:40:23:01 - {EOC}
+00:40:24:00 - {EDM}
+00:40:24:01 - {EDM}
+00:40:31:21 - {RCL}
+00:40:31:22 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Casket's here, but" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "nobody's in it."
+00:40:33:04 - {EOC}
+00:40:33:05 - {EOC}
+00:40:35:13 - {RCL}
+00:40:35:14 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "Can you read the" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "name on the casket?"
+00:40:36:19 - {EOC}
+00:40:36:20 - {EOC}
+00:40:39:07 - {RCL}
+00:40:39:08 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "It's too dark. Give" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "me a flashlight."
+00:40:40:13 - {EOC}
+00:40:40:14 - {EOC}
+00:40:42:06 - {RCL}
+00:40:42:07 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "- How 'bout a match ? - We sure" {R15:C0} {R15:C0} "could try it. Let me have them !"
+00:40:43:22 - {EOC}
+00:40:43:23 - {EOC}
+00:40:47:18 - {EDM}
+00:40:47:19 - {EDM}
+00:40:56:15 - {RCL}
+00:40:56:16 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "It's Inspector Clay's grave !" {R15:C0} {R15:C0} {R2:C16:UL} "Be he ain't in it!"
+00:40:58:01 - {EOC}
+00:40:58:02 - {EOC}
+00:41:01:21 - {EDM}
+00:41:01:22 - {EDM}
+00:41:06:10 - {RCL}
+00:41:06:11 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "But meanwhile, in the" {R15:C0} {R15:C0} {R2:C16:UL} "Pentagon, in Washington DC..."
+00:41:07:22 - {EOC}
+00:41:07:23 - {EOC}
+00:41:11:18 - {EDM}
+00:41:11:19 - {EDM}
+00:41:17:05 - {RCL}
+00:41:17:06 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Try G2..."
+00:41:17:19 - {EOC}
+00:41:17:20 - {EOC}
+00:41:20:20 - {RCL}
+00:41:20:21 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} {R2:C16:UL} {R2:C16:UL} "...come in !"
+00:41:21:10 - {EOC}
+00:41:21:11 - {EOC}
+00:41:22:23 - {RCL}
+00:41:23:00 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "Yes of course," {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "I'll keep in touch."
+00:41:24:04 - {EOC}
+00:41:24:05 - {EOC}
+00:41:28:00 - {EDM}
+00:41:28:01 - {EDM}
+00:41:28:05 - {RCL}
+00:41:28:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "Come in, Colonel Edwards. Close" {R15:C0} {R15:C0} "the door. At ease, Colonel."
+00:41:29:19 - {EOC}
+00:41:29:20 - {EOC}
+00:41:34:15 - {EDM}
+00:41:34:16 - {EDM}
+00:41:34:17 - {RCL}
+00:41:34:18 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Thank you, Sir." {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Sit down."
+00:41:35:22 - {EOC}
+00:41:35:23 - {EOC}
+00:41:39:03 - {EDM}
+00:41:39:04 - {EDM}
+00:41:40:03 - {RCL}
+00:41:40:04 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "I understand, Colonel," {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "you've been on tap for" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "many of our saucer attacks."
+00:41:42:07 - {EOC}
+00:41:42:08 - {EOC}
+00:41:46:12 - {EDM}
+00:41:46:13 - {EDM}
+00:41:46:14 - {RCL}
+00:41:46:15 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "I'm in charge of" {R15:C4} {R15:C4} {R2:C16:UL} "field operations, Sir."
+00:41:47:19 - {EOC}
+00:41:47:20 - {EOC}
+00:41:49:14 - {RCL}
+00:41:49:15 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "You believe there are" {R14:C4} {R14:C4} {R2:C16:UL} "such things as flying" {R15:C4} {R15:C4} {R2:C16:UL} "saucers, Colonel ?"
+00:41:51:10 - {EOC}
+00:41:51:11 - {EOC}
+00:41:55:00 - {EDM}
+00:41:55:01 - {EDM}
+00:41:55:02 - {RCL}
+00:41:55:03 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "- Yessir." {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "- You've seen them ?"
+00:41:56:05 - {EOC}
+00:41:56:06 - {EOC}
+00:41:57:03 - {RCL}
+00:41:57:04 - {RCL} {ENM} {ENM} {R15:C12} {R15:C12} "Yessir."
+00:41:57:16 - {EOC}
+00:41:57:17 - {EOC}
+00:41:57:20 - {RCL}
+00:41:57:21 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "You realize there's a" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "government directive stating" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "that there is no such" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "thing as a flying saucer?"
+00:42:00:17 - {EOC}
+00:42:00:18 - {EOC}
+00:42:04:03 - {EDM}
+00:42:04:04 - {EDM}
+00:42:05:03 - {RCL}
+00:42:05:04 - {RCL} {ENM} {ENM} {R15:C12} {R15:C12} "Yessir."
+00:42:05:13 - {EOC}
+00:42:05:14 - {EOC}
+00:42:05:15 - {RCL}
+00:42:05:16 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "Do you stand by your" {R14:C4} {R14:C4} {R2:C16:UL} "statement that you've" {R15:C4} {R15:C4} {R2:C16:UL} "seen flying saucers ?"
+00:42:07:12 - {EOC}
+00:42:07:13 - {EOC}
+00:42:09:20 - {RCL}
+00:42:09:21 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} {R2:C16:UL} {R2:C16:UL} "Well, uh..."
+00:42:10:10 - {EOC}
+00:42:10:11 - {EOC}
+00:42:13:06 - {RCL}
+00:42:13:07 - {RCL} {ENM} {ENM} {R15:C12} {R15:C12} "yessir."
+00:42:13:18 - {EOC}
+00:42:13:19 - {EOC}
+00:42:15:01 - {RCL}
+00:42:15:02 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "This could mean a court" {R14:C4} {R14:C4} "marshall. Admitting this" {R15:C4} {R15:C4} "against direct orders."
+00:42:16:22 - {EOC}
+00:42:16:23 - {EOC}
+00:42:20:12 - {EDM}
+00:42:20:13 - {EDM}
+00:42:20:14 - {RCL}
+00:42:20:15 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "General Roberts," {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "may I speak freely ?"
+00:42:21:20 - {EOC}
+00:42:21:21 - {EOC}
+00:42:23:17 - {RCL}
+00:42:23:18 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "- You may. How could I hope" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "to hold down my command"
+00:42:25:07 - {EOC}
+00:42:25:08 - {EOC}
+00:42:27:00 - {RCL}
+00:42:27:01 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "if I didn't believe in" {R15:C4} {R15:C4} "what I saw and shot at?"
+00:42:28:07 - {EOC}
+00:42:28:08 - {EOC}
+00:42:32:03 - {EDM}
+00:42:32:04 - {EDM}
+00:42:32:19 - {RCL}
+00:42:32:20 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- I, uh, like you Colonel." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Thank you, Sir."
+00:42:34:07 - {EOC}
+00:42:34:08 - {EOC}
+00:42:38:03 - {EDM}
+00:42:38:04 - {EDM}
+00:42:38:05 - {RCL}
+00:42:38:06 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "There are flying saucers."
+00:42:39:03 - {EOC}
+00:42:39:04 - {EOC}
+00:42:42:21 - {EDM}
+00:42:42:22 - {EDM}
+00:42:42:23 - {RCL}
+00:42:43:00 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "There's no doubt they" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "are in our skies. They've" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "been there for some time."
+00:42:45:07 - {EOC}
+00:42:45:08 - {EOC}
+00:42:48:00 - {EDM}
+00:42:48:01 - {EDM}
+00:42:48:02 - {RCL}
+00:42:48:03 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "What're we going" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "to do about them ?"
+00:42:49:09 - {EOC}
+00:42:49:10 - {EOC}
+00:42:49:11 - {RCL}
+00:42:49:12 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Who knows ? - Then, uh," {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "they really are there ?"
+00:42:51:02 - {EOC}
+00:42:51:03 - {EOC}
+00:42:53:04 - {RCL}
+00:42:53:05 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "- I thought you were" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "convinced of that ! - I am."
+00:42:54:16 - {EOC}
+00:42:54:17 - {EOC}
+00:42:58:12 - {EDM}
+00:42:58:13 - {EDM}
+00:42:58:14 - {RCL}
+00:42:58:15 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "We've had contact with them."
+00:42:59:12 - {EOC}
+00:42:59:13 - {EOC}
+00:42:59:23 - {RCL}
+00:43:00:00 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Contact ? How ?" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Radio."
+00:43:01:02 - {EOC}
+00:43:01:03 - {EOC}
+00:43:02:14 - {RCL}
+00:43:02:15 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "- They speak our language ?" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "- Well not quite."
+00:43:04:01 - {EOC}
+00:43:04:02 - {EOC}
+00:43:04:09 - {RCL}
+00:43:04:10 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "We received messages from" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "their space ships. For a" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "while it came in as just" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "a lot of jumbled noise."
+00:43:07:10 - {EOC}
+00:43:07:11 - {EOC}
+00:43:12:00 - {EDM}
+00:43:12:01 - {EDM}
+00:43:12:20 - {RCL}
+00:43:12:21 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} {R2:C16:UL} "And now, Sir ?"
+00:43:13:10 - {EOC}
+00:43:13:11 - {EOC}
+00:43:13:12 - {RCL}
+00:43:13:13 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "Well since they first uh tried" {R14:C0} {R14:C0} "contact with us by radio, we've" {R15:C0} {R15:C0} "developed a language computer."
+00:43:15:20 - {EOC}
+00:43:15:21 - {EOC}
+00:43:20:03 - {EDM}
+00:43:20:04 - {EDM}
+00:43:20:05 - {RCL}
+00:43:20:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "A machine that breaks down" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "any language to our own."
+00:43:21:20 - {EOC}
+00:43:21:21 - {EOC}
+00:43:23:21 - {RCL}
+00:43:23:22 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "General, uh, what's this" {R15:C4} {R15:C4} "all got to do with me?"
+00:43:25:04 - {EOC}
+00:43:25:05 - {EOC}
+00:43:29:00 - {EDM}
+00:43:29:01 - {EDM}
+00:43:29:02 - {RCL}
+00:43:29:03 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Well you've been in" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "charge of saucer field" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "activity for a long while."
+00:43:31:07 - {EOC}
+00:43:31:08 - {EOC}
+00:43:32:02 - {RCL}
+00:43:32:03 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "I think it's about" {R14:C4} {R14:C4} "time you heard these" {R15:C4} {R15:C4} "recordings. Do you mind?"
+00:43:33:19 - {EOC}
+00:43:33:20 - {EOC}
+00:43:36:12 - {RCL}
+00:43:36:13 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Mind ? Huh, I'm anxious !"
+00:43:37:10 - {EOC}
+00:43:37:11 - {EOC}
+00:43:41:06 - {EDM}
+00:43:41:07 - {EDM}
+00:43:46:00 - {RCL}
+00:43:46:01 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "This is Eros, a space soldier" {R15:C0} {R15:C0} {R2:C16:UL} "from a planet of your galaxy."
+00:43:47:16 - {EOC}
+00:43:47:17 - {EOC}
+00:43:51:12 - {EDM}
+00:43:51:13 - {EDM}
+00:43:51:14 - {RCL}
+00:43:51:15 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "I fully realize our language" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "differences, however I" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "also know you finally have"
+00:43:53:20 - {EOC}
+00:43:53:21 - {EOC}
+00:43:57:15 - {EDM}
+00:43:57:16 - {EDM}
+00:43:57:17 - {RCL}
+00:43:57:18 - {RCL} {ENM} {ENM} {R11:C0} {R11:C0} {R2:C16:UL} {R2:C16:UL} "perfected the dictorobitary," {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "or as you on Earth put" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "it, the language computer." {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "So you can now understand" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "that which I speak."
+00:44:01:06 - {EOC}
+00:44:01:07 - {EOC}
+00:44:03:00 - {EDM}
+00:44:03:01 - {EDM}
+00:44:05:13 - {RCL}
+00:44:05:14 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "Since the beginning of" {R14:C4} {R14:C4} "your time, we have been" {R15:C4} {R15:C4} "far beyond your planet."
+00:44:07:10 - {EOC}
+00:44:07:11 - {EOC}
+00:44:11:00 - {EDM}
+00:44:11:01 - {EDM}
+00:44:11:02 - {RCL}
+00:44:11:03 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "It has taken you centuries to" {R14:C0} {R14:C0} {R2:C16:UL} "even grasp what we developed" {R15:C0} {R15:C0} {R2:C16:UL} "eons of your years ago."
+00:44:13:08 - {EOC}
+00:44:13:09 - {EOC}
+00:44:16:06 - {EDM}
+00:44:16:07 - {EDM}
+00:44:16:08 - {RCL}
+00:44:16:09 - {RCL} {ENM} {ENM} {R11:C0} {R11:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Do you still believe it" {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "impossible we exist? You" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "didn't actually think you" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "were the only inhabited" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "planet in the universe?"
+00:44:20:02 - {EOC}
+00:44:20:03 - {EOC}
+00:44:23:12 - {EDM}
+00:44:23:13 - {EDM}
+00:44:25:03 - {RCL}
+00:44:25:04 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} "How can any race be so stupid ?"
+00:44:26:01 - {EOC}
+00:44:26:02 - {EOC}
+00:44:26:16 - {RCL}
+00:44:26:17 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "Permit me to set your mind at" {R14:C0} {R14:C0} "ease. We do not want to conquer" {R15:C0} {R15:C0} "your planet. Only save it."
+00:44:28:22 - {EOC}
+00:44:28:23 - {EOC}
+00:44:33:12 - {EDM}
+00:44:33:13 - {EDM}
+00:44:34:01 - {RCL}
+00:44:34:02 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "We could have destroyed it long" {R15:C0} {R15:C0} "ago, if that had been our aim."
+00:44:35:16 - {EOC}
+00:44:35:17 - {EOC}
+00:44:39:06 - {EDM}
+00:44:39:07 - {EDM}
+00:44:39:08 - {RCL}
+00:44:39:09 - {RCL} {ENM} {ENM} {R12:C4} {R12:C4} "Our principal purpose" {R13:C4} {R13:C4} "is friendly. I admit, we" {R14:C4} {R14:C4} "have had to take certain" {R15:C4} {R15:C4} "means which you might"
+00:44:41:18 - {EOC}
+00:44:41:19 - {EOC}
+00:44:45:09 - {EDM}
+00:44:45:10 - {EDM}
+00:44:45:11 - {RCL}
+00:44:45:12 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} "refer to as criminal,"
+00:44:46:05 - {EOC}
+00:44:46:06 - {EOC}
+00:44:46:07 - {RCL}
+00:44:46:08 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "but that is because of your" {R14:C0} {R14:C0} {R2:C16:UL} "big guns which have destroyed" {R15:C0} {R15:C0} {R2:C16:UL} "some of our representatives."
+00:44:48:15 - {EOC}
+00:44:48:16 - {EOC}
+00:44:52:00 - {EDM}
+00:44:52:01 - {EDM}
+00:44:52:02 - {RCL}
+00:44:52:03 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "If you persist in denying us" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "our landings, then we must" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "only accept that you do not" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "want us on friendly terms."
+00:44:55:04 - {EOC}
+00:44:55:05 - {EOC}
+00:44:58:00 - {EDM}
+00:44:58:01 - {EDM}
+00:45:00:05 - {RCL}
+00:45:00:06 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "We then have no alternative" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "but to destroy you" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "before you destroy us."
+00:45:02:07 - {EOC}
+00:45:02:08 - {EOC}
+00:45:06:09 - {EDM}
+00:45:06:10 - {EDM}
+00:45:06:11 - {RCL}
+00:45:06:12 - {RCL} {ENM} {ENM} {R11:C0} {R11:C0} {R2:C16:UL} {R2:C16:UL} "With your ancient, juvenile" {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "minds, you have developed" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "explosives too fast for" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "your minds to conceive" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "what you were doing."
+00:45:09:23 - {EOC}
+00:45:10:00 - {EOC}
+00:45:12:21 - {EDM}
+00:45:12:22 - {EDM}
+00:45:14:01 - {RCL}
+00:45:14:02 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "You are on the verge of" {R15:C0} {R15:C0} "destroying the entire universe."
+00:45:15:13 - {EOC}
+00:45:15:14 - {EOC}
+00:45:19:09 - {EDM}
+00:45:19:10 - {EDM}
+00:45:19:11 - {RCL}
+00:45:19:12 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} "We are part of that universe."
+00:45:20:09 - {EOC}
+00:45:20:10 - {EOC}
+00:45:21:04 - {RCL}
+00:45:21:05 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "This is our last -"
+00:45:21:22 - {EOC}
+00:45:21:23 - {EOC}
+00:45:22:18 - {EDM}
+00:45:22:19 - {EDM}
+00:45:25:22 - {RCL}
+00:45:25:23 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "That's the end of that" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "one. Atmospheric conditions" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "in outer space often" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "interfere with transmitting."
+00:45:28:19 - {EOC}
+00:45:28:20 - {EOC}
+00:45:33:03 - {EDM}
+00:45:33:04 - {EDM}
+00:45:33:05 - {RCL}
+00:45:33:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "How many of these recordings" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "do you have General ?"
+00:45:34:18 - {EOC}
+00:45:34:19 - {EOC}
+00:45:34:20 - {RCL}
+00:45:34:21 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "An even dozen up to now." {R14:C0} {R14:C0} {R2:C16:UL} "This was the last one. We" {R15:C0} {R15:C0} {R2:C16:UL} "received it over a month ago."
+00:45:37:01 - {EOC}
+00:45:37:02 - {EOC}
+00:45:40:09 - {EDM}
+00:45:40:10 - {EDM}
+00:45:40:11 - {RCL}
+00:45:40:12 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "- Do you think they mean" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "business ? - We can't" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "afford to take any chances."
+00:45:42:16 - {EOC}
+00:45:42:17 - {EOC}
+00:45:44:18 - {EDM}
+00:45:44:19 - {EDM}
+00:45:47:16 - {RCL}
+00:45:47:17 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "Come over here. You" {R15:C4} {R15:C4} "ever been to Hollywood ?"
+00:45:48:22 - {EOC}
+00:45:48:23 - {EOC}
+00:45:50:12 - {EDM}
+00:45:50:13 - {EDM}
+00:45:50:14 - {RCL}
+00:45:50:15 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "- Oh a couple of times. A" {R14:C0} {R14:C0} {R2:C16:UL} "few years ago. - You're going" {R15:C0} {R15:C0} {R2:C16:UL} "to be there in the morning."
+00:45:52:21 - {EOC}
+00:45:52:22 - {EOC}
+00:45:52:23 - {RCL}
+00:45:53:00 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "Just a few minutes from" {R14:C0} {R14:C0} {R2:C16:UL} "Hollywood, in the town of San" {R15:C0} {R15:C0} {R2:C16:UL} "Fernando, reports have come in"
+00:45:55:06 - {EOC}
+00:45:55:07 - {EOC}
+00:45:59:12 - {EDM}
+00:45:59:13 - {EDM}
+00:45:59:14 - {RCL}
+00:45:59:15 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "of saucers flying so" {R14:C4} {R14:C4} "low the exhaust knocked" {R15:C4} {R15:C4} "people to the ground."
+00:46:01:09 - {EOC}
+00:46:01:10 - {EOC}
+00:46:04:12 - {EDM}
+00:46:04:13 - {EDM}
+00:46:04:14 - {RCL}
+00:46:04:15 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "There have even been stated" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "claims of saucer landings."
+00:46:06:05 - {EOC}
+00:46:06:06 - {EOC}
+00:46:09:06 - {EDM}
+00:46:09:07 - {EDM}
+00:46:09:08 - {RCL}
+00:46:09:09 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "Major Carlson will replace" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "you while you're out there."
+00:46:10:23 - {EOC}
+00:46:11:00 - {EOC}
+00:46:12:01 - {RCL}
+00:46:12:02 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "You're the best man for the job" {R15:C0} {R15:C0} "of attempting to contact them."
+00:46:13:16 - {EOC}
+00:46:13:17 - {EOC}
+00:46:15:11 - {RCL}
+00:46:15:12 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "Find them, Colonel. See what" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "in hell it is they want!"
+00:46:17:01 - {EOC}
+00:46:17:02 - {EOC}
+00:46:20:05 - {RCL}
+00:46:20:06 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} "All right, Sir."
+00:46:20:19 - {EOC}
+00:46:20:20 - {EOC}
+00:46:21:15 - {EDM}
+00:46:21:16 - {EDM}
+00:46:25:15 - {RCL}
+00:46:25:16 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "These are confidential" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "reports, Colonel. Read them" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "over carefully on the plane,"
+00:46:27:22 - {EOC}
+00:46:27:23 - {EOC}
+00:46:28:21 - {RCL}
+00:46:28:22 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} "turn them over to intelligence" {R13:C0} {R13:C0} {R2:C16:UL} "when you get to Los Angeles." {R14:C0} {R14:C0} {R2:C16:UL} "They'll have further" {R15:C0} {R15:C0} {R2:C16:UL} "orders for disposition."
+00:46:31:16 - {EOC}
+00:46:31:17 - {EOC}
+00:46:36:00 - {EDM}
+00:46:36:01 - {EDM}
+00:46:36:12 - {RCL}
+00:46:36:13 - {RCL} {ENM} {ENM} {R15:C12} {R15:C12} "Yessir."
+00:46:37:00 - {EOC}
+00:46:37:01 - {EOC}
+00:46:38:00 - {EDM}
+00:46:38:01 - {EDM}
+00:46:39:10 - {RCL}
+00:46:39:11 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "- Colonel Edwards ?" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "- Yessir ?"
+00:46:40:13 - {EOC}
+00:46:40:14 - {EOC}
+00:46:42:05 - {RCL}
+00:46:42:06 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Good luck." {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Thank you, Sir."
+00:46:43:10 - {EOC}
+00:46:43:11 - {EOC}
+00:46:44:00 - {EDM}
+00:46:44:01 - {EDM}
+00:47:13:01 - {RCL}
+00:47:13:02 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "We are ready to" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "report, Excellency."
+00:47:14:07 - {EOC}
+00:47:14:08 - {EOC}
+00:47:14:20 - {RCL}
+00:47:14:21 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- You are many days late." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- It was unavoidable."
+00:47:16:10 - {EOC}
+00:47:16:11 - {EOC}
+00:47:17:23 - {RCL}
+00:47:18:00 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "We tried to transmit" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "via televisor, but" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "atmospheric conditions made" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "transmission impossible."
+00:47:20:16 - {EOC}
+00:47:20:17 - {EOC}
+00:47:24:00 - {EDM}
+00:47:24:01 - {EDM}
+00:47:24:02 - {RCL}
+00:47:24:03 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} "- You should have transmitted" {R13:C0} {R13:C0} {R2:C16:UL} "as soon as conditions" {R14:C0} {R14:C0} {R2:C16:UL} "permitted. - I thought" {R15:C0} {R15:C0} {R2:C16:UL} "time was of the essence."
+00:47:26:19 - {EOC}
+00:47:26:20 - {EOC}
+00:47:29:00 - {EDM}
+00:47:29:01 - {EDM}
+00:47:29:02 - {RCL}
+00:47:29:03 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Suspicion has fallen upon" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "our movements. Our ships" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "have been viewed near" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "the point of operations."
+00:47:32:02 - {EOC}
+00:47:32:03 - {EOC}
+00:47:34:00 - {EDM}
+00:47:34:01 - {EDM}
+00:47:34:02 - {RCL}
+00:47:34:03 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "And what has this extra" {R15:C4} {R15:C4} "time gained, Eros?"
+00:47:35:07 - {EOC}
+00:47:35:08 - {EOC}
+00:47:36:19 - {RCL}
+00:47:36:20 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "We have successfully risen" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "three of the dead ones."
+00:47:38:10 - {EOC}
+00:47:38:11 - {EOC}
+00:47:41:02 - {RCL}
+00:47:41:03 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "- Permit me to see one." {R15:C4} {R15:C4} "- Bring in the big one."
+00:47:42:10 - {EOC}
+00:47:42:11 - {EOC}
+00:47:44:09 - {RCL}
+00:47:44:10 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} "Use your small electrode gun."
+00:47:45:07 - {EOC}
+00:47:45:08 - {EOC}
+00:47:49:03 - {EDM}
+00:47:49:04 - {EDM}
+00:47:51:04 - {RCL}
+00:47:51:05 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "I have taken two ships" {R15:C4} {R15:C4} {R2:C16:UL} "from your command."
+00:47:52:10 - {EOC}
+00:47:52:11 - {EOC}
+00:47:53:07 - {RCL}
+00:47:53:08 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "But...that will" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "leave only my ship !"
+00:47:54:13 - {EOC}
+00:47:54:14 - {EOC}
+00:47:56:14 - {RCL}
+00:47:56:15 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "It is necessary that you" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "continue your mission alone."
+00:47:58:04 - {EOC}
+00:47:58:05 - {EOC}
+00:48:00:21 - {RCL}
+00:48:00:22 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "I have need of your" {R15:C4} {R15:C4} {R2:C16:UL} "other ships elsewhere."
+00:48:02:04 - {EOC}
+00:48:02:05 - {EOC}
+00:48:03:22 - {RCL}
+00:48:03:23 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Even though you have risen" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "three of the Earth dead, the" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "plan is far from successful,"
+00:48:06:07 - {EOC}
+00:48:06:08 - {EOC}
+00:48:10:21 - {EDM}
+00:48:10:22 - {EDM}
+00:48:10:23 - {RCL}
+00:48:11:00 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "and you Eros, must" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "prove it an operational" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "success before more time,"
+00:48:13:04 - {EOC}
+00:48:13:05 - {EOC}
+00:48:16:00 - {EDM}
+00:48:16:01 - {EDM}
+00:48:16:02 - {RCL}
+00:48:16:03 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "energy, and ships," {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "may be spent on it."
+00:48:17:09 - {EOC}
+00:48:17:10 - {EOC}
+00:48:21:00 - {EDM}
+00:48:21:01 - {EDM}
+00:48:21:07 - {RCL}
+00:48:21:08 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "We will not fail." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Everything is on our side."
+00:48:22:19 - {EOC}
+00:48:22:20 - {EOC}
+00:48:24:03 - {RCL}
+00:48:24:04 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "Not everything ! You do not" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "have the live Earth people !"
+00:48:25:19 - {EOC}
+00:48:25:20 - {EOC}
+00:48:29:18 - {EDM}
+00:48:29:19 - {EDM}
+00:48:32:23 - {RCL}
+00:48:33:00 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "You report that your ship" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "was viewed at scene of" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "your present operations ?"
+00:48:35:07 - {EOC}
+00:48:35:08 - {EOC}
+00:48:39:00 - {EDM}
+00:48:39:01 - {EDM}
+00:48:39:02 - {RCL}
+00:48:39:03 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} "That is correct."
+00:48:39:18 - {EOC}
+00:48:39:19 - {EOC}
+00:48:40:12 - {EDM}
+00:48:40:13 - {EDM}
+00:48:40:14 - {RCL}
+00:48:40:15 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "They have been viewed" {R14:C4} {R14:C4} "many times, but not at" {R15:C4} {R15:C4} "the scene of operations."
+00:48:42:10 - {EOC}
+00:48:42:11 - {EOC}
+00:48:45:12 - {EDM}
+00:48:45:13 - {EDM}
+00:48:45:14 - {RCL}
+00:48:45:15 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Something must be" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "done about that."
+00:48:46:21 - {EOC}
+00:48:46:22 - {EOC}
+00:48:46:23 - {EDM}
+00:48:47:00 - {EDM}
+00:48:53:12 - {RCL}
+00:48:53:13 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "Stop him Tanna ! He's" {R14:C4} {R14:C4} "close enough ! Turn off" {R15:C4} {R15:C4} "your electrode gun !"
+00:48:55:07 - {EOC}
+00:48:55:08 - {EOC}
+00:48:59:03 - {EDM}
+00:48:59:04 - {EDM}
+00:48:59:05 - {RCL}
+00:48:59:06 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "No ! No ! Stop him Tanna !"
+00:49:00:03 - {EOC}
+00:49:00:04 - {EOC}
+00:49:03:03 - {EDM}
+00:49:03:04 - {EDM}
+00:49:03:05 - {RCL}
+00:49:03:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "I can't get it, it's jammed !" {R15:C0} {R15:C0} {R2:C16:UL} "- Stop him you fool !"
+00:49:04:17 - {EOC}
+00:49:04:18 - {EOC}
+00:49:05:06 - {RCL}
+00:49:05:07 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "Drop the gun to the floor, Tanna" {R15:C0} {R15:C0} "! The metal will break contact!"
+00:49:06:22 - {EOC}
+00:49:06:23 - {EOC}
+00:49:10:18 - {EDM}
+00:49:10:19 - {EDM}
+00:49:16:09 - {RCL}
+00:49:16:10 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} "[Gasping] That was too close !"
+00:49:17:07 - {EOC}
+00:49:17:08 - {EOC}
+00:49:19:06 - {RCL}
+00:49:19:07 - {RCL} {ENM} {ENM} {R15:C12} {R15:C12} {R2:C16:UL} {R2:C16:UL} "Yes."
+00:49:19:18 - {EOC}
+00:49:19:19 - {EOC}
+00:49:20:18 - {EDM}
+00:49:20:19 - {EDM}
+00:49:24:04 - {RCL}
+00:49:24:05 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Bring the giant here that I" {R15:C0} {R15:C0} {R2:C16:UL} "may get a better look at him."
+00:49:25:19 - {EOC}
+00:49:25:20 - {EOC}
+00:49:28:09 - {EDM}
+00:49:28:10 - {EDM}
+00:49:39:22 - {RCL}
+00:49:39:23 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Yes, he's a fine specimen." {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Are they all this" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "powerful on planet Earth ?"
+00:49:42:04 - {EOC}
+00:49:42:05 - {EOC}
+00:49:46:03 - {EDM}
+00:49:46:04 - {EDM}
+00:49:46:05 - {RCL}
+00:49:46:06 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "This one is an" {R15:C4} {R15:C4} {R2:C16:UL} "exception, Excellency."
+00:49:47:09 - {EOC}
+00:49:47:10 - {EOC}
+00:49:47:22 - {RCL}
+00:49:47:23 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "- What are the other two" {R14:C4} {R14:C4} "like ? - One is a woman," {R15:C4} {R15:C4} "the other an old man."
+00:49:49:19 - {EOC}
+00:49:49:20 - {EOC}
+00:49:53:09 - {EDM}
+00:49:53:10 - {EDM}
+00:49:53:11 - {RCL}
+00:49:53:12 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "- An old man, you say ?" {R15:C4} {R15:C4} "- Yes, Excellency."
+00:49:54:16 - {EOC}
+00:49:54:17 - {EOC}
+00:49:57:09 - {EDM}
+00:49:57:10 - {EDM}
+00:50:00:05 - {RCL}
+00:50:00:06 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "This gives me a plan." {R15:C4} {R15:C4} {R2:C16:UL} "Put the big one away."
+00:50:01:13 - {EOC}
+00:50:01:14 - {EOC}
+00:50:03:05 - {RCL}
+00:50:03:06 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "Pick up your electrode gun." {R14:C0} {R14:C0} "Make sure it's in working order" {R15:C0} {R15:C0} "before pointing it at him."
+00:50:05:10 - {EOC}
+00:50:05:11 - {EOC}
+00:50:09:00 - {EDM}
+00:50:09:01 - {EDM}
+00:50:09:02 - {RCL}
+00:50:09:03 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Whatever made it jam must" {R15:C0} {R15:C0} {R2:C16:UL} "have been cleared by the fall."
+00:50:10:16 - {EOC}
+00:50:10:17 - {EOC}
+00:50:11:12 - {RCL}
+00:50:11:13 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Take him back to the ship."
+00:50:12:10 - {EOC}
+00:50:12:11 - {EOC}
+00:50:13:12 - {EDM}
+00:50:13:13 - {EDM}
+00:50:23:17 - {RCL}
+00:50:23:18 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "The old one must be sacrificed." {R14:C0} {R14:C0} "Re-land on Earth. Send the" {R15:C0} {R15:C0} "old one to enter a dwelling."
+00:50:25:22 - {EOC}
+00:50:25:23 - {EOC}
+00:50:30:12 - {EDM}
+00:50:30:13 - {EDM}
+00:50:33:04 - {RCL}
+00:50:33:05 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Then cut off the" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "electrokinetic and turn on" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "your ship's decomposure ray."
+00:50:35:07 - {EOC}
+00:50:35:08 - {EOC}
+00:50:39:03 - {EDM}
+00:50:39:04 - {EDM}
+00:50:39:05 - {RCL}
+00:50:39:06 - {RCL} {ENM} {ENM} {R11:C0} {R11:C0} {R2:C16:UL} "The result will astound those" {R12:C0} {R12:C0} {R2:C16:UL} "watching. Astound them enough" {R13:C0} {R13:C0} {R2:C16:UL} "to delay their attention until" {R14:C0} {R14:C0} {R2:C16:UL} "you have gained your other" {R15:C0} {R15:C0} {R2:C16:UL} "recruits from the cemetery."
+00:50:43:00 - {EOC}
+00:50:43:01 - {EOC}
+00:50:45:00 - {EDM}
+00:50:45:01 - {EDM}
+00:50:49:09 - {RCL}
+00:50:49:10 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} "Yes, Excellency. It'll be done."
+00:50:50:07 - {EOC}
+00:50:50:08 - {EOC}
+00:50:52:08 - {RCL}
+00:50:52:09 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "Report to me when this" {R15:C4} {R15:C4} {R2:C16:UL} "has been accomplished."
+00:50:53:16 - {EOC}
+00:50:53:17 - {EOC}
+00:50:54:12 - {EDM}
+00:50:54:13 - {EDM}
+00:51:02:11 - {RCL}
+00:51:02:12 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Eros, the Earth people are" {R15:C0} {R15:C0} {R2:C16:UL} "getting to that which we fear."
+00:51:04:01 - {EOC}
+00:51:04:02 - {EOC}
+00:51:07:21 - {EDM}
+00:51:07:22 - {EDM}
+00:51:07:23 - {RCL}
+00:51:08:00 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Since they will not listen" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "or respect our existence,"
+00:51:09:15 - {EOC}
+00:51:09:16 - {EOC}
+00:51:09:19 - {RCL}
+00:51:09:20 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "they cannot help but believe" {R14:C0} {R14:C0} {R2:C16:UL} "our powers when they see their" {R15:C0} {R15:C0} {R2:C16:UL} "own dead walking 'round again,"
+00:51:12:04 - {EOC}
+00:51:12:05 - {EOC}
+00:51:15:18 - {EDM}
+00:51:15:19 - {EDM}
+00:51:15:20 - {RCL}
+00:51:15:21 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "brought about by our" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "advancement in such things." {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "As soon as you have enough" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "of the dead recruits,"
+00:51:18:16 - {EOC}
+00:51:18:17 - {EOC}
+00:51:21:03 - {EDM}
+00:51:21:04 - {EDM}
+00:51:21:05 - {RCL}
+00:51:21:06 - {RCL} {ENM} {ENM} {R10:C0} {R10:C0} {R2:C16:UL} {R2:C16:UL} "march them on the capitals" {R11:C0} {R11:C0} {R2:C16:UL} {R2:C16:UL} "of the Earth, let nothing" {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "stand in your way. Their own" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "dead will be used to make" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "them accept our existence," {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "and believe in that fact."
+00:51:25:16 - {EOC}
+00:51:25:17 - {EOC}
+00:51:26:12 - {EDM}
+00:51:26:13 - {EDM}
+00:52:11:22 - {RCL}
+00:52:11:23 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Mr. and Mrs. Trent...this" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "is Colonel Edwards" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "from Washington DC."
+00:52:14:01 - {EOC}
+00:52:14:02 - {EOC}
+00:52:16:15 - {RCL}
+00:52:16:16 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "- Good evening, Colonel." {R15:C4} {R15:C4} "- Hello Colonel."
+00:52:17:19 - {EOC}
+00:52:17:20 - {EOC}
+00:52:19:00 - {RCL}
+00:52:19:01 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "Colonel would like to" {R15:C4} {R15:C4} "ask you a few questions."
+00:52:20:07 - {EOC}
+00:52:20:08 - {EOC}
+00:52:20:19 - {RCL}
+00:52:20:20 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "- Questions ? What" {R14:C4} {R14:C4} {R2:C16:UL} "about, Colonel ? -" {R15:C4} {R15:C4} {R2:C16:UL} "May I, uh, sit down ?"
+00:52:22:13 - {EOC}
+00:52:22:14 - {EOC}
+00:52:26:03 - {EDM}
+00:52:26:04 - {EDM}
+00:52:26:05 - {RCL}
+00:52:26:06 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Oh, I'm sorry, please do."
+00:52:27:05 - {EOC}
+00:52:27:06 - {EOC}
+00:52:27:07 - {RCL}
+00:52:27:08 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "I want to ask you about" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "your strange experience" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "the other night, when you" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "saw the flying saucer."
+00:52:30:07 - {EOC}
+00:52:30:08 - {EOC}
+00:52:33:00 - {EDM}
+00:52:33:01 - {EDM}
+00:52:36:05 - {RCL}
+00:52:36:06 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "After that the police" {R15:C4} {R15:C4} {R2:C16:UL} "brought me home."
+00:52:37:10 - {EOC}
+00:52:37:11 - {EOC}
+00:52:39:03 - {RCL}
+00:52:39:04 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "I hope I never see" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "such a sight again."
+00:52:40:10 - {EOC}
+00:52:40:11 - {EOC}
+00:52:42:02 - {RCL}
+00:52:42:03 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Well after your description" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "I don't think I'd" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "want to see it either."
+00:52:44:04 - {EOC}
+00:52:44:05 - {EOC}
+00:52:45:02 - {RCL}
+00:52:45:03 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "One thing more...after you" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "were forced to the ground" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "by that blast of wind,"
+00:52:47:10 - {EOC}
+00:52:47:11 - {EOC}
+00:52:51:00 - {EDM}
+00:52:51:01 - {EDM}
+00:52:51:02 - {RCL}
+00:52:51:03 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "was it a hot or cold blast?" {R15:C0} {R15:C0} "- It's kind of hard to explain."
+00:52:52:16 - {EOC}
+00:52:52:17 - {EOC}
+00:52:56:06 - {EDM}
+00:52:56:07 - {EDM}
+00:52:56:08 - {RCL}
+00:52:56:09 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "It wasn't hot, wasn't cold, it" {R14:C0} {R14:C0} "was just a terrific force. We-we" {R15:C0} {R15:C0} "couldn't get off the ground."
+00:52:58:15 - {EOC}
+00:52:58:16 - {EOC}
+00:53:02:00 - {EDM}
+00:53:02:01 - {EDM}
+00:53:02:03 - {RCL}
+00:53:02:04 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "The light blinded me so" {R15:C0} {R15:C0} {R2:C16:UL} "badly I couldn't see a thing."
+00:53:03:16 - {EOC}
+00:53:03:17 - {EOC}
+00:53:05:10 - {RCL}
+00:53:05:11 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "We could only feel the pressure" {R14:C0} {R14:C0} "of the wind, until it was" {R15:C0} {R15:C0} "gone. When the glare left us,"
+00:53:07:16 - {EOC}
+00:53:07:17 - {EOC}
+00:53:12:06 - {EDM}
+00:53:12:07 - {EDM}
+00:53:12:08 - {RCL}
+00:53:12:09 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "we could see a glowing" {R14:C4} {R14:C4} {R2:C16:UL} "ball disappearing" {R15:C4} {R15:C4} {R2:C16:UL} "off in the distance."
+00:53:14:03 - {EOC}
+00:53:14:04 - {EOC}
+00:53:15:03 - {RCL}
+00:53:15:04 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "- Which way ?" {R15:C4} {R15:C4} {R2:C16:UL} "- Toward the cemetery."
+00:53:16:07 - {EOC}
+00:53:16:08 - {EOC}
+00:53:17:21 - {EDM}
+00:53:17:22 - {EDM}
+00:53:33:05 - {RCL}
+00:53:33:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "This is the most fantastic" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "story I've ever heard."
+00:53:34:19 - {EOC}
+00:53:34:20 - {EOC}
+00:53:37:00 - {RCL}
+00:53:37:01 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "And every word of" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "it's true, too."
+00:53:38:07 - {EOC}
+00:53:38:08 - {EOC}
+00:53:39:06 - {RCL}
+00:53:39:07 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} "That's the fantastic part of it."
+00:53:40:04 - {EOC}
+00:53:40:05 - {EOC}
+00:53:41:00 - {RCL}
+00:53:41:01 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "We found a lot of suspicious" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "things out in that cemetery."
+00:53:42:16 - {EOC}
+00:53:42:17 - {EOC}
+00:53:46:12 - {EDM}
+00:53:46:13 - {EDM}
+00:53:46:14 - {RCL}
+00:53:46:15 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "Then again, didn't find anything" {R15:C0} {R15:C0} "to base a fact or suspicion on."
+00:53:48:06 - {EOC}
+00:53:48:07 - {EOC}
+00:53:50:21 - {EDM}
+00:53:50:22 - {EDM}
+00:53:51:12 - {RCL}
+00:53:51:13 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Hey, do you hear anything."
+00:53:52:10 - {EOC}
+00:53:52:11 - {EOC}
+00:53:56:06 - {EDM}
+00:53:56:07 - {EDM}
+00:54:01:00 - {RCL}
+00:54:01:01 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "You see anything" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "out there Kelton ?"
+00:54:02:07 - {EOC}
+00:54:02:08 - {EOC}
+00:54:04:04 - {RCL}
+00:54:04:05 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} "Too dark, Lieutenant."
+00:54:04:22 - {EOC}
+00:54:04:23 - {EOC}
+00:54:07:10 - {RCL}
+00:54:07:11 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "But something's started" {R15:C4} {R15:C4} "stinking awful bad."
+00:54:08:16 - {EOC}
+00:54:08:17 - {EOC}
+00:54:12:12 - {EDM}
+00:54:12:13 - {EDM}
+00:54:18:03 - {RCL}
+00:54:18:04 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "There's something out there."
+00:54:19:03 - {EOC}
+00:54:19:04 - {EOC}
+00:54:23:03 - {EDM}
+00:54:23:04 - {EDM}
+00:55:48:05 - {RCL}
+00:55:48:06 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "- What do you make of that" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "? - You got me ! It didn't" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "look that way a minute ago."
+00:55:50:13 - {EOC}
+00:55:50:14 - {EOC}
+00:55:54:09 - {EDM}
+00:55:54:10 - {EDM}
+00:55:54:11 - {RCL}
+00:55:54:12 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- What about your man ?" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Oh, in the excitement I" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "forgot all about Kelton."
+00:55:56:19 - {EOC}
+00:55:56:20 - {EOC}
+00:55:59:00 - {EDM}
+00:55:59:01 - {EDM}
+00:56:06:01 - {RCL}
+00:56:06:02 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "Oh, he'll be all right" {R15:C4} {R15:C4} {R2:C16:UL} "in a few minutes."
+00:56:07:07 - {EOC}
+00:56:07:08 - {EOC}
+00:56:08:09 - {EDM}
+00:56:08:10 - {EDM}
+00:56:09:23 - {RCL}
+00:56:10:00 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "- Did you see that thing ?" {R15:C0} {R15:C0} {R2:C16:UL} "Did you get it ? - We got it."
+00:56:11:13 - {EOC}
+00:56:11:14 - {EOC}
+00:56:13:03 - {RCL}
+00:56:13:04 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "What was it ? It didn't fall...I" {R15:C0} {R15:C0} "fired every bullet I had."
+00:56:14:16 - {EOC}
+00:56:14:17 - {EOC}
+00:56:16:05 - {RCL}
+00:56:16:06 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "So did I. I don't know what" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "it was or what happened," {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "but unless that bag of bones"
+00:56:18:13 - {EOC}
+00:56:18:14 - {EOC}
+00:56:23:03 - {EDM}
+00:56:23:04 - {EDM}
+00:56:23:05 - {RCL}
+00:56:23:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "can reassemble itself, it's" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "out of the running now."
+00:56:24:19 - {EOC}
+00:56:24:20 - {EOC}
+00:56:27:06 - {EDM}
+00:56:27:07 - {EDM}
+00:56:36:15 - {RCL}
+00:56:36:16 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Colonel I've been out here" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "so often you'd think I'd" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "taken a lease on this place."
+00:56:38:22 - {EOC}
+00:56:38:23 - {EOC}
+00:56:41:06 - {RCL}
+00:56:41:07 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Not a long lease, I hope."
+00:56:42:04 - {EOC}
+00:56:42:05 - {EOC}
+00:56:42:06 - {RCL}
+00:56:42:07 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "I see what you mean. But you" {R14:C0} {R14:C0} "know, I can't help but feel the" {R15:C0} {R15:C0} "answer's out here somewhere."
+00:56:44:12 - {EOC}
+00:56:44:13 - {EOC}
+00:56:48:00 - {EDM}
+00:56:48:01 - {EDM}
+00:56:48:13 - {RCL}
+00:56:48:14 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} "Is the uh girl safe ?"
+00:56:49:07 - {EOC}
+00:56:49:08 - {EOC}
+00:56:51:00 - {EDM}
+00:56:51:01 - {EDM}
+00:56:51:02 - {RCL}
+00:56:51:03 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Mrs. Trent you'd better stay" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "with the car. - Stay here" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "alone? Not on your life."
+00:56:53:09 - {EOC}
+00:56:53:10 - {EOC}
+00:56:56:09 - {EDM}
+00:56:56:10 - {EDM}
+00:56:56:11 - {RCL}
+00:56:56:12 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Modern women... - Yeah," {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "they been that way all" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "down through the ages."
+00:56:58:17 - {EOC}
+00:56:58:18 - {EOC}
+00:57:00:06 - {RCL}
+00:57:00:07 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} "Especially in a spot like this."
+00:57:01:04 - {EOC}
+00:57:01:05 - {EOC}
+00:57:02:19 - {RCL}
+00:57:02:20 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "- Kelton ! -Yessir ?" {R15:C4} {R15:C4} "- Stay with Mrs. Trent."
+00:57:04:01 - {EOC}
+00:57:04:02 - {EOC}
+00:57:05:04 - {RCL}
+00:57:05:05 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} "All right, Lieutenant."
+00:57:06:00 - {EOC}
+00:57:06:01 - {EOC}
+00:57:07:00 - {EDM}
+00:57:07:01 - {EDM}
+00:57:07:02 - {RCL}
+00:57:07:03 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "- Now you stay close to" {R14:C4} {R14:C4} "the officer, Honey. -" {R15:C4} {R15:C4} "I'd feel safer with you."
+00:57:08:23 - {EOC}
+00:57:09:00 - {EOC}
+00:57:10:15 - {EDM}
+00:57:10:16 - {EDM}
+00:57:13:02 - {RCL}
+00:57:13:03 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "- Now the Lieutenant knows" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "best. - Oh I don't like" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "it, but I guess there isn't" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "much I can do about it."
+00:57:16:01 - {EOC}
+00:57:16:02 - {EOC}
+00:57:20:03 - {EDM}
+00:57:20:04 - {EDM}
+00:57:27:02 - {RCL}
+00:57:27:03 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- You have a gun ?" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- No."
+00:57:28:04 - {EOC}
+00:57:28:05 - {EOC}
+00:57:29:19 - {RCL}
+00:57:29:20 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} "Know how to use one ?"
+00:57:30:13 - {EOC}
+00:57:30:14 - {EOC}
+00:57:31:09 - {EDM}
+00:57:31:10 - {EDM}
+00:57:31:18 - {RCL}
+00:57:31:19 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "After four years in" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "the Marine Corps ?"
+00:57:33:01 - {EOC}
+00:57:33:02 - {EOC}
+00:57:34:09 - {EDM}
+00:57:34:10 - {EDM}
+00:57:36:23 - {RCL}
+00:57:37:00 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "- Here." {R15:C0} {R15:C0} {R2:C16:UL} "- You think we'll need these ?"
+00:57:38:04 - {EOC}
+00:57:38:05 - {EOC}
+00:57:38:06 - {RCL}
+00:57:38:07 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "You can never tell." {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "Let's get going."
+00:57:39:12 - {EOC}
+00:57:39:13 - {EOC}
+00:57:41:03 - {EDM}
+00:57:41:04 - {EDM}
+00:58:00:13 - {RCL}
+00:58:00:14 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "- What do you expect to find" {R14:C0} {R14:C0} {R2:C16:UL} "out here ? - Well there's only" {R15:C0} {R15:C0} {R2:C16:UL} "one answer to that Mr. Trent,"
+00:58:02:22 - {EOC}
+00:58:02:23 - {EOC}
+00:58:04:01 - {RCL}
+00:58:04:02 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "we'll know when we find" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "it. Inspector Clay's" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "grave is right over here."
+00:58:06:07 - {EOC}
+00:58:06:08 - {EOC}
+00:58:10:03 - {EDM}
+00:58:10:04 - {EDM}
+00:58:10:05 - {RCL}
+00:58:10:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "- Is that the one you told" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "me was broken into ? - Yes."
+00:58:11:20 - {EOC}
+00:58:11:21 - {EOC}
+00:58:14:03 - {EDM}
+00:58:14:04 - {EDM}
+00:58:31:03 - {RCL}
+00:58:31:04 - {RCL} {ENM} {ENM} {R14:C8} {R14:C8} {R2:C16:UL} {R2:C16:UL} "- This it ?" {R15:C8} {R15:C8} {R2:C16:UL} {R2:C16:UL} "- Yeah."
+00:58:32:01 - {EOC}
+00:58:32:02 - {EOC}
+00:58:32:03 - {RCL}
+00:58:32:04 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "Looks to me like someone had" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "broken out instead of in."
+00:58:33:18 - {EOC}
+00:58:33:19 - {EOC}
+00:58:33:21 - {RCL}
+00:58:33:22 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "- I figured that, but that's" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "impossible ! -I wonder." {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "- Look, Colonel, some" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "things just can't happen."
+00:58:36:19 - {EOC}
+00:58:36:20 - {EOC}
+00:58:41:03 - {EDM}
+00:58:41:04 - {EDM}
+00:58:41:05 - {RCL}
+00:58:41:06 - {RCL} {ENM} {ENM} {R11:C0} {R11:C0} {R2:C16:UL} {R2:C16:UL} "Yeah well after that" {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "apparition that was draped" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "across Mr. Trent's patio," {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "I would say we should keep" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "our minds open to anything."
+00:58:44:20 - {EOC}
+00:58:44:21 - {EOC}
+00:58:48:03 - {EDM}
+00:58:48:04 - {EDM}
+00:58:48:15 - {RCL}
+00:58:48:16 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "Look, Colonel, I'm a policeman." {R15:C0} {R15:C0} "I've got to deal in facts."
+00:58:50:04 - {EOC}
+00:58:50:05 - {EOC}
+00:58:51:10 - {RCL}
+00:58:51:11 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} "But, I guess I'll have to go" {R13:C0} {R13:C0} "along with you. You know I bet" {R14:C0} {R14:C0} "my badge right now we haven't" {R15:C0} {R15:C0} "seen the last of those weirdies."
+00:58:54:10 - {EOC}
+00:58:54:11 - {EOC}
+00:58:59:00 - {EDM}
+00:58:59:01 - {EDM}
+00:59:05:06 - {RCL}
+00:59:05:07 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "- They'll discover our" {R14:C4} {R14:C4} {R2:C16:UL} "ship soon. - You going" {R15:C4} {R15:C4} {R2:C16:UL} "to let them find us ?"
+00:59:07:04 - {EOC}
+00:59:07:05 - {EOC}
+00:59:08:11 - {RCL}
+00:59:08:12 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "It's the only way. These" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "are the same men who have" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "been so close so often."
+00:59:10:19 - {EOC}
+00:59:10:20 - {EOC}
+00:59:14:09 - {EDM}
+00:59:14:10 - {EDM}
+00:59:14:11 - {RCL}
+00:59:14:12 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "They must be halted before they" {R15:C0} {R15:C0} "can inform others about us."
+00:59:16:01 - {EOC}
+00:59:16:02 - {EOC}
+00:59:16:06 - {RCL}
+00:59:16:07 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "- But there were others in the" {R15:C0} {R15:C0} {R2:C16:UL} "car ! - They'll be taken too."
+00:59:17:22 - {EOC}
+00:59:17:23 - {EOC}
+00:59:19:18 - {EDM}
+00:59:19:19 - {EDM}
+00:59:21:10 - {RCL}
+00:59:21:11 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "Send the big one to get the" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "girl and the policeman. I'll" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "turn on the dictorobitary so" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "we may converse with them."
+00:59:24:13 - {EOC}
+00:59:24:14 - {EOC}
+00:59:28:03 - {EDM}
+00:59:28:04 - {EDM}
+00:59:59:02 - {RCL}
+00:59:59:03 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "You know, maybe we're" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "barking up the wrong tree."
+01:00:00:16 - {EOC}
+01:00:00:17 - {EOC}
+01:00:01:21 - {RCL}
+01:00:01:22 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "One thing a policeman learns," {R15:C0} {R15:C0} {R2:C16:UL} "Mr. Trent, is patience."
+01:00:03:10 - {EOC}
+01:00:03:11 - {EOC}
+01:00:04:15 - {RCL}
+01:00:04:16 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "- Where the burn" {R14:C4} {R14:C4} {R2:C16:UL} "spot you mentioned. -" {R15:C4} {R15:C4} {R2:C16:UL} "Right over the - look!"
+01:00:06:10 - {EOC}
+01:00:06:11 - {EOC}
+01:00:10:00 - {EDM}
+01:00:10:01 - {EDM}
+01:00:19:18 - {RCL}
+01:00:19:19 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "We'll investigate," {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "but move carefully."
+01:00:21:01 - {EOC}
+01:00:21:02 - {EOC}
+01:00:21:21 - {EDM}
+01:00:21:22 - {EDM}
+01:01:05:18 - {RCL}
+01:01:05:19 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "A moment or two more," {R14:C4} {R14:C4} "and you will be the" {R15:C4} {R15:C4} "first live Earth people"
+01:01:07:13 - {EOC}
+01:01:07:14 - {EOC}
+01:01:12:03 - {EDM}
+01:01:12:04 - {EDM}
+01:01:12:05 - {RCL}
+01:01:12:06 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} "ever to enter a celestial ship."
+01:01:13:03 - {EOC}
+01:01:13:04 - {EOC}
+01:01:14:03 - {EDM}
+01:01:14:04 - {EDM}
+01:01:14:05 - {RCL}
+01:01:14:06 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "Wow...boy, how could" {R14:C4} {R14:C4} {R2:C16:UL} "anything that big hide" {R15:C4} {R15:C4} {R2:C16:UL} "for so long a time ?"
+01:01:16:01 - {EOC}
+01:01:16:02 - {EOC}
+01:01:19:15 - {EDM}
+01:01:19:16 - {EDM}
+01:01:21:05 - {RCL}
+01:01:21:06 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "Never heard metal" {R15:C4} {R15:C4} "sound like that before."
+01:01:22:10 - {EOC}
+01:01:22:11 - {EOC}
+01:01:23:04 - {RCL}
+01:01:23:05 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "- What do you see ? - Only" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "my reflection. Must be" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "some kind of one-way glass."
+01:01:25:10 - {EOC}
+01:01:25:11 - {EOC}
+01:01:29:00 - {EDM}
+01:01:29:01 - {EDM}
+01:01:29:02 - {RCL}
+01:01:29:03 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "- How do you get into" {R14:C4} {R14:C4} "this thing ? - I'm not" {R15:C4} {R15:C4} "sure I want to find out."
+01:01:30:22 - {EOC}
+01:01:30:23 - {EOC}
+01:01:33:15 - {EDM}
+01:01:33:16 - {EDM}
+01:01:45:13 - {RCL}
+01:01:45:14 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} "They're just outside."
+01:01:46:07 - {EOC}
+01:01:46:08 - {EOC}
+01:01:47:03 - {EDM}
+01:01:47:04 - {EDM}
+01:01:52:13 - {RCL}
+01:01:52:14 - {RCL} {ENM} {ENM} {R14:C8} {R14:C8} "You can open the" {R15:C8} {R15:C8} "outer hatch now."
+01:01:53:13 - {EOC}
+01:01:53:14 - {EOC}
+01:01:54:18 - {EDM}
+01:01:54:19 - {EDM}
+01:02:10:01 - {RCL}
+01:02:10:02 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "- You goin' in that thing ?" {R15:C0} {R15:C0} {R2:C16:UL} "- That's what we're here for."
+01:02:11:16 - {EOC}
+01:02:11:17 - {EOC}
+01:02:11:18 - {RCL}
+01:02:11:19 - {RCL} {ENM} {ENM} {R11:C0} {R11:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- I don't know, the way" {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "these things speed around" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "we might just get in there" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "and pft! Off it goes. -" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "That's a chance we take."
+01:02:15:13 - {EOC}
+01:02:15:14 - {EOC}
+01:02:19:15 - {EDM}
+01:02:19:16 - {EDM}
+01:02:19:17 - {RCL}
+01:02:19:18 - {RCL} {ENM} {ENM} {R11:C0} {R11:C0} {R2:C16:UL} "Well, I took a chance on" {R12:C0} {R12:C0} {R2:C16:UL} "those earlier airplanes. Might" {R13:C0} {R13:C0} {R2:C16:UL} "just as well see what the" {R14:C0} {R14:C0} {R2:C16:UL} "inside of one of these looks" {R15:C0} {R15:C0} {R2:C16:UL} "like. Got your guns ready ?"
+01:02:23:08 - {EOC}
+01:02:23:09 - {EOC}
+01:02:26:03 - {EDM}
+01:02:26:04 - {EDM}
+01:02:26:05 - {RCL}
+01:02:26:06 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} "- I tell you one thing, if" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "a little green man jumps" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "out at me I'm shooting first" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "and asking questions later."
+01:02:29:06 - {EOC}
+01:02:29:07 - {EOC}
+01:02:31:21 - {EDM}
+01:02:31:22 - {EDM}
+01:02:40:19 - {RCL}
+01:02:40:20 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "They're in the" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "outer chamber now."
+01:02:42:01 - {EOC}
+01:02:42:02 - {EOC}
+01:02:43:06 - {EDM}
+01:02:43:07 - {EDM}
+01:02:44:12 - {RCL}
+01:02:44:13 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} "Eros, do we have to kill them ?"
+01:02:45:10 - {EOC}
+01:02:45:11 - {EOC}
+01:02:49:06 - {EDM}
+01:02:49:07 - {EDM}
+01:02:49:23 - {RCL}
+01:02:50:00 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "- Yes." {R15:C4} {R15:C4} "- It seems such a waste."
+01:02:50:22 - {EOC}
+01:02:50:23 - {EOC}
+01:02:54:18 - {EDM}
+01:02:54:19 - {EDM}
+01:02:54:20 - {RCL}
+01:02:54:21 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} "Well wouldn't it be better" {R13:C0} {R13:C0} {R2:C16:UL} "to kill a few now than, with" {R14:C0} {R14:C0} {R2:C16:UL} "their meddling, permit them to" {R15:C0} {R15:C0} {R2:C16:UL} "destroy the entire universe ?"
+01:02:57:21 - {EOC}
+01:02:57:22 - {EOC}
+01:03:00:07 - {EDM}
+01:03:00:08 - {EDM}
+01:03:01:20 - {RCL}
+01:03:01:21 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "- You're always right, Eros." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "- Of course."
+01:03:03:04 - {EOC}
+01:03:03:05 - {EOC}
+01:03:04:03 - {RCL}
+01:03:04:04 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} {R2:C16:UL} "But those are not my" {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "words, those are the" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "words of the Ruler."
+01:03:06:01 - {EOC}
+01:03:06:02 - {EOC}
+01:03:09:15 - {EDM}
+01:03:09:16 - {EDM}
+01:03:15:08 - {RCL}
+01:03:15:09 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "Now you two stay" {R15:C4} {R15:C4} {R2:C16:UL} "right where you're at."
+01:03:16:13 - {EOC}
+01:03:16:14 - {EOC}
+01:03:17:09 - {EDM}
+01:03:17:10 - {EDM}
+01:03:21:01 - {RCL}
+01:03:21:02 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "We will do as you command." {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "For the moment. - No for" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "the moment about it. You" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "just do as I tell you."
+01:03:24:01 - {EOC}
+01:03:24:02 - {EOC}
+01:03:28:09 - {EDM}
+01:03:28:10 - {EDM}
+01:03:37:00 - {RCL}
+01:03:37:01 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "You do not need guns." {R15:C4} {R15:C4} "- Maybe we think we do."
+01:03:38:07 - {EOC}
+01:03:38:08 - {EOC}
+01:03:39:18 - {RCL}
+01:03:39:19 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "They would be of no use" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "to you now. - They've" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "been mighty useful before" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "on flesh and blood,"
+01:03:42:16 - {EOC}
+01:03:42:17 - {EOC}
+01:03:46:09 - {EDM}
+01:03:46:10 - {EDM}
+01:03:46:11 - {RCL}
+01:03:46:12 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "and you two look like" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "you've got a lot of both."
+01:03:48:01 - {EOC}
+01:03:48:02 - {EOC}
+01:03:50:03 - {EDM}
+01:03:50:04 - {EDM}
+01:03:50:19 - {RCL}
+01:03:50:20 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "True, they would be effective" {R14:C0} {R14:C0} {R2:C16:UL} "upon us. If you were to have" {R15:C0} {R15:C0} {R2:C16:UL} "the opportunity to use them..."
+01:03:53:04 - {EOC}
+01:03:53:05 - {EOC}
+01:03:57:18 - {EDM}
+01:03:57:19 - {EDM}
+01:03:57:20 - {RCL}
+01:03:57:21 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Mister, if you don't get" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "away from that control" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "board I'll show you just" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "how effective they can be."
+01:04:00:20 - {EOC}
+01:04:00:21 - {EOC}
+01:04:03:03 - {EDM}
+01:04:03:04 - {EDM}
+01:04:05:10 - {RCL}
+01:04:05:11 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "Shall we talk now, or" {R14:C4} {R14:C4} {R2:C16:UL} "wait ? Your friends" {R15:C4} {R15:C4} {R2:C16:UL} "will be here shortly."
+01:04:07:07 - {EOC}
+01:04:07:08 - {EOC}
+01:04:11:03 - {EDM}
+01:04:11:04 - {EDM}
+01:04:11:05 - {RCL}
+01:04:11:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "- What friends ?" {R15:C0} {R15:C0} "- Those you left at the vehicle."
+01:04:12:13 - {EOC}
+01:04:12:14 - {EOC}
+01:04:14:15 - {EDM}
+01:04:14:16 - {EDM}
+01:04:14:17 - {RCL}
+01:04:14:18 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "- If you've done" {R14:C4} {R14:C4} "anything to Paula... -" {R15:C4} {R15:C4} "Take it easy Mr. Trent."
+01:04:16:10 - {EOC}
+01:04:16:11 - {EOC}
+01:04:17:04 - {RCL}
+01:04:17:05 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "Oh I assure you, no" {R14:C4} {R14:C4} {R2:C16:UL} "harm has come to her." {R15:C4} {R15:C4} {R2:C16:UL} "Would you like to see?"
+01:04:19:01 - {EOC}
+01:04:19:02 - {EOC}
+01:04:22:15 - {EDM}
+01:04:22:16 - {EDM}
+01:04:23:05 - {RCL}
+01:04:23:06 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "Next time you try that I" {R14:C0} {R14:C0} {R2:C16:UL} "won't aim at the board. -" {R15:C0} {R15:C0} {R2:C16:UL} "You're a headstrong young man."
+01:04:25:10 - {EOC}
+01:04:25:11 - {EOC}
+01:04:29:00 - {EDM}
+01:04:29:01 - {EDM}
+01:04:29:02 - {RCL}
+01:04:29:03 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "I was only going to turn" {R14:C4} {R14:C4} "on the televisor so you" {R15:C4} {R15:C4} "could see her movements."
+01:04:31:00 - {EOC}
+01:04:31:01 - {EOC}
+01:04:32:18 - {EDM}
+01:04:32:19 - {EDM}
+01:04:35:07 - {RCL}
+01:04:35:08 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "Go ahead, my friend," {R15:C4} {R15:C4} "but move very carefully."
+01:04:36:13 - {EOC}
+01:04:36:14 - {EOC}
+01:04:40:09 - {EDM}
+01:04:40:10 - {EDM}
+01:04:54:04 - {RCL}
+01:04:54:05 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "She's only fainted."
+01:04:55:00 - {EOC}
+01:04:55:01 - {EOC}
+01:04:56:15 - {EDM}
+01:04:56:16 - {EDM}
+01:04:56:17 - {RCL}
+01:04:56:18 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "- You fiend !" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "- I ? A fiend ? ..."
+01:04:57:22 - {EOC}
+01:04:57:23 - {EOC}
+01:05:00:15 - {RCL}
+01:05:00:16 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} "I am a soldier of our planet !"
+01:05:01:13 - {EOC}
+01:05:01:14 - {EOC}
+01:05:05:00 - {EDM}
+01:05:05:01 - {EDM}
+01:05:05:18 - {RCL}
+01:05:05:19 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "I ? A fiend ? We did not" {R15:C4} {R15:C4} "come here as enemies."
+01:05:07:01 - {EOC}
+01:05:07:02 - {EOC}
+01:05:11:21 - {EDM}
+01:05:11:22 - {EDM}
+01:05:12:03 - {RCL}
+01:05:12:04 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "We came only with friendly" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "intentions. To talk."
+01:05:13:16 - {EOC}
+01:05:13:17 - {EOC}
+01:05:16:23 - {RCL}
+01:05:17:00 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} "To ask your aid."
+01:05:17:13 - {EOC}
+01:05:17:14 - {EOC}
+01:05:18:04 - {RCL}
+01:05:18:05 - {RCL} {ENM} {ENM} {R14:C8} {R14:C8} {R2:C16:UL} {R2:C16:UL} "- Our aid ?" {R15:C8} {R15:C8} {R2:C16:UL} {R2:C16:UL} "- Yes."
+01:05:19:03 - {EOC}
+01:05:19:04 - {EOC}
+01:05:19:08 - {RCL}
+01:05:19:09 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} "Your aid for the whole" {R13:C0} {R13:C0} {R2:C16:UL} "universe. But your governments" {R14:C0} {R14:C0} {R2:C16:UL} "of Earth refused even" {R15:C0} {R15:C0} {R2:C16:UL} "to accept our existence."
+01:05:22:01 - {EOC}
+01:05:22:02 - {EOC}
+01:05:26:15 - {EDM}
+01:05:26:16 - {EDM}
+01:05:26:17 - {RCL}
+01:05:26:18 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Even though you've seen" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "us, heard our messages, you" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "still refused to accept us."
+01:05:29:01 - {EOC}
+01:05:29:02 - {EOC}
+01:05:33:09 - {EDM}
+01:05:33:10 - {EDM}
+01:05:33:11 - {RCL}
+01:05:33:12 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Why is it so important that" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "you want to contact the" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "governments of our Earth ?"
+01:05:35:18 - {EOC}
+01:05:35:19 - {EOC}
+01:05:37:17 - {RCL}
+01:05:37:18 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Because of death. Because" {R15:C0} {R15:C0} {R2:C16:UL} "all you of Earth are idiots !"
+01:05:39:07 - {EOC}
+01:05:39:08 - {EOC}
+01:05:43:03 - {EDM}
+01:05:43:04 - {EDM}
+01:05:43:13 - {RCL}
+01:05:43:14 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "- Now you just hold on, Buster." {R15:C0} {R15:C0} "- No you hold on."
+01:05:44:22 - {EOC}
+01:05:44:23 - {EOC}
+01:05:46:12 - {RCL}
+01:05:46:13 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "First was your firecracker," {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "a harmless explosive." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "Then your handgrenade."
+01:05:48:16 - {EOC}
+01:05:48:17 - {EOC}
+01:05:53:03 - {EDM}
+01:05:53:04 - {EDM}
+01:05:53:05 - {RCL}
+01:05:53:06 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "They began to kill your own" {R14:C0} {R14:C0} {R2:C16:UL} "people a few at a time. Then" {R15:C0} {R15:C0} {R2:C16:UL} "the bomb, then a larger bomb."
+01:05:55:13 - {EOC}
+01:05:55:14 - {EOC}
+01:05:58:18 - {EDM}
+01:05:58:19 - {EDM}
+01:05:59:09 - {RCL}
+01:05:59:10 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Many people are killed at one" {R15:C0} {R15:C0} {R2:C16:UL} "time. Then your scientists"
+01:06:00:23 - {EOC}
+01:06:01:00 - {EOC}
+01:06:05:15 - {EDM}
+01:06:05:16 - {EDM}
+01:06:05:17 - {RCL}
+01:06:05:18 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "stumbled upon the atom" {R15:C4} {R15:C4} {R2:C16:UL} "bomb. Split the atom."
+01:06:07:01 - {EOC}
+01:06:07:02 - {EOC}
+01:06:09:18 - {EDM}
+01:06:09:19 - {EDM}
+01:06:09:20 - {RCL}
+01:06:09:21 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "Then the hydrogen bomb," {R14:C4} {R14:C4} "where you actually" {R15:C4} {R15:C4} "explode the air itself."
+01:06:11:15 - {EOC}
+01:06:11:16 - {EOC}
+01:06:14:00 - {EDM}
+01:06:14:01 - {EDM}
+01:06:14:02 - {RCL}
+01:06:14:03 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "Now you [audio jump] brings" {R14:C0} {R14:C0} {R2:C16:UL} "the destruction of the entire" {R15:C0} {R15:C0} {R2:C16:UL} "universe, served by our sun."
+01:06:16:10 - {EOC}
+01:06:16:11 - {EOC}
+01:06:20:21 - {EDM}
+01:06:20:22 - {EDM}
+01:06:21:17 - {RCL}
+01:06:21:18 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "The only explosion" {R15:C4} {R15:C4} "left is the solaronite."
+01:06:22:22 - {EOC}
+01:06:22:23 - {EOC}
+01:06:26:18 - {EDM}
+01:06:26:19 - {EDM}
+01:06:26:20 - {RCL}
+01:06:26:21 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "- Why there's no such thing." {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "- Perhaps to you."
+01:06:28:07 - {EOC}
+01:06:28:08 - {EOC}
+01:06:28:09 - {RCL}
+01:06:28:10 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "But we've known it for" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "centuries. Your scientists" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "will stumble upon it as" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "they have all the others."
+01:06:31:10 - {EOC}
+01:06:31:11 - {EOC}
+01:06:35:18 - {EDM}
+01:06:35:19 - {EDM}
+01:06:35:20 - {RCL}
+01:06:35:21 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "But the juvenile minds you" {R14:C0} {R14:C0} "possess will not comprehend its" {R15:C0} {R15:C0} "strength, until it's too late."
+01:06:38:02 - {EOC}
+01:06:38:03 - {EOC}
+01:06:42:00 - {EDM}
+01:06:42:01 - {EDM}
+01:06:43:00 - {RCL}
+01:06:43:01 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "You're way above our heads."
+01:06:44:00 - {EOC}
+01:06:44:01 - {EOC}
+01:06:45:08 - {RCL}
+01:06:45:09 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "The solaronite is a way" {R14:C4} {R14:C4} "to explode the actual" {R15:C4} {R15:C4} "particles of sunlight."
+01:06:47:04 - {EOC}
+01:06:47:05 - {EOC}
+01:06:51:00 - {EDM}
+01:06:51:01 - {EDM}
+01:06:51:02 - {RCL}
+01:06:51:03 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} "Why that's impossible."
+01:06:51:20 - {EOC}
+01:06:51:21 - {EOC}
+01:06:51:23 - {RCL}
+01:06:52:00 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Even now, your scientists" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "are working on a way to" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "harness the sun's rays."
+01:06:54:07 - {EOC}
+01:06:54:08 - {EOC}
+01:06:57:21 - {EDM}
+01:06:57:22 - {EDM}
+01:06:57:23 - {RCL}
+01:06:58:00 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "The rays of sunlight" {R15:C4} {R15:C4} {R2:C16:UL} "are minute particles."
+01:06:59:06 - {EOC}
+01:06:59:07 - {EOC}
+01:06:59:11 - {RCL}
+01:06:59:12 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "Is it so far from your" {R14:C4} {R14:C4} "imagination they cannot" {R15:C4} {R15:C4} "do as I have suggested?"
+01:07:01:08 - {EOC}
+01:07:01:09 - {EOC}
+01:07:03:21 - {RCL}
+01:07:03:22 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "Why a particle of sunlight" {R15:C0} {R15:C0} "can't even be seen or measured."
+01:07:05:10 - {EOC}
+01:07:05:11 - {EOC}
+01:07:07:05 - {RCL}
+01:07:07:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Can you see or measure an atom" {R15:C0} {R15:C0} {R2:C16:UL} "? Yet you can explode one."
+01:07:08:19 - {EOC}
+01:07:08:20 - {EOC}
+01:07:12:09 - {EDM}
+01:07:12:10 - {EDM}
+01:07:12:11 - {RCL}
+01:07:12:12 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "A ray of sunlight is" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "made up many atoms."
+01:07:13:19 - {EOC}
+01:07:13:20 - {EOC}
+01:07:14:09 - {RCL}
+01:07:14:10 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "So what if we do developed this" {R14:C0} {R14:C0} "solaronite bomb ? We'd be even" {R15:C0} {R15:C0} "a stronger nation than now."
+01:07:16:16 - {EOC}
+01:07:16:17 - {EOC}
+01:07:20:06 - {EDM}
+01:07:20:07 - {EDM}
+01:07:20:08 - {RCL}
+01:07:20:09 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Stronger. You see ?" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "You see ? Your stupid" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "minds...stupid ! Stupid !!"
+01:07:22:13 - {EOC}
+01:07:22:14 - {EOC}
+01:07:25:21 - {EDM}
+01:07:25:22 - {EDM}
+01:07:25:23 - {RCL}
+01:07:26:00 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "- That's all I'm taking from" {R15:C0} {R15:C0} "you ! - Get back here you jerk !"
+01:07:27:13 - {EOC}
+01:07:27:14 - {EOC}
+01:07:29:03 - {EDM}
+01:07:29:04 - {EDM}
+01:07:30:05 - {RCL}
+01:07:30:06 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} "Let him finish."
+01:07:30:21 - {EOC}
+01:07:30:22 - {EOC}
+01:07:31:21 - {EDM}
+01:07:31:22 - {EDM}
+01:07:38:09 - {RCL}
+01:07:38:10 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "It's because of men like you" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "that all must be destroyed."
+01:07:40:01 - {EOC}
+01:07:40:02 - {EOC}
+01:07:41:19 - {RCL}
+01:07:41:20 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "Headstrong, violent ! No use" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "of the mind God gave you."
+01:07:43:10 - {EOC}
+01:07:43:11 - {EOC}
+01:07:48:00 - {EDM}
+01:07:48:01 - {EDM}
+01:07:48:04 - {RCL}
+01:07:48:05 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "You talk of God ?"
+01:07:49:00 - {EOC}
+01:07:49:01 - {EOC}
+01:07:50:02 - {RCL}
+01:07:50:03 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "You also think it" {R14:C4} {R14:C4} "impossible that we, too," {R15:C4} {R15:C4} "might think of God ?"
+01:07:51:19 - {EOC}
+01:07:51:20 - {EOC}
+01:07:55:15 - {EDM}
+01:07:55:16 - {EDM}
+01:07:56:18 - {RCL}
+01:07:56:19 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "You, who wear the uniform of" {R14:C0} {R14:C0} {R2:C16:UL} "your country. You see, I wear" {R15:C0} {R15:C0} {R2:C16:UL} "the uniform of my country."
+01:07:59:01 - {EOC}
+01:07:59:02 - {EOC}
+01:08:03:15 - {EDM}
+01:08:03:16 - {EDM}
+01:08:04:22 - {RCL}
+01:08:04:23 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "Yes, we've had to use drastic" {R14:C0} {R14:C0} {R2:C16:UL} "means to get to you, but" {R15:C0} {R15:C0} {R2:C16:UL} "you left us no alternative."
+01:08:07:04 - {EOC}
+01:08:07:05 - {EOC}
+01:08:11:18 - {EDM}
+01:08:11:19 - {EDM}
+01:08:11:20 - {RCL}
+01:08:11:21 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "When you have the solaronite," {R14:C0} {R14:C0} {R2:C16:UL} "you have nothing. Nor," {R15:C0} {R15:C0} {R2:C16:UL} "does the universe."
+01:08:13:20 - {EOC}
+01:08:13:21 - {EOC}
+01:08:18:06 - {EDM}
+01:08:18:07 - {EDM}
+01:08:20:12 - {RCL}
+01:08:20:13 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "You speak of solaronite," {R15:C4} {R15:C4} "but just what is it ?"
+01:08:21:19 - {EOC}
+01:08:21:20 - {EOC}
+01:08:25:15 - {EDM}
+01:08:25:16 - {EDM}
+01:08:25:17 - {RCL}
+01:08:25:18 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "Take a can of your gasoline. Say" {R15:C0} {R15:C0} "this can of gasoline is the sun."
+01:08:27:09 - {EOC}
+01:08:27:10 - {EOC}
+01:08:31:12 - {EDM}
+01:08:31:13 - {EDM}
+01:08:32:01 - {RCL}
+01:08:32:02 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "Now you spread a thin" {R14:C4} {R14:C4} "a line of it to a ball," {R15:C4} {R15:C4} "representing the Earth."
+01:08:33:22 - {EOC}
+01:08:33:23 - {EOC}
+01:08:38:18 - {EDM}
+01:08:38:19 - {EDM}
+01:08:39:08 - {RCL}
+01:08:39:09 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "Now, the gasoline represents" {R15:C0} {R15:C0} "the sunlight, the sun particles."
+01:08:40:22 - {EOC}
+01:08:40:23 - {EOC}
+01:08:44:18 - {EDM}
+01:08:44:19 - {EDM}
+01:08:44:20 - {RCL}
+01:08:44:21 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Here we saturate the ball with" {R15:C0} {R15:C0} {R2:C16:UL} "the gasoline, the sunlight."
+01:08:46:11 - {EOC}
+01:08:46:12 - {EOC}
+01:08:49:21 - {EDM}
+01:08:49:22 - {EDM}
+01:08:49:23 - {RCL}
+01:08:50:00 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "Then we put a flame to the" {R14:C0} {R14:C0} {R2:C16:UL} "ball. The flame will speedily" {R15:C0} {R15:C0} {R2:C16:UL} "travel around the Earth,"
+01:08:52:04 - {EOC}
+01:08:52:05 - {EOC}
+01:08:55:00 - {EDM}
+01:08:55:01 - {EDM}
+01:08:55:02 - {RCL}
+01:08:55:03 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "back along the line" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "of gasoline to can,"
+01:08:56:10 - {EOC}
+01:08:56:11 - {EOC}
+01:08:56:12 - {RCL}
+01:08:56:13 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} "or the sun itself. It will" {R13:C0} {R13:C0} "explode this source, and" {R14:C0} {R14:C0} "spread to every place that" {R15:C0} {R15:C0} "gasoline, or sunlight, touches."
+01:08:59:06 - {EOC}
+01:08:59:07 - {EOC}
+01:09:03:18 - {EDM}
+01:09:03:19 - {EDM}
+01:09:08:03 - {RCL}
+01:09:08:04 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "Explode the sunlight" {R14:C4} {R14:C4} "here, Gentlemen, and you" {R15:C4} {R15:C4} "explode the universe."
+01:09:09:22 - {EOC}
+01:09:09:23 - {EOC}
+01:09:13:18 - {EDM}
+01:09:13:19 - {EDM}
+01:09:13:20 - {RCL}
+01:09:13:21 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "Explode the sunlight here, and" {R14:C0} {R14:C0} {R2:C16:UL} "a chain reaction will occur," {R15:C0} {R15:C0} {R2:C16:UL} "direct to the sun itself."
+01:09:16:03 - {EOC}
+01:09:16:04 - {EOC}
+01:09:20:09 - {EDM}
+01:09:20:10 - {EDM}
+01:09:20:14 - {RCL}
+01:09:20:15 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "And to all the planets" {R15:C4} {R15:C4} {R2:C16:UL} "that sunlight touches."
+01:09:21:22 - {EOC}
+01:09:21:23 - {EOC}
+01:09:24:07 - {RCL}
+01:09:24:08 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "To every planet in the universe." {R15:C0} {R15:C0} "This why you must be stopped."
+01:09:25:22 - {EOC}
+01:09:25:23 - {EOC}
+01:09:30:18 - {EDM}
+01:09:30:19 - {EDM}
+01:09:30:20 - {RCL}
+01:09:30:21 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "This is why any means" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "must be used to stop you."
+01:09:32:10 - {EOC}
+01:09:32:11 - {EOC}
+01:09:36:00 - {EDM}
+01:09:36:01 - {EDM}
+01:09:36:02 - {RCL}
+01:09:36:03 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "In a friendly manner, or" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "as it seems, you want it."
+01:09:37:17 - {EOC}
+01:09:37:18 - {EOC}
+01:09:41:09 - {EDM}
+01:09:41:10 - {EDM}
+01:09:41:11 - {RCL}
+01:09:41:12 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "- He's mad. - Mad ? Is it" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "mad that you destroy other" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "people to save yourselves ?"
+01:09:43:19 - {EOC}
+01:09:43:20 - {EOC}
+01:09:47:12 - {EDM}
+01:09:47:13 - {EDM}
+01:09:47:16 - {RCL}
+01:09:47:17 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "You have done this."
+01:09:48:10 - {EOC}
+01:09:48:11 - {EOC}
+01:09:48:12 - {RCL}
+01:09:48:13 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Is it mad that one country" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "must destroy another" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "to save themselves ?"
+01:09:50:16 - {EOC}
+01:09:50:17 - {EOC}
+01:09:52:13 - {RCL}
+01:09:52:14 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "You have also done this. How" {R15:C0} {R15:C0} {R2:C16:UL} "then is it mad that one planet"
+01:09:54:04 - {EOC}
+01:09:54:05 - {EOC}
+01:09:58:00 - {EDM}
+01:09:58:01 - {EDM}
+01:09:58:02 - {RCL}
+01:09:58:03 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "must destroy another" {R14:C0} {R14:C0} {R2:C16:UL} "that threatens the very" {R15:C0} {R15:C0} {R2:C16:UL} "existence- - That's enough !!"
+01:10:00:04 - {EOC}
+01:10:00:05 - {EOC}
+01:10:02:03 - {EDM}
+01:10:02:04 - {EDM}
+01:10:03:05 - {RCL}
+01:10:03:06 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} "In my land, women" {R14:C4} {R14:C4} {R2:C16:UL} "are for advancing the" {R15:C4} {R15:C4} {R2:C16:UL} "race, not for fighting"
+01:10:05:01 - {EOC}
+01:10:05:02 - {EOC}
+01:10:08:15 - {EDM}
+01:10:08:16 - {EDM}
+01:10:08:17 - {RCL}
+01:10:08:18 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "man's battles. Life is not" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "so expansive on my planet."
+01:10:10:09 - {EOC}
+01:10:10:10 - {EOC}
+01:10:14:00 - {EDM}
+01:10:14:01 - {EDM}
+01:10:14:02 - {RCL}
+01:10:14:03 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "We don't cling to it like you" {R14:C0} {R14:C0} {R2:C16:UL} "do. Our entire aim is for the" {R15:C0} {R15:C0} {R2:C16:UL} "development of our planet."
+01:10:16:10 - {EOC}
+01:10:16:11 - {EOC}
+01:10:19:03 - {EDM}
+01:10:19:04 - {EDM}
+01:10:37:00 - {RCL}
+01:10:37:01 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "- What happened to you ?" {R15:C0} {R15:C0} {R2:C16:UL} "- How come you're all alone ?"
+01:10:38:13 - {EOC}
+01:10:38:14 - {EOC}
+01:10:38:21 - {RCL}
+01:10:38:22 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "I asked for lots of help" {R14:C4} {R14:C4} "! - You sounded drunk or" {R15:C4} {R15:C4} "something on the radio."
+01:10:40:19 - {EOC}
+01:10:40:20 - {EOC}
+01:10:42:13 - {RCL}
+01:10:42:14 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "- If I didn't see it with my" {R14:C0} {R14:C0} "own eyes I would never have" {R15:C0} {R15:C0} "believed it ! - Believed what ?"
+01:10:44:19 - {EOC}
+01:10:44:20 - {EOC}
+01:10:47:09 - {EDM}
+01:10:47:10 - {EDM}
+01:10:47:11 - {RCL}
+01:10:47:12 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "It was horrible ! And he" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "almost broke my shoulder !"
+01:10:49:02 - {EOC}
+01:10:49:03 - {EOC}
+01:10:49:04 - {RCL}
+01:10:49:05 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} "Look, what are you trying to" {R13:C0} {R13:C0} {R2:C16:UL} "say ? If you don't make sense" {R14:C0} {R14:C0} {R2:C16:UL} "we'll never get to the bottom" {R15:C0} {R15:C0} {R2:C16:UL} "of this. Now who slugged you ?"
+01:10:52:07 - {EOC}
+01:10:52:08 - {EOC}
+01:10:56:00 - {EDM}
+01:10:56:01 - {EDM}
+01:10:56:02 - {RCL}
+01:10:56:03 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} "Inspector Clay."
+01:10:56:19 - {EOC}
+01:10:56:20 - {EOC}
+01:10:57:00 - {RCL}
+01:10:57:01 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "- What ? - It was Clay" {R14:C4} {R14:C4} "all right, only not" {R15:C4} {R15:C4} "like we remembered him."
+01:10:58:19 - {EOC}
+01:10:58:20 - {EOC}
+01:11:02:09 - {EDM}
+01:11:02:10 - {EDM}
+01:11:02:17 - {RCL}
+01:11:02:18 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "Well his grave was" {R15:C4} {R15:C4} "busted into, wasn't it ?"
+01:11:03:22 - {EOC}
+01:11:03:23 - {EOC}
+01:11:05:09 - {RCL}
+01:11:05:10 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "Next you'll tell me" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "you saw skeletons."
+01:11:06:16 - {EOC}
+01:11:06:17 - {EOC}
+01:11:07:07 - {RCL}
+01:11:07:08 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "- We did, earlier. - Now I" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "know you're off your rocker."
+01:11:08:22 - {EOC}
+01:11:08:23 - {EOC}
+01:11:12:18 - {EDM}
+01:11:12:19 - {EDM}
+01:11:12:20 - {RCL}
+01:11:12:21 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "All of us saw, the Lieutenant," {R15:C0} {R15:C0} {R2:C16:UL} "the Colonel, everybody!"
+01:11:14:09 - {EOC}
+01:11:14:10 - {EOC}
+01:11:15:00 - {RCL}
+01:11:15:01 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "- Where's the Lieutenant now ?" {R15:C0} {R15:C0} {R2:C16:UL} "- We've gotta find them."
+01:11:16:13 - {EOC}
+01:11:16:14 - {EOC}
+01:11:16:15 - {RCL}
+01:11:16:16 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Mrs. Trent is gone! I was" {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "left here to guard her." {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Then Clay showed up and" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "put me out of the running."
+01:11:19:17 - {EOC}
+01:11:19:18 - {EOC}
+01:11:24:03 - {EDM}
+01:11:24:04 - {EDM}
+01:11:24:05 - {RCL}
+01:11:24:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "And the second time tonight and" {R15:C0} {R15:C0} "I'm getting darned tired of it !"
+01:11:25:21 - {EOC}
+01:11:25:22 - {EOC}
+01:11:26:10 - {RCL}
+01:11:26:11 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "- Which way were they going ?" {R15:C0} {R15:C0} {R2:C16:UL} "- Oh, that way."
+01:11:27:19 - {EOC}
+01:11:27:20 - {EOC}
+01:11:29:11 - {RCL}
+01:11:29:12 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Come on !"
+01:11:30:03 - {EOC}
+01:11:30:04 - {EOC}
+01:11:31:03 - {EDM}
+01:11:31:04 - {EDM}
+01:11:37:01 - {RCL}
+01:11:37:02 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Then one day it could all be" {R15:C0} {R15:C0} {R2:C16:UL} "gone, in one big puff of smoke"
+01:11:38:16 - {EOC}
+01:11:38:17 - {EOC}
+01:11:43:00 - {EDM}
+01:11:43:01 - {EDM}
+01:11:43:02 - {RCL}
+01:11:43:03 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "and ball of fire." {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "All that out there,"
+01:11:44:09 - {EOC}
+01:11:44:10 - {EOC}
+01:11:47:06 - {EDM}
+01:11:47:07 - {EDM}
+01:11:47:10 - {RCL}
+01:11:47:11 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} "the stars, the planets,"
+01:11:48:04 - {EOC}
+01:11:48:05 - {EOC}
+01:11:51:01 - {RCL}
+01:11:51:02 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} "all just an empty void."
+01:11:51:19 - {EOC}
+01:11:51:20 - {EOC}
+01:11:53:15 - {RCL}
+01:11:53:16 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "You two had better" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "come along with us."
+01:11:54:22 - {EOC}
+01:11:54:23 - {EOC}
+01:11:56:05 - {RCL}
+01:11:56:06 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Come with you ? Where ?" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- The police station."
+01:11:57:19 - {EOC}
+01:11:57:20 - {EOC}
+01:12:01:09 - {EDM}
+01:12:01:10 - {EDM}
+01:12:02:21 - {RCL}
+01:12:02:22 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "So it seems you think" {R15:C4} {R15:C4} "you have the upper hand."
+01:12:04:04 - {EOC}
+01:12:04:05 - {EOC}
+01:12:08:00 - {EDM}
+01:12:08:01 - {EDM}
+01:12:08:02 - {RCL}
+01:12:08:03 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} "Look out there."
+01:12:08:16 - {EOC}
+01:12:08:17 - {EOC}
+01:12:09:03 - {EDM}
+01:12:09:04 - {EDM}
+01:12:15:00 - {RCL}
+01:12:15:01 - {RCL} {ENM} {ENM} {R15:C12} {R15:C12} {R2:C16:UL} "Jeff."
+01:12:15:10 - {EOC}
+01:12:15:11 - {EOC}
+01:12:16:06 - {EDM}
+01:12:16:07 - {EDM}
+01:12:25:16 - {RCL}
+01:12:25:17 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "She is unharmed, but he would" {R15:C0} {R15:C0} "kill in seconds if I so choose."
+01:12:27:07 - {EOC}
+01:12:27:08 - {EOC}
+01:12:31:03 - {EDM}
+01:12:31:04 - {EDM}
+01:12:40:11 - {RCL}
+01:12:40:12 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Holy cow!"
+01:12:41:03 - {EOC}
+01:12:41:04 - {EOC}
+01:12:42:03 - {EDM}
+01:12:42:04 - {EDM}
+01:12:49:14 - {RCL}
+01:12:49:15 - {RCL} {ENM} {ENM} {R15:C8} {R15:C8} {R2:C16:UL} {R2:C16:UL} "Look there."
+01:12:50:04 - {EOC}
+01:12:50:05 - {EOC}
+01:12:51:00 - {EDM}
+01:12:51:01 - {EDM}
+01:12:53:17 - {RCL}
+01:12:53:18 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "It's Clay all right, there's" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "no mistaking that. - And" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "he's got Mrs. Trent !"
+01:12:55:22 - {EOC}
+01:12:55:23 - {EOC}
+01:12:59:12 - {EDM}
+01:12:59:13 - {EDM}
+01:12:59:14 - {RCL}
+01:12:59:15 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "- Get your gun ready. -" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "From all I've seen tonight" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "guns won't do any good."
+01:13:01:22 - {EOC}
+01:13:01:23 - {EOC}
+01:13:04:03 - {EDM}
+01:13:04:04 - {EDM}
+01:13:04:05 - {RCL}
+01:13:04:06 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "Clay is dead, and we buried" {R14:C0} {R14:C0} {R2:C16:UL} "him. How are we going to kill" {R15:C0} {R15:C0} {R2:C16:UL} "somebody that's already dead ?"
+01:13:06:14 - {EOC}
+01:13:06:15 - {EOC}
+01:13:08:15 - {EDM}
+01:13:08:16 - {EDM}
+01:13:08:17 - {RCL}
+01:13:08:18 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "Dead ! And yet there he stands" {R14:C0} {R14:C0} {R2:C16:UL} "! That other one earlier I" {R15:C0} {R15:C0} {R2:C16:UL} "emptied a full clip into him."
+01:13:11:01 - {EOC}
+01:13:11:02 - {EOC}
+01:13:14:06 - {EDM}
+01:13:14:07 - {EDM}
+01:13:14:08 - {RCL}
+01:13:14:09 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "I'm seeing it, that's the only" {R15:C0} {R15:C0} {R2:C16:UL} "reason I'm listening to you."
+01:13:15:23 - {EOC}
+01:13:16:00 - {EOC}
+01:13:18:09 - {EDM}
+01:13:18:10 - {EDM}
+01:13:20:02 - {RCL}
+01:13:20:03 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "Look, I've got an idea." {R14:C4} {R14:C4} "Hurt him or not, we've" {R15:C4} {R15:C4} "got to try something."
+01:13:21:22 - {EOC}
+01:13:21:23 - {EOC}
+01:13:25:18 - {EDM}
+01:13:25:19 - {EDM}
+01:13:25:20 - {RCL}
+01:13:25:21 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} "I'm going to sneak up behind" {R14:C0} {R14:C0} "him and whop him over the head." {R15:C0} {R15:C0} "That oughta make him move."
+01:13:28:01 - {EOC}
+01:13:28:02 - {EOC}
+01:13:30:00 - {EDM}
+01:13:30:01 - {EDM}
+01:13:30:02 - {RCL}
+01:13:30:03 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Follow me. Even when Clay" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "was alive he couldn't run" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "fast enough to catch me,"
+01:13:32:11 - {EOC}
+01:13:32:12 - {EOC}
+01:13:34:12 - {EDM}
+01:13:34:13 - {EDM}
+01:13:34:14 - {RCL}
+01:13:34:15 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} "so when he does, you grab Mrs." {R14:C0} {R14:C0} {R2:C16:UL} "Trent and run like lightning" {R15:C0} {R15:C0} {R2:C16:UL} "in the opposite direction."
+01:13:36:21 - {EOC}
+01:13:36:22 - {EOC}
+01:13:38:21 - {EDM}
+01:13:38:22 - {EDM}
+01:13:38:23 - {RCL}
+01:13:39:00 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "- Oh, you think it will work ?" {R15:C0} {R15:C0} {R2:C16:UL} "- Know anything else to try ?"
+01:13:40:15 - {EOC}
+01:13:40:16 - {EOC}
+01:13:42:06 - {EDM}
+01:13:42:07 - {EDM}
+01:13:58:06 - {RCL}
+01:13:58:07 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "Oh, I'll be all right." {R15:C4} {R15:C4} "Take care of the others."
+01:13:59:13 - {EOC}
+01:13:59:14 - {EOC}
+01:14:04:09 - {EDM}
+01:14:04:10 - {EDM}
+01:14:04:11 - {RCL}
+01:14:04:12 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "Your men have" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "felled the big one."
+01:14:05:16 - {EOC}
+01:14:05:17 - {EOC}
+01:14:07:17 - {RCL}
+01:14:07:18 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "This could only happen because" {R15:C0} {R15:C0} {R2:C16:UL} "the electrode ray is off."
+01:14:09:07 - {EOC}
+01:14:09:08 - {EOC}
+01:14:11:15 - {RCL}
+01:14:11:16 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "He'll walk again" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "when I turn it on."
+01:14:12:22 - {EOC}
+01:14:12:23 - {EOC}
+01:14:14:04 - {RCL}
+01:14:14:05 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} "Hold it, right there."
+01:14:14:22 - {EOC}
+01:14:14:23 - {EOC}
+01:14:15:00 - {RCL}
+01:14:15:01 - {RCL} {ENM} {ENM} {R12:C0} {R12:C0} "- Suppose the Lieutenant and" {R13:C0} {R13:C0} "the others are in that thing" {R14:C0} {R14:C0} "! - Well suppose there are" {R15:C0} {R15:C0} "martians or something in there !"
+01:14:17:21 - {EOC}
+01:14:17:22 - {EOC}
+01:14:21:09 - {EDM}
+01:14:21:10 - {EDM}
+01:14:30:01 - {RCL}
+01:14:30:02 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Come on, let's go."
+01:14:30:21 - {EOC}
+01:14:30:22 - {EOC}
+01:14:31:21 - {EDM}
+01:14:31:22 - {EDM}
+01:14:34:03 - {RCL}
+01:14:34:04 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "Open up in there, open up !"
+01:14:35:01 - {EOC}
+01:14:35:02 - {EOC}
+01:14:36:09 - {EDM}
+01:14:36:10 - {EDM}
+01:14:39:21 - {RCL}
+01:14:39:22 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "- Get that door open. -" {R14:C4} {R14:C4} "Colonel I wouldn't know" {R15:C4} {R15:C4} "one switch from another."
+01:14:41:19 - {EOC}
+01:14:41:20 - {EOC}
+01:14:44:06 - {EDM}
+01:14:44:07 - {EDM}
+01:14:59:00 - {RCL}
+01:14:59:01 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Hold on Eros, I'll have the" {R15:C0} {R15:C0} {R2:C16:UL} "ship in the air in a minute !"
+01:15:00:15 - {EOC}
+01:15:00:16 - {EOC}
+01:15:02:12 - {EDM}
+01:15:02:13 - {EDM}
+01:15:23:20 - {RCL}
+01:15:23:21 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "Get out of here, Jeff" {R15:C4} {R15:C4} {R2:C16:UL} "! The ship's on fire !"
+01:15:25:04 - {EOC}
+01:15:25:05 - {EOC}
+01:15:27:09 - {EDM}
+01:15:27:10 - {EDM}
+01:15:47:03 - {RCL}
+01:15:47:04 - {RCL} {ENM} {ENM} {R15:C12} {R15:C12} {R2:C16:UL} "Eros !"
+01:15:47:15 - {EOC}
+01:15:47:16 - {EOC}
+01:15:47:20 - {RCL}
+01:15:47:21 - {RCL} {ENM} {ENM} {R13:C0} {R13:C0} {R2:C16:UL} {R2:C16:UL} "Eros everything's on fire !" {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "Hurry, wake up Eros ! Eros," {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "Eros, wake up, wake up !"
+01:15:50:04 - {EOC}
+01:15:50:05 - {EOC}
+01:15:53:18 - {EDM}
+01:15:53:19 - {EDM}
+01:15:59:16 - {RCL}
+01:15:59:17 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "Eros! Eros wake up," {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "Eros! God wake up!"
+01:16:00:23 - {EOC}
+01:16:01:00 - {EOC}
+01:16:04:21 - {EDM}
+01:16:04:22 - {EDM}
+01:16:21:19 - {RCL}
+01:16:21:20 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Oh, I wonder if that's the" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "last we'll see of them ?"
+01:16:23:10 - {EOC}
+01:16:23:11 - {EOC}
+01:16:25:00 - {RCL}
+01:16:25:01 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "Perhaps, but sooner or" {R15:C4} {R15:C4} "later there'll be other."
+01:16:26:07 - {EOC}
+01:16:26:08 - {EOC}
+01:16:28:18 - {RCL}
+01:16:28:19 - {RCL} {ENM} {ENM} {R15:C12} {R15:C12} {R2:C16:UL} "Look !"
+01:16:29:04 - {EOC}
+01:16:29:05 - {EOC}
+01:16:33:00 - {EDM}
+01:16:33:01 - {EDM}
+01:16:34:00 - {RCL}
+01:16:34:01 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} "Have they caught that" {R15:C4} {R15:C4} "woman, that thing yet ?"
+01:16:35:07 - {EOC}
+01:16:35:08 - {EOC}
+01:16:37:13 - {RCL}
+01:16:37:14 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} {R2:C16:UL} "Hey that's right, there's" {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "another ghoul running loose."
+01:16:39:04 - {EOC}
+01:16:39:05 - {EOC}
+01:16:40:05 - {RCL}
+01:16:40:06 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "And it's my guess that" {R15:C4} {R15:C4} {R2:C16:UL} "she'll look like him."
+01:16:41:13 - {EOC}
+01:16:41:14 - {EOC}
+01:16:42:10 - {RCL}
+01:16:42:11 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "With the ship and the ray gun" {R15:C0} {R15:C0} {R2:C16:UL} "gone, they have no control."
+01:16:44:01 - {EOC}
+01:16:44:02 - {EOC}
+01:16:47:21 - {EDM}
+01:16:47:22 - {EDM}
+01:16:47:23 - {RCL}
+01:16:48:00 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} {R2:C16:UL} {R2:C16:UL} "We got to hand it to" {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} "them though, they're" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "far ahead from us."
+01:16:49:20 - {EOC}
+01:16:49:21 - {EOC}
+01:16:52:18 - {EDM}
+01:16:52:19 - {EDM}
+01:16:56:12 - {RCL}
+01:16:56:13 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Fire ! Eros ! Aaaaaaaaah !"
+01:16:57:10 - {EOC}
+01:16:57:11 - {EOC}
+01:17:01:06 - {EDM}
+01:17:01:07 - {EDM}
+01:17:06:04 - {RCL}
+01:17:06:05 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "My friend, you have" {R14:C4} {R14:C4} "seen this incident based" {R15:C4} {R15:C4} "on sworn testimony."
+01:17:07:22 - {EOC}
+01:17:07:23 - {EOC}
+01:17:11:12 - {EDM}
+01:17:11:13 - {EDM}
+01:17:11:14 - {RCL}
+01:17:11:15 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "Can you prove that" {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} {R2:C16:UL} "it didn't happen ?"
+01:17:12:22 - {EOC}
+01:17:12:23 - {EOC}
+01:17:14:03 - {RCL}
+01:17:14:04 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "Perhaps on your way home, you" {R15:C0} {R15:C0} {R2:C16:UL} "will pass someone in the dark,"
+01:17:15:19 - {EOC}
+01:17:15:20 - {EOC}
+01:17:19:15 - {EDM}
+01:17:19:16 - {EDM}
+01:17:19:17 - {RCL}
+01:17:19:18 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} "and you will never know it, for" {R15:C0} {R15:C0} "they will be from outer space."
+01:17:21:08 - {EOC}
+01:17:21:09 - {EOC}
+01:17:23:21 - {EDM}
+01:17:23:22 - {EDM}
+01:17:24:01 - {RCL}
+01:17:24:02 - {RCL} {ENM} {ENM} {R13:C4} {R13:C4} "Many scientists believe" {R14:C4} {R14:C4} "that another world is" {R15:C4} {R15:C4} "watching us this moment."
+01:17:25:22 - {EOC}
+01:17:25:23 - {EOC}
+01:17:29:12 - {EDM}
+01:17:29:13 - {EDM}
+01:17:29:14 - {RCL}
+01:17:29:15 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "We once laughed at the" {R15:C4} {R15:C4} {R2:C16:UL} "horseless carriage,"
+01:17:30:21 - {EOC}
+01:17:30:22 - {EOC}
+01:17:31:18 - {RCL}
+01:17:31:19 - {RCL} {ENM} {ENM} {R14:C0} {R14:C0} {R2:C16:UL} "the aeroplane, the telephone," {R15:C0} {R15:C0} {R2:C16:UL} "the electric light, vitamins,"
+01:17:33:10 - {EOC}
+01:17:33:11 - {EOC}
+01:17:37:00 - {EDM}
+01:17:37:01 - {EDM}
+01:17:37:06 - {RCL}
+01:17:37:07 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} {R2:C16:UL} "radio, and even television !"
+01:17:38:04 - {EOC}
+01:17:38:05 - {EOC}
+01:17:39:19 - {RCL}
+01:17:39:20 - {RCL} {ENM} {ENM} {R14:C4} {R14:C4} {R2:C16:UL} "And now some of us" {R15:C4} {R15:C4} {R2:C16:UL} "laugh at outer space."
+01:17:41:01 - {EOC}
+01:17:41:02 - {EOC}
+01:17:44:21 - {EDM}
+01:17:44:22 - {EDM}
+01:17:48:00 - {RCL}
+01:17:48:01 - {RCL} {ENM} {ENM} {R15:C0} {R15:C0} {R2:C16:UL} "God help us... in the future."
+01:17:48:22 - {EOC}
+01:17:48:23 - {EOC}
+01:17:52:18 - {EDM}
+01:17:52:19 - {EDM}
+01:18:21:04 - {RCL}
+01:18:21:05 - {RCL} {ENM} {ENM} {R15:C4} {R15:C4} {R2:C16:UL} {R2:C16:UL} "Subtitles by FredFal"
+01:18:21:22 - {EOC}
+01:18:21:23 - {EOC}
+01:18:26:18 - {EDM}
+01:18:26:19 - {EDM}

@@ -1,0 +1,41 @@
+Decoded DTVCC / CEA-708 for Asset: ./tmp/BigBuckBunny_256x144-24fps-S2.708 - Service: 2 {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "-2020." {SPL:R1-C0} "-ESO ES UN" {SPL:R2-C0} "ESTIRAMIENTO."
+00:00:01,251 - {HDW:11111111}
+00:00:01,418 - {TGW:00000001}
+00:00:01,626 - {DLW:00000010} {DF1:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H85:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Small,Offset:Subscript]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "-Bien." {SPL:R1-C1} "2024."
+00:00:03,586 - {HDW:11111111}
+00:00:03,795 - {TGW:00000010}
+00:00:04,004 - {DLW:00000001} {DF0:PopUp-Cntrd:R2-C41:Anchor-UL-V60-H60:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C6} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "YO" {SPL:R1-C6} "GANO," {SPL:R2-C0} "NOS MUDAMOS ALLÍ."
+00:00:06,089 - {HDW:11111111}
+00:00:06,256 - {TGW:00000001}
+00:00:06,464 - {DLW:00000010} {DF1:PopUp-Cntrd:R2-C41:Anchor-UL-V60-H45:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Small,Offset:Subscript]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "ME QUEDO CON EL ALA" {SPL:R1-C0} "OESTE." {SPL:R2-C0} "SE TOMA EL ALA ESTE."
+00:00:08,717 - {HDW:11111111}
+00:00:08,925 - {TGW:00000010}
+00:00:09,092 - {DLW:00000001} {DF0:PopUp-Cntrd:R0-C41:Anchor-UL-V70-H0:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "PUEDE SER EL PRIMER CABALLERO."
+00:00:11,219 - {HDW:11111111}
+00:00:11,428 - {TGW:00000001}
+00:00:11,594 - {DLW:00000010} {DF1:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H45:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "-EN REALIDAD, ESO" {SPL:R1-C5} "SUENA GENIAL."
+00:00:13,346 - {HDW:11111111}
+00:00:13,555 - {TGW:00000010}
+00:00:13,763 - {DLW:00000001} {DF0:PopUp-Cntrd:R2-C41:Anchor-UL-V60-H40:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "GRACIAS POR VENIR ONMIGO" {SPL:R1-C5} "A BUSCAR MIS" {SPL:R2-C5} "COSAS."
+00:00:15,432 - {HDW:11111111}
+00:00:15,598 - {TGW:00000001}
+00:00:15,807 - {DLW:00000010} {DF1:PopUp-Cntrd:R2-C41:Anchor-UL-V60-H50:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Small,Offset:Subscript]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "-¿CÓMO PODRÍA" {SPL:R1-C0} "RECHAZAR UNA" {SPL:R2-C4} "OPORTUNIDAD DE"
+00:00:17,559 - {HDW:11111111}
+00:00:17,767 - {TGW:00000010}
+00:00:17,934 - {DLW:00000001} {DF0:PopUp-Cntrd:R0-C41:Anchor-UL-V70-H35:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "VER NUESTRA FUTURA CASA?"
+00:00:19,185 - {HDW:11111111}
+00:00:19,394 - {TGW:00000001}
+00:00:19,602 - {DLW:00000010} {DF1:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H50:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "-OH, ACABO DE" {SPL:R1-C0} "RECORDAR."
+00:00:20,311 - {HDW:11111111}
+00:00:20,520 - {TGW:00000010}
+00:00:20,729 - {DLW:00000001} {DF0:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H50:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C2} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "TENGO UN REGALO" {SPL:R1-C0} "DE COMPROMISO."
+00:00:22,230 - {HDW:11111111}
+00:00:22,439 - {TGW:00000001}
+00:00:22,605 - {DLW:00000010} {DF1:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H45:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "-¿ES UNA TORRE DE" {SPL:R1-C0} "GOFRES?"
+00:00:24,691 - {HDW:11111111}
+00:00:24,899 - {TGW:00000010}
+00:00:25,108 - {DLW:00000001} {DF0:PopUp-Cntrd:R1-C41:Anchor-UL-V60-H30:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "-QUIERO DECIR, ES N POCO" {SPL:R1-C0} "MEJOR"
+00:00:26,067 - {DLW:00000100} {DF2:PopUp-Cntrd:R0-C41:Anchor-UL-V70-H80:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "QUE ESO."
+00:00:26,443 - {HDW:11111111}
+00:00:26,651 - {TGW:00000101}
+00:00:26,860 - {DLW:00000010} {DF1:PopUp-Cntrd:R0-C41:Anchor-UL-V70-H55:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "[parloteo de fondo]

@@ -1,0 +1,42 @@
+Decoded DTVCC / CEA-708 for Asset: ./tmp/BigBuckBunny_256x144-24fps-S4.708 - Service: 4
+00:00:00,041 - {DLW:00000001} {DF0:PopUp-Cntrd:R2-C41:Anchor-UL-V60-H55:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C5} {NUL} {NUL} {NUL} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "-2020." {SPL:R1-C0} "-DAS IST EINE" {SPL:R2-C0} "STRECKE."
+00:00:01,292 - {HDW:11111111}
+00:00:01,501 - {TGW:00000001}
+00:00:01,710 - {DLW:00000010} {DF1:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H85:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "-Fein." {SPL:R1-C1} "2024."
+00:00:03,670 - {HDW:11111111}
+00:00:03,878 - {TGW:00000010}
+00:00:04,087 - {DLW:00000001} {DF0:PopUp-Cntrd:R2-C41:Anchor-UL-V60-H60:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C6} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "ICH" {SPL:R1-C0} "GEWINNE, WIR" {SPL:R2-C0} "BEWEGEN."
+00:00:06,131 - {HDW:11111111}
+00:00:06,339 - {TGW:00000001}
+00:00:06,548 - {DLW:00000010} {DF1:PopUp-Cntrd:R3-C41:Anchor-UL-V55-H45:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "ICH NEHME DEN" {SPL:R1-C0} "WESTFLÜGEL." {SPL:R2-C0} "SIE NEHMEN DEN" {SPL:R3-C0} "OSTFLÜGEL."
+00:00:08,758 - {HDW:11111111}
+00:00:08,967 - {TGW:00000010}
+00:00:09,175 - {DLW:00000001} {DF0:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H0:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "SIE KÖNNEN DER ERSTE GENTLEMAN" {SPL:R1-C0} "SEIN."
+00:00:11,261 - {HDW:11111111}
+00:00:11,469 - {TGW:00000001}
+00:00:11,678 - {DLW:00000010} {DF1:PopUp-Cntrd:R3-C41:Anchor-UL-V55-H45:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "-TATSÄCHLICH, DAS" {SPL:R1-C0} "KLINGT" {SPL:R2-C5} "IRGENDWIE" {SPL:R3-C5} "TOLL."
+00:00:13,430 - {HDW:11111111}
+00:00:13,596 - {TGW:00000010}
+00:00:13,805 - {DLW:00000001} {DF0:PopUp-Cntrd:R3-C41:Anchor-UL-V50-H40:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Small,Offset:Subscript]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "VIELEN DANK FÜR IHR" {SPL:R1-C0} "KOMMEN MIT" {SPL:R2-C5} "MIR MEINE" {SPL:R3-C5} "SACHEN ZU"
+00:00:15,473 - {HDW:11111111}
+00:00:15,682 - {TGW:00000001}
+00:00:15,890 - {DLW:00000010} {DF1:PopUp-Cntrd:R3-C41:Anchor-UL-V55-H50:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "-WIE KÖNNTE ICH" {SPL:R1-C0} "ENTGEHEN LASSEN" {SPL:R2-C4} "EINE" {SPL:R3-C4} "GELEGENHEIT,"
+00:00:17,600 - {HDW:11111111}
+00:00:17,809 - {TGW:00000010}
+00:00:18,018 - {DLW:00000001} {DF0:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H35:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "EINEN BLICK AUF UNSERE" {SPL:R1-C0} "ZUKUNFT?"
+00:00:19,269 - {HDW:11111111}
+00:00:19,436 - {TGW:00000001}
+00:00:19,644 - {DLW:00000010} {DF1:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H50:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Small,Offset:Subscript]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "-OH, NUR DARAN" {SPL:R1-C0} "ERINNERT."
+00:00:20,395 - {HDW:11111111}
+00:00:20,603 - {TGW:00000010}
+00:00:20,770 - {DLW:00000001} {DF0:PopUp-Cntrd:R2-C41:Anchor-UL-V60-H50:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C2} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "ICH HABE IHNEN" {SPL:R1-C0} "EIN" {SPL:R2-C0} "VERLOBUNGSGESCHENK."
+00:00:22,272 - {HDW:11111111}
+00:00:22,480 - {TGW:00000001}
+00:00:22,689 - {DLW:00000010} {DF1:PopUp-Cntrd:R1-C41:Anchor-UL-V65-H45:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "-IST ES EIN" {SPL:R1-C0} "WAFFEL-TURM?"
+00:00:24,774 - {HDW:11111111}
+00:00:24,941 - {TGW:00000010}
+00:00:25,150 - {DLW:00000001} {DF0:PopUp-Cntrd:R1-C41:Anchor-UL-V60-H30:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Small,Offset:Subscript]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "-ICH MEINE, ES IST EIN WENIG" {SPL:R1-C0} "BESSER"
+00:00:26,109 - {DLW:00000100} {DF2:PopUp-Cntrd:R0-C41:Anchor-UL-V70-H80:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "ALS DAS."
+00:00:26,526 - {HDW:11111111}
+00:00:26,735 - {TGW:00000101}
+00:00:26,943 - {DLW:00000010} {DF1:PopUp-Cntrd:R0-C41:Anchor-UL-V70-H55:Pen-MonoSerif:Pr-0} {SWA:Fill-Transparent-R1G1B1:Brdr-None-R1G1B1:PD-LtoR:SD-LtoR:JD-LtoR:Snap-1.0sec-LtoR} {SPL:R0-C0} {SPA:Pen-[Size:Standard,Offset:Normal]:TextTag-Dialog:FontTag-Default:EdgeType-None} {SPC:FG-Solid-R2G2B2:BG-Solid-R0G0B0:Edg-R1G1B1} "[Hintergrund]

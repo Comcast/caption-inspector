@@ -1,0 +1,607 @@
+Media Info for File: ../media/BigBuckBunny_256x144-24fps.ts
+
+MediaInfo Command line, 
+MediaInfoLib - v18.12
+==========================
+General
+Count                                    : 333
+Count of stream of this kind             : 1
+Kind of stream                           : General
+Kind of stream                           : General
+Stream identifier                        : 0
+ID                                       : 1
+ID                                       : 1 (0x1)
+Count of video streams                   : 1
+Count of audio streams                   : 1
+Count of text streams                    : 8
+Count of menu streams                    : 1
+Video_Format_List                        : AVC
+Video_Format_WithHint_List               : AVC
+Codecs Video                             : AVC
+Audio_Format_List                        : AAC LC SBR
+Audio_Format_WithHint_List               : AAC LC SBR
+Audio codecs                             : AAC LC SBR
+Audio_Language_List                      : English
+Text_Format_List                         : EIA-608 / EIA-608 / EIA-708 / EIA-708 / EIA-708 / EIA-708 / EIA-708 / EIA-708
+Text_Format_WithHint_List                : EIA-608 / EIA-608 / EIA-708 / EIA-708 / EIA-708 / EIA-708 / EIA-708 / EIA-708
+Text codecs                              : EIA-608 / EIA-608 / EIA-708 / EIA-708 / EIA-708 / EIA-708 / EIA-708 / EIA-708
+Menu_Format_List                         : AVC / AAC
+Menu_Format_WithHint_List                : AVC / AAC
+Menu codecs                              : AVC / AAC
+Menu_Language_List                       :  / English
+Complete name                            : ../media/BigBuckBunny_256x144-24fps.ts
+Folder name                              : ../media
+File name                                : BigBuckBunny_256x144-24fps.ts
+File name                                : BigBuckBunny_256x144-24fps
+File extension                           : ts
+Format                                   : MPEG-TS
+Format                                   : MPEG-TS
+Format/Extensions usually used           : ts m2t m2s m4t m4s tmf ts tp trp ty
+Commercial name                          : MPEG-TS
+Internet media type                      : video/MP2T
+File size                                : 1542164
+File size                                : 1.47 MiB
+File size                                : 1 MiB
+File size                                : 1.5 MiB
+File size                                : 1.47 MiB
+File size                                : 1.471 MiB
+Duration                                 : 30536.164062
+Duration                                 : 30 s 536 ms
+Duration                                 : 30 s 536 ms
+Duration                                 : 30 s 536 ms
+Duration                                 : 00:00:30.536
+Duration                                 : 00:00:28;18
+Duration                                 : 00:00:30.536 (00:00:28;18)
+Overall bit rate mode                    : VBR
+Overall bit rate mode                    : Variable
+Overall bit rate                         : 403875
+Overall bit rate                         : 404 kb/s
+Frame rate                               : 23.976
+Frame rate                               : 23.976 FPS
+Frame count                              : 690
+File last modification date              : UTC 2019-05-08 20:51:11
+File last modification date (local)      : 2019-05-08 14:51:11
+OverallBitRate_Precision_Min             : 403868
+OverallBitRate_Precision_Max             : 403882
+
+Video
+Count                                    : 376
+Count of stream of this kind             : 1
+Kind of stream                           : Video
+Kind of stream                           : Video
+Stream identifier                        : 0
+StreamOrder                              : 0-0
+ID                                       : 481
+ID                                       : 481 (0x1E1)
+Menu ID                                  : 1
+Menu ID                                  : 1 (0x1)
+Format                                   : AVC
+Format                                   : AVC
+Format/Info                              : Advanced Video Codec
+Format/Url                               : http://developers.videolan.org/x264.html
+Commercial name                          : AVC
+Format profile                           : Main@L3.1
+Format settings                          : CABAC / 3 Ref Frames
+Format settings, CABAC                   : Yes
+Format settings, CABAC                   : Yes
+Format settings, ReFrames                : 3
+Format settings, ReFrames                : 3 frames
+Internet media type                      : video/H264
+Codec ID                                 : 27
+Duration                                 : 28779
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 00:00:28.779
+Duration                                 : 00:00:28;18
+Duration                                 : 00:00:28.779 (00:00:28;18)
+Bit rate mode                            : VBR
+Bit rate mode                            : Variable
+Maximum bit rate                         : 299968
+Maximum bit rate                         : 300 kb/s
+Width                                    : 256
+Width                                    : 256 pixels
+Height                                   : 192
+Height                                   : 192 pixels
+Sampled_Width                            : 256
+Sampled_Height                           : 192
+Pixel aspect ratio                       : 1.000
+Display aspect ratio                     : 1.333
+Display aspect ratio                     : 4:3
+Frame rate                               : 23.976
+Frame rate                               : 23.976 (24000/1001) FPS
+FrameRate_Num                            : 24000
+FrameRate_Den                            : 1001
+Frame count                              : 690
+Color space                              : YUV
+Chroma subsampling                       : 4:2:0
+Chroma subsampling                       : 4:2:0
+Bit depth                                : 8
+Bit depth                                : 8 bits
+Scan type                                : Progressive
+Scan type                                : Progressive
+Delay                                    : 31000.000
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 00:00:31.000
+Delay, origin                            : Container
+Delay, origin                            : Container
+Buffer size                              : 599936
+colour_description_present               : Yes
+colour_description_present_Source        : Stream
+Color range                              : Limited
+colour_range_Source                      : Stream
+Color primaries                          : BT.709
+colour_primaries_Source                  : Stream
+Transfer characteristics                 : BT.709
+transfer_characteristics_Source          : Stream
+Matrix coefficients                      : BT.709
+matrix_coefficients_Source               : Stream
+EBP_Distance                             : 2.002
+EBP_Mode                                 : Explicit
+
+Audio
+Count                                    : 279
+Count of stream of this kind             : 1
+Kind of stream                           : Audio
+Kind of stream                           : Audio
+Stream identifier                        : 0
+StreamOrder                              : 0-1
+ID                                       : 494
+ID                                       : 494 (0x1EE)
+Menu ID                                  : 1
+Menu ID                                  : 1 (0x1)
+Format                                   : AAC
+Format                                   : AAC LC SBR
+Format/Info                              : Advanced Audio Codec Low Complexity with Spectral Band Replication
+Commercial name                          : HE-AAC
+Commercial name                          : HE-AAC
+Format version                           : Version 4
+Format settings                          : Implicit
+Format settings, SBR                     : Yes (Implicit)
+Format settings, SBR                     : Yes (Implicit)
+Format_AdditionalFeatures                : LC SBR
+Muxing mode                              : ADTS
+Codec ID                                 : 15-2
+Duration                                 : 28714
+Duration                                 : 28 s 714 ms
+Duration                                 : 28 s 714 ms
+Duration                                 : 28 s 714 ms
+Duration                                 : 00:00:28.714
+Duration                                 : 00:00:28.714
+Bit rate mode                            : VBR
+Bit rate mode                            : Variable
+Maximum bit rate                         : 84400
+Maximum bit rate                         : 84.4 kb/s
+Channel(s)                               : 2
+Channel(s)                               : 2 channels
+Channel positions                        : Front: L R
+Channel positions                        : 2/0/0
+Channel layout                           : L R
+Samples per frame                        : 2048
+Sampling rate                            : 48000
+Sampling rate                            : 48.0 kHz
+Samples count                            : 1378272
+Frame rate                               : 23.438
+Frame rate                               : 23.438 FPS (2048 SPF)
+Compression mode                         : Lossy
+Compression mode                         : Lossy
+Delay                                    : 31000.000
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 00:00:31.000
+Delay, origin                            : Container
+Delay, origin                            : Container
+Delay relative to video                  : 0
+Delay relative to video                  : 00:00:00.000
+Language                                 : en
+Language                                 : English
+Language                                 : English
+Language                                 : en
+Language                                 : eng
+Language                                 : en
+EBP_Distance                             : 2.002
+EBP_Mode                                 : Explicit
+
+Text #1
+Count                                    : 240
+Count of stream of this kind             : 8
+Kind of stream                           : Text
+Kind of stream                           : Text
+Stream identifier                        : 0
+Stream identifier                        : 1
+StreamOrder                              : 0-0
+ID                                       : 481-CC1
+ID                                       : 481 (0x1E1)-CC1
+Menu ID                                  : 1
+Menu ID                                  : 1 (0x1)
+Format                                   : EIA-608
+Format                                   : EIA-608
+Commercial name                          : EIA-608
+Muxing mode                              : SCTE 128 / DTVCC Transport
+Muxing mode, more info                   : Muxed in Video #1
+Duration                                 : 28779
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 00:00:28.779
+Duration                                 : 00:00:28.779
+Bit rate mode                            : CBR
+Bit rate mode                            : Constant
+Delay                                    : 31000.000
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 00:00:31.000
+Delay, origin                            : Container
+Delay, origin                            : Container
+Delay relative to video                  : 0
+Delay relative to video                  : 00:00:00.000
+Stream size                              : 0
+Stream size                              : 0.00 Byte (0)
+Stream size                              :  Byte0
+Stream size                              : 0.0 Byte
+Stream size                              : 0.00 Byte
+Stream size                              : 0.000 Byte
+Stream size                              : 0.00 Byte (0)
+Proportion of this stream                : 0.00000
+CaptionServiceName                       : CC1
+CaptionServiceDescriptor_IsPresent       : No
+
+Text #2
+Count                                    : 240
+Count of stream of this kind             : 8
+Kind of stream                           : Text
+Kind of stream                           : Text
+Stream identifier                        : 1
+Stream identifier                        : 2
+StreamOrder                              : 0-0
+ID                                       : 481-CC3
+ID                                       : 481 (0x1E1)-CC3
+Menu ID                                  : 1
+Menu ID                                  : 1 (0x1)
+Format                                   : EIA-608
+Format                                   : EIA-608
+Commercial name                          : EIA-608
+Muxing mode                              : SCTE 128 / DTVCC Transport
+Muxing mode, more info                   : Muxed in Video #1
+Duration                                 : 28779
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 00:00:28.779
+Duration                                 : 00:00:28.779
+Bit rate mode                            : CBR
+Bit rate mode                            : Constant
+Delay                                    : 31000.000
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 00:00:31.000
+Delay, origin                            : Container
+Delay, origin                            : Container
+Delay relative to video                  : 0
+Delay relative to video                  : 00:00:00.000
+Stream size                              : 0
+Stream size                              : 0.00 Byte (0)
+Stream size                              :  Byte0
+Stream size                              : 0.0 Byte
+Stream size                              : 0.00 Byte
+Stream size                              : 0.000 Byte
+Stream size                              : 0.00 Byte (0)
+Proportion of this stream                : 0.00000
+CaptionServiceName                       : CC3
+CaptionServiceDescriptor_IsPresent       : No
+
+Text #3
+Count                                    : 240
+Count of stream of this kind             : 8
+Kind of stream                           : Text
+Kind of stream                           : Text
+Stream identifier                        : 2
+Stream identifier                        : 3
+StreamOrder                              : 0-0
+ID                                       : 481-1
+ID                                       : 481 (0x1E1)-1
+Menu ID                                  : 1
+Menu ID                                  : 1 (0x1)
+Format                                   : EIA-708
+Format                                   : EIA-708
+Commercial name                          : EIA-708
+Muxing mode                              : SCTE 128 / DTVCC Transport
+Muxing mode, more info                   : Muxed in Video #1
+Duration                                 : 28779
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 00:00:28.779
+Duration                                 : 00:00:28.779
+Bit rate mode                            : CBR
+Bit rate mode                            : Constant
+Delay                                    : 31000.000
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 00:00:31.000
+Delay, origin                            : Container
+Delay, origin                            : Container
+Delay relative to video                  : 0
+Delay relative to video                  : 00:00:00.000
+Stream size                              : 0
+Stream size                              : 0.00 Byte (0)
+Stream size                              :  Byte0
+Stream size                              : 0.0 Byte
+Stream size                              : 0.00 Byte
+Stream size                              : 0.000 Byte
+Stream size                              : 0.00 Byte (0)
+Proportion of this stream                : 0.00000
+CaptionServiceName                       : 1
+CaptionServiceDescriptor_IsPresent       : No
+
+Text #4
+Count                                    : 240
+Count of stream of this kind             : 8
+Kind of stream                           : Text
+Kind of stream                           : Text
+Stream identifier                        : 3
+Stream identifier                        : 4
+StreamOrder                              : 0-0
+ID                                       : 481-2
+ID                                       : 481 (0x1E1)-2
+Menu ID                                  : 1
+Menu ID                                  : 1 (0x1)
+Format                                   : EIA-708
+Format                                   : EIA-708
+Commercial name                          : EIA-708
+Muxing mode                              : SCTE 128 / DTVCC Transport
+Muxing mode, more info                   : Muxed in Video #1
+Duration                                 : 28779
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 00:00:28.779
+Duration                                 : 00:00:28.779
+Bit rate mode                            : CBR
+Bit rate mode                            : Constant
+Delay                                    : 31000.000
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 00:00:31.000
+Delay, origin                            : Container
+Delay, origin                            : Container
+Delay relative to video                  : 0
+Delay relative to video                  : 00:00:00.000
+Stream size                              : 0
+Stream size                              : 0.00 Byte (0)
+Stream size                              :  Byte0
+Stream size                              : 0.0 Byte
+Stream size                              : 0.00 Byte
+Stream size                              : 0.000 Byte
+Stream size                              : 0.00 Byte (0)
+Proportion of this stream                : 0.00000
+CaptionServiceName                       : 2
+CaptionServiceDescriptor_IsPresent       : No
+
+Text #5
+Count                                    : 240
+Count of stream of this kind             : 8
+Kind of stream                           : Text
+Kind of stream                           : Text
+Stream identifier                        : 4
+Stream identifier                        : 5
+StreamOrder                              : 0-0
+ID                                       : 481-3
+ID                                       : 481 (0x1E1)-3
+Menu ID                                  : 1
+Menu ID                                  : 1 (0x1)
+Format                                   : EIA-708
+Format                                   : EIA-708
+Commercial name                          : EIA-708
+Muxing mode                              : SCTE 128 / DTVCC Transport
+Muxing mode, more info                   : Muxed in Video #1
+Duration                                 : 28779
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 00:00:28.779
+Duration                                 : 00:00:28.779
+Bit rate mode                            : CBR
+Bit rate mode                            : Constant
+Delay                                    : 31000.000
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 00:00:31.000
+Delay, origin                            : Container
+Delay, origin                            : Container
+Delay relative to video                  : 0
+Delay relative to video                  : 00:00:00.000
+Stream size                              : 0
+Stream size                              : 0.00 Byte (0)
+Stream size                              :  Byte0
+Stream size                              : 0.0 Byte
+Stream size                              : 0.00 Byte
+Stream size                              : 0.000 Byte
+Stream size                              : 0.00 Byte (0)
+Proportion of this stream                : 0.00000
+CaptionServiceName                       : 3
+CaptionServiceDescriptor_IsPresent       : No
+
+Text #6
+Count                                    : 240
+Count of stream of this kind             : 8
+Kind of stream                           : Text
+Kind of stream                           : Text
+Stream identifier                        : 5
+Stream identifier                        : 6
+StreamOrder                              : 0-0
+ID                                       : 481-4
+ID                                       : 481 (0x1E1)-4
+Menu ID                                  : 1
+Menu ID                                  : 1 (0x1)
+Format                                   : EIA-708
+Format                                   : EIA-708
+Commercial name                          : EIA-708
+Muxing mode                              : SCTE 128 / DTVCC Transport
+Muxing mode, more info                   : Muxed in Video #1
+Duration                                 : 28779
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 00:00:28.779
+Duration                                 : 00:00:28.779
+Bit rate mode                            : CBR
+Bit rate mode                            : Constant
+Delay                                    : 31000.000
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 00:00:31.000
+Delay, origin                            : Container
+Delay, origin                            : Container
+Delay relative to video                  : 0
+Delay relative to video                  : 00:00:00.000
+Stream size                              : 0
+Stream size                              : 0.00 Byte (0)
+Stream size                              :  Byte0
+Stream size                              : 0.0 Byte
+Stream size                              : 0.00 Byte
+Stream size                              : 0.000 Byte
+Stream size                              : 0.00 Byte (0)
+Proportion of this stream                : 0.00000
+CaptionServiceName                       : 4
+CaptionServiceDescriptor_IsPresent       : No
+
+Text #7
+Count                                    : 240
+Count of stream of this kind             : 8
+Kind of stream                           : Text
+Kind of stream                           : Text
+Stream identifier                        : 6
+Stream identifier                        : 7
+StreamOrder                              : 0-0
+ID                                       : 481-5
+ID                                       : 481 (0x1E1)-5
+Menu ID                                  : 1
+Menu ID                                  : 1 (0x1)
+Format                                   : EIA-708
+Format                                   : EIA-708
+Commercial name                          : EIA-708
+Muxing mode                              : SCTE 128 / DTVCC Transport
+Muxing mode, more info                   : Muxed in Video #1
+Duration                                 : 28779
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 00:00:28.779
+Duration                                 : 00:00:28.779
+Bit rate mode                            : CBR
+Bit rate mode                            : Constant
+Delay                                    : 31000.000
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 00:00:31.000
+Delay, origin                            : Container
+Delay, origin                            : Container
+Delay relative to video                  : 0
+Delay relative to video                  : 00:00:00.000
+Stream size                              : 0
+Stream size                              : 0.00 Byte (0)
+Stream size                              :  Byte0
+Stream size                              : 0.0 Byte
+Stream size                              : 0.00 Byte
+Stream size                              : 0.000 Byte
+Stream size                              : 0.00 Byte (0)
+Proportion of this stream                : 0.00000
+CaptionServiceName                       : 5
+CaptionServiceDescriptor_IsPresent       : No
+
+Text #8
+Count                                    : 240
+Count of stream of this kind             : 8
+Kind of stream                           : Text
+Kind of stream                           : Text
+Stream identifier                        : 7
+Stream identifier                        : 8
+StreamOrder                              : 0-0
+ID                                       : 481-6
+ID                                       : 481 (0x1E1)-6
+Menu ID                                  : 1
+Menu ID                                  : 1 (0x1)
+Format                                   : EIA-708
+Format                                   : EIA-708
+Commercial name                          : EIA-708
+Muxing mode                              : SCTE 128 / DTVCC Transport
+Muxing mode, more info                   : Muxed in Video #1
+Duration                                 : 28779
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 28 s 779 ms
+Duration                                 : 00:00:28.779
+Duration                                 : 00:00:28.779
+Bit rate mode                            : CBR
+Bit rate mode                            : Constant
+Delay                                    : 31000.000
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 31 s 0 ms
+Delay                                    : 00:00:31.000
+Delay, origin                            : Container
+Delay, origin                            : Container
+Delay relative to video                  : 0
+Delay relative to video                  : 00:00:00.000
+Stream size                              : 0
+Stream size                              : 0.00 Byte (0)
+Stream size                              :  Byte0
+Stream size                              : 0.0 Byte
+Stream size                              : 0.00 Byte
+Stream size                              : 0.000 Byte
+Stream size                              : 0.00 Byte (0)
+Proportion of this stream                : 0.00000
+CaptionServiceName                       : 6
+CaptionServiceDescriptor_IsPresent       : No
+
+Menu
+Count                                    : 97
+Count of stream of this kind             : 1
+Kind of stream                           : Menu
+Kind of stream                           : Menu
+Stream identifier                        : 0
+StreamOrder                              : 0
+ID                                       : 480
+ID                                       : 480 (0x1E0)
+Menu ID                                  : 1
+Menu ID                                  : 1 (0x1)
+Format                                   : AVC / AAC
+Format                                   : AVC / AAC
+Commercial name                          : AVC / AAC
+Duration                                 : 30536.164062
+Duration                                 : 30 s 536 ms
+Duration                                 : 30 s 536 ms
+Duration                                 : 30 s 536 ms
+Duration                                 : 00:00:30.536
+Duration                                 : 00:00:30.536
+Delay                                    : 28921.955519
+Delay                                    : 28 s 922 ms
+Delay                                    : 28 s 922 ms
+Delay                                    : 28 s 922 ms
+Delay                                    : 00:00:28.922
+List_StreamKind                          : 1 / 2
+List_StreamPos                           : 0 / 0
+List                                     : 481 / 494
+List                                     : 481 (0x1E1) (AVC) / 494 (0x1EE) (AAC, English)
+Language                                 :  / en
+Language                                 :  / English
+Language                                 :  / English
+Language                                 :  / en
+Language                                 :  / eng
+Language                                 :  / en
+Maximum bit rate                         : 476400
+pointer_field                            : 0
+section_length                           : 87
+
+
