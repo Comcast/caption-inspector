@@ -418,7 +418,7 @@ boolean ExtrnlAdptrPlumbFileDecodePipeline( char* inputFilename, uint32 framerat
  -------------------------------------------------------------------------------*/
 boolean ExtrnlAdptrPlumbSccPipeline( char* inputFilename, char* outputFilename, uint32 framerate ) {
     memset(&rootContext, 0, sizeof(Context));
-    pipelineEstablished = PlumbSccPipeline( &rootContext, inputFilename, outputFilename, framerate );
+    pipelineEstablished = PlumbSccPipeline( &rootContext, inputFilename, outputFilename, framerate, TRUE );
     fileType = SCC_CAPTIONS_FILE;
     return pipelineEstablished;
 } // ExtrnlAdptrPlumbSccPipeline()
@@ -440,7 +440,7 @@ boolean ExtrnlAdptrPlumbSccPipeline( char* inputFilename, char* outputFilename, 
  -------------------------------------------------------------------------------*/
 boolean ExtrnlAdptrPlumbMccPipeline( char* inputFilename, char* outputFilename ) {
     memset(&rootContext, 0, sizeof(Context));
-    pipelineEstablished = PlumbMccPipeline( &rootContext, inputFilename, outputFilename );
+    pipelineEstablished = PlumbMccPipeline( &rootContext, inputFilename, outputFilename, TRUE );
     fileType = MCC_CAPTIONS_FILE;
     return pipelineEstablished;
 } // ExtrnlAdptrPlumbMccPipeline()

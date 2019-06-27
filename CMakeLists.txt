@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(cttp C)
+project(caption-inspector C)
 
 set(CMAKE_C_STANDARD 11)
 
@@ -10,7 +10,7 @@ include_directories(src)
 include_directories(/Applications/Xcode.app/Contents/Developer//Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include)
 include_directories(/usr/local/include)
 
-add_executable(cttp
+add_executable(caption-inspector
         include/autodetect_file.h
         include/buffer_utils.h
         include/captions_file.h

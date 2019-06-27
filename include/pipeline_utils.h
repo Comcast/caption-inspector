@@ -91,8 +91,8 @@ void InitSinks(Sinks*, uint8);
 boolean AddSink(Sinks*, LinkInfo*);
 boolean _PassToSinks(char*, int, Context*, Buffer*, Sinks*);
 boolean _ShutdownSinks(char*, int, Context*, Sinks*);
-boolean PlumbSccPipeline(Context*, char*, char*, uint32);
-boolean PlumbMccPipeline(Context*, char*, char*);
+boolean PlumbSccPipeline(Context*, char*, char*, uint32, boolean);
+boolean PlumbMccPipeline(Context*, char*, char*, boolean);
 boolean PlumbMpegPipeline(Context*, char*, char*, boolean, char*);
 void DrivePipeline(FileType, Context*);
 

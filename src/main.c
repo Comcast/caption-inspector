@@ -53,6 +53,7 @@ struct globalArgs_t {
     char outputDirectory[MAX_FILE_NAME_LEN];    // -o option
     uint32 passedInFramerate;                   // -f option
     boolean debugFile;                          // --no-debug option
+    boolean artifacts;                          // --no-artifacts option
     char* inputFilename;                        // input file
 } globalArgs;
  
@@ -62,6 +63,7 @@ static struct option longOpts[] = {
     { "output",       required_argument, NULL, 'o' },
     { "framerate",    required_argument, NULL, 'f' },
     { "no-debug",     no_argument,       NULL, 0 },
+    { "no-artifacts", no_argument,       NULL, 0 },
     { "help",         no_argument,       NULL, 'h' },
     { "version",      no_argument,       NULL, 'v' },
     { 0, no_argument, NULL, 0 }
@@ -94,6 +96,7 @@ int main( int argc, char* argv[] ) {
 
     globalArgs.cmd = argv[0];
     globalArgs.debugFile = TRUE;
+    globalArgs.artifacts = TRUE;
 
     if( argv[1] == NULL ) {
         printHelp(globalArgs.cmd);
@@ -113,12 +116,11 @@ int main( int argc, char* argv[] ) {
              case 'f' :
                  globalArgs.passedInFramerate = (uint16)strtol(optarg, NULL, 10);
                  break;
-             case 'D' :
-                 globalArgs.debugFile = FALSE;
-                 break;
             case 0:
                 if( strcmp( "no-debug", longOpts[longIndex].name ) == 0 ) {
                     globalArgs.debugFile = FALSE;
+                } else if( strcmp( "no-artifacts", longOpts[longIndex].name ) == 0 ) {
+                    globalArgs.artifacts = FALSE;
                 } else {
                     printHelp(globalArgs.cmd);
                     exit(EXIT_FAILURE);
@@ -127,11 +129,9 @@ int main( int argc, char* argv[] ) {
              case 'h' :
                  printHelp(globalArgs.cmd);
                  exit(EXIT_SUCCESS);
-                 break;
              case 'v' :
                  printVersion();
                  exit(EXIT_SUCCESS);
-                 break;
              default:
                  printHelp(globalArgs.cmd);
                  exit(EXIT_FAILURE);
@@ -165,13 +165,13 @@ int main( int argc, char* argv[] ) {
 
     switch(sourceType) {
         case SCC_CAPTIONS_FILE:
-            retval = PlumbSccPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.passedInFramerate);
+            retval = PlumbSccPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.passedInFramerate, globalArgs.artifacts);
             break;
         case MCC_CAPTIONS_FILE:
-            retval = PlumbMccPipeline(&ctx, globalArgs.inputFilename, tempOutputPath);
+            retval = PlumbMccPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.artifacts);
             break;
         case MPEG_BINARY_FILE:
-            retval = PlumbMpegPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, TRUE, tempOutputPath);
+            retval = PlumbMpegPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.artifacts, tempOutputPath);
             break;
         default:
             LOG(DEBUG_LEVEL_ERROR, DBG_GENERAL, "Impossible Branch - %d", sourceType);
@@ -184,7 +184,7 @@ int main( int argc, char* argv[] ) {
     }
     Shutdown();
 
-    return 0;
+    return EXIT_SUCCESS;
 }  // main()
 
 /*------------------------------------------------------------------------------
@@ -202,7 +202,6 @@ int main( int argc, char* argv[] ) {
  |    program. (e.g. Closing Files.)
  -------------------------------------------------------------------------------*/
 void Shutdown( void ) {
-
     struct timespec endTime;
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &endTime);
 
@@ -266,6 +265,7 @@ static void printHelp( char* nameAndPath ) {
     printf("    -o|--output <dir>        : Directory to save output files. If this is not set files are saved in the directory of the input file.\n");
     printf("    -f|--framerate <num>     : Framerate * 100 (e.g. 3000, 2997). This is a requirement for SCC Files.\n");
     printf("    --no-debug               : Don't create a debug file.\n");
+    printf("    --no-artifacts           : Don't create artifact files.\n");
 }  // printHelp()
 
 /*------------------------------------------------------------------------------

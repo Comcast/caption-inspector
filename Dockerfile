@@ -42,7 +42,7 @@ FROM debian:9-slim as slim
 
 ENV FFMPEG_VERSION=4.0.2 LD_LIBRARY_PATH=/usr/local/lib
 
-COPY --from=base /app/caption-converter /usr/local/bin/
+COPY --from=base /app/caption-inspector /usr/local/bin/
 # copy required libraries from base to the slim image
 COPY --from=base /usr/local/lib/libavformat.so.* /usr/local/lib/
 COPY --from=base /usr/local/lib/libavcodec.so.* /usr/local/lib/
@@ -51,7 +51,7 @@ COPY --from=base /usr/local/lib/libswresample.so.* /usr/local/lib/
 COPY --from=base /usr/lib/x86_64-linux-gnu/libOpenCL.so.* /usr/local/lib/
 
 # ensure all required libraries are installed
-RUN if ldd /usr/local/bin/caption-converter | grep "not found"; then false; fi
+RUN if ldd /usr/local/bin/caption-inspector | grep "not found"; then false; fi
 
 COPY --from=base /usr/bin/mediainfo /usr/local/bin/mediainfo
 # copy required libraries from base to the slim image

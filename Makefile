@@ -68,6 +68,9 @@ sharedlib:
 caption-inspector:
 	cd src ; make ../caption-inspector
 
+docker:
+	docker build -t caption-inspector .
+
 clean:
 	cd src ; make clean
 

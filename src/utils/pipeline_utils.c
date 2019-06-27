@@ -244,7 +244,7 @@ boolean _ShutdownSinks( char* fileNameStr, int lineNum, Context* ctxPtr, Sinks* 
  |                                           +--> | CC Data Output |
  |                                                +----------------+
  -------------------------------------------------------------------------------*/
-boolean PlumbSccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, uint32 framerate ) {
+boolean PlumbSccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, uint32 framerate, boolean artifacts ) {
     ASSERT(ctxPtr);
     memset(ctxPtr, 0, sizeof(Context));
     boolean retval;
@@ -276,34 +276,36 @@ boolean PlumbSccPipeline( Context* ctxPtr, char* inputFilename, char* outputFile
         return FALSE;
     }
 
-    retval = SccEncodeAddSink(ctxPtr, Line21DecodeInitialize(ctxPtr, FALSE));
+    retval = SccEncodeAddSink(ctxPtr, Line21DecodeInitialize(ctxPtr, (artifacts == FALSE)));
     if( retval == FALSE ) {
         LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
         return FALSE;
     }
 
-    retval = Line21DecodeAddSink(ctxPtr, Line21OutInitialize(ctxPtr, outputFilename));
-    if( retval == FALSE ) {
-        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
-        return FALSE;
-    }
+    if( artifacts == TRUE ) {
+        retval = Line21DecodeAddSink(ctxPtr, Line21OutInitialize(ctxPtr, outputFilename));
+        if (retval == FALSE) {
+            LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+            return FALSE;
+        }
 
-    retval = SccEncodeAddSink(ctxPtr, MccEncodeInitialize(ctxPtr));
-    if( retval == FALSE ) {
-        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
-        return FALSE;
-    }
+        retval = SccEncodeAddSink(ctxPtr, MccEncodeInitialize(ctxPtr));
+        if (retval == FALSE) {
+            LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+            return FALSE;
+        }
 
-    retval = MccEncodeAddSink(ctxPtr, MccOutInitialize(ctxPtr, outputFilename));
-    if( retval == FALSE ) {
-        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
-        return FALSE;
-    }
+        retval = MccEncodeAddSink(ctxPtr, MccOutInitialize(ctxPtr, outputFilename));
+        if (retval == FALSE) {
+            LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+            return FALSE;
+        }
 
-    retval = SccEncodeAddSink(ctxPtr, CcDataOutInitialize(ctxPtr, outputFilename));
-    if( retval == FALSE ) {
-        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
-        return FALSE;
+        retval = SccEncodeAddSink(ctxPtr, CcDataOutInitialize(ctxPtr, outputFilename));
+        if (retval == FALSE) {
+            LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+            return FALSE;
+        }
     }
 
     return TRUE;
@@ -336,7 +338,7 @@ boolean PlumbSccPipeline( Context* ctxPtr, char* inputFilename, char* outputFile
  |                                           +--> | CC Data Output |
  |                                                +----------------+
  -------------------------------------------------------------------------------*/
-boolean PlumbMccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename ) {
+boolean PlumbMccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts ) {
     ASSERT(ctxPtr);
     memset(ctxPtr, 0, sizeof(Context));
     boolean retval;
@@ -363,34 +365,36 @@ boolean PlumbMccPipeline( Context* ctxPtr, char* inputFilename, char* outputFile
         return FALSE;
     }
 
-    retval = MccDecodeAddSink(ctxPtr, DtvccDecodeInitialize(ctxPtr, FALSE));
+    retval = MccDecodeAddSink(ctxPtr, DtvccDecodeInitialize(ctxPtr, (artifacts == FALSE)));
     if( retval == FALSE ) {
         LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
         return FALSE;
     }
 
-    retval = DtvccDecodeAddSink(ctxPtr, DtvccOutInitialize(ctxPtr, outputFilename, TRUE, FALSE));
-    if( retval == FALSE ) {
+    retval = MccDecodeAddSink(ctxPtr, Line21DecodeInitialize(ctxPtr, (artifacts == FALSE)));
+    if (retval == FALSE) {
         LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
         return FALSE;
     }
 
-    retval = MccDecodeAddSink(ctxPtr, Line21DecodeInitialize(ctxPtr, FALSE));
-    if( retval == FALSE ) {
-        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
-        return FALSE;
-    }
+    if( artifacts == TRUE ) {
+        retval = DtvccDecodeAddSink(ctxPtr, DtvccOutInitialize(ctxPtr, outputFilename, TRUE, FALSE));
+        if (retval == FALSE) {
+            LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+            return FALSE;
+        }
 
-    retval = Line21DecodeAddSink(ctxPtr, Line21OutInitialize(ctxPtr, outputFilename));
-    if( retval == FALSE ) {
-        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
-        return FALSE;
-    }
+        retval = Line21DecodeAddSink(ctxPtr, Line21OutInitialize(ctxPtr, outputFilename));
+        if (retval == FALSE) {
+            LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+            return FALSE;
+        }
 
-    retval = MccDecodeAddSink(ctxPtr, CcDataOutInitialize(ctxPtr, outputFilename));
-    if( retval == FALSE ) {
-        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
-        return FALSE;
+        retval = MccDecodeAddSink(ctxPtr, CcDataOutInitialize(ctxPtr, outputFilename));
+        if (retval == FALSE) {
+            LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+            return FALSE;
+        }
     }
 
     return TRUE;
