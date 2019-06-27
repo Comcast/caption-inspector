@@ -20,7 +20,12 @@
 #define context_h
 
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#ifndef DONT_COMPILE_FFMPEG
 #include <libavformat/avformat.h>
+#endif
 
 #include "types.h"
 #include "pipeline_structs.h"
@@ -84,6 +89,7 @@ typedef struct {
     uint32 frameRateTimesOneHundred;
 } MpCoreFileCtx;
 
+#ifndef DONT_COMPILE_FFMPEG
 typedef struct {
     Sinks sinks;
     AVFormatContext* formatContext;
@@ -101,6 +107,7 @@ typedef struct {
     int64 firstPts;
     uint32 ccCountMismatchErrors;
 } MpegFileCtx;
+#endif
 
 /* Transforms */
 
@@ -197,8 +204,9 @@ typedef struct {
     SccFileCtx* sccFileCtxPtr;
     MccFileCtx* mccFileCtxPtr;
     CcDataFileCtx* ccDataFileCtxPtr;
-    MpCoreFileCtx* mpCoreFileCtxPtr;
+#ifndef DONT_COMPILE_FFMPEG
     MpegFileCtx* mpegFileCtxPtr;
+#endif
     Line21DecodeCtx* line21DecodeCtxPtr;
     DtvccDecodeCtx* dtvccDecodeCtxPtr;
     MccDecodeCtx* mccDecodeCtxPtr;

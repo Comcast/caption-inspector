@@ -980,8 +980,6 @@ static void decodePacketStart( CcDataOutputCtx* ctxPtr, uint8 ccData1, uint8 ccD
 static void decodePacketData( CcDataOutputCtx* ctxPtr, uint8 ccData, char* tagStr, char* decStr, TextString* txtStr, char* errStr ) {
     int len;
 
-    char* halfDecStr = decStr;
-
     if( ctxPtr->cea708State  == CEA708_STATE_EXTENDED_SEQ_NUM ) {
         ctxPtr->currentService = ccData & 0x3F;
         ctxPtr->cea708State = CEA708_STATE_DATA_WAIT;

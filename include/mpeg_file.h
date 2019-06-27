@@ -19,6 +19,7 @@
 #ifndef mpeg_file_h
 #define mpeg_file_h
 
+#ifndef DONT_COMPILE_FFMPEG
 #include <libavutil/common.h>
 #include <libavformat/avformat.h>
 #include <libavfilter/avfilter.h>
@@ -30,6 +31,7 @@
 #include <libavutil/audio_fifo.h>
 #include <libavutil/log.h>
 #include <libavutil/error.h>
+#endif
 
 #include "types.h"
 #include "pipeline_utils.h"

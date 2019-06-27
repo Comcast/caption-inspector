@@ -68,6 +68,9 @@ sharedlib:
 caption-inspector:
 	cd src ; make ../caption-inspector
 
+ci_without_ffmpeg:
+	cd src ; make ci_without_ffmpeg
+
 docker:
 	docker build -t caption-inspector .
 

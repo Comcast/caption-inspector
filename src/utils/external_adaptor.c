@@ -241,13 +241,13 @@ boolean ExtrnlAdptrShutdown( void* rootCtxPtr ) {
  |    file, or process a SCC or MCC file, decoding the Caption Data and passing
  |    it to an external adaptor.
  |
- | PIPELINE:                     +----------------+      +------------------+
- |                         +---> | Line 21 Decode | ---> | External Adaptor |
- |    +---------------+    |     +----------------+      +------------------+
- |    | MPEG/MOV File | ---|
- |    +---------------+    |      +--------------+       +------------------+
- |                         +----> | DTVCC Decode | ----> | External Adaptor |
- |                                +--------------+       +------------------+
+ | PIPELINE:                 +----------------+      +------------------+
+ |                     +---> | Line 21 Decode | ---> | External Adaptor |
+ |    +-----------+    |     +----------------+      +------------------+
+ |    | MPEG File | ---|
+ |    +-----------+    |      +--------------+       +------------------+
+ |                     +----> | DTVCC Decode | ----> | External Adaptor |
+ |                            +--------------+       +------------------+
  |
  |    +----------+      +------------+      +----------------+      +------------------+
  |    | SCC File | ---> | SCC Encode | ---> | Line 21 Decode | ---> | External Adaptor |
@@ -262,7 +262,9 @@ boolean ExtrnlAdptrShutdown( void* rootCtxPtr ) {
  |                                               +--------------+       +------------------+
  -------------------------------------------------------------------------------*/
 boolean ExtrnlAdptrPlumbFileDecodePipeline( char* inputFilename, uint32 framerate ) {
+#ifndef DONT_COMPILE_FFMPEG
     boolean isDropframe;
+#endif
     boolean retval;
 
     pipelineEstablished = FALSE;
@@ -303,6 +305,9 @@ boolean ExtrnlAdptrPlumbFileDecodePipeline( char* inputFilename, uint32 framerat
     memset(&rootContext, 0, sizeof(Context));
 
     if( fileType == MPEG_BINARY_FILE ) {
+#ifdef DONT_COMPILE_FFMPEG
+        LOG(DEBUG_LEVEL_FATAL, DBG_EXT_ADPT, "Executable was compiled without FFMPEG, unable to process Binary MPEG File");
+#else
         boolean wasSuccessful = DetermineDropFrame(inputFilename, FALSE, NULL, &isDropframe);
         retval = MpegFileInitialize(&rootContext, inputFilename, wasSuccessful, isDropframe);
         if( retval == FALSE ) {
@@ -332,6 +337,7 @@ boolean ExtrnlAdptrPlumbFileDecodePipeline( char* inputFilename, uint32 framerat
             LOG(DEBUG_LEVEL_ERROR, DBG_EXT_ADPT, "Problem Establishing Pipeline, bailing.");
             return FALSE;
         }
+#endif
     } else if( fileType == SCC_CAPTIONS_FILE ) {
         if( isFramerateValid(framerate) == TRUE ) {
             retval = SccFileInitialize(&rootContext, inputFilename, framerate);

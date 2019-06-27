@@ -117,11 +117,13 @@ OBJS_IN_OBJ_DIR = $(foreach OBJS, $(OBJS), ../obj/$(OBJS))
 ifeq ($(UNAME), Linux)
 C_FLAGS = -Wpedantic -Wno-deprecated-declarations -Wall -fno-strict-aliasing -fPIC -DPIC
 SO_FLAGS = -shared -W -L/usr/local/lib -lavformat -lavcodec -lavutil
-LD_FLAGS = -L/usr/local/lib -lavformat -lavcodec -lavutil -luuid -lm
+LD_FLAGS = -L/usr/local/lib -luuid -lm
+LD_FLAGS_FFMPEG = -lavformat -lavcodec -lavutil
 else
 C_FLAGS = -Wpedantic -Wno-deprecated-declarations -D_FILE_OFFSET_BITS=64 -DVERSION_FILE_PRESENT -Dfopen64=fopen -Dopen64=open -Dlseek64=lseek
 SO_FLAGS = -dynamiclib -undefined suppress -flat_namespace -L/usr/local/lib -lavformat -lavcodec -lavutil
-LD_FLAGS = -L/usr/local/lib -lavformat -lavcodec -lavutil
+LD_FLAGS = -L/usr/local/lib
+LD_FLAGS_FFMPEG = -lavformat -lavcodec -lavutil
 endif
 
 -include ../obj/$(OBJS:.o=.d)
@@ -133,11 +135,19 @@ all: ${CI_EXECUTABLE} ${CI_SHARED_LIB}
 
 ${CI_EXECUTABLE}: $(OBJS_WITH_PATH) main.o
 	@echo "\n*** Compiling Caption Inpsector Executible. ***"
+	gcc -o ${CI_EXECUTABLE} ../obj/main.o $(OBJS_IN_OBJ_DIR) $(LD_FLAGS) $(LD_FLAGS_FFMPEG) -lz
+
+no_ffmpeg: $(OBJS_WITH_PATH) main.o
+	@echo "\n*** Compiling Caption Inpsector Executible without FFMPEG. ***"
 	gcc -o ${CI_EXECUTABLE} ../obj/main.o $(OBJS_IN_OBJ_DIR) $(LD_FLAGS) -lz
+
+ci_without_ffmpeg: C_FLAGS:=$(C_FLAGS) -DDONT_COMPILE_FFMPEG
+ci_without_ffmpeg: no_ffmpeg
 
 ${CI_SHARED_LIB}: $(OBJS_WITH_PATH)
 	@echo "\n*** Compiling Caption Inspector Dynamic Library to interface with Python. ***"
 	gcc $(SO_FLAGS) -o ${CI_SHARED_LIB} $(OBJS_IN_OBJ_DIR)
+
 
 clean:
 	@echo "*** Cleaning Target Files. ***"

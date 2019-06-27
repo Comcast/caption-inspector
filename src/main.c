@@ -171,7 +171,11 @@ int main( int argc, char* argv[] ) {
             retval = PlumbMccPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.artifacts);
             break;
         case MPEG_BINARY_FILE:
+#ifdef DONT_COMPILE_FFMPEG
+            LOG(DEBUG_LEVEL_FATAL, DBG_GENERAL, "Executable was compiled without FFMPEG, unable to process Binary MPEG File");
+#else
             retval = PlumbMpegPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.artifacts, tempOutputPath);
+#endif
             break;
         default:
             LOG(DEBUG_LEVEL_ERROR, DBG_GENERAL, "Impossible Branch - %d", sourceType);
@@ -257,7 +261,11 @@ static void printHelp( char* nameAndPath ) {
     printf("o888o o888o o888o 8\"\"888P'  888bod8P' `Y8bod8P' `Y8bod8P'   \"888\" `Y8bod8P' d888b\n");
     printf("                            888\n");
     printf("                           o888o\n");
+#ifdef DONT_COMPILE_FFMPEG
+    printf("\nVersion: %s (%s) - No FFMPEG\n", VERSION, BUILD);
+#else
     printf("\nVersion: %s (%s)\n", VERSION, BUILD);
+#endif
     printf("\nUsage: %s [options] <input-file>\n", programName);
     printf("\nOptions:\n");
     printf("    -h|--help                : Display this help message.\n");
@@ -282,5 +290,9 @@ static void printHelp( char* nameAndPath ) {
  |    See the include/version.h target in ../Makefile for details
  -------------------------------------------------------------------------------*/
 static void printVersion( void ) {
+#ifdef DONT_COMPILE_FFMPEG
+    printf("Version: %s (%s) - No FFMPEG\n", VERSION, BUILD);
+#else
     printf("Version: %s (%s)\n", VERSION, BUILD);
+#endif
 }

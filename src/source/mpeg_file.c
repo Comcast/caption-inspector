@@ -40,7 +40,9 @@
 /*--                     Private Member Declarations                        --*/
 /*----------------------------------------------------------------------------*/
 
+#ifndef DONT_COMPILE_FFMPEG
 static void loggingCallback( void*, int, const char*, va_list );
+#endif
 
 /*----------------------------------------------------------------------------*/
 /*--                       Public Member Functions                          --*/
@@ -62,6 +64,7 @@ static void loggingCallback( void*, int, const char*, va_list );
  | DESCRIPTION:
  -------------------------------------------------------------------------------*/
 boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe ) {
+#ifndef DONT_COMPILE_FFMPEG
     ASSERT(fileNameStr);
     ASSERT(rootCtxPtr);
     ASSERT(!rootCtxPtr->mpegFileCtxPtr);
@@ -206,6 +209,10 @@ boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean over
     InitSinks(&ctxPtr->sinks, MPG_FILE___CC_DATA);
 
     return TRUE;
+#else
+    LOG(DEBUG_LEVEL_FATAL, DBG_MPEG_FILE,"Impossible Branch.");
+    return TRUE;
+#endif
 }  // MpegFileInitialize()
 
 /*------------------------------------------------------------------------------
@@ -223,6 +230,7 @@ boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean over
  |    This adds another sink in the pipeline after this element.
  -------------------------------------------------------------------------------*/
 boolean MpegFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
+#ifndef DONT_COMPILE_FFMPEG
     ASSERT(rootCtxPtr);
     ASSERT(rootCtxPtr->mpegFileCtxPtr);
 
@@ -237,6 +245,10 @@ boolean MpegFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
     }
     
     return AddSink(&rootCtxPtr->mpegFileCtxPtr->sinks, &linkInfo);
+#else
+    LOG(DEBUG_LEVEL_FATAL, DBG_MPEG_FILE,"Impossible Branch.");
+    return TRUE;
+#endif
 }  // MpegFileAddSink()
 
 /*------------------------------------------------------------------------------
@@ -254,6 +266,7 @@ boolean MpegFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
  |    This method creates the next buffer of data and passes it down the pipeline.
  -------------------------------------------------------------------------------*/
 boolean MpegFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
+#ifndef DONT_COMPILE_FFMPEG
     ASSERT(rootCtxPtr);
     ASSERT(rootCtxPtr->mpegFileCtxPtr);
 
@@ -353,12 +366,17 @@ boolean MpegFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
             return PassToSinks(rootCtxPtr, outputBuffer, &ctxPtr->sinks);
         }
     }
+#else
+    LOG(DEBUG_LEVEL_FATAL, DBG_MPEG_FILE,"Impossible Branch.");
+    return TRUE;
+#endif
 } // MpegFileProcNextBuffer()
 
 /*----------------------------------------------------------------------------*/
 /*--                       Private Member Functions                         --*/
 /*----------------------------------------------------------------------------*/
 
+#ifndef DONT_COMPILE_FFMPEG
 /*------------------------------------------------------------------------------
  | NAME:
  |    LoggingCallback()
@@ -397,3 +415,4 @@ static void loggingCallback( void* ptr, int level, const char* fmt, va_list vl )
 
     DebugLog( dbgLevel, DBG_FF_MPEG, "FFMPEG", 0, message );
 }  // loggingCallback()
+#endif
