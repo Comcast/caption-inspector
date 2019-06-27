@@ -38,7 +38,7 @@
 /*----------------------------------------------------------------------------*/
 
 static Buffer* expandMccLine( Buffer* );
-static Buffer* decodeMccLine( Buffer* );
+static Buffer* decodeMccLine( MccDecodeCtx*, Buffer* );
 static uint8 mccCharCount( char );
 static void addMultipleFaZeroZero( uint8, uint8*, uint16* );
 static void expandMccCode( uint8, uint8*, uint16* );
@@ -68,6 +68,8 @@ LinkInfo MccDecodeInitialize( Context* rootCtxPtr ) {
     ASSERT(!rootCtxPtr->mccDecodeCtxPtr);
 
     rootCtxPtr->mccDecodeCtxPtr = malloc(sizeof(MccDecodeCtx));
+
+    rootCtxPtr->mccDecodeCtxPtr->numCcCountMismatches = 0;
 
     InitSinks(&rootCtxPtr->mccDecodeCtxPtr->sinks, MCC_DATA___CC_DATA);
 
@@ -130,7 +132,7 @@ boolean MccDecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
     ASSERT(((Context*)rootCtxPtr)->mccDecodeCtxPtr);
     
     Buffer* expandedBuffer = expandMccLine( inBuffer );
-    Buffer* decodedBuffer = decodeMccLine( expandedBuffer );
+    Buffer* decodedBuffer = decodeMccLine( ((Context*)rootCtxPtr)->mccDecodeCtxPtr, expandedBuffer );
     
     return PassToSinks(rootCtxPtr, decodedBuffer, &((Context*)rootCtxPtr)->mccDecodeCtxPtr->sinks);
 }  // MccDecodeProcNextBuffer()
@@ -155,6 +157,10 @@ boolean MccDecodeShutdown( void* rootCtxPtr ) {
     ASSERT(rootCtxPtr);
     ASSERT(((Context*)rootCtxPtr)->mccDecodeCtxPtr);
     Sinks sinks = ((Context*)rootCtxPtr)->mccDecodeCtxPtr->sinks;
+
+    if( ((Context*)rootCtxPtr)->mccDecodeCtxPtr->numCcCountMismatches > 6 ) {
+        LOG(DEBUG_LEVEL_INFO, DBG_MCC_DEC, "Suppressed %d additional occurrences of the warning for CC Count Mismatches", ((Context*)rootCtxPtr)->mccDecodeCtxPtr->numCcCountMismatches - 6);
+    }
 
     free(((Context*)rootCtxPtr)->mccDecodeCtxPtr);
     ((Context*)rootCtxPtr)->mccDecodeCtxPtr = NULL;
@@ -273,7 +279,7 @@ static Buffer* expandMccLine( Buffer* buffPtr ) {
  |                     (Specifically: SMPTE ST 334-2:2015 - Revision of SMPTE 334-2-2007)
  |    CEA-708-D - CEA Standard - Digital Television (DTV) Closed Captioning - August 2008
  -------------------------------------------------------------------------------*/
-static Buffer* decodeMccLine( Buffer* buffPtr ) {
+static Buffer* decodeMccLine( MccDecodeCtx* ctxPtr, Buffer* buffPtr ) {
     ASSERT(buffPtr);
     ASSERT(buffPtr->dataPtr);
     ASSERT(buffPtr->numElements);
@@ -364,7 +370,14 @@ static Buffer* decodeMccLine( Buffer* buffPtr ) {
     
     uint8 computedNumCcConstructs = numCcConstructsFromFramerate(buffPtr->captionTime.frameRatePerSecTimesOneHundred);
     if( ccData.cc_count != computedNumCcConstructs ) {
-        LOG(DEBUG_LEVEL_ERROR, DBG_MCC_DEC, "Unexpected Number of CC Constructs: 0x%02X vs 0x%02X", ccData.cc_count, computedNumCcConstructs);
+        if( ctxPtr->numCcCountMismatches < 5 ) {
+            LOG(DEBUG_LEVEL_WARN, DBG_MCC_DEC, "Unexpected Number of CC Constructs: %d vs %d", ccData.cc_count, computedNumCcConstructs);
+        } else if( ctxPtr->numCcCountMismatches == 5 ) {
+            LOG(DEBUG_LEVEL_WARN, DBG_MCC_DEC, "Unexpected Number of CC Constructs: %d vs %d --- Suppressing Subsequent Warnings.", ccData.cc_count, computedNumCcConstructs);
+        } else {
+            LOG(DEBUG_LEVEL_VERBOSE, DBG_MCC_DEC, "Unexpected Number of CC Constructs: %d vs %d", ccData.cc_count, computedNumCcConstructs);
+        }
+        ctxPtr->numCcCountMismatches++;
     }
     
     Buffer* outputBuffer = NewBuffer(BUFFER_TYPE_BYTES, (ccData.cc_count * sizeof(cc_construct)));
