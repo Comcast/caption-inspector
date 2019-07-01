@@ -676,7 +676,6 @@ boolean ElementSixShutdown( void* rootCtxPtr ) {
     TEST_ASSERT(rootCtxPtr);
     TEST_ASSERT(((Context*)rootCtxPtr)->line21DecodeCtxPtr);
     Line21DecodeCtx* ctxPtr = ((Context*)rootCtxPtr)->line21DecodeCtxPtr;
-    Sinks sinks = ctxPtr->sinks;
 
     switch( whichTest ) {
         case TEST_ELEVEN:
@@ -1079,7 +1078,6 @@ boolean CcDataOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
     TEST_ASSERT(buffPtr);
     TEST_ASSERT(rootCtxPtr);
     TEST_ASSERT(((Context*)rootCtxPtr)->ccDataOutputCtxPtr);
-    CcDataOutputCtx* ctxPtr = ((Context*)rootCtxPtr)->ccDataOutputCtxPtr;
 
     ccDataOutBufferReceived++;
 
@@ -1124,7 +1122,6 @@ boolean DtvccOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
     TEST_ASSERT(buffPtr);
     TEST_ASSERT(rootCtxPtr);
     TEST_ASSERT(((Context*)rootCtxPtr)->dtvccOutputCtxPtr);
-    DtvccOutputCtx* ctxPtr = ((Context*)rootCtxPtr)->dtvccOutputCtxPtr;
 
     dtvccOutBufferReceived++;
 
@@ -1169,7 +1166,6 @@ boolean Line21OutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
     TEST_ASSERT(buffPtr);
     TEST_ASSERT(rootCtxPtr);
     TEST_ASSERT(((Context*)rootCtxPtr)->line21OutputCtxPtr);
-    Line21OutputCtx* ctxPtr = ((Context*)rootCtxPtr)->line21OutputCtxPtr;
 
     line21OutBufferReceived++;
 
@@ -1253,7 +1249,7 @@ LinkInfo MccOutInitialize( Context* ctxPtr, char* outputFileNameStr ) {
 
 boolean DetermineDropFrame( char* fileNameStr, boolean saveMediaInfo, char* artifactPath, boolean* isDropFramePtr ) { return TRUE; }
 boolean SccEncodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) { return TRUE; }
-LinkInfo SccEncodeInitialize( Context* rootCtxPtr ) { LinkInfo linkInfo; return linkInfo; }
+LinkInfo SccEncodeInitialize( Context* rootCtxPtr ) { LinkInfo linkInfo; linkInfo.sourceType = 1; return linkInfo; }
 boolean SccFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) { return TRUE; }
 boolean SccFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) { return TRUE; }
 boolean SccFileInitialize( Context* rootCtxPtr, char* fileNameStr, uint32 frTimesOneHundred ) { return TRUE; }

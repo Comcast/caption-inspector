@@ -5,6 +5,7 @@
 #include "test_engine.h"
 
 #define _STDLIB_H_
+#define _STDLIB_H
 static void* malloc( uint64 );
 static void free( void* );
 

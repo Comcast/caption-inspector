@@ -114,10 +114,10 @@ OBJS_IN_OBJ_DIR = $(foreach OBJS, $(OBJS), ../obj/$(OBJS))
 
 ifeq ($(UNAME), Linux)
 C_FLAGS = -Wpedantic -Wno-deprecated-declarations -Wall -fno-strict-aliasing -fPIC -DPIC
-SO_FLAGS = -shared -W -L/usr/local/lib -lavformat -lavcodec -lavutil
-LD_FLAGS = -L/usr/local/lib -lavformat -lavcodec -lavutil -luuid -lm -lz
+SO_FLAGS = -shared -W -L/usr/local/lib -lavformat -lavcodec -lavutil -luuid
+LD_FLAGS = -L/usr/local/lib -lavformat -lavcodec -lavutil -luuid -lm
 else
-C_FLAGS = -Wpedantic -Wno-deprecated-declarations -D_FILE_OFFSET_BITS=64 -DVERSION_FILE_PRESENT -Dfopen64=fopen -Dopen64=open -Dlseek64=lseek
+C_FLAGS = -Wpedantic -Wno-deprecated-declarations
 SO_FLAGS = -dynamiclib -undefined suppress -flat_namespace -L/usr/local/lib -lavformat -lavcodec -lavutil
 LD_FLAGS = -L/usr/local/lib -lavformat -lavcodec -lavutil -lz
 endif

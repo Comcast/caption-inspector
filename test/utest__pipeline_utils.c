@@ -164,6 +164,7 @@ boolean AnySpuriousFunctionsCalled( void ) {
 
 LinkInfo CcDataOutInitialize( Context* rootCtxPtr, char* outputFileNameStr ) {
     LinkInfo linkInfo;
+    linkInfo.sourceType = 1;
 
     CcDataOutInitializeCalled++;
     CcDataOutInitializeFileNameStr = outputFileNameStr;
@@ -194,6 +195,7 @@ boolean DtvccDecodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
 
 LinkInfo DtvccDecodeInitialize( Context* rootCtxPtr, boolean processOnly ) {
     LinkInfo linkInfo;
+    linkInfo.sourceType = 1;
 
     DtvccDecodeInitializeCalled++;
 
@@ -202,6 +204,7 @@ LinkInfo DtvccDecodeInitialize( Context* rootCtxPtr, boolean processOnly ) {
 
 LinkInfo DtvccOutInitialize( Context* rootCtxPtr, char* outputFileNameStr, boolean nullEtxSuppressed, boolean msNotFrame ) {
     LinkInfo linkInfo;
+    linkInfo.sourceType = 1;
 
     DtvccOutInitializeCalled++;
     DtvccOutInitializeFileNameStr = outputFileNameStr;
@@ -219,6 +222,7 @@ boolean Line21DecodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
 
 LinkInfo Line21DecodeInitialize( Context* rootCtxPtr, boolean processOnly ) {
     LinkInfo linkInfo;
+    linkInfo.sourceType = 1;
 
     Line21DecodeInitializeCalled++;
 
@@ -227,6 +231,7 @@ LinkInfo Line21DecodeInitialize( Context* rootCtxPtr, boolean processOnly ) {
 
 LinkInfo Line21OutInitialize( Context* ctxPtr, char* outputFileNameStr ) {
     LinkInfo linkInfo;
+    linkInfo.sourceType = 1;
 
     Line21OutInitializeCalled++;
     Line21OutInitializeFileNameStr = outputFileNameStr;
@@ -244,6 +249,7 @@ boolean MccDecodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
 
 LinkInfo MccDecodeInitialize( Context* rootCtxPtr ) {
     LinkInfo linkInfo;
+    linkInfo.sourceType = 1;
 
     MccDecodeInitializeCalled++;
 
@@ -260,6 +266,7 @@ boolean MccEncodeAddSink( Context* ctxPtr, LinkInfo linkInfo ) {
 
 LinkInfo MccEncodeInitialize( Context* rootCtxPtr ) {
     LinkInfo linkInfo;
+    linkInfo.sourceType = 1;
 
     MccEncodeInitializeCalled++;
 
@@ -305,6 +312,7 @@ boolean MccFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
 
 LinkInfo MccOutInitialize( Context* ctxPtr, char* outputFileNameStr ) {
     LinkInfo linkInfo;
+    linkInfo.sourceType = 1;
 
     MccOutInitializeCalled++;
     MccOutInitializeFileNameStr = outputFileNameStr;
@@ -347,6 +355,7 @@ boolean SccEncodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
 
 LinkInfo SccEncodeInitialize( Context* rootCtxPtr ) {
     LinkInfo linkInfo;
+    linkInfo.sourceType = 1;
 
     SccEncodeInitializeCalled++;
 

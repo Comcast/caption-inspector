@@ -116,7 +116,7 @@ OBJS_IN_OBJ_DIR = $(foreach OBJS, $(OBJS), ../obj/$(OBJS))
 
 ifeq ($(UNAME), Linux)
 C_FLAGS = -Wpedantic -Wno-deprecated-declarations -Wall -fno-strict-aliasing -fPIC -DPIC
-SO_FLAGS = -shared -W -L/usr/local/lib -lavformat -lavcodec -lavutil
+SO_FLAGS = -shared -W -L/usr/local/lib -lavformat -lavcodec -lavutil -luuid
 LD_FLAGS = -L/usr/local/lib -luuid -lm
 LD_FLAGS_FFMPEG = -lavformat -lavcodec -lavutil
 else

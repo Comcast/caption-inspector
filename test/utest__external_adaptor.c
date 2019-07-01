@@ -203,6 +203,7 @@ boolean DtvccDecodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
 
 LinkInfo DtvccDecodeInitialize( Context* rootCtxPtr, boolean processOnly ) {
     LinkInfo linkInfo;
+    linkInfo.sourceType = 1;
 
     DtvccDecodeInitializeCalled++;
 
@@ -217,6 +218,7 @@ boolean Line21DecodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
 
 LinkInfo Line21DecodeInitialize( Context* rootCtxPtr, boolean processOnly ) {
     LinkInfo linkInfo;
+    linkInfo.sourceType = 1;
 
     Line21DecodeInitializeCalled++;
 
@@ -231,6 +233,7 @@ boolean MccDecodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
 
 LinkInfo MccDecodeInitialize( Context* rootCtxPtr ) {
     LinkInfo linkInfo;
+    linkInfo.sourceType = 1;
 
     MccDecodeInitializeCalled++;
 
