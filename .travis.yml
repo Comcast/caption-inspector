@@ -1,0 +1,16 @@
+language: c
+
+os:
+  - osx
+  - linux
+
+dist: xenial
+
+compiler:
+  - gcc
+  - clang
+
+script:
+  - make ci_without_ffmpeg
+  - ./caption-inspector --version
+

@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Comcast/caption-inspector.svg?branch=master)](https://travis-ci.com/Comcast/caption-inspector)
+
 Caption Inspector
 =================
 

@@ -120,7 +120,7 @@ SO_FLAGS = -shared -W -L/usr/local/lib -lavformat -lavcodec -lavutil
 LD_FLAGS = -L/usr/local/lib -luuid -lm
 LD_FLAGS_FFMPEG = -lavformat -lavcodec -lavutil
 else
-C_FLAGS = -Wpedantic -Wno-deprecated-declarations -D_FILE_OFFSET_BITS=64 -DVERSION_FILE_PRESENT -Dfopen64=fopen -Dopen64=open -Dlseek64=lseek
+C_FLAGS = -Wpedantic -Wno-deprecated-declarations
 SO_FLAGS = -dynamiclib -undefined suppress -flat_namespace -L/usr/local/lib -lavformat -lavcodec -lavutil
 LD_FLAGS = -L/usr/local/lib
 LD_FLAGS_FFMPEG = -lavformat -lavcodec -lavutil
@@ -135,11 +135,11 @@ all: ${CI_EXECUTABLE} ${CI_SHARED_LIB}
 
 ${CI_EXECUTABLE}: $(OBJS_WITH_PATH) main.o
 	@echo "\n*** Compiling Caption Inpsector Executible. ***"
-	gcc -o ${CI_EXECUTABLE} ../obj/main.o $(OBJS_IN_OBJ_DIR) $(LD_FLAGS) $(LD_FLAGS_FFMPEG) -lz
+	gcc -o ${CI_EXECUTABLE} ../obj/main.o $(OBJS_IN_OBJ_DIR) $(LD_FLAGS) $(LD_FLAGS_FFMPEG)
 
 no_ffmpeg: $(OBJS_WITH_PATH) main.o
 	@echo "\n*** Compiling Caption Inpsector Executible without FFMPEG. ***"
-	gcc -o ${CI_EXECUTABLE} ../obj/main.o $(OBJS_IN_OBJ_DIR) $(LD_FLAGS) -lz
+	gcc -o ${CI_EXECUTABLE} ../obj/main.o $(OBJS_IN_OBJ_DIR) $(LD_FLAGS)
 
 ci_without_ffmpeg: C_FLAGS:=$(C_FLAGS) -DDONT_COMPILE_FFMPEG
 ci_without_ffmpeg: no_ffmpeg
@@ -160,5 +160,6 @@ clean:
 	rm -f ../obj/main.d
 
 %.o: %.c
+	@if ! [ -d "../obj" ]; then mkdir ../obj; fi
 	gcc -c $(C_FLAGS) -I ../include $*.c -o ../obj/$(notdir $*.o)
-	gcc -MM -I ../include $*.c > ../obj/$(notdir $*.d)
+	gcc -MM $(C_FLAGS) -I ../include $*.c > ../obj/$(notdir $*.d)
