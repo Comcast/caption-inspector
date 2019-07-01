@@ -5,7 +5,7 @@ import ctypes
 import difflib
 import os
 
-CAPTION_CONVERTER_LIBRARY = './libcttp-test.1.0.0.dylib'
+CAPTION_INSPECTOR_LIBRARY = './libci-test.1.0.0.dylib'
 
 
 FileOneText = '''Does all of the printf stuff work?
@@ -59,7 +59,7 @@ def compare_text(first, second):
 
 class TestClass(object):
     def test__Output_Utils_Write_Files(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         clib.OpenFiles()
         clib.WriteFiles()
         clib.CloseFiles()

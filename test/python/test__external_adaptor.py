@@ -5,7 +5,7 @@ import ctypes
 import difflib
 import os
 
-CAPTION_CONVERTER_LIBRARY = './libcttp-test.1.0.0.dylib'
+CAPTION_INSPECTOR_LIBRARY = './libci-test.1.0.0.dylib'
 
 
 def compare_text(first, second, ctr, ignore):
@@ -36,11 +36,11 @@ def compare_files(generated_file, master_file, ignore):
 
 class TestClass(object):
     def test__EA_Establish_SCC_Pipeline(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         if os.path.exists('./tmp') is not True:
             os.mkdir('tmp')
         retval = clib.ExtrnlAdptrPlumbSccPipeline('../media/Plan9fromOuterSpace.scc'.encode('utf-8'),
-                                                  './tmp/Plan9fromOuterSpace'.encode('utf-8'), 2400)
+                                                  './tmp/Plan9fromOuterSpace'.encode('utf-8'), 2400, 1)
         assert retval is 1
         clib.ExtrnlAdptrDriveDecodePipeline()
         assert os.path.exists('./tmp/Plan9fromOuterSpace-C1.608'.encode('utf-8')) is True
@@ -61,11 +61,11 @@ class TestClass(object):
         os.removedirs("./tmp")
 
     def test__EA_Establish_MCC_Pipeline(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         if os.path.exists('./tmp') is not True:
             os.mkdir('tmp')
         retval = clib.ExtrnlAdptrPlumbMccPipeline('../media/NightOfTheLivingDead.mcc'.encode('utf-8'),
-                                                  './tmp/NightOfTheLivingDead'.encode('utf-8'))
+                                                  './tmp/NightOfTheLivingDead'.encode('utf-8'), 1)
         assert retval is 1
         clib.ExtrnlAdptrDriveDecodePipeline()
         assert os.path.exists('./tmp/NightOfTheLivingDead-C1.608'.encode('utf-8')) is True
@@ -86,7 +86,7 @@ class TestClass(object):
         os.removedirs("./tmp")
 
     def test__EA_Establish_MPG_Pipeline_w_Artifacts(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         if os.path.exists('./tmp') is not True:
             os.mkdir('tmp')
         retval = clib.ExtrnlAdptrPlumbMpegPipeline('../media/BigBuckBunny_256x144-24fps.ts'.encode('utf-8'),

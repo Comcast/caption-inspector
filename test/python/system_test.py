@@ -6,9 +6,9 @@ import difflib
 import os
 import subprocess
 
-CAPTION_CONVERTER_EXE = '../../cttp'
-CAPTION_CONVERTER_LIBRARY = './libcttp-test.1.0.0.dylib'
-CAPTION_CONVERTER_VERSION = '???'
+CAPTION_INSPECTOR_EXE = '../../caption-inspector'
+CAPTION_INSPECTOR_LIBRARY = './libci-test.1.0.0.dylib'
+CAPTION_INSPECTOR_VERSION = '???'
 
 
 def compare_text(first, second, ctr, ignore):
@@ -39,17 +39,17 @@ def compare_files(generated_file, master_file, ignore):
 
 class TestClass(object):
     def test__get_version(self):
-        response = subprocess.check_output([CAPTION_CONVERTER_EXE, '-v'], stderr=subprocess.STDOUT)
+        response = subprocess.check_output([CAPTION_INSPECTOR_EXE, '-v'], stderr=subprocess.STDOUT)
         if response.split()[0] == b"Version:":
             print(response.strip())
-            CAPTION_CONVERTER_VERSION = response.strip()
+            CAPTION_INSPECTOR_VERSION = response.strip()
 
     def test__scc_pipeline(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         if os.path.exists('./tmp') is not True:
             os.mkdir('tmp')
         retval = clib.ExtrnlAdptrPlumbSccPipeline('../media/CaptainAmerica.scc'.encode('utf-8'),
-                                                  './tmp/CaptainAmerica'.encode('utf-8'), 2400)
+                                                  './tmp/CaptainAmerica'.encode('utf-8'), 2400, 1)
         assert retval is 1
         clib.ExtrnlAdptrDriveDecodePipeline()
         assert os.path.exists('./tmp/CaptainAmerica-C1.608'.encode('utf-8')) is True
@@ -62,11 +62,11 @@ class TestClass(object):
         os.removedirs("./tmp")
 
     def test__ea_mcc_pipeline(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         if os.path.exists('./tmp') is not True:
             os.mkdir('tmp')
         retval = clib.ExtrnlAdptrPlumbMccPipeline('../media/CrazyEx.mcc'.encode('utf-8'),
-                                                  './tmp/CrazyEx'.encode('utf-8'))
+                                                  './tmp/CrazyEx'.encode('utf-8'), 1)
         assert retval is 1
         clib.ExtrnlAdptrDriveDecodePipeline()
         assert os.path.exists('./tmp/CrazyEx-C1.608'.encode('utf-8')) is True
@@ -93,7 +93,7 @@ class TestClass(object):
         os.removedirs("./tmp")
 
     def test__ea_mpg_pipeline_w_artifacts(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         if os.path.exists('./tmp') is not True:
             os.mkdir('tmp')
         retval = clib.ExtrnlAdptrPlumbMpegPipeline('../media/BigBuckBunny_256x144-24fps.ts'.encode('utf-8'),

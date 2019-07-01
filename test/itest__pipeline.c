@@ -1906,7 +1906,7 @@ void itest__MockMccPipelineTests( TEST_SUITE_RECEIVED_ARGUMENTS ) {
 
     TEST_START("Test Case: Mock MCC Pipeline - Establish the Pipeline.")
     BufferPoolInit();
-    retval = PlumbMccPipeline(&ctx, "Test", "MCC" );
+    retval = PlumbMccPipeline(&ctx, "Test", "MCC", TRUE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_STREQ("Test", ctx.mccFileCtxPtr->captionFileName);
     ASSERT_STREQ("MCC", ctx.line21OutputCtxPtr->baseFileName);
@@ -1956,7 +1956,7 @@ void itest__MockMccPipelineTests( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     isDone = FALSE;
     dtvccDecodePassSuccessfully = TRUE;
     resetMetrics();
-    retval = PlumbMccPipeline( &ctx, "Test", "MCC" );
+    retval = PlumbMccPipeline( &ctx, "Test", "MCC", TRUE );
     ASSERT_EQ(TRUE, retval);
     retval = MccFileProcNextBuffer( &ctx, &isDone );
     ASSERT_EQ(TRUE, retval);

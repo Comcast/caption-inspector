@@ -5,7 +5,7 @@ import ctypes
 import os
 import pytest
 
-CAPTION_CONVERTER_LIBRARY = './libcttp-test.1.0.0.dylib'
+CAPTION_INSPECTOR_LIBRARY = './libci-test.1.0.0.dylib'
 
 UNK_CAPTIONS_FILE = 0
 SCC_CAPTIONS_FILE = 1
@@ -15,32 +15,32 @@ MPEG_BINARY_FILE = 3
 
 class TestClass(object):
     def test__Determine_SCC_File(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         file_type = clib.DetermineFileType("../media/Plan9fromOuterSpace.scc".encode('utf-8'))
         assert file_type is SCC_CAPTIONS_FILE
 
     def test__Determine_MCC_File(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         file_type = clib.DetermineFileType("../media/NightOfTheLivingDead.mcc".encode('utf-8'))
         assert file_type is MCC_CAPTIONS_FILE
 
     def test__Determine_MPG_File(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         file_type = clib.DetermineFileType("../media/BigBuckBunny_160x90-24fps.mpg".encode('utf-8'))
         assert file_type is MPEG_BINARY_FILE
 
     def test__Determine_TS_File(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         file_type = clib.DetermineFileType("../media/BigBuckBunny_256x144-24fps.ts".encode('utf-8'))
         assert file_type is MPEG_BINARY_FILE
 
     def test__Determine_UNK_File(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         file_type = clib.DetermineFileType("../media/LoremIpsum.txt".encode('utf-8'))
         assert file_type is UNK_CAPTIONS_FILE
 
     def test__Determine_DF_NDF(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         is_drop_frame = ctypes.c_ubyte(0)
         successful = clib.DetermineDropFrame("../media/BigBuckBunny_160x90-24fps.mpg".encode('utf-8'), 0,
                                              0, ctypes.byref(is_drop_frame))
@@ -48,7 +48,7 @@ class TestClass(object):
         assert is_drop_frame.value is 0
 
     def test__Determine_DF_IDF(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         is_drop_frame = ctypes.c_ubyte(0)
         successful = clib.DetermineDropFrame("../media/BigBuckBunny_160x90-24fps.mov".encode('utf-8'), 0,
                                              0, ctypes.byref(is_drop_frame))
@@ -58,7 +58,7 @@ class TestClass(object):
         assert successful is 0
 
     def test__Determine_DF_Report(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         is_drop_frame = ctypes.c_ubyte(0)
         successful = clib.DetermineDropFrame("../media/BigBuckBunny_160x90-24fps.mpg".encode('utf-8'), 1,
                                              "./BigBuck".encode('utf-8'), ctypes.byref(is_drop_frame))
@@ -70,7 +70,7 @@ class TestClass(object):
             assert os.path.isfile("./BigBuck.inf") is False
 
     def test__Determine_DF_Report_NULL(self):
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         is_drop_frame = ctypes.c_ubyte(0)
         successful = clib.DetermineDropFrame("../media/BigBuckBunny_160x90-24fps.mpg".encode('utf-8'), 1,
                                              0, ctypes.byref(is_drop_frame))

@@ -1091,7 +1091,8 @@ void utest__ShutdownSinks( TEST_SUITE_RECEIVED_ARGUMENTS ) {
  | FUNCTION UNDER TEST: PlumbSccPipeline()
  |
  | TEST CASES:
- |    1) Successfully Plumb SCC Pipeline.
+ |    1) Successfully Plumb SCC Pipeline with Artifacts.
+ |    2) Successfully Plumb SCC Pipeline without Artifacts.
  |    2) Pass a NULL Input Filename.
  |    3) Pass a NULL Output Filename.
  |    4) Pass an Invalid Framerate.
@@ -1103,9 +1104,9 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     boolean retval;
     Context ctx;
 
-    TEST_START("Test Case: PlumbSccPipeline() - Successfully Plumb SCC Pipeline.")
+    TEST_START("Test Case: PlumbSccPipeline() - Successfully Plumb SCC Pipeline with Artifacts.")
     InitStubs();
-    retval = PlumbSccPipeline(&ctx, inputFilename, outputFilename, 2400);
+    retval = PlumbSccPipeline(&ctx, inputFilename, outputFilename, 2400, TRUE);
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, SccFileInitializeCalled);
     ASSERT_EQ(1, SccFileAddSinkCalled);
@@ -1135,10 +1136,30 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
     TEST_END
 
+    TEST_START("Test Case: PlumbSccPipeline() - Successfully Plumb SCC Pipeline without Artifacts.")
+    InitStubs();
+    retval = PlumbSccPipeline(&ctx, inputFilename, outputFilename, 2400, FALSE);
+    ASSERT_EQ(TRUE, retval);
+    ASSERT_EQ(1, SccFileInitializeCalled);
+    ASSERT_EQ(1, SccFileAddSinkCalled);
+    ASSERT_EQ(1, SccEncodeAddSinkCalled);
+    ASSERT_EQ(1, SccEncodeInitializeCalled);
+    ASSERT_EQ(1, Line21DecodeInitializeCalled);
+    ASSERT_PTREQ(inputFilename, SccFileInitializeFileNameStr);
+    ASSERT_EQ(2400, SccFileInitializeFramerate);
+    ASSERT_PTREQ(Line21OutInitializeFileNameStr, NULL);
+    SccFileInitializeCalled = 0;
+    SccFileAddSinkCalled = 0;
+    SccEncodeAddSinkCalled = 0;
+    SccEncodeInitializeCalled = 0;
+    Line21DecodeInitializeCalled = 0;
+    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
     TEST_START("Test Case: PlumbSccPipeline() - Pass a NULL Input Filename.")
     ERROR_EXPECTED
     InitStubs();
-    retval = PlumbSccPipeline(&ctx, NULL, outputFilename, 2400);
+    retval = PlumbSccPipeline(&ctx, NULL, outputFilename, 2400, FALSE);
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, SccFileInitializeCalled);
     ASSERT_EQ(0, SccFileAddSinkCalled);
@@ -1153,7 +1174,7 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: PlumbSccPipeline() - Pass a NULL Output Filename.")
     ERROR_EXPECTED
     InitStubs();
-    retval = PlumbSccPipeline(&ctx, inputFilename, NULL, 2400);
+    retval = PlumbSccPipeline(&ctx, inputFilename, NULL, 2400, FALSE);
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, SccFileInitializeCalled);
     ASSERT_EQ(0, SccFileAddSinkCalled);
@@ -1168,7 +1189,7 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: PlumbSccPipeline() - Pass an Invalid Framerate.")
     FATAL_ERROR_EXPECTED
     InitStubs();
-    retval = PlumbSccPipeline(&ctx, inputFilename, outputFilename, 2600);
+    retval = PlumbSccPipeline(&ctx, inputFilename, outputFilename, 2600, FALSE);
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, SccFileInitializeCalled);
     ASSERT_EQ(0, SccFileAddSinkCalled);
@@ -1185,9 +1206,10 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
  | FUNCTION UNDER TEST: PlumbMccPipeline()
  |
  | TEST CASES:
- |    1) Successfully Plumb MCC Pipeline.
- |    2) Pass a NULL Input Filename.
- |    3) Pass a NULL Output Filename.
+ |    1) Successfully Plumb MCC Pipeline with Artifacts.
+ |    2) Successfully Plumb MCC Pipeline without Artifacts.
+ |    3) Pass a NULL Input Filename.
+ |    4) Pass a NULL Output Filename.
  -------------------------------------------------------------------------------*/
 void utest__PlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_INITIALIZE
@@ -1196,9 +1218,9 @@ void utest__PlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     boolean retval;
     Context ctx;
 
-    TEST_START("Test Case: PlumbMccPipeline() - Successfully Plumb MCC Pipeline.");
+    TEST_START("Test Case: PlumbMccPipeline() - Successfully Plumb MCC Pipeline with Artifacts.");
     InitStubs();
-    retval = PlumbMccPipeline( &ctx, inputFilename, outputFilename );
+    retval = PlumbMccPipeline( &ctx, inputFilename, outputFilename, TRUE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, MccFileInitializeCalled);
     ASSERT_EQ(1, MccFileAddSinkCalled);
@@ -1229,10 +1251,33 @@ void utest__PlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
     TEST_END
 
+    TEST_START("Test Case: PlumbMccPipeline() - Successfully Plumb MCC Pipeline with Artifacts.");
+    InitStubs();
+    retval = PlumbMccPipeline( &ctx, inputFilename, outputFilename, FALSE );
+    ASSERT_EQ(TRUE, retval);
+    ASSERT_EQ(1, MccFileInitializeCalled);
+    ASSERT_EQ(1, MccFileAddSinkCalled);
+    ASSERT_EQ(1, MccDecodeInitializeCalled);
+    ASSERT_EQ(2, MccDecodeAddSinkCalled);
+    ASSERT_EQ(1, DtvccDecodeInitializeCalled);
+    ASSERT_EQ(1, Line21DecodeInitializeCalled);
+    ASSERT_PTREQ(inputFilename, MccFileInitializeFileNameStr);
+    ASSERT_PTREQ(DtvccOutInitializeFileNameStr, NULL);
+    ASSERT_PTREQ(Line21OutInitializeFileNameStr, NULL);
+    ASSERT_PTREQ(CcDataOutInitializeFileNameStr, NULL);
+    MccFileInitializeCalled = 0;
+    MccFileAddSinkCalled = 0;
+    MccDecodeInitializeCalled = 0;
+    MccDecodeAddSinkCalled = 0;
+    DtvccDecodeInitializeCalled = 0;
+    Line21DecodeInitializeCalled = 0;
+    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
     TEST_START("Test Case: PlumbMccPipeline() - Pass a NULL Input Filename.");
     ERROR_EXPECTED
     InitStubs();
-    retval = PlumbMccPipeline( &ctx, NULL, outputFilename );
+    retval = PlumbMccPipeline( &ctx, NULL, outputFilename, FALSE );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, MccFileInitializeCalled);
     ASSERT_EQ(0, MccFileAddSinkCalled);
@@ -1251,7 +1296,7 @@ void utest__PlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: PlumbMccPipeline() - Pass a NULL Output Filename.");
     ERROR_EXPECTED
     InitStubs();
-    retval = PlumbMccPipeline( &ctx, inputFilename, NULL );
+    retval = PlumbMccPipeline( &ctx, inputFilename, NULL, FALSE );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, MccFileInitializeCalled);
     ASSERT_EQ(0, MccFileAddSinkCalled);

@@ -7,8 +7,8 @@ import sys
 import subprocess
 from datetime import datetime
 
-CAPTION_CONVERTER_EXE = '../../caption-converter'
-CAPTION_CONVERTER_LIBRARY = './libcttp-test.1.0.0.dylib'
+CAPTION_INSPECTOR_EXE = '../../caption-inspector'
+CAPTION_INSPECTOR_LIBRARY = './libci-test.1.0.0.dylib'
 OUTPUT_FILENAME = 'compiled_output.xml'
 
 py_test_suites = ['autodetect_file', 'external_adaptor', 'output_utils']
@@ -34,10 +34,10 @@ if __name__ == "__main__":
     else:
         exe_ver = '???'
         lib_ver = '???'
-        response = subprocess.check_output([CAPTION_CONVERTER_EXE, '-v'], stderr=subprocess.STDOUT)
+        response = subprocess.check_output([CAPTION_INSPECTOR_EXE, '-v'], stderr=subprocess.STDOUT)
         if response.split()[0] == b"Version:":
             exe_ver = response.strip().decode('utf-8')
-        clib = ctypes.CDLL(CAPTION_CONVERTER_LIBRARY)
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         clib.ExtrnlAdptrGetVersion.restype = ctypes.c_char_p
         response = clib.ExtrnlAdptrGetVersion()
         lib_ver = ctypes.c_char_p(response).value.decode('utf-8')

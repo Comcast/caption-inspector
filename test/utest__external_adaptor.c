@@ -321,12 +321,12 @@ void FreeBuffer( Buffer* bufferToFreePtr ) {
     TEST_ASSERT(bufferToFreePtr == &buffer);
 }
 
-boolean PlumbMccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename ) {
+boolean PlumbMccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts ) {
     PlumbMccPipelineCalled++;
     return PlumbMccPipelineReturn;
 }
 
-boolean PlumbSccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, uint32 framerate ) {
+boolean PlumbSccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, uint32 framerate, boolean artifacts ) {
     PlumbSccPipelineCalled++;
     return PlumbSccPipelineReturn;
 }

@@ -223,5 +223,6 @@ clean:
 	rm -f python/*.html
 
 %.o: %.c
+	@if ! [ -d "../obj" ]; then mkdir ../obj; fi
 	gcc -c $(C_FLAGS) -I ../include $*.c -o ../obj/$(notdir $*.o)
 	gcc -MM -I ../include $*.c > ../obj/$(notdir $*.d)

@@ -232,17 +232,17 @@ boolean _ShutdownSinks( char* fileNameStr, int lineNum, Context* ctxPtr, Sinks* 
  |    This method plumbs the pipeline to decode a SCC file and leave it's
  |    decoded text in a file that is <inputFilename>.608
  |
- | PIPELINE:                                     +----------------+      +----------------+
- |                                           +-> | Line 21 Decode | ---> | Line 21 Output |
- |                                           |   +----------------+      +----------------+
+ | PIPELINE:                                      +----------------+      +----------------+
+ |                                           +--> | Line 21 Decode | -?-> | Line 21 Output |
+ |                                           |    +----------------+      +----------------+
  |                                           |
- |    +--------------+      +------------+   |    +------------+         +------------+
- |    | Caption File | ---> | SCC Encode | --+--> | MCC Encode | ------> | MCC Output |
- |    +--------------+      +------------+   |    +------------+         +------------+
+ |    +--------------+      +------------+   |     +------------+         +------------+
+ |    | Caption File | ---> | SCC Encode | --+-?-> | MCC Encode | ------> | MCC Output |
+ |    +--------------+      +------------+   |     +------------+         +------------+
  |                                           |
- |                                           |    +----------------+
- |                                           +--> | CC Data Output |
- |                                                +----------------+
+ |                                           |     +----------------+
+ |                                           +-?-> | CC Data Output |
+ |                                                 +----------------+
  -------------------------------------------------------------------------------*/
 boolean PlumbSccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, uint32 framerate, boolean artifacts ) {
     ASSERT(ctxPtr);
@@ -326,17 +326,17 @@ boolean PlumbSccPipeline( Context* ctxPtr, char* inputFilename, char* outputFile
  |    This method plumbs the pipeline to decode a MCC file and leave it's
  |    decoded text in a file that is <inputFilename>.608 and <inputFilename>.708
  |
- | PIPELINE:                                     +----------------+      +----------------+
- |                                           +-> | Line 21 Decode | ---> | Line 21 Output |
- |                                           |   +----------------+      +----------------+
+ | PIPELINE:                                      +----------------+      +----------------+
+ |                                           +--> | Line 21 Decode | -?-> | Line 21 Output |
+ |                                           |    +----------------+      +----------------+
  |                                           |
- |    +--------------+      +------------+   |    +--------------+        +--------------+
- |    | Caption File | ---> | MCC Decode | --+--> | DTVCC Decode | -----> | DTVCC Output |
- |    +--------------+      +------------+   |    +--------------+        +--------------+
+ |    +--------------+      +------------+   |     +--------------+        +--------------+
+ |    | Caption File | ---> | MCC Decode | --+---> | DTVCC Decode | --?--> | DTVCC Output |
+ |    +--------------+      +------------+   |     +--------------+        +--------------+
  |                                           |
- |                                           |    +----------------+
- |                                           +--> | CC Data Output |
- |                                                +----------------+
+ |                                           |     +----------------+
+ |                                           +-?-> | CC Data Output |
+ |                                                 +----------------+
  -------------------------------------------------------------------------------*/
 boolean PlumbMccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts ) {
     ASSERT(ctxPtr);
