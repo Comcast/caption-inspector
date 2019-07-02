@@ -74,6 +74,9 @@ ci_without_ffmpeg:
 docker:
 	docker build -t caption-inspector .
 
+docker-test:
+	cd test ; make docker
+
 clean:
 	cd src ; make clean
 

@@ -192,6 +192,9 @@ ${UTEST_OUTPUT_UTILS_EXE}: ${UTEST_OUTPUT_UTILS_OBJ} ${TEST_OBJS_WITH_PATH}
 ${UTEST_PIPELINE_UTILS_EXE}: ${UTEST_PIPELINE_UTILS_OBJ} ${TEST_OBJS_WITH_PATH}
 	gcc -o ${UTEST_PIPELINE_UTILS_EXE} ${UTEST_PIPELINE_UTILS_OBJ_IN_OBJ_DIR} ${TEST_OBJS_IN_OBJ_DIR}
 
+docker:
+	docker build -t caption-inspector-test .
+
 test:
 	@echo "\n*** Cleaning for Test ***"
 	make clean
@@ -201,6 +204,13 @@ test:
 	cd ../; make all
 	@echo "\n*** Running Tests ***"
 	cd python; python3 test_engine.py
+
+docker-test:
+	@echo "\n*** Building for Test ***"
+	make all
+	cd ../; make all
+	@echo "\n*** Running Tests on Docker ***"
+	cd python; python3 test_engine.py docker
 
 clean:
 	@echo "\n*** Cleaning Target Files. ***"
@@ -225,4 +235,4 @@ clean:
 %.o: %.c
 	@if ! [ -d "../obj" ]; then mkdir ../obj; fi
 	gcc -c $(C_FLAGS) -I ../include $*.c -o ../obj/$(notdir $*.o)
-	gcc -MM -I ../include $*.c > ../obj/$(notdir $*.d)
+	gcc -MM $(C_FLAGS) -I ../include $*.c > ../obj/$(notdir $*.d)

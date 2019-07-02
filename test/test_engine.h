@@ -50,7 +50,7 @@
 
 #define INIT_TEST_FRAMEWORK(argc, argv) uint16 tmpNumSuccessfulTests; uint16 tmpNumFailedTests; \
                                         uint16 totalNumSuccessfulTests = 0; uint16 totalNumFailedTests = 0; InitTestFramework(argc, argv);
-#define SHUTDOWN_TEST_FRAMEWORK ShutdownTestFramework(); printf("Total: Succeeded - %d - Failed - %d\n", totalNumSuccessfulTests, totalNumFailedTests);
+#define SHUTDOWN_TEST_FRAMEWORK ShutdownTestFramework(); printf("Total: Succeeded - %d - Failed - %d\n", totalNumSuccessfulTests, totalNumFailedTests); return totalNumFailedTests;
 
 #define TEST_SUITE_START(name) tmpNumSuccessfulTests = 0; tmpNumFailedTests = 0; printf("Running - %s", name); \
                                WriteToOutputFile("    <testsuite name=\"%s\">\n", name);
