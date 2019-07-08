@@ -194,6 +194,9 @@ ${UTEST_PIPELINE_UTILS_EXE}: ${UTEST_PIPELINE_UTILS_OBJ} ${TEST_OBJS_WITH_PATH}
 
 docker:
 	docker build -t caption-inspector-test .
+	rm -f *.html
+	DCID=$$(docker create -v $(PWD):/files caption-inspector-test) && docker cp ../../caption-inspector/. $${DCID}:/app/caption-inspector && docker start -ai $${DCID}
+	open *.html
 
 test:
 	@echo "\n*** Cleaning for Test ***"
@@ -210,7 +213,7 @@ docker-test:
 	make all
 	cd ../; make all
 	@echo "\n*** Running Tests on Docker ***"
-	cd python; python3 test_engine.py docker
+	cd python; python3 test_engine.py docker; cp *.html /files
 
 clean:
 	@echo "\n*** Cleaning Target Files. ***"

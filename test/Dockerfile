@@ -21,7 +21,8 @@ RUN apt-get install -y make curl gcc g++ nasm yasm && \
 
 RUN apt-get install -y git && pip install pytest && apt-get install -y mediainfo && cp /usr/bin/mediainfo /usr/local/bin/mediainfo && apt-get install -y npm && npm i -g xunit-viewer
 
-# build /app/caption-inspector executable
+# add directory /app/caption-inspector
 WORKDIR /app
-RUN git clone https://github.com/Comcast/caption-inspector.git; cd caption-inspector/test; make docker-test
+RUN mkdir caption-inspector
 
+ENTRYPOINT /usr/bin/make -C /app/caption-inspector/test docker-test

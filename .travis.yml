@@ -14,6 +14,9 @@ matrix:
         - os: osx
           compiler: gcc
 
+services:
+  - docker
+
 script:
   - make ci_without_ffmpeg
   - ./caption-inspector --version
@@ -23,3 +26,4 @@ script:
   - make caption-inspector
   - export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
   - ./caption-inspector --version
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then make docker-test; fi
