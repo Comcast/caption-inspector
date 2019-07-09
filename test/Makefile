@@ -194,9 +194,9 @@ ${UTEST_PIPELINE_UTILS_EXE}: ${UTEST_PIPELINE_UTILS_OBJ} ${TEST_OBJS_WITH_PATH}
 
 docker:
 	docker build -t caption-inspector-test .
-	rm -f *.html
 	DCID=$$(docker create -v $(PWD):/files caption-inspector-test) && docker cp ../../caption-inspector/. $${DCID}:/app/caption-inspector && docker start -ai $${DCID}
-	open *.html
+	@echo "Test results copied locally:"
+	@ls -1 *.html
 
 test:
 	@echo "\n*** Cleaning for Test ***"
@@ -234,6 +234,7 @@ clean:
 	@echo "\n*** Cleaning Test Artifacts. ***"
 	rm -f python/*.xml
 	rm -f python/*.html
+	rm -f *.html
 
 %.o: %.c
 	@if ! [ -d "../obj" ]; then mkdir ../obj; fi
