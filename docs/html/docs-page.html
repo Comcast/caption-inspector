@@ -126,12 +126,15 @@
             margin-top:75px;
             margin-bottom:55px;
         }
-        span.outline-indicator {
+        div.outline-indicator {
             display : inline-block !important;
             float   : right !important;
             clear   : right !important;
             /*clear   : right !important;*/
             color   : #ddddde !important;
+            width:40px;
+            max-width:90px;
+            text-align: right;
         }
         img.caption-inspector-logo {
             display : block !important;
@@ -181,7 +184,7 @@
                 </button>
                 <div class="site-logo">
                         <a class="navbar-brand" href="caption-inspector/docs/index.html">
-                            <img src="assets/ci-icon-stamp-blue.png" class="logo-icon mr-2"
+                            <img src="./assets/ci-icon-stamp-sea.png" class="logo-icon mr-2"
                                     style="max-width:54px; padding-bottom:6px" alt="CI">
                             <span class="logo-text">Caption <span class="text-alt">Inspector</span></span>
                         </a>
@@ -198,7 +201,7 @@
                 </div>
                 <!--<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">-->
                 <li class="list-inline-item"><a href="https://github.com/Comcast/caption-inspector" target="Comcast/caption-inspector"><i
-                        class="fab fa-github fa-fw"></i></a></li>
+                        class="fab fa-github fa-fw" style="margin:2px 15px"></i></a></li>
                 <!--<li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>-->
                 <!--<li class="list-inline-item"><a href="#"><i class="fab fa-slack fa-fw"></i></a></li>-->
                 <!--<li class="list-inline-item"><a href="#"><i class="fab fa-product-hunt fa-fw"></i></a></li>-->
@@ -219,271 +222,272 @@
             </form>
         </div>
         <nav class="docs-nav navbar" id="docs-nav">
-            <ul class="section-items list-unstyled nav flex-column pb-3"  id="navigation-menu">
-                <li class="nav-item section-title">
-                    <a class="nav-link scrollto active" href="#section-1">
-                        <span class="theme-icon-holder mr-2">
-                            <i class="fas fa-map-signs"></i>
-                        </span>
-                        Introduction
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#item-1-6">Brief
-                        <span class="outline-indicator">1.0</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-1-0">Expectations and Quality
-                        <span class="outline-indicator">1.6</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-1-1">Quality Control
-                        <span class="outline-indicator">1.6</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-1-2">Quality Standards
-                        <span
-                                class="outline-indicator">1.6</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-1-3">How is it Used
-                        <span class="outline-indicator">1.1</span>
-                    </a>
-                </li>
-                <li class="nav-item section-title">
-                    <a class="nav-link scrollto" href="#section-2-0">
-                        <span class="theme-icon-holder mr-2">
-                            <i class="fas fa-school"></i>
-                        </span>
-                        Prerequisites
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-2-0">Developer Overview <span
-                            class="outline-indicator">1.1</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-1-0">Building Caption Inspector <span class="outline-indicator">1.8</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-1-0">Apache License 2.0 <span class="outline-indicator">1.1</span>
-                    </a>
-                </li>
-                <li class="nav-item section-title">
-                    <a class="nav-link scrollto" href="#section-3-0">
-                        <span class="theme-icon-holder mr-2">
-                            <i class="fas fa-school"></i>
-                        </span>
-                        Installation and Start Up
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-1-01">The Executable <span class="outline-indicator">1
-                                                                                                                                  .11</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-1-0">Basic Usage <span class="outline-indicator">1.11</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-1-02">Building the docker image <span class="outline-indicator">1.12</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-1-0">Publishing the build <span class="outline-indicator">1.12</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-6-0">Artifacts (files) <span
-                            class="outline-indicator">1.12</span>
-                    </a>
-                
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-6-0">Understanding Descriptors
-                        <span class="outline-indicator">1.13</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-6-3">CCD Details
-                        <span class="outline-indicator">1.13</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-7-0">About Caption Windows
-                        <span class="outline-indicator">1.14</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-7-0">Timestamp
-                        <span class="outline-indicator">1.14</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-7-0">There are three types of timestamps: <span
-                            class="outline-indicator">1.14</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-7-0">Aggregated text
-                    <span class="outline-indicator">1
-                                                                                                                 .14</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-7-0">Reading the Output<span
-                        class="outline-indicator">1.14</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-7-0">Decoded Data <span
-                        class="outline-indicator">1.15</span>
-                </a>
-                </li>
-                <li class="nav-item section-title">
-                    <a class="nav-link scrollto" href="#section-8-0">
-                        <span class="theme-icon-holder mr-2">
-                            <i class="fas fa-file"></i>
-                        </span>
-                        CEA-608
-                    </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-7">NULL Data<span
-                        class="outline-indicator">1.17</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-7">Global control codes <span
-                        class="outline-indicator">1.17</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-1-07">Global control codes (CEA-608) <span
-                        class="outline-indicator">1.17</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-8-0">Preamble Access Codes (PAC) (CEA-608) <span
-                        class="outline-indicator">1.1</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-8-0">Mid Row Style Change Code  (CEA-608) <span
-                        class="outline-indicator">1.1</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-8-0">Tab Control Code (CEA-608) <span
-                        class="outline-indicator">1.1</span>
-                </a>
-                </li>
-                <li class="nav-item section-title">
-                    <a class="nav-link scrollto" href="#section-9-0">
-                        <span class="theme-icon-holder mr-2">
-                            <i class="fas fa-file"></i>
-                        </span>
-                        CEA-708
-                    </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-9-1">Packet Structure
-                    <span class="outline-indicator">9.1</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-9-2">Spurious Data (CEA-708) <span
-                        class="outline-indicator">9.2</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-9-3">Set Current Window
-                    <span class="outline-indicator">9.3</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-9-4">Define Window
-                    <span class="outline-indicator">9.4</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-9-5">Display Windows
-                    <span class="outline-indicator">9.5</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-9-6">Clear Windows
-                    <span class="outline-indicator">9.6</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-9-7">Delete Windows
-                    <span class="outline-indicator">9.7</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-9-8">Hide Windows
-                    <span class="outline-indicator">9.8</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-9-9">Toggle Windows
-                        <span class="outline-indicator">9.9</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-9-10">Set Window attributes
-                        <span
-                                class="outline-indicator">9.10</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-9-0">Set Pen attributes
-                        <span class="outline-indicator">1.1</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-9-0">Set Pen color
-                        <span class="outline-indicator">1.1</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-9-0">Set Pen Location
-                        <span class="outline-indicator">1.1</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="#section-9-0">Delay
-                        <span class="outline-indicator">1.1</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-9-0">Delay Cancel
-                    <span class="outline-indicator">1.1</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-9-0">Reset (CEA-708)
-                    <span class="outline-indicator">1.1</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-10-0">Reserved  (CEA-708)
-                    <span class="outline-indicator">1.1</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link scrollto" href="#section-11-0">Debugging Captions
-                    <span class="outline-indicator">11.0</span>
-                </a>
-                </li>
+            <ul id="documentation-outline"
+                    class="section-items list-unstyled nav flex-column pb-3">
+                <!--<li class="nav-item section-title">-->
+                    <!--<a class="nav-link scrollto active" href="#section-1">-->
+                        <!--<span class="theme-icon-holder mr-2">-->
+                            <!--<i class="fas fa-map-signs"></i>-->
+                        <!--</span>-->
+                        <!--Introduction-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#item-1-6">Brief-->
+                        <!--<span class="outline-indicator">1.0</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-1-0">Expectations and Quality-->
+                        <!--<span class="outline-indicator">1.6</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-1-1">Quality Control-->
+                        <!--<span class="outline-indicator">1.6</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-1-2">Quality Standards-->
+                        <!--<span-->
+                                <!--class="outline-indicator">1.6</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-1-3">How is it Used-->
+                        <!--<span class="outline-indicator">1.1</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item section-title">-->
+                    <!--<a class="nav-link scrollto" href="#section-2-0">-->
+                        <!--<span class="theme-icon-holder mr-2">-->
+                            <!--<i class="fas fa-school"></i>-->
+                        <!--</span>-->
+                        <!--Prerequisites-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-2-0">Developer Overview <span-->
+                            <!--class="outline-indicator">1.1</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-1-0">Building Caption Inspector <span class="outline-indicator">1.8</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-1-0">Apache License 2.0 <span class="outline-indicator">1.1</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item section-title">-->
+                    <!--<a class="nav-link scrollto" href="#section-3-0">-->
+                        <!--<span class="theme-icon-holder mr-2">-->
+                            <!--<i class="fas fa-school"></i>-->
+                        <!--</span>-->
+                        <!--Installation and Start Up-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-1-01">The Executable <span class="outline-indicator">1-->
+                                                                                                                                  <!--.11</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-1-0">Basic Usage <span class="outline-indicator">1.11</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-1-02">Building the docker image <span class="outline-indicator">1.12</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-1-0">Publishing the build <span class="outline-indicator">1.12</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-6-0">Artifacts (files) <span-->
+                            <!--class="outline-indicator">1.12</span>-->
+                    <!--</a>-->
+                <!---->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-6-0">Understanding Descriptors-->
+                        <!--<span class="outline-indicator">1.13</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-6-3">CCD Details-->
+                        <!--<span class="outline-indicator">1.13</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-7-0">About Caption Windows-->
+                        <!--<span class="outline-indicator">1.14</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-7-0">Timestamp-->
+                        <!--<span class="outline-indicator">1.14</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-7-0">There are three types of timestamps: <span-->
+                            <!--class="outline-indicator">1.14</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-7-0">Aggregated text-->
+                    <!--<span class="outline-indicator">1-->
+                                                                                                                 <!--.14</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-7-0">Reading the Output<span-->
+                        <!--class="outline-indicator">1.14</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-7-0">Decoded Data <span-->
+                        <!--class="outline-indicator">1.15</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item section-title">-->
+                    <!--<a class="nav-link scrollto" href="#section-8-0">-->
+                        <!--<span class="theme-icon-holder mr-2">-->
+                            <!--<i class="fas fa-file"></i>-->
+                        <!--</span>-->
+                        <!--CEA-608-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-7">NULL Data<span-->
+                        <!--class="outline-indicator">1.17</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-7">Global control codes <span-->
+                        <!--class="outline-indicator">1.17</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-1-07">Global control codes (CEA-608) <span-->
+                        <!--class="outline-indicator">1.17</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-8-0">Preamble Access Codes (PAC) (CEA-608) <span-->
+                        <!--class="outline-indicator">1.1</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-8-0">Mid Row Style Change Code  (CEA-608) <span-->
+                        <!--class="outline-indicator">1.1</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-8-0">Tab Control Code (CEA-608) <span-->
+                        <!--class="outline-indicator">1.1</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item section-title">-->
+                    <!--<a class="nav-link scrollto" href="#section-9-0">-->
+                        <!--<span class="theme-icon-holder mr-2">-->
+                            <!--<i class="fas fa-file"></i>-->
+                        <!--</span>-->
+                        <!--CEA-708-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-9-1">Packet Structure-->
+                    <!--<span class="outline-indicator">9.1</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-9-2">Spurious Data (CEA-708) <span-->
+                        <!--class="outline-indicator">9.2</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-9-3">Set Current Window-->
+                    <!--<span class="outline-indicator">9.3</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-9-4">Define Window-->
+                    <!--<span class="outline-indicator">9.4</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-9-5">Display Windows-->
+                    <!--<span class="outline-indicator">9.5</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-9-6">Clear Windows-->
+                    <!--<span class="outline-indicator">9.6</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-9-7">Delete Windows-->
+                    <!--<span class="outline-indicator">9.7</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-9-8">Hide Windows-->
+                    <!--<span class="outline-indicator">9.8</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-9-9">Toggle Windows-->
+                        <!--<span class="outline-indicator">9.9</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-9-10">Set Window attributes-->
+                        <!--<span-->
+                                <!--class="outline-indicator">9.10</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-9-0">Set Pen attributes-->
+                        <!--<span class="outline-indicator">1.1</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-9-0">Set Pen color-->
+                        <!--<span class="outline-indicator">1.1</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-9-0">Set Pen Location-->
+                        <!--<span class="outline-indicator">1.1</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<a class="nav-link scrollto" href="#section-9-0">Delay-->
+                        <!--<span class="outline-indicator">1.1</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-9-0">Delay Cancel-->
+                    <!--<span class="outline-indicator">1.1</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-9-0">Reset (CEA-708)-->
+                    <!--<span class="outline-indicator">1.1</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-10-0">Reserved  (CEA-708)-->
+                    <!--<span class="outline-indicator">1.1</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                <!--<a class="nav-link scrollto" href="#section-11-0">Debugging Captions-->
+                    <!--<span class="outline-indicator">11.0</span>-->
+                <!--</a>-->
+                <!--</li>-->
             </ul>
         </nav>
     </div>

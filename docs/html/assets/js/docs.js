@@ -1,9 +1,13 @@
 $(window).on('load resize', function () {
     var w = $(window).width();
     if (w >= 1200) {
-        $('#docs-sidebar').addClass('sidebar-visible').removeClass('sidebar-hidden');
+        $('#docs-sidebar')
+            .addClass('sidebar-visible')
+            .removeClass('sidebar-hidden');
     } else {
-        $('#docs-sidebar').addClass('sidebar-hidden').removeClass('sidebar-visible');
+        $('#docs-sidebar')
+            .addClass('sidebar-hidden')
+            .removeClass('sidebar-visible');
     }
 });
 const LEVEL = {ROOT: 0, PARENT: 1, CHILD: 2, NUB: 3}
@@ -30,7 +34,6 @@ class OutlineElement {
         return (this.children && this.children.length > 0);
     }
 }
-
 class Outliner {
     constructor() {
         this.outline = new OutlineElement(null, "root", "root", 0);
@@ -42,12 +45,13 @@ class Outliner {
     generateHTML() {
         this.outline.children
             .forEach((parent, key, map) => {
+                
                 if (parent.hasChildren && parent.hasChildren()) {
-                    parent.children
-                          .forEach((child, key, map) => {
-                              if (child.hasChildren && child.hasChildren()) {
-                              }
-                          });
+                    parent.children.forEach((child, key, map) => {
+                      if (child.hasChildren && child.hasChildren()) {
+                      
+                      }
+                  });
                 }
             });
     }
@@ -64,22 +68,22 @@ class BuildNav {
     static sectionHeaders = `
 	<li class="nav-item section-title">
 		<!-- SECTION HEADER -->
-		<a class="nav-link scrollto" href="#{{SECTION}}">
+		<a class="nav-link scrollto" href="./docs-page.html#{{SECTION}}">
 			<span class="theme-icon-holder mr-2">
 				<i class="fas fa-{{ICON}}"></i>
 			</span>
-			<span class="outline-indicator">{{ID}}</span>
-			{{LABEL}}
+			<div class="outline-indicator">{{ID}}</div>
+			<label>{{LABEL}}</label>
 		</a>
 	</li>`;
     static HTML_ARRAY = [];
     static navigationTemplate = `<li class="nav-item ">
-		<a class="nav-link scrollto" href="#{{SECTION}}">
+		<a class="nav-link scrollto" href="./docs-page.html#{{SECTION}}">
 			<span class="theme-icon-holder mr-1">
 				<i class="fas fa-{{ICON}}"></i>
 			</span>
-			<span class="outline-indicator">{{ID}}</span>
-			{{LABEL}}
+			<div class="outline-indicator">{{ID}}</div>
+			<label>{{LABEL}}</label>
 		</a>
 	</li>`;
     static getHeaderTemplate(LABEL, ICON, SECTION) {
@@ -148,9 +152,8 @@ class BuildNav {
         } catch (er) {
             console.warn(er);
         }
-        console.log(BuildNav.HTML_ARRAY.join(""), $("#navigation-menu").html);
-        $("#navigation-menu").html = "<!-- CLEAR -->";
-        //$("#navigation-menu").html = BuildNav.HTML_ARRAY.join("") || "";
+        console.log(BuildNav.HTML_ARRAY.join(""));
+        $("#documentation-outline").html(BuildNav.HTML_ARRAY.join("") || "");
         if (callback && typeof callback === "Function") {
             callback()
         }
