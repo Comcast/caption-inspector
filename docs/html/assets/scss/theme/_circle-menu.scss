@@ -1,0 +1,74 @@
+@import "colors";
+.circle-menu {
+    >.toggle {
+        background-color: $color-blue-lighter;
+        text-align: center;
+        height: 100px;
+        width: 100px;
+        border-radius: 50% !important;
+        position: absolute !important;
+        margin: auto;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        >.fa-plus{
+            font-size: 60px;
+            color: white;
+            display: block !important;
+            margin-top: 20px;
+            transition: 0.7s;
+        }
+    }
+    > .menu {
+        background-color: white;
+        height: 100px;
+        width: 100px;
+        transform: scale(0);
+        border-radius: 50% !important;
+        border-style: double;
+        border-color: $color-xfinity-pumkin;
+        position: absolute;
+        margin: auto;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: -1;
+        transition: 0.7s;
+        a {
+            display: inline-block;
+            position: absolute;
+            font-size: 15px;
+            color: #BBBBBB;
+            &:hover {
+                color: $color-xfinity-pumkin;
+            }
+            &:nth-child(1){
+                top: 6px;
+                left: 45px;
+            }
+            &:nth-child(2){
+                top: 24px;
+                left: 77px;
+            }
+            &:nth-child(3){
+                top: 58px;
+                left: 76px;
+            }
+            &:nth-child(4){
+                top: 78px;
+                left: 42px;
+            }
+
+            &:nth-child(5){
+                top: 58px;
+                left: 10px;
+            }
+            &:nth-child(6){
+                top: 23px;
+                left: 12px;
+            }
+        }
+    }
+}

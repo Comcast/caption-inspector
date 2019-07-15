@@ -1,0 +1,108 @@
+@import "base";
+
+
+.h-card, .vcard {
+  padding: 15px 25px;
+  border-radius: 8px !important;
+  color: white;
+  border: 1px solid $swatch-color-3;
+  background-color: $swatch-color-2;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.35px;
+  line-height: 25px;
+  font-weight: 300;
+  &:hover {
+    cursor: pointer;
+    background-color: $color-blue;
+    border: 1px solid $swatch-color-3;
+  }
+}
+.info-stack {
+  max-width: 90%;
+  margin: 50px auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 4px !important;
+  h2, h3, h4, h5 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .card-header {
+    border-bottom-color: #edeff0;
+    background: transparent;
+    button {
+      >.fa-stack {
+        > .fa-plus {
+          display: none;
+        }
+        > .fa-minus {
+          display: block;
+        }
+      }
+      &.collapsed {
+        >.fa-stack {
+          >.fa-plus{ display: block;}
+          >.fa-minus{ display: none;}
+        }
+      }
+    }
+  }
+  .fa-stack {
+    font-size: 18px;
+  }
+  .btn {
+    width: 100%;
+    font-weight: bold;
+    color: $color-blue;
+    padding: 0;
+  }
+  .btn-link {
+    &:hover{text-decoration: none;}
+    &:focus{text-decoration: none;}
+  }
+  li+li {
+    margin-top: 10px;
+  }
+}
+.info-stack .card,
+.info-stack .card:last-child .card-header {
+  border: none !important;
+}
+
+.tag {
+  padding: 2px 7px;
+  border-radius: 4px !important;
+  color: $swatch-color-4;
+  border: 1px solid $swatch-color-3;
+  background-color: $swatch-color-2;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.35px;
+  line-height: 25px;
+  font-weight: 300;
+  &:hover {
+    cursor: pointer;
+    background-color: $color-blue;
+    border: 1px solid $swatch-color-3;
+  }
+}
+
+blockquote, .blockquote {
+  max-width: 90%;
+  margin: 50px auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 4px !important;
+  padding:30px 80px;
+  color: $color-blue;
+  *{
+    color: $color-blue;
+  }
+}
+
+span.outline-indicator {
+  display: inline-block;
+  color : $color-cool-grey-10;
+  width:40px;
+  float:right;
+  clear-after: both;
+}
