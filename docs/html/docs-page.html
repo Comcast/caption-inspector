@@ -118,10 +118,11 @@
             margin-bottom:55px;
         }
         span.outline-indicator {
-            display : none !important;
+            display : inline-block !important;
             float   : right !important;
             clear   : right !important;
-            color   : #bbbbbb !important;
+            /*clear   : right !important;*/
+            color   : #ddddde !important;
         }
         img.caption-inspector-logo {
             display : block !important;
@@ -171,8 +172,8 @@
                 </button>
                 <div class="site-logo">
                         <a class="navbar-brand" href="index.html">
-                            <img data-toggle="lightbox" alt="CI" class="logo-icon mr-2" src="./assets/brand/ci-icon.png"
-                                 style="max-width:50px">
+                            <img src="assets/ci-icon-stamp-blue.png" class="logo-icon mr-2"
+                                    style="max-width:54px; padding-bottom:6px" alt="CI">
                             <span class="logo-text">Caption <span class="text-alt">Inspector</span></span>
                         </a>
                 </div>
@@ -209,7 +210,7 @@
             </form>
         </div>
         <nav class="docs-nav navbar" id="docs-nav">
-            <ul class="section-items list-unstyled nav flex-column pb-3">
+            <ul class="section-items list-unstyled nav flex-column pb-3"  id="navigation-menu">
                 <li class="nav-item section-title">
                     <a class="nav-link scrollto active" href="#section-1">
                         <span class="theme-icon-holder mr-2">
