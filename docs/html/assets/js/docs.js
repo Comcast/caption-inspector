@@ -7,7 +7,29 @@ $(window).on('load resize', function() {
 	    $('#docs-sidebar').addClass('sidebar-hidden').removeClass('sidebar-visible');
 	}
 });
+class OutlineElement {
+	constructor(parent, label, id, level){
+		this.parent = parent;
+		this.id = id;
+		this.label = label;
+		this.level = level;
+		this.children = null;
+		if(level && level < 3){
+			this.children = new Map();
+		}
+	}
+}
 
+class Outliner {
+	constructor(){
+		this.outline = new Map();
+	}
+	addChild(parent, label, id, level){}
+	addSibling(parent, label, id, level){}
+	addChild(parent, label, id, level){}
+	
+	
+}
 class BuildNav {
 	static sectionHeaders =`
 	<li class="nav-item section-title">
