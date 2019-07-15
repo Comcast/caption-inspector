@@ -101,10 +101,19 @@
             color:#77a;
         }
         h5{
-            font-weight : 200 !important;
+            font-weight : 700 !important;
             font-size: 1.4rem !important;
-            margin-top:65px !important;
-            margin-bottom: 1.5rem;
+            margin-top:45px !important;
+            margin-bottom: 1.2rem;
+        }
+        ol.guidelines > li {
+            margin-left:45px;
+        }
+        ol.guidelines li > span.bold {
+    
+        }
+        ol.guidelines li > span.description {
+            display:block !important;
         }
         .file-ext {
             color:#669;
@@ -171,7 +180,7 @@
                     <span id="hamburger-1"></span> <span id="hamburger-2"></span> <span id="hamburger-3"></span>
                 </button>
                 <div class="site-logo">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="caption-inspector/docs/index.html">
                             <img src="assets/ci-icon-stamp-blue.png" class="logo-icon mr-2"
                                     style="max-width:54px; padding-bottom:6px" alt="CI">
                             <span class="logo-text">Caption <span class="text-alt">Inspector</span></span>
@@ -666,26 +675,55 @@
                        Distributors who then make the content available to Consumers.</p>
                 </section>
                 <section class="docs-section" id="section-3-0">
-                    <h2 class="section-heading">Expectations of Quality</h2>
-                    <p>Today, there is a gap in the process of Closed Caption Quality caused by errors within the
-                       content. Prior to this software, content delivered to Distributors could not be easily validated
-                       without going through (watching) all of the video content, frame by frame. This makes checking
-                       content impractical, and its often overlooked when distributed.
-                    <p>This has caused the content to be delivered with Closed Caption errors. As a result, this content
-                       is then provided to consumers with errors, making the Distributors at fault for faulty content.
-                       Regardless of where the responsibility lies, whether the Content Provider, or the Distributor,
-                       each video can now be validated by each party in a relatively short period of time. Thus, Content
-                       Providers can be certain of what they deliver, and Distributors do not have to accept faulty
-                       content, and be at risk of providing a low-quality product. Quality Control
-                    <p>The Described and Captioned Media Program (DCMP) is a set of guidelines for captioning best
-                       practices. https://dcmp.org
-                    <p>According to the DCMP, caption quality is: 1. Accurate: Errorless captions are the goal for each
-                       production. 2. Consistent: Uniformity in style and presentation of all captioning features is
-                       crucial for viewer understanding. 3. Clear: A complete textual representation of the audio,
-                       including speaker identification and non-speech information, provides clarity. 4. Readable:
-                       Captions are displayed with enough time to be read completely, are in synchronization with the
-                       audio, and are not obscured by (nor do they obscure) the visual content. 5. Equal: Equal access
-                       requires that the meaning and intention of the material is completely preserved.
+                    <h2 class="section-heading" title="Quality of Captions">
+                        The Expected Quality of Captions
+                    </h2>
+                    <p>Today, there is a gap in the process of Closed Caption Quality production
+                       caused by errors within the CC content. Prior to this software, content
+                       delivered to Distributors could not be easily validated without going
+                       through (watching) all of the video content, frame by frame. This makes
+                       checking content impractical, and its often overlooked when distributed.</p>
+                    
+                    <p>This has caused the content to be delivered with Closed Caption errors. As
+                       a result, this content is then provided to consumers with errors, making
+                       the Distributors at fault for faulty content. Regardless of where the
+                       responsibility lies, whether the Content Provider,
+                       or the Distributor, each video can now be validated by each party in a
+                       relatively short period of time. Thus, Content Providers can be certain of
+                       what they deliver, and Distributors do not have to accept faulty
+                       content, and be at risk of providing a low-quality product. </p>
+                    
+                    <h5>Accepted Industry Guidelines</h5>
+                    <p>The following are the accepted industry guidelines and best practices for
+                       quality: (https://dcmp.org)
+                    <ol class="guidelines">
+                        <li>
+                            <span class="bold">Accuracy</span>
+                            <span class="description">Errorless captions are the goal for each
+                       production</span>
+                        </li>
+                    <li>
+                        <span class="bold">Consistancy</span>
+                        <span class="description">Uniformity in style and presentation of all captioning features is
+                       crucial for viewer understanding.</span>
+                    </li>
+                    <li>
+                        <span class="bold">Clarity</span>
+                        <span class="description">A complete textual representation of the audio,
+                       including speaker identification and non-speech information, provides clarity</span>
+                    </li>
+                    <li>
+                        <span class="bold">Readable</span>
+                        <span class="description">Captions are displayed with enough time to be read completely, are in synchronization with the
+                       audio, and are not obscured by (nor do they obscure) the visual content.</span>
+                    </li>
+                    <li>
+                        <span class="bold">Equality of Accessibility</span>
+                        <span class="description">Equal access
+                       requires that the meaning and intention of the material is completely preserved.</span>
+                    </li>
+                    </ol>
+                    
                     <h3 class="section-heading">How is it Used</h3>
                     <p>Caption Inspector is a Command Line Interface (CLI) tool that takes a video or caption file as
                        input, extracts the embedded data, and outputs this to a text file, formatted in either a
@@ -741,7 +779,7 @@
                        works may be distributed different terms and without source code.</p>
                 </section>
                 <section class="docs-section" id="section-5-0">
-                    <h2 class="section-heading">Installation & Start Up</h2>
+                    <h2 class="section-heading" title="Installation">Installation & Start Up</h2>
                     <h4>Caption Inspector Executable</h4>
                     <p class="section-intro">This is a one-time installation. When the Executable has been installed you will
                                  only need to
@@ -879,7 +917,8 @@ make test
                     </div>
                 </section>
                 <section class="docs-section" id="section-6-0">
-                    <h2 class="section-heading">Caption Inspector Artifacts (FILES)</h2>
+                    <h2 class="section-heading" title="Artifacts and Files">Caption Inspector
+                                                                         Artifacts (FILES)</h2>
                     <p>There are several different types of artifacts that can be generated by Caption Inspector. They
                        get output when an artifact directory gets specified as a command line argument to Caption
                        Inspector.</p>
