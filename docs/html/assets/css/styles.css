@@ -1,21 +1,16 @@
-html {
-    font-size : 16px;
-}
 @media screen and (min-width : 320px) {
-    html {
-        /*font-size: calc(16px + 6 * ((100vw - 320px) / 680));*/
+    html, body, .docs-article p {
+        font-size   : calc(13px + (26 - 13) * ((100vw - 300px) / (1600 - 300)));
+        line-height : calc(25px + (30 - 25) * ((100vw - 300px) / (1600 - 300)));
     }
 }
 @media screen and (min-width : 1000px) {
-    html {
-        /*font-size: 22px;*/
+    html, body, .docs-article p {
+        font-size   : 1rem;
+        line-height : 1.8rem;
     }
 }
-body {
-    font-size   : calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-    line-height : calc(21px + (30 - 21) * ((100vw - 300px) / (1600 - 300)));
-}
-caption.diagramm,
+caption.diagram,
 p.diagram {
     margin : 10px auto 70px auto !important;
 }
@@ -32,24 +27,31 @@ span.language {
     font-family : "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
     "Droid Sans Mono", monospace, monospace;
 }
-article{
+article {
     margin-bottom : 50px;
+}
+.bump {
+    margin-top : 25px;
+}
+.bump.bump {
+    margin-top : 50px;
+}
+.bump.bump.bump {
+    margin-top : 75px;
 }
 body,
 .docs-article p {
-    color          : #778 !important;
-    text-align     : left;
-    line-height    : 30px !important;
-    padding-bottom : 20px;
+    color      : #778 !important;
+    text-align : left;
 }
 .docs-article p.section-intro {
-    color         : #5579d2 !important;
-    font-weight : 300 !important;
-    font-size   : 1.5rem !important;
-    line-height : 2.7rem !important;
-    margin      : 1rem 0 !important;
-    padding-left:20px;
-    border-left:12px solid #5579d2 !important;
+    color        : #5579d2 !important;
+    font-weight  : 300 !important;
+    font-size    : 1.5rem !important;
+    line-height  : 2.7rem !important;
+    margin       : 1.3rem 0 !important;
+    padding-left : 20px;
+    border-left  : 15px solid #5579d2 !important;
 }
 .docs-article h1 {
     font-weight   : 900;
@@ -100,13 +102,13 @@ h5 {
     margin-bottom : 1.2rem;
 }
 span.language {
-    font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
-    color:#5d6778;
-    font-weight:900;
+    font-family : "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
+    color       : #5d6778;
+    font-weight : 900;
 }
 table.software > thead {
-    background-color: #6610f2;
-    color:white!important;
+    background-color : #6610f2;
+    color            : white !important;
 }
 ol.guidelines > li {
     margin-left : 45px;
@@ -117,13 +119,13 @@ ol.guidelines li > span.description {
     display : block !important;
 }
 .index-id {
-    display : block !important;
-    float   : right;
-    clear   : right;
-    font-size: 80%;
+    display     : block !important;
+    float       : right;
+    clear       : right;
+    font-size   : 80%;
     font-weight : 200;
-    text-align : right;
-    color:#5d6778;
+    text-align  : right;
+    color       : #5d6778;
 }
 div.outline-indicator {
     display    : block !important;
@@ -134,11 +136,10 @@ div.outline-indicator {
     max-width  : 90px;
     text-align : right;
 }
-.user-name{
-    font-weight:500;
+.user-name {
+    font-weight : 500;
 }
-.user-title{
-
+.user-title {
 }
 .file-ext {
     color       : #363e4d;
@@ -151,7 +152,6 @@ table {
     margin-top    : 75px;
     margin-bottom : 55px;
 }
-
 code {
     color            : #5579d2;
     background-color : #f9f2f4;
@@ -254,26 +254,26 @@ kbd kbd {
     box-shadow : none;
 }
 /*pre {*/
-    /*display          : block;*/
-    /*margin           : 0 0 10px;*/
-    /*word-break       : break-all;*/
-    /*word-wrap        : break-word;*/
-    /*color            : #333;*/
-    /*background-color : #f5f5f5;*/
-    /*border           : 1px solid #ccc;*/
-    /*border-radius    : 4px;*/
+/*display          : block;*/
+/*margin           : 0 0 10px;*/
+/*word-break       : break-all;*/
+/*word-wrap        : break-word;*/
+/*color            : #333;*/
+/*background-color : #f5f5f5;*/
+/*border           : 1px solid #ccc;*/
+/*border-radius    : 4px;*/
 /*}*/
 /*pre code {*/
-    /*padding          : 15px !important;*/
-    /*font-size        : inherit;*/
-    /*color            : inherit;*/
-    /*white-space      : pre-wrap;*/
-    /*background-color : transparent;*/
-    /*border-radius    : 0;*/
+/*padding          : 15px !important;*/
+/*font-size        : inherit;*/
+/*color            : inherit;*/
+/*white-space      : pre-wrap;*/
+/*background-color : transparent;*/
+/*border-radius    : 0;*/
 /*}*/
 /*.pre-scrollable {*/
-    /*max-height : 340px;*/
-    /*overflow-y : scroll;*/
+/*max-height : 340px;*/
+/*overflow-y : scroll;*/
 /*}*/
 .center-block {
     display      : block;
@@ -398,167 +398,141 @@ kbd kbd {
 .tex .hljs-formula {
     background : #073642;
 }
-
 /* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+ruby+git+haml+handlebars+http+php+python+sass+scss+vim+yaml&plugins=line-numbers */
 /**
  * okaidia theme for JavaScript, CSS and HTML
  * Loosely based on Monokai textmate theme by http://www.monokai.nl/
  * @author ocodia
  */
-
 code[class*="language-"],
 pre[class*="language-"] {
-    color: #f8f8f2;
-    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    direction: ltr;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    word-wrap: normal;
-    line-height: 1.5;
-    
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    tab-size: 4;
-    
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none;
+    color           : #f8f8f2;
+    text-shadow     : 0 1px rgba(0, 0, 0, 0.3);
+    font-family     : Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    direction       : ltr;
+    text-align      : left;
+    white-space     : pre;
+    word-spacing    : normal;
+    word-break      : normal;
+    word-wrap       : normal;
+    line-height     : 1.5;
+    -moz-tab-size   : 4;
+    -o-tab-size     : 4;
+    tab-size        : 4;
+    -webkit-hyphens : none;
+    -moz-hyphens    : none;
+    -ms-hyphens     : none;
+    hyphens         : none;
 }
-
 /* Code blocks */
 pre[class*="language-"] {
-    padding: 1em;
-    margin: .5em 0;
-    overflow: auto;
-    border-radius: 0.3em;
+    padding       : 1em;
+    margin        : .5em 0;
+    overflow      : auto;
+    border-radius : 0.3em;
 }
-
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-    background: #272822;
+    background : #272822;
 }
-
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-    padding: .1em;
-    border-radius: .3em;
-    white-space: normal;
+    padding       : .1em;
+    border-radius : .3em;
+    white-space   : normal;
 }
-
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-    color: slategray;
+    color : slategray;
 }
-
 .token.punctuation {
-    color: #f8f8f2;
+    color : #f8f8f2;
 }
-
 .namespace {
-    opacity: .7;
+    opacity : .7;
 }
-
 .token.property,
 .token.tag,
 .token.constant,
 .token.symbol,
 .token.deleted {
-    color: #f92672;
+    color : #f92672;
 }
-
 .token.boolean,
 .token.number {
-    color: #ae81ff;
+    color : #ae81ff;
 }
-
 .token.selector,
 .token.attr-name,
 .token.string,
 .token.char,
 .token.builtin,
 .token.inserted {
-    color: #a6e22e;
+    color : #a6e22e;
 }
-
 .token.operator,
 .token.entity,
 .token.url,
 .language-css .token.string,
 .style .token.string,
 .token.variable {
-    color: #f8f8f2;
+    color : #f8f8f2;
 }
-
 .token.atrule,
 .token.attr-value,
 .token.function {
-    color: #e6db74;
+    color : #e6db74;
 }
-
 .token.keyword {
-    color: #66d9ef;
+    color : #66d9ef;
 }
-
 .token.regex,
 .token.important {
-    color: #fd971f;
+    color : #fd971f;
 }
-
 .token.important,
 .token.bold {
-    font-weight: bold;
+    font-weight : bold;
 }
 .token.italic {
-    font-style: italic;
+    font-style : italic;
 }
-
 .token.entity {
-    cursor: help;
+    cursor : help;
 }
-
 pre.line-numbers {
-    position: relative;
-    padding-left: 3.8em;
-    counter-reset: linenumber;
+    position      : relative;
+    padding-left  : 3.8em;
+    counter-reset : linenumber;
 }
-
 pre.line-numbers > code {
-    position: relative;
+    position : relative;
 }
-
 .line-numbers .line-numbers-rows {
-    position: absolute;
-    pointer-events: none;
-    top: 0;
-    font-size: 100%;
-    left: -3.8em;
-    width: 3em; /* works for line-numbers below 1000 lines */
-    letter-spacing: -1px;
-    border-right: 1px solid #999;
-    
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    
+    position            : absolute;
+    pointer-events      : none;
+    top                 : 0;
+    font-size           : 100%;
+    left                : -3.8em;
+    width               : 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing      : -1px;
+    border-right        : 1px solid #999;
+    -webkit-user-select : none;
+    -moz-user-select    : none;
+    -ms-user-select     : none;
+    user-select         : none;
 }
-
 .line-numbers-rows > span {
-    pointer-events: none;
-    display: block;
-    counter-increment: linenumber;
+    pointer-events    : none;
+    display           : block;
+    counter-increment : linenumber;
 }
-
 .line-numbers-rows > span:before {
-    content: counter(linenumber);
-    color: #999;
-    display: block;
-    padding-right: 0.8em;
-    text-align: right;
+    content       : counter(linenumber);
+    color         : #999;
+    display       : block;
+    padding-right : 0.8em;
+    text-align    : right;
 }
