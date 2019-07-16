@@ -7,6 +7,9 @@ $color-blue-light: #96a1ff;
 $color-blue: #1d32e3;
 $color-blue-dark: #192abd;
 $color-blue-darker: #152296;
+$color-blue: #5579D2;
+$color-blue-dark: #555BB4;
+$color-blue-darker: #43488F;
 
 $color-xfinity-sky: #0272b6;
 $color-xfinity-blue-1: #2b9cd8;
@@ -55,11 +58,11 @@ $theme-text-color-primary: #252930;
 $theme-text-color-secondary: lighten($theme-text-color-primary, 25%);
 $theme-text-color-light: lighten($theme-text-color-primary, 40%);
 
-$theme-bg-light: #f4fcf6;
+$theme-bg-light: $color-blue-lighter;
 $theme-bg-dark: $theme-color-primary;
 $theme-bg-color: $theme-color-primary;
 
-$theme-border-color:  #efefef;
+$theme-border-color:  #efefff;
 $theme-divider-color: #efefef;
 
 $theme-divider: lighten($theme-text-color-primary, 75%);

@@ -73,17 +73,26 @@ class BuildNav {
 				<i class="fas fa-{{ICON}}"></i>
 			</span>
 			<div class="outline-indicator">{{ID}}</div>
-			<label>{{LABEL}}</label>
+			<span>{{LABEL}}</span>
 		</a>
 	</li>`;
-    static HTML_ARRAY = [];
+    static HTML_ARRAY = [`
+    <li class="nav-item section-title">
+        <a class="nav-link scrollto active" href="#section-1">
+            <span class="theme-icon-holder mr-2">
+                <i class="fas fa-folder"></i>
+            </span>
+            Introduction
+        </a>
+    </li>
+    `];
     static navigationTemplate = `<li class="nav-item ">
 		<a class="nav-link scrollto" href="./docs-page.html#{{SECTION}}">
 			<span class="theme-icon-holder mr-1">
 				<i class="fas fa-{{ICON}}"></i>
 			</span>
 			<div class="outline-indicator">{{ID}}</div>
-			<label>{{LABEL}}</label>
+			<span>{{LABEL}}</span>
 		</a>
 	</li>`;
     static getHeaderTemplate(LABEL, ICON, SECTION) {
@@ -92,7 +101,7 @@ class BuildNav {
         template = template.replace(/{{SECTION}}/g, SECTION);
         template = template.replace(/{{SECTION}}/g, SECTION);
         template = template.replace(/{{LABEL}}/g, LABEL);
-        template = template.replace(/{{ICON}}/g, ICON);
+        template = template.replace(/{{ICON}}/g, ICON||'folder');
         template = template.replace(/{{ID}}/g, indicator);
         return template;
     }
@@ -101,7 +110,7 @@ class BuildNav {
         let indicator = BuildNav.getId(SECTION);
         template = template.replace(/{{SECTION}}/g, SECTION);
         template = template.replace(/{{LABEL}}/g, LABEL);
-        template = template.replace(/{{ICON}}/g, ICON);
+        template = template.replace(/{{ICON}}/g, ICON||'file');
         template = template.replace(/{{ID}}/g, indicator);
         return template;
     }
@@ -135,7 +144,8 @@ class BuildNav {
                     // console.log(" > H2 Header: ", label.trim())
                     let id = $(PARENT_SECTION).attr("id");
                     if (id && id !== "") {
-                        let section = BuildNav.getTemplate(label.trim(), "check", id);
+                        
+                        let section = BuildNav.getTemplate(label.trim(), "folder", id);
                         BuildNav.HTML_ARRAY.push(section);
                     }
                 })

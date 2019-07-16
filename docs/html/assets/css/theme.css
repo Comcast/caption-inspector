@@ -10769,12 +10769,34 @@ a.theme-link:hover {
   border: none !important;
 }
 
+.tag {
+  padding: 2px 7px;
+  border-radius: 4px !important;
+  color: #f9f9fa;
+  border: 1px solid #bbc2ff;
+  background-color: #96a1ff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.35px;
+  line-height: 25px;
+  font-weight: 300;
+}
+.tag:hover {
+  cursor: pointer;
+  background-color: #1d32e3;
+  border: 1px solid #bbc2ff;
+}
+
 blockquote, .blockquote {
   max-width: 90%;
   margin: 50px auto;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   border-radius: 4px !important;
   padding: 30px 80px;
+  color: #1d32e3;
+}
+blockquote *, .blockquote * {
+  color: #1d32e3;
 }
 
 span.outline-indicator {
@@ -10783,6 +10805,78 @@ span.outline-indicator {
   width: 40px;
   float: right;
   clear-after: both;
+}
+
+/*! Circle Menu */
+.circle-menu > .toggle {
+  background-color: #bbc2ff;
+  text-align: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 50% !important;
+  position: absolute !important;
+  margin: auto;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+.circle-menu > .toggle > .fa-plus {
+  font-size: 60px;
+  color: white;
+  display: block !important;
+  margin-top: 20px;
+  transition: 0.7s;
+}
+.circle-menu > .menu {
+  background-color: white;
+  height: 100px;
+  width: 100px;
+  transform: scale(0);
+  border-radius: 50% !important;
+  border-style: double;
+  border-color: #ffa700;
+  position: absolute;
+  margin: auto;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: -1;
+  transition: 0.7s;
+}
+.circle-menu > .menu a {
+  display: inline-block;
+  position: absolute;
+  font-size: 15px;
+  color: #BBBBBB;
+}
+.circle-menu > .menu a:hover {
+  color: #ffa700;
+}
+.circle-menu > .menu a:nth-child(1) {
+  top: 6px;
+  left: 45px;
+}
+.circle-menu > .menu a:nth-child(2) {
+  top: 24px;
+  left: 77px;
+}
+.circle-menu > .menu a:nth-child(3) {
+  top: 58px;
+  left: 76px;
+}
+.circle-menu > .menu a:nth-child(4) {
+  top: 78px;
+  left: 42px;
+}
+.circle-menu > .menu a:nth-child(5) {
+  top: 58px;
+  left: 10px;
+}
+.circle-menu > .menu a:nth-child(6) {
+  top: 23px;
+  left: 12px;
 }
 
 /*# sourceMappingURL=theme.css.map */
