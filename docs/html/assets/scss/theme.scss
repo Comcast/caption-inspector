@@ -6,7 +6,7 @@
 
 $theme-colors: (
   "primary":    $theme-color-primary,
-  "secondary":  $theme-text-color-secondary,
+  "secondary":  $color-blue-darker,
   "success":    $theme-success-color,
   "danger":     $theme-danger-color,
   "warning":    $theme-warning-color,
@@ -17,3 +17,17 @@ $theme-colors: (
 
 /*************************** Theme Styles Section ****************************/
 @import "theme/styles.scss";
+.text-blue {
+    color : $theme-color-primary !important;
+}
+.text-dark-blue {
+    color : $color-blue-darker !important;
+}
+.bg-blue {
+    color            : #ffffff !important;
+    background-color : $theme-color-primary !important;
+}
+.bg-dark-blue {
+    color            : #ffffff !important;
+    background-color : $color-blue-darker !important;
+}

@@ -90,6 +90,7 @@ class BuildNav {
             <span class="theme-icon-holder mr-2">
                 <i class="fas fa-folder"></i>
             </span>
+			<div class="outline-indicator"></div>
             Introduction
         </a>
     </li>

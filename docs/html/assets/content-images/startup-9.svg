@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="193px" height="193px" viewBox="0 0 193 193" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch Beta 3.4 (15009) - http://www.bohemiancoding.com/sketch -->
+    <title>coffee</title>
+    <desc>Created with Sketch Beta.</desc>
+    <defs>
+        <ellipse id="path-1" cx="54.1444444" cy="53.9731343" rx="53.6555556" ry="53.7283582"></ellipse>
+        <ellipse id="path-3" cx="54.1444444" cy="53.9731343" rx="53.6555556" ry="53.7283582"></ellipse>
+        <ellipse id="path-5" cx="54.1444444" cy="53.9731343" rx="53.6555556" ry="53.7283582"></ellipse>
+        <ellipse id="path-7" cx="54.1444444" cy="53.9731343" rx="53.6555556" ry="53.7283582"></ellipse>
+        <ellipse id="path-9" cx="54.1444444" cy="53.9731343" rx="53.6555556" ry="53.7283582"></ellipse>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="WINNER" sketch:type="MSArtboardGroup" transform="translate(-259.000000, -3460.000000)">
+            <g id="Group-+-super-icons" sketch:type="MSLayerGroup" transform="translate(194.000000, 3302.000000)">
+                <g id="super-icons" transform="translate(65.000000, 158.000000)">
+                    <g id="coffee">
+                        <rect id="Rectangle-21" fill="#FFFFFF" sketch:type="MSShapeGroup" x="0" y="0" width="193" height="193"></rect>
+                        <path d="M89.2222222,179.653731 C87.5111111,180.020896 85.8,180.143284 84.0888889,180.265672 C83.3555556,180.265672 82.6222222,180.38806 81.8888889,180.38806" id="XMLID_202_" stroke="#1485E0" stroke-width="2" sketch:type="MSShapeGroup"></path>
+                        <path d="M59.1555556,174.880597 C36.9111111,162.764179 28.7222222,134.859701 40.8222222,112.585075 C52.9222222,90.3104478 80.7888889,82.1104478 103.033333,94.2268657 C125.277778,106.343284 133.466667,134.247761 121.366667,156.522388 C115.866667,166.558209 107.188889,173.779104 97.2888889,177.573134" id="XMLID_201_" stroke="#1485E0" stroke-width="2" sketch:type="MSShapeGroup"></path>
+                        <path d="M162.066667,37.0716418 L148.255556,50.9014925 C145.444444,53.7164179 140.8,53.7164179 137.866667,50.9014925 L130.9,43.9253731 C128.088889,41.1104478 128.088889,36.4597015 130.9,33.5223881 L144.711111,19.6925373 C147.522222,16.8776119 152.166667,16.8776119 155.1,19.6925373 L162.066667,26.6686567 C164.877778,29.4835821 164.877778,34.1343284 162.066667,37.0716418 L162.066667,37.0716418 Z" id="take" stroke="#1485E0" stroke-width="4" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                        <ellipse id="base_4_" stroke="#1485E0" stroke-width="4" fill="#FFFFFF" sketch:type="MSShapeGroup" cx="98.1444444" cy="88.1074627" rx="64.1666667" ry="64.2537313"></ellipse>
+                        <g id="XMLID_847_" transform="translate(44.000000, 34.134328)">
+                            <g id="inside-Clipped">
+                                <mask id="mask-2" sketch:name="inside_1_" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <g id="inside_1_"></g>
+                                <ellipse id="inside" stroke="#1485E0" stroke-width="2" fill="#C4E1F7" sketch:type="MSShapeGroup" mask="url(#mask-2)" cx="54.1444444" cy="53.9731343" rx="51.9444444" ry="52.0149254"></ellipse>
+                            </g>
+                            <g id="cream-Clipped">
+                                <mask id="mask-4" sketch:name="inside_1_" fill="white">
+                                    <use xlink:href="#path-3"></use>
+                                </mask>
+                                <g id="inside_1_"></g>
+                            </g>
+                            <g id="XMLID_849_-Clipped">
+                                <mask id="mask-6" sketch:name="inside_1_" fill="white">
+                                    <use xlink:href="#path-5"></use>
+                                </mask>
+                                <g id="inside_1_"></g>
+                                <g id="XMLID_849_" mask="url(#mask-6)" stroke="#1485E0" stroke-width="2" fill="#FFFFFF" sketch:type="MSShapeGroup">
+                                    <g transform="translate(48.888889, 18.358209)" id="XMLID_199_">
+                                        <path d="M38.3777778,5.75223881 C32.0222222,17.6238806 54.8777778,23.0089552 46.6888889,38.0626866 C38.2555556,53.6059701 6.96666667,50.4238806 1.46666667,60.7044776 C-1.71111111,66.5791045 1.58888889,74.5343284 12.3444444,79.6746269 C32.8777778,89.5880597 57.9333333,81.1432836 69.0555556,60.7044776 C80.3,39.8985075 74.0666667,14.9313433 53.9,2.93731343 C53.7777778,3.05970149 43.2666667,-3.42686567 38.3777778,5.75223881 L38.3777778,5.75223881 Z"></path>
+                                    </g>
+                                </g>
+                            </g>
+                            <g id="XMLID_198_-Clipped">
+                                <mask id="mask-8" sketch:name="inside_1_" fill="white">
+                                    <use xlink:href="#path-7"></use>
+                                </mask>
+                                <g id="inside_1_"></g>
+                                <ellipse id="XMLID_198_" stroke="#1485E0" stroke-width="2.0298" sketch:type="MSShapeGroup" mask="url(#mask-8)" cx="55" cy="53.9731343" rx="52.0666667" ry="52.1373134"></ellipse>
+                            </g>
+                            <g id="light_7_-Clipped">
+                                <mask id="mask-10" sketch:name="inside_1_" fill="white">
+                                    <use xlink:href="#path-9"></use>
+                                </mask>
+                                <g id="inside_1_"></g>
+                                <path d="M21.7555556,138.298507 L-123.444444,138.298507 L-123.444444,-74.6567164 L99.9777778,-74.6567164 L21.7555556,138.298507 Z" id="light_7_" opacity="0.44" fill="#FFFFFF" sketch:type="MSShapeGroup" mask="url(#mask-10)"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
