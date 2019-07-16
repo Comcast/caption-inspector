@@ -34,6 +34,7 @@ class OutlineElement {
         return (this.children && this.children.length > 0);
     }
 }
+
 class Outliner {
     constructor() {
         this.outline = new OutlineElement(null, "root", "root", 0);
@@ -45,13 +46,11 @@ class Outliner {
     generateHTML() {
         this.outline.children
             .forEach((parent, key, map) => {
-                
                 if (parent.hasChildren && parent.hasChildren()) {
                     parent.children.forEach((child, key, map) => {
-                      if (child.hasChildren && child.hasChildren()) {
-                      
-                      }
-                  });
+                        if (child.hasChildren && child.hasChildren()) {
+                        }
+                    });
                 }
             });
     }
@@ -64,11 +63,19 @@ class Outliner {
     }
 }
 
+const PAGE_URL = (() => {
+    let url = window.location.href.toString();
+    if (url.includes("#")) {
+        url = url.substring(0, url.indexOf("#"));
+    }
+    return url;
+})();
+
 class BuildNav {
     static sectionHeaders = `
 	<li class="nav-item section-title">
 		<!-- SECTION HEADER -->
-		<a class="nav-link scrollto" href="./docs-page.html#{{SECTION}}">
+		<a class="nav-link scrollto" href="${PAGE_URL}#{{SECTION}}">
 			<span class="theme-icon-holder mr-2">
 				<i class="fas fa-{{ICON}}"></i>
 			</span>
@@ -76,21 +83,21 @@ class BuildNav {
 			<span>{{LABEL}}</span>
 		</a>
 	</li>`;
-    static HTML_ARRAY = [`
+    static HTML_ARRAY = [
+        `
     <li class="nav-item section-title">
-        <a class="nav-link scrollto active" href="#section-1">
+        <a class="nav-link scrollto active" href="${PAGE_URL}#section-1">
             <span class="theme-icon-holder mr-2">
                 <i class="fas fa-folder"></i>
             </span>
             Introduction
         </a>
     </li>
-    `];
-    static navigationTemplate = `<li class="nav-item ">
-		<a class="nav-link scrollto" href="./docs-page.html#{{SECTION}}">
-			<span class="theme-icon-holder mr-1">
-				<i class="fas fa-{{ICON}}"></i>
-			</span>
+    `
+    ];
+    static navigationTemplate = `
+    <li class="nav-item ">
+		<a class="nav-link scrollto" href="${PAGE_URL}#{{SECTION}}">
 			<div class="outline-indicator">{{ID}}</div>
 			<span>{{LABEL}}</span>
 		</a>
@@ -101,7 +108,7 @@ class BuildNav {
         template = template.replace(/{{SECTION}}/g, SECTION);
         template = template.replace(/{{SECTION}}/g, SECTION);
         template = template.replace(/{{LABEL}}/g, LABEL);
-        template = template.replace(/{{ICON}}/g, ICON||'folder');
+        template = template.replace(/{{ICON}}/g, ICON || 'folder');
         template = template.replace(/{{ID}}/g, indicator);
         return template;
     }
@@ -110,7 +117,7 @@ class BuildNav {
         let indicator = BuildNav.getId(SECTION);
         template = template.replace(/{{SECTION}}/g, SECTION);
         template = template.replace(/{{LABEL}}/g, LABEL);
-        template = template.replace(/{{ICON}}/g, ICON||'file');
+        template = template.replace(/{{ICON}}/g, ICON || 'file');
         template = template.replace(/{{ID}}/g, indicator);
         return template;
     }
@@ -123,29 +130,54 @@ class BuildNav {
             .toString().trim().replace(/-/g, ".");
         return sectionString
     }
+    static formatLabel(label, maxLength = 18) {
+        if (!label) {
+            console.warn("Null Value: BuildNav.formatLabel( label < NULL VALUE )")
+            return "";
+        }
+        label = label.trim();
+        if (label.length > maxLength) {
+            label = label.substring(0, maxLength)
+        }
+        return label;
+    }
+    static getLabel(element, maxLength = 18) {
+        // Prefer title over text.
+        let label = $(element).attr("title") || $(element).text();
+        return BuildNav.formatLabel(label, maxLength)
+    }
+    static appendIndex(element, indexId) {
+        try {
+            if (element && indexId) {
+                let html = $(element).html();
+                indexId = BuildNav.getId(indexId);
+                $(element).html(`<span class="index-id">${indexId}</span>${html}`);
+            }
+        } catch (er) {
+            console.warn(er);
+        }
+    }
     static build(callback = null) {
-        // For the current design...
-        BuildNav.HTML_ARRAY = [];
         try {
             $("section.docs-section").each(function (index, ROOT_SECTION) {
                 let sectionHeading = $(ROOT_SECTION).find(".section-heading:first");
-                let sectionLabel = sectionHeading.attr("title") || sectionHeading.text();
+                let label = BuildNav.getLabel(sectionHeading);
                 // console.log("Section:  "+ sectionLabel.toString().trim())
                 let id = $(ROOT_SECTION).attr("id");
-                let section = BuildNav.getHeaderTemplate(sectionLabel.trim(), "check", id);
-                BuildNav.HTML_ARRAY.push( section );
+                BuildNav.appendIndex(sectionHeading, id);
+                let section = BuildNav.getHeaderTemplate(label, "check", id);
+                BuildNav.HTML_ARRAY.push(section);
                 /**
                  * Now, find all children navigational elements
                  */
                 $(ROOT_SECTION).find("rh2").each(function (index, PARENT_SECTION) {
                     let sectionHeading = $(PARENT_SECTION).find(".section-heading:first");
-                    let sectionLabel = sectionHeading.attr("title") || sectionHeading.text();
-                    let label = $(PARENT_SECTION).text();
+                    let label = BuildNav.getLabel(sectionHeading);
                     // console.log(" > H2 Header: ", label.trim())
                     let id = $(PARENT_SECTION).attr("id");
+                    BuildNav.appendIndex(sectionHeading, id);
                     if (id && id !== "") {
-                        
-                        let section = BuildNav.getTemplate(label.trim(), "folder", id);
+                        let section = BuildNav.getTemplate(label, "folder", id);
                         BuildNav.HTML_ARRAY.push(section);
                     }
                 })
@@ -153,6 +185,7 @@ class BuildNav {
                     let label = $(CHILD_SECTION).text();
                     // console.log(" > > H3: ", label.trim());
                     let id = $(CHILD_SECTION).attr("id");
+                    BuildNav.appendIndex(CHILD_SECTION, id);
                     if (id && id !== "") {
                         let section = BuildNav.getTemplate(label.trim(), "file", id);
                         BuildNav.HTML_ARRAY.push(section);
@@ -164,8 +197,8 @@ class BuildNav {
         }
         console.log(BuildNav.HTML_ARRAY.join(""));
         $("#documentation-outline").html(BuildNav.HTML_ARRAY.join("") || "");
-        if (callback && typeof callback === "Function") {
-            callback()
+        if (callback) {
+            callback();
         }
     }
 }

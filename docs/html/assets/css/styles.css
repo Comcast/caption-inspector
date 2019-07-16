@@ -34,9 +34,15 @@ span.language {
 }
 body,
 .docs-article p {
-    color       : #778 !important;
-    text-align  : left;
-    line-height : 28px;
+    color          : #778 !important;
+    text-align     : left;
+    line-height    : 30px !important;
+    padding-bottom : 20px;
+}
+.docs-article p.section-intro {
+    font-weight : 400;
+    font-size   : 1.2rem !important;
+    margin      : 1.8rem 0 0.4rem 0;
 }
 .docs-article h1 {
     font-weight   : 900;
@@ -66,8 +72,8 @@ body,
     color         : #5579d2;
 }
 .docs-section > h3 {
-    font-weight   : 200;
-    font-size     : 2.6rem;
+    font-weight   : 500;
+    font-size     : 2.8rem;
     margin-top    : 120px !important;
     margin-bottom : 1.75rem !important;
     color         : #335;
@@ -86,6 +92,11 @@ h5 {
     margin-top    : 45px !important;
     margin-bottom : 1.2rem;
 }
+span.language {
+    font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
+    color:#336498;
+    font-weight:900;
+}
 ol.guidelines > li {
     margin-left : 45px;
 }
@@ -93,6 +104,14 @@ ol.guidelines li > span.bold {
 }
 ol.guidelines li > span.description {
     display : block !important;
+}
+.index-id {
+    display : block !important;
+    float   : right;
+    clear   : right;
+    font-size: 80%;
+    font-weight : 200;
+    color:#889;
 }
 .file-ext {
     color       : #363e4d;
@@ -144,11 +163,6 @@ a.nav-link.section-title {
     -moz-box-shadow    : 0px 10px 20px rgba(0, 0, 0, 0.2);
     box-shadow         : 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
-p.section-intro {
-    font-weight : 400;
-    font-size   : 1.2rem !important;
-    margin      : 1.8rem 0;
-}
 img.diagram {
     display   : block !important;
     width     : 100%;
@@ -160,6 +174,12 @@ img.diagram {
     text-align : left;
     font-size  : 11px;
     margin     : 5px 0 60px 0;
+}
+img.graphic-diagram {
+    display   : block !important;
+    width     : 100%;
+    max-width : 1024px;
+    margin    : 80px auto 0px auto !important;
 }
 img.caption-inspector-logo {
     display   : block !important;
@@ -226,7 +246,7 @@ pre {
     border-radius    : 4px;
 }
 pre code {
-    padding          : 0;
+    padding          : 15px !important;
     font-size        : inherit;
     color            : inherit;
     white-space      : pre-wrap;
