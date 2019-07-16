@@ -165,7 +165,7 @@ class BuildNav {
                 // console.log("Section:  "+ sectionLabel.toString().trim())
                 let id = $(ROOT_SECTION).attr("id");
                 BuildNav.appendIndex(sectionHeading, id);
-                let section = BuildNav.getHeaderTemplate(label, "check", id);
+                let section = BuildNav.getHeaderTemplate(label, "folder", id);
                 BuildNav.HTML_ARRAY.push(section);
                 /**
                  * Now, find all children navigational elements
@@ -237,4 +237,6 @@ $(document).ready(function () {
         e.preventDefault();
         $(this).ekkoLightbox();
     });
+    $('[data-toggle="tooltip"]').tooltip();
 });
+
