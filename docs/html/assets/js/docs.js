@@ -71,22 +71,20 @@ const PAGE_URL = (() => {
     }
     return url;
 })();
-const sectionHeaders = `<li class="nav-item section-title">
-		<!-- SECTION HEADER -->
-		<a class="nav-link scrollto" href="${PAGE_URL}#{{SECTION}}">
-			<span class="theme-icon-holder mr-2">
-				<i class="fas fa-{{ICON}}"></i>
-			</span>
-			<div class="outline-indicator">{{ID}}</div>
-			<span>{{LABEL}}</span>
-		</a>
-	</li>`;
-const navigationTemplate = `<li class="nav-item ">
-		<a class="nav-link scrollto" href="${PAGE_URL}#{{SECTION}}">
-			<div class="outline-indicator">{{ID}}</div>
-			<span>{{LABEL}}</span>
-		</a>
-	</li>`;
+const sectionHeaders        = '<li class="nav-item section-title">' +
+                               '<a class="nav-link scrollto" href="${PAGE_URL}#{{SECTION}}">' +
+                               '	<span class="theme-icon-holder mr-2">' +
+                               '		<i class="fas fa-{{ICON}}"></i></span>' +
+                               '	<div class="outline-indicator">{{ID}}</div>' +
+                               '	<span>{{LABEL}}</span></a>' +
+                               '</li>';
+const navigationTemplate    = '<li class="nav-item ">' +
+                               '  <a class="nav-link scrollto" href="${PAGE_URL}#{{SECTION}}">' +
+                               '    <div class="outline-indicator">{{ID}}</div>' +
+                               '    <span>{{LABEL}}</span>' +
+                               '  </a>' +
+                               '</li>';
+
 class BuildNav {
     static getHeaderTemplate(LABEL, ICON, SECTION) {
         let template = sectionHeaders.toString() + " ";
@@ -145,8 +143,7 @@ class BuildNav {
                 indexId = BuildNav.getId(indexId);
                 $(element).html(`<span class="index-id">${indexId}</span>${html}`);
             }
-        }
-        catch (er) {
+        } catch (er) {
             console.warn(er);
         }
     }
@@ -189,8 +186,7 @@ class BuildNav {
                         }
                     });
             });
-        }
-        catch (er) {
+        } catch (er) {
             console.warn(er);
         }
         console.log(BuildNav.HTML_ARRAY.join(""));
@@ -200,6 +196,7 @@ class BuildNav {
         }
     }
 }
+
 BuildNav.HTML_ARRAY = [
     `<li class="nav-item section-title">
         <a class="nav-link scrollto active" href="${PAGE_URL}#section-1">
@@ -211,8 +208,6 @@ BuildNav.HTML_ARRAY = [
         </a>
     </li>`
 ];
-
-
 $(document).ready(function () {
     BuildNav.build(() => {
         $('#docs-sidebar-toggler').on('click', function () {
