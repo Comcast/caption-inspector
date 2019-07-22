@@ -166,6 +166,7 @@
                 
                 <section class="docs-section" id="section-1-0">
                      <h2 class="section-heading">Overview</h2>
+                    <img src="assets/content-images/ico-generate.png" style="max-width:200px" class="img-fluid float-right" />
                     <P>The Caption Inspector project builds a
                         <span class="language">C library</span>, <span class="language">C executable</span>, and <span class="language">Docker</span> image that can be used to extract and
                              decode Closed-Captions from various Video or Caption File Formats.</P>
@@ -365,12 +366,11 @@
                             </ul>
                         </ol>
                     </ul>
-                    <h3>Developer Overview</h3>
+                    <h3 class="bump">Developer Overview</h3>
                     <p>The Caption Inspector project builds a C library, C executable, and Docker image that can be used to extract and decode Closed-Captions from various Video or Caption File Formats. Caption Inspector Supports CEA-608 and CEA-708 in MPEG-2 and MPEG-4 (.mpg, .ts, and .mp4 containers), MCC (MacCaption Closed Captions), and SCC (Scenarist Closed Captions) files.</p>
                     <p>Caption Inspector decodes the Closed Captioning Data into two basic types of output files. The first type has the Closed Captioning Data demultiplexed into output files for each service/channel with closed caption tags and text in the file.</p>
                     <p>The second type has all of the Closed Captioning Data decoded in place, still multiplexed together. Beyond the current use case of decoding and examining the Closed Captioning, the Caption Inspector Codebase can be leveraged as a reference implementation of the Closed Captioning Specifications which would allow a developer to not have to understand the specifics of the specs just to access, manipulate, and modify the encoded Closed Captioning.</p>
-                    <h4>Apache License 2.0</h4>
-                    <p>A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed different terms and without source code.</p>
+                    
                 </section>
                 <section class="docs-section" id="section-5-0">
                     <h2 class="section-heading" title="Installation">Installation & Start Up</h2>
@@ -380,15 +380,13 @@
                     <p>This step is a one-time set up process. Building the Caption Inspector Executable can be done at the root level, or at the "src level". Once it has been built, Caption Inspector can be used to decode the captions from a test file.</p>
                     <div class="callout-block callout-block-info">
                         <div class="content">
-                            <h4 class="callout-title"><span class="callout-icon-holder mr-1">
-		                                <i class="fas fa-info-circle"></i>
-		                            </span>Note </h4>
-                            <p>A person with root level access is called an "administrator," "root user" or "superuser." While "root level" access is considered a "high" privilege level for the user, it is at the same time considered "low" level access to the system. Visit:
-                                <a href="https://www.yourdictionary.com/root-level#computer"
-                                        target="_blank">
-                                    https:// www.yourdictionary.com/ root-level#computer
-                                </a>
-                            </p>
+                            <span class="callout-icon-holder mr-1"><i class="fas fa-info-circle"></i></span>
+                            <h4 class="callout-title">Note</h4>
+                            <p>A person with root level access is called an "administrator," "root user" or "superuser." While "root level" access is considered a "high" privilege level for the user, it is at the same time considered "low" level access to the system. </p>
+                               <p>Visit: <a href="https://www.yourdictionary.com/root-level#computer"
+                                           target="_blank">
+                                       https:// www.yourdictionary.com/ root-level#computer
+                                   </a></p>
                         </div>
                     </div>
                     <h3 id="section-5-2">Building and Running Locally</h3>
@@ -396,9 +394,9 @@
                         <a href="https://ffmpeg.org/download.html">here</a>
                        and install it in your machine. Caption Inspector is known to run with FFMPEG Version 4.0.2.
                     </p>
-                    <>While not required, Caption Inspector leverages a tool called MediaInfo to determine whether or not an asset is, or is not, Drop Frame. You can download the command line version of MediaInfo from
-                    <a href="https://mediaarea.net/en/MediaInfo/Download">https://mediaarea .net/en/MediaInfo/Download</a>
-                    .</p>
+                    <p>While not required, Caption Inspector leverages a tool called MediaInfo to determine whether or not an asset is, or is not, Drop Frame. You can download the command line version of MediaInfo from
+                        <a href="https://mediaarea.net/en/MediaInfo/Download">https://mediaarea .net/en/MediaInfo/Download
+                    </a></p>
                     <p>Caption Inspector is known to run with MediaInfo Version 18.12.</p>
                     <pre><code class="language-bash">make caption-inspector
 ./caption-inspector -h
@@ -483,11 +481,11 @@ make test
                     <!--"Caption Inspector Artifacts".</p>-->
                     <div class="callout-block callout-block-warning">
                         <div class="content">
-                            <h4 class="callout-title">
-	         <span class="callout-icon-holder mr-1">
-		         <i class="fas fa-bullhorn"></i>
-		     </span>Warning </h4>
-                            <p>If you encounter an error...</p>
+                            <span class="callout-icon-holder mr-1"><i class="fas fa-bullhorn"></i></span>
+                            <h4 class="callout-title">Warning</h4>
+                            
+                            
+                            <p>Its important to read warning messages when you see them, with the exception of this one because testing overlooked this warning. We figure its important that everyone has something to do...</p>
                         </div>
                     </div>
                 </section>

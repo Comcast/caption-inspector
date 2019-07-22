@@ -1,0 +1,594 @@
+@media screen and (min-width : 320px) {
+    html, body, .docs-article p {
+        font-size   : calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+        line-height : calc(25px + (30 - 25) * ((100vw - 300px) / (1600 - 300)));
+    }
+}
+@media screen and (min-width : 1000px) {
+    html, body, .docs-article p {
+        font-size   : 1.1rem;
+        line-height : 2rem;
+    }
+}
+/**
+#5579D1
+#45659F
+ */
+.block {
+    display : block !important;
+}
+caption.diagram,
+p.diagram {
+    margin : 10px auto 70px auto !important;
+}
+b,
+.bold {
+    font-weight : 900;
+}
+span.language {
+    font-weight : 700;
+    color       : #5579D1;
+}
+.text-blue { color : #5579D1 !important;}
+.text-dark-blue { color : #45659F !important;}
+.bg-blue {
+    color            : #FFFFFF !important;
+    background-color : #5579D1 !important;
+}
+.bg-dark-blue {
+    color            : #FFFFFF !important;
+    background-color : #45659F !important;
+}
+.lighthouse > img {
+    max-width : 32%;
+    margin    : 20px 0.25% !important;
+}
+.docs-time {
+    color       : #5579D2;
+    font-family : "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+    "Droid Sans Mono", monospace, monospace;
+}
+article {
+    margin-bottom : 50px;
+}
+.bump {
+    margin-top : 25px;
+}
+.bump.bump {
+    margin-top : 50px;
+}
+.bump.bump.bump {
+    margin-top : 75px;
+}
+body,
+.docs-article p {
+    color      : #777788 !important;
+    text-align : left;
+}
+.docs-article p.section-intro {
+    color        : #5579D2 !important;
+    font-weight  : 300 !important;
+    font-size    : 1.4rem !important;
+    line-height  : 2.2rem !important;
+    margin       : 3.5rem 0 !important;
+    padding-left : 20px;
+    border-left  : 15px solid #5579D2 !important;
+}
+.docs-article h1 {
+    font-weight   : 900;
+    color         : #000000 !important;
+    margin-bottom : 2rem;
+    position      : relative;
+    font-size     : calc(32px + (56 - 32) * ((100vw - 300px) / (1600 - 300))) !important;
+}
+.docs-article h2.section-heading {
+    font-weight   : 900;
+    font-size     : calc(28px + (48 - 28) * ((100vw - 300px) / (1600 - 300))) !important;
+    margin-top    : 25px !important;
+    margin-bottom : 1rem !important;
+}
+.docs-article h3.section-heading {
+    font-weight   : 900;
+    /*font-size     : 2.8rem;*/
+    font-size     : calc(24px + (40 - 24) * ((100vw - 300px) / (1600 - 300))) !important;
+    margin-top    : 15px !important;
+    margin-bottom : 2rem !important;
+    color         : #5579D2;
+}
+.docs-section > h3 {
+    font-weight   : 700;
+    font-size     : 2.8rem;
+    margin-top    : 100px !important;
+    margin-bottom : 1.75rem !important;
+    color         : #5579D2;
+}
+.docs-section > h4,
+h4 {
+    font-weight   : 900;
+    font-size     : 1.8rem;
+    margin-top    : 10px;
+    margin-bottom : 2.75rem;
+    color         : #5579D2;
+}
+h5 {
+    font-weight   : 700 !important;
+    font-size     : 1.4rem !important;
+    margin-top    : 45px !important;
+    margin-bottom : 1.2rem;
+}
+span.language {
+    font-family : "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
+    color       : #5D6778;
+    font-weight : 900;
+}
+table.software > thead {
+    color            : #FFFFFF !important;
+    background-color : #45659F !important;
+}
+
+ol.guidelines > li {
+    margin-left : 45px;
+}
+ol.guidelines li > span.bold {
+}
+ol.guidelines li > span.description {
+    display : block !important;
+}
+.index-id {
+    display     : block !important;
+    float       : right;
+    clear       : right;
+    font-size   : 80%;
+    font-weight : 200;
+    text-align  : right;
+    color       : #5D6778;
+}
+div.outline-indicator {
+    display    : block !important;
+    /*float      : right !important;*/
+    /*clear      : right !important;*/
+    color      : #DDDDDE !important;
+    max-width  : 60px !important;
+    text-align : right !important;
+    position   : absolute !important;
+    top        : 5px !important;
+    right      : 0 !important;
+}
+.nav-item.section-title a.nav-link .outline-indicator {
+
+    display    : block !important;
+    /*float      : right !important;*/
+    /*clear      : right !important;*/
+    color      : #DDDDDE !important;
+    max-width  : 60px !important;
+    text-align : right !important;
+    position   : absolute !important;
+    top        : 5px !important;
+    right      : 0 !important;
+}
+.user-name {
+    font-weight : 500;
+}
+.user-title {
+}
+.file-ext {
+    color       : #363E4D;
+    font-weight : 200 !important;
+}
+td h3 {
+    margin-top : 0px;
+}
+table {
+    margin-top    : 75px;
+    margin-bottom : 55px;
+}
+code {
+    color            : #5579D2;
+    background-color : #F9F2F4;
+    border-radius    : 4px;
+}
+a.nav-link {
+    display : block;
+}
+.docs-nav a.nav-link {
+    display  : block;
+    position : relative !important;
+    padding  : 0px 50px 15px 15px;
+    color    : #5579D2 !important;
+}
+.nav-item.section-title a.nav-link {
+    font-weight : 700 !important;
+    position    : relative !important;
+    color       : #45659F;
+}
+.nav-item.section-title a.nav-link:active,
+.nav-item.section-title a.nav-link:hover,
+.nav-item.section-title a.nav-link:active {
+    display     : block;
+    font-weight : 900 !important;
+    position    : relative !important;
+    color       : black !important;
+}
+.no-shadow,
+.no-shadow:hover {
+    -webkit-box-shadow : none;
+    -moz-box-shadow    : none;
+    box-shadow         : none;
+}
+.shadow {
+    -webkit-box-shadow : 0px 10px 20px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow    : 0px 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow         : 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+img.diagram {
+    display   : block !important;
+    width     : 100%;
+    max-width : 1000px;
+    margin    : 80px auto 0px auto !important;
+}
+.graphic-caption {
+    color      : #5579D2;
+    text-align : left;
+    font-size  : 11px;
+    margin     : 5px 0 60px 0;
+}
+img.graphic-diagram {
+    display   : block !important;
+    width     : 100%;
+    max-width : 1024px;
+    margin    : 80px auto 0px auto !important;
+}
+img.caption-inspector-logo {
+    display   : block !important;
+    width     : 100%;
+    max-width : 1024px;
+    margin    : 80px auto;
+}
+.callout-block {
+    color             : white !important;
+    border-radius     : 8px !important;
+    border-left-width : 60px !important;
+    padding           : 0px !important;
+    margin            : 25px 0px !important;
+    position          : relative !important;
+    span.callout-icon-holder {
+        position : absolute !important;
+        top      : 25px;
+        left     : -45px;
+        font-size : 30px !important;
+    }
+    &.callout-block-info, &.callout-block-warning, &.callout-block-error {color : white !important;}
+    &.callout-block-warning {
+        border-color: #E66B00 !important;
+        background: #ffa700 !important;
+    }
+    > .content {
+        color   : white !important;
+        padding : 20px 20px 20px 20px !important;
+        margin  : 0px !important;
+        a, li {
+            color : white !important;
+            clear : left !important;
+        }
+        > p {
+            color     : white !important;
+            margin    : 5px 0 15px 0 !important;
+            font-size : 17px;
+        }
+        > h4.callout-title {
+            display: block;
+            margin-top:0px !important;
+            //padding     : 0px !important;
+            //margin      : 25px 0 10px 0 !important;
+            font-weight : 900 !important;
+            font-size   : 2rem !important;
+            line-height : 3rem;
+            color       : white !important;
+        }
+    }
+}
+
+
+code {
+    color            : #C7254E;
+    background-color : #F9F2F4;
+    border-radius    : 4px;
+}
+code,
+kbd {
+    padding : 2px 4px;
+}
+kbd {
+    color            : #FFFFFF;
+    background-color : #333333;
+    border-radius    : 3px;
+    box-shadow       : inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+kbd kbd {
+    padding    : 0;
+    font-size  : 100%;
+    box-shadow : none;
+}
+/*pre {*/
+/*display          : block;*/
+/*margin           : 0 0 10px;*/
+/*word-break       : break-all;*/
+/*word-wrap        : break-word;*/
+/*color            : #333;*/
+/*background-color : #f5f5f5;*/
+/*border           : 1px solid #ccc;*/
+/*border-radius    : 4px;*/
+/*}*/
+/*pre code {*/
+/*padding          : 15px !important;*/
+/*font-size        : inherit;*/
+/*color            : inherit;*/
+/*white-space      : pre-wrap;*/
+/*background-color : transparent;*/
+/*border-radius    : 0;*/
+/*}*/
+/*.pre-scrollable {*/
+/*max-height : 340px;*/
+/*overflow-y : scroll;*/
+/*}*/
+.center-block {
+    display      : block;
+    margin-left  : auto;
+    margin-right : auto;
+}
+.pull-right {
+    float : right !important;
+}
+.pull-left {
+    float : left !important;
+}
+.hide {
+    display : none !important;
+}
+.show {
+    display : block !important;
+}
+.invisible {
+    visibility : hidden;
+}
+.text-hide {
+    font             : 0/0 a;
+    color            : transparent;
+    text-shadow      : none;
+    background-color : transparent;
+    border           : 0;
+}
+.hidden {
+    display    : none !important;
+    visibility : hidden !important;
+}
+.affix {
+    position          : fixed;
+    -webkit-transform : translate3d(0, 0, 0);
+    transform         : translate3d(0, 0, 0);
+}
+.hljs {
+    display                  : block;
+    overflow-x               : auto;
+    padding                  : 0.5em;
+    background               : #002B36;
+    color                    : #839496;
+    -webkit-text-size-adjust : none;
+}
+.hljs-comment,
+.hljs-template_comment,
+.diff .hljs-header,
+.hljs-doctype,
+.hljs-pi,
+.lisp .hljs-string,
+.hljs-javadoc {
+    color : #586E75;
+}
+.hljs-keyword,
+.hljs-winutils,
+.method,
+.hljs-addition,
+.css .hljs-tag,
+.hljs-request,
+.hljs-status,
+.nginx .hljs-title {
+    color : #859900;
+}
+.hljs-number,
+.hljs-command,
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-rules .hljs-value,
+.hljs-phpdoc,
+.hljs-dartdoc,
+.tex .hljs-formula,
+.hljs-regexp,
+.hljs-hexcolor,
+.hljs-link_url {
+    color : #2AA198;
+}
+.hljs-title,
+.hljs-localvars,
+.hljs-chunk,
+.hljs-decorator,
+.hljs-built_in,
+.hljs-identifier,
+.vhdl .hljs-literal,
+.hljs-id,
+.css .hljs-function {
+    color : #268BD2;
+}
+.hljs-attribute,
+.hljs-variable,
+.lisp .hljs-body,
+.smalltalk .hljs-number,
+.hljs-constant,
+.hljs-class .hljs-title,
+.hljs-parent,
+.hljs-type,
+.hljs-link_reference {
+    color : #B58900;
+}
+.hljs-preprocessor,
+.hljs-preprocessor .hljs-keyword,
+.hljs-pragma,
+.hljs-shebang,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.diff .hljs-change,
+.hljs-special,
+.hljs-attr_selector,
+.hljs-subst,
+.hljs-cdata,
+.css .hljs-pseudo,
+.hljs-header {
+    color : #CB4B16;
+}
+.hljs-deletion,
+.hljs-important {
+    color : #DC322F;
+}
+.hljs-link_label {
+    color : #6C71C4;
+}
+.tex .hljs-formula {
+    background : #073642;
+}
+/* http://prismjs.com/download.html?themes=prism-okaidia&languages=markup+css+clike+javascript+ruby+git+haml+handlebars+http+php+python+sass+scss+vim+yaml&plugins=line-numbers */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+    color           : #F8F8F2;
+    text-shadow     : 0 1px rgba(0, 0, 0, 0.3);
+    font-family     : Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    direction       : ltr;
+    text-align      : left;
+    white-space     : pre;
+    word-spacing    : normal;
+    word-break      : normal;
+    word-wrap       : normal;
+    line-height     : 1.5;
+    -moz-tab-size   : 4;
+    -o-tab-size     : 4;
+    tab-size        : 4;
+    -webkit-hyphens : none;
+    -moz-hyphens    : none;
+    -ms-hyphens     : none;
+    hyphens         : none;
+}
+/* Code blocks */
+pre[class*="language-"] {
+    padding       : 1em;
+    margin        : .5em 0;
+    overflow      : auto;
+    border-radius : 0.3em;
+}
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background : #272822;
+}
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding       : .1em;
+    border-radius : .3em;
+    white-space   : normal;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color : slategray;
+}
+.token.punctuation {
+    color : #F8F8F2;
+}
+.namespace {
+    opacity : .7;
+}
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color : #F92672;
+}
+.token.boolean,
+.token.number {
+    color : #AE81FF;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color : #A6E22E;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+    color : #F8F8F2;
+}
+.token.atrule,
+.token.attr-value,
+.token.function {
+    color : #E6DB74;
+}
+.token.keyword {
+    color : #66D9EF;
+}
+.token.regex,
+.token.important {
+    color : #FD971F;
+}
+.token.important,
+.token.bold {
+    font-weight : bold;
+}
+.token.italic {
+    font-style : italic;
+}
+.token.entity {
+    cursor : help;
+}
+pre.line-numbers {
+    position      : relative;
+    padding-left  : 3.8em;
+    counter-reset : linenumber;
+}
+pre.line-numbers > code {
+    position : relative;
+}
+.line-numbers .line-numbers-rows {
+    position            : absolute;
+    pointer-events      : none;
+    top                 : 0;
+    font-size           : 100%;
+    left                : -3.8em;
+    width               : 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing      : -1px;
+    border-right        : 1px solid #999999;
+    -webkit-user-select : none;
+    -moz-user-select    : none;
+    -ms-user-select     : none;
+    user-select         : none;
+}
+.line-numbers-rows > span {
+    pointer-events    : none;
+    display           : block;
+    counter-increment : linenumber;
+}
+.line-numbers-rows > span:before {
+    content       : counter(linenumber);
+    color         : #999999;
+    display       : block;
+    padding-right : 0.8em;
+    text-align    : right;
+}
