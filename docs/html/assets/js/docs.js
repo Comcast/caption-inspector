@@ -197,17 +197,7 @@ class BuildNav {
     }
 }
 
-BuildNav.HTML_ARRAY = [
-    `<li class="nav-item section-title">
-        <a class="nav-link scrollto active" href="${PAGE_URL}#section-1">
-            <span class="theme-icon-holder mr-2">
-                <i class="fas fa-folder"></i>
-            </span>
-			<div class="outline-indicator"></div>:string
-            Introduction
-        </a>
-    </li>`
-];
+BuildNav.HTML_ARRAY = ['<li class="nav-item section-title"><a class="nav-link scrollto active" href="${PAGE_URL}#section-1"><span class="theme-icon-holder mr-2"><i class="fas fa-folder"></i></span><div class="outline-indicator"></div>Introduction</a></li>'];
 $(document).ready(function () {
     BuildNav.build(() => {
         $('#docs-sidebar-toggler').on('click', function () {
