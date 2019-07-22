@@ -28,114 +28,7 @@
     <link href="./assets/scss/theme.css" id="theme-style" rel="stylesheet">
     <title>CI | Documentation for Caption Inspector</title>
     <style>
-        .info-card {
-            float: left;
-            margin: 10px;
-            -webkit-perspective: 600px;
-        }
-        .info-card .front,
-        .info-card .back {
-            border: none !important;
-            background: #FFF;
-            border-radius: 10px;
-            transition: -webkit-transform 1s;
-            -webkit-transform-style: preserve-3d;
-            -webkit-backface-visibility: hidden;
-        }
-        .info-card .front {
-            text-align: center;
-            background: #5579D1;
-            color: #fff;
-            overflow: hidden;
-            width: 250px;
-            height: 330px;
-            position: absolute;
-            z-index: 1;
-        }
-        .info-card .front > h3,
-        .info-card .front > h2,
-        .info-card .back > h3,
-        .info-card .back > h2 {
-            text-align: center;
-            font-size: 28px;
-        }
-        .info-card .front > h3 {
-            color: white;
-        }
-        .info-card .back {
-            padding: 20px;
-            padding-top: 0px;
-            width: 250px;
-            height: 330px;
-            -webkit-transform: rotateY(-180deg);
-            overflow: scroll;
-            box-shadow: 0px 5px 15px rgba(100, 100, 100, 0.35);
-        }
-        .info-card .card-image {
-            width: 100%;
-            height: 100%;
-        }
-        .info-card .btn-set {
-            list-style: none;
-            padding: 0px;
-            margin-top: 25px;
-            text-align: center;
-        }
-        .info-card .btn-set a {
-            position: relative;
-            display: inline-block;
-            min-width: 40px;
-            padding: 5px 15px;
-            margin: 0px 5px;
-            overflow: hidden;
-            text-align: center;
-            /*background-color: rgb(215, 215, 215);*/
-            border-radius: 40px;
-        }
-        .info-card .back > .btn-set {
-            position: absolute;
-            bottom: 0px;
-            padding-top: 10%;
-            height: 25%;
-            left: 0px;
-            right: 0px;
-            border-radius: 0px 0px 10px 10px;
-            background-color: #f9f9f9;
-            border-top: 2px solid  #f5f5f5;
-        }
-        .info-card .btn {
-            border: none;
-        }
-        .info-card .btn.btn-get-started {
-            color: white;
-            background-color: #418ACB;
-        }
-        .info-card .btn.btn-get-started:hover {
-            color: white;
-            background-color: #4170BB;
-        }
-        .info-card .btn.btn-learn-more {
-            color: white;
-            background-color: #72B444;
-        }
-        .info-card .btn.btn-learn-more:hover {
-            color: white;
-            background-color: #72A333;
-        }
-        .info-card a.icon {
-            text-decoration: none !important;
-            box-shadow: 0px 0px 1px #333333;
-            box-shadow: 0px 0px 1px rgba(51, 51, 51, 0.7);
-        }
-        .info-card a.icon:hover {
-            color: #ffffff !important;
-        }
-        .info-card:hover .back {
-            -webkit-transform: rotateY(0);
-        }
-        .info-card:hover .front {
-            -webkit-transform: rotateY(180deg);
-        }
+    
     
     </style>
 </head>
@@ -224,40 +117,40 @@
     
                     
                     
-                    <section class="docs-test">
-                        <div class="row">
-                            <h2>Info Card Flip for Platforms</h2>
-                            <!-- Info Card  -->
-                            <div class="info-card">
-                                <div class="front">
-                                    <h3>Open Ingress</h3>
-                                </div>
-                                <div class="back">
-                                    <h2>Open Ingress</h2>
-                                    <p>Make your data available to consume by publishing your data to one of our fully managed platforms.</p>
-                                    <div class="btn-set">
-                                        <a href="#" class="btn btn-learn-more">Learn More</a>
-                                        <a href="#" class="btn btn-get-started">Get Started</a>
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <!-- Info Card  -->
-                            <div class="info-card">
-                                <div class="front">
-                                    <h3>Open Egress</h3>
-                                </div>
-                                <div class="back">
-                                    <h2>Open Egress</h2>
-                                    <p>Consume and store your data to our data lake, a remote database, or to another location.</p>
-                                    <div class="btn-set">
-                                        <a href="#" class="btn btn-learn-more">Learn More</a>
-                                        <a href="#" class="btn btn-get-started">Get Started</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    <!--<section class="docs-test">-->
+                        <!--<div class="row">-->
+                            <!--<h2>Info Card Flip for Platforms</h2>-->
+                            <!--&lt;!&ndash; Info Card  &ndash;&gt;-->
+                            <!--<div class="info-card">-->
+                                <!--<div class="front">-->
+                                    <!--<h3>Open Ingress</h3>-->
+                                <!--</div>-->
+                                <!--<div class="back">-->
+                                    <!--<h2>Open Ingress</h2>-->
+                                    <!--<p>Make your data available to consume by publishing your data to one of our fully managed platforms.</p>-->
+                                    <!--<div class="btn-set">-->
+                                        <!--<a href="#" class="btn btn-learn-more">Learn More</a>-->
+                                        <!--<a href="#" class="btn btn-get-started">Get Started</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+        <!---->
+                            <!--&lt;!&ndash; Info Card  &ndash;&gt;-->
+                            <!--<div class="info-card">-->
+                                <!--<div class="front">-->
+                                    <!--<h3>Open Egress</h3>-->
+                                <!--</div>-->
+                                <!--<div class="back">-->
+                                    <!--<h2>Open Egress</h2>-->
+                                    <!--<p>Consume and store your data to our data lake, a remote database, or to another location.</p>-->
+                                    <!--<div class="btn-set">-->
+                                        <!--<a href="#" class="btn btn-learn-more">Learn More</a>-->
+                                        <!--<a href="#" class="btn btn-get-started">Get Started</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</section>-->
                     <section class="docs-intro">
                         <p>
                             <a href="https://travis-ci.com/Comcast/caption-inspector">
