@@ -329,10 +329,24 @@ img.caption-inspector-logo {
   color: white !important;
 }
 
+.docs-overview .card-icon-holder {
+  border-radius: 0 0 30px 30px !important;
+  margin-bottom: 24px !important;
+}
+
+.card .card-icon-holder {
+  border-radius: 0 0 30px 30px !important;
+  margin-bottom: 24px !important;
+}
+
 .info-card {
   float: left;
   margin: 10px;
   -webkit-perspective: 600px;
+}
+.info-card .card-icon-holder {
+  border-radius: 0 0 30px 30px !important;
+  margin-bottom: 24px !important;
 }
 
 .info-card .front,
