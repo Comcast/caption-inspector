@@ -9675,7 +9675,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #5d6778;
-  padding-top: 69px;
+  padding-top: 100px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -9685,9 +9685,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 code {
-  background: #bbc2ff;
-  color: #252930;
-  padding: 0.25rem 0.375rem;
+  background: white !important;
+  color: #252930 !important;
+  padding: 0.25rem 0.375rem !important;
   border-radius: 0.25rem;
 }
 
@@ -9794,11 +9794,11 @@ a.theme-link:hover {
 
 .theme-icon-holder {
   display: inline-block;
-  background: #bbc2ff;
+  background: none;
   color: #5579D2;
   width: 32px;
   height: 32px;
-  padding-top: 4px;
+  padding-top: 3px;
   font-size: 1rem;
   text-align: center;
   border-radius: 50%;
@@ -10403,7 +10403,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #5d6778;
-  padding-top: 69px;
+  padding-top: 100px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -10413,9 +10413,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 code {
-  background: #bbc2ff;
-  color: #252930;
-  padding: 0.25rem 0.375rem;
+  background: white !important;
+  color: #252930 !important;
+  padding: 0.25rem 0.375rem !important;
   border-radius: 0.25rem;
 }
 
@@ -10522,11 +10522,11 @@ a.theme-link:hover {
 
 .theme-icon-holder {
   display: inline-block;
-  background: #bbc2ff;
+  background: none;
   color: #5579D2;
   width: 32px;
   height: 32px;
-  padding-top: 4px;
+  padding-top: 3px;
   font-size: 1rem;
   text-align: center;
   border-radius: 50%;
@@ -10791,31 +10791,109 @@ a.theme-link:hover {
 .tag {
   padding: 2px 7px;
   border-radius: 4px !important;
-  color: #f9f9fa;
-  border: 1px solid #bbc2ff;
-  background-color: #96a1ff;
+  color: #44484c;
+  border: 1px solid #eef1f3;
+  background-color: #fbfcfc;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.35px;
+  font-size: smaller;
+  letter-spacing: 1px;
   line-height: 25px;
-  font-weight: 300;
+  cursor: pointer;
 }
 .tag:hover {
-  cursor: pointer;
-  background-color: #5579D2;
-  border: 1px solid #bbc2ff;
+  color: #5579D2;
 }
 
 blockquote, .blockquote {
-  max-width: 90%;
-  margin: 50px auto;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  border-radius: 4px !important;
-  padding: 30px 80px;
   color: #5579D2;
+  position: relative !important;
+  border-radius: 8px 8px 8px 8px !important;
+  width: 100% !important;
+  border-top: 12px solid #5579D2;
+  border-bottom: 4px solid #5579D2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: block !important;
+  margin: 60px 0px !important;
+  padding: 60px 60px !important;
+  -webkit-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.2) !important;
+  -moz-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.2) !important;
+  box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.2) !important;
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
 }
 blockquote *, .blockquote * {
   color: #5579D2;
+}
+blockquote h3, .blockquote h3 {
+  font-size: 35px !important;
+  line-height: 35px !important;
+  font-weight: 900 !important;
+  color: #5579D2;
+}
+blockquote h4, .blockquote h4 {
+  font-size: 22px !important;
+  line-height: 22px !important;
+  font-weight: 200 !important;
+  color: #9ba4aa;
+}
+blockquote .quoted, .blockquote .quoted {
+  display: block !important;
+  margin: 20px 0 30px 0 !important;
+}
+blockquote i.icon.fas, .blockquote i.icon.fas {
+  display: block !important;
+  position: absolute !important;
+  top: 12px !important;
+  left: 12px !important;
+  width: 32px !important;
+  height: 32px;
+  font-size: 30px !important;
+}
+blockquote > p, .blockquote > p {
+  text-align: justify !important;
+  margin: 40px 0;
+}
+blockquote p.reference, .blockquote p.reference {
+  position: relative;
+  border-radius: 5px;
+  font-size: 13px !important;
+  line-height: 15px !important;
+  font-weight: 600 !important;
+  color: #44484c;
+  background-color: #fbfcfc;
+  border: 2px solid #eef1f3;
+  border-left: 45px solid #dde2e6;
+  padding: 10px 15px;
+  margin: 0 0 20px 0;
+}
+blockquote p.reference i.icon.fas, .blockquote p.reference i.icon.fas {
+  display: block !important;
+  position: absolute !important;
+  top: 12px !important;
+  left: -25px !important;
+  width: 32px !important;
+  height: 32px;
+  font-size: 20px !important;
+}
+blockquote p.reference a.reference-link, .blockquote p.reference a.reference-link {
+  border-radius: 4px;
+  margin: 0;
+  padding: 5px 0;
+  font-size: 12px !important;
+  color: #44484c;
+  font-weight: 300 !important;
+  display: block !important;
+}
+blockquote:hover, .blockquote:hover {
+  -webkit-box-shadow: 0px 20px 80px rgba(85, 121, 210, 0.45) !important;
+  -moz-box-shadow: 0px 20px 80px rgba(85, 121, 210, 0.45) !important;
+  box-shadow: 0px 20px 80px rgba(85, 121, 210, 0.45) !important;
+}
+blockquote:hover p.reference, .blockquote:hover p.reference {
+  background-color: #fbfcfc;
 }
 
 span.outline-indicator {

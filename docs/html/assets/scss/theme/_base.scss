@@ -6,7 +6,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: $theme-text-color-secondary;
-    padding-top: 69px;
+    //padding-top: 69px;
+    padding-top: 100px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -16,9 +17,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 code {
-	background: $theme-bg-light;
-	color: $theme-text-color-primary;
-	padding: 0.25rem 0.375rem;
+	background: $theme-bg-lighter !important;
+	color: $theme-text-color-primary !important;
+	padding: 0.25rem 0.375rem !important;
 	@include border-radius(0.25rem);
 }
 
@@ -118,15 +119,15 @@ a.theme-link {
 
 .theme-icon-holder {
 	display: inline-block;
-	background: $theme-bg-light;
+	background: none;
 	color: $theme-color-primary;
 	width: 32px;
 	height: 32px;
-	padding-top: 4px;
+	padding-top: 3px;
 	font-size: 1rem;
 	text-align: center;
 	@include border-radius(50%);
-	
+
 	.svg-inline---fa {
 		color: $theme-color-primary;
 	}
@@ -159,7 +160,7 @@ a.theme-link {
 	    @include skew(25,-10);
         @include transform-origin(top left);
 	}
-	
+
 	&:after {
 		content: "";
 		width: 150px;
@@ -193,7 +194,7 @@ a.theme-link {
 	    @include skew(25,-12);
         @include transform-origin(top left);
 	}
-	
+
 	&:after {
 		content: "";
 		width: 150px;
@@ -235,7 +236,7 @@ a.theme-link {
 	    font-size: 1.5rem;
 	    font-weight:bold;
     }
-    
+
     .text-alt {
 	    font-weight:300;
     }
@@ -277,7 +278,7 @@ a.theme-link {
 				color: $theme-color-primary;
 			}
 		}
-		
+
 		&:not(:last-child) {
 			margin-right: 0.875rem;
 		}
@@ -295,8 +296,8 @@ a.theme-link {
 	.copyright {
 		font-size: 0.875rem;
 	}
-	
-	
+
+
 }
 
 /* Page related */
