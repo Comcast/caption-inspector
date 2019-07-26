@@ -39,11 +39,11 @@ const navigationTemplate =
   "</li>";
 
 class BuildNav {
-  static JSON = {};
-  static HTML_ARRAY = [];
-  static ROOT = "root";
-  static HEADER = "header";
-  static CHILD = "child";
+  // static JSON = {};
+  // static HTML_ARRAY = [];
+  // static ROOT = "root";
+  // static HEADER = "header";
+  // static CHILD = "child";
   static getHeaderTemplate(LABEL, ICON, SECTION) {
     let template = sectionHeaders.toString() + " ";
     let indicator = BuildNav.getId(SECTION);
@@ -184,6 +184,9 @@ class BuildNav {
     }
   }
 }
+BuildNav.ROOT = "root";
+BuildNav.HEADER = "header";
+BuildNav.CHILD = "child";
 BuildNav.JSON = {};
 BuildNav.HTML_ARRAY = [
   '<li class="nav-item section-title"><a class="nav-link scrollto active" href="${PAGE_URL}#section-1"><span class="theme-icon-holder mr-2"><i class="fas fa-folder"></i></span><div class="outline-indicator"></div>Introduction</a></li>'
