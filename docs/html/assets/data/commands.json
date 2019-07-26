@@ -1,18 +1,98 @@
 [
-  {"description": "Resume Caption Loading: Starts a pop-on caption. All following non-global codes and characters will be applied to the off-screen buffer until {EOC} is received (EOC: End of Caption).", "field-code": "F1:9420", "parsed-result": "Ch1 {RCL}", "name": "ResumeCaptLoading : Resume Caption Loading"},
-  {"description": "Alarm Off This code is currently unused.", "field-code": "F1:9422", "parsed-result": "Ch1 {AOF}", "name": "Alarm Off"},
-  {"description": "Alarm On - This code is currently unused.", "field-code": "F1:9423", "parsed-result": "Ch1 {AON}", "name": "Alarm On"},
-  {"description": "Backspace Overwrites the last character.", "field-code": "F1:9421", "parsed-result": "Ch1 {BS}", "name": "Backspace"},
-  {"description": "Carriage Return For roll-up caption, move cursor to bottom-left position of caption and move all lines up. (For Text mode, move down to first column of next row. Does nothing in paint-on or pop-on captions.)", "field-code": "F1:942D", "parsed-result": "Ch1 {CR}", "name": "Carriage Return"},
-  {"description": "Delete to End of Row Delete current character and all that follow it on the row.", "field-code": "F1:9424", "parsed-result": "Ch1 {DER}", "name": "Delete Entire Row"},
-  {"description": "End of Caption: Swap off-screen buffer with caption screen. (“942f\",  \"1c2f\",  \"152f\",  “9d2f\")", "field-code": "F1:942F", "parsed-result": "Ch1 {EOC}", "name": "End of Caption"},
-  {"description": "Erase Displayed Memory: Clear the current screen of any displayed captions or text.", "field-code": "F1:942C", "parsed-result": "Ch1 {EDM}", "name": "EraseDisplayedMem: Erase Displayed Memory"},
-  {"description": "Erase Non-Displayed Memory: Clear the off-screen buffer (only affects pop-on captions).", "field-code": "F1:942E", "parsed-result": "Ch1 {ENM}", "name": "Erase NonDisp Mem: Erase Non-displayed Memory"},
-  {"description": "Flash On: Flashes Captions on 0.25 seconds once per second. All following text will be flashing (any of the other mid-row codes will turn flash off).", "field-code": "F1:9428", "parsed-result": "Ch1 {FON}", "name": "Flash On"},
-  {"description": "Resume Caption Loading: Starts a pop-on caption. All following non-global codes and characters will be applied to the off-screen buffer until {EOC} is received. (Closed captions types can be: roll-up, paint-on, and pop-on. This is “Pop-On”.)", "field-code": "F1:9429", "parsed-result": "Ch1 {RDC}", "name": "ResumeCaptnLoading"},
-  {"description": "Resume Direct Captioning: Starts a paint-on caption. All following codes and characters will be applied directly to the caption screen. (Closed captions types can be: roll-up, paint-on, and pop-on. This is “Paint-On”.) (RU2, RU3, RU4: Roll up number of rows)", "field-code": "F1:9429", "parsed-result": "Ch1 {RDC}", "name": "ResumeDirectCaptn"},
-  {"description": "Resume Text Display: Switches to Text Mode to continue a text message begun with {TR}.", "field-code": "F1:942B", "parsed-result": "Ch1 {RTD}", "name": "ResumeTextDisplay"},
-  {"description": "Roll-Up Captions: Starts a roll-up caption in rows 14 and 15, unless followed by a PAC and/or TO. All following codes and characters will be applied directly to the caption screen.", "field-code": "F1:9426", "parsed-result": "Ch1 {RU3}", "name": "Roll Up #: Number of Rows to Roll Up"},
-  {"description": "Text Restart: Starts a text message at the upper rightmost position and clears the text screen. All following codes and characters will be applied directly to the text screen.", "field-code": "F1:942A", "parsed-result": "Ch1 {TR}", "name": "Text Restart"},
-  {"description": "Tab Offset: Tab Offset number of columns.", "field-code": "F1:97A1, F1:97A2, F1:9723", "parsed-result": "Ch1 {T01}, {T02}, {T03}", "name": "Tab Offset"}
+  {
+    "description": "Resume Caption Loading: Starts a pop-on caption. All following non-global codes and characters will be applied to the off-screen buffer until {EOC} is received (EOC: End of Caption).",
+    "field-code": "F1:9420",
+    "parsed-result": "Ch1 {RCL}",
+    "name": "ResumeCaptLoading : Resume Caption Loading"
+  },
+  {
+    "description": "Alarm Off This code is currently unused.",
+    "field-code": "F1:9422",
+    "parsed-result": "Ch1 {AOF}",
+    "name": "Alarm Off"
+  },
+  {
+    "description": "Alarm On - This code is currently unused.",
+    "field-code": "F1:9423",
+    "parsed-result": "Ch1 {AON}",
+    "name": "Alarm On"
+  },
+  {
+    "description": "Backspace Overwrites the last character.",
+    "field-code": "F1:9421",
+    "parsed-result": "Ch1 {BS}",
+    "name": "Backspace"
+  },
+  {
+    "description": "Carriage Return For roll-up caption, move cursor to bottom-left position of caption and move all lines up. (For Text mode, move down to first column of next row. Does nothing in paint-on or pop-on captions.)",
+    "field-code": "F1:942D",
+    "parsed-result": "Ch1 {CR}",
+    "name": "Carriage Return"
+  },
+  {
+    "description": "Delete to End of Row Delete current character and all that follow it on the row.",
+    "field-code": "F1:9424",
+    "parsed-result": "Ch1 {DER}",
+    "name": "Delete Entire Row"
+  },
+  {
+    "description": "End of Caption: Swap off-screen buffer with caption screen. (“942f\",  \"1c2f\",  \"152f\",  “9d2f\")",
+    "field-code": "F1:942F",
+    "parsed-result": "Ch1 {EOC}",
+    "name": "End of Caption"
+  },
+  {
+    "description": "Erase Displayed Memory: Clear the current screen of any displayed captions or text.",
+    "field-code": "F1:942C",
+    "parsed-result": "Ch1 {EDM}",
+    "name": "EraseDisplayedMem: Erase Displayed Memory"
+  },
+  {
+    "description": "Erase Non-Displayed Memory: Clear the off-screen buffer (only affects pop-on captions).",
+    "field-code": "F1:942E",
+    "parsed-result": "Ch1 {ENM}",
+    "name": "Erase NonDisp Mem: Erase Non-displayed Memory"
+  },
+  {
+    "description": "Flash On: Flashes Captions on 0.25 seconds once per second. All following text will be flashing (any of the other mid-row codes will turn flash off).",
+    "field-code": "F1:9428",
+    "parsed-result": "Ch1 {FON}",
+    "name": "Flash On"
+  },
+  {
+    "description": "Resume Caption Loading: Starts a pop-on caption. All following non-global codes and characters will be applied to the off-screen buffer until {EOC} is received. (Closed captions types can be: roll-up, paint-on, and pop-on. This is “Pop-On”.)",
+    "field-code": "F1:9429",
+    "parsed-result": "Ch1 {RDC}",
+    "name": "ResumeCaptnLoading"
+  },
+  {
+    "description": "Resume Direct Captioning: Starts a paint-on caption. All following codes and characters will be applied directly to the caption screen. (Closed captions types can be: roll-up, paint-on, and pop-on. This is “Paint-On”.) (RU2, RU3, RU4: Roll up number of rows)",
+    "field-code": "F1:9429",
+    "parsed-result": "Ch1 {RDC}",
+    "name": "ResumeDirectCaptn"
+  },
+  {
+    "description": "Resume Text Display: Switches to Text Mode to continue a text message begun with {TR}.",
+    "field-code": "F1:942B",
+    "parsed-result": "Ch1 {RTD}",
+    "name": "ResumeTextDisplay"
+  },
+  {
+    "description": "Roll-Up Captions: Starts a roll-up caption in rows 14 and 15, unless followed by a PAC and/or TO. All following codes and characters will be applied directly to the caption screen.",
+    "field-code": "F1:9426",
+    "parsed-result": "Ch1 {RU3}",
+    "name": "Roll Up #: Number of Rows to Roll Up"
+  },
+  {
+    "description": "Text Restart: Starts a text message at the upper rightmost position and clears the text screen. All following codes and characters will be applied directly to the text screen.",
+    "field-code": "F1:942A",
+    "parsed-result": "Ch1 {TR}",
+    "name": "Text Restart"
+  },
+  {
+    "description": "Tab Offset: Tab Offset number of columns.",
+    "field-code": "F1:97A1, F1:97A2, F1:9723",
+    "parsed-result": "Ch1 {T01}, {T02}, {T03}",
+    "name": "Tab Offset"
+  }
 ]

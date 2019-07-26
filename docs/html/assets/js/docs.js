@@ -29,6 +29,7 @@ const sectionHeaders =
   '	<div class="outline-indicator">{{ID}}</div>' +
   "	<span>{{LABEL}}</span></a>" +
   "</li>";
+
 const navigationTemplate =
   '<li class="nav-item ">' +
   '  <a class="nav-link scrollto" href="${PAGE_URL}#{{SECTION}}">' +
@@ -98,7 +99,10 @@ class BuildNav {
       if (element && indexId) {
         let html = $(element).html();
         indexId = BuildNav.getId(indexId);
-        $(element).html(`<span class="index-id">${indexId}</span>${html}`);
+        $(element).html(`
+          <a name="${indexId}" id="SECTION_${indexId}"></a>
+          <span class="index-id">${indexId}</span>${html}
+      `);
       }
     } catch (er) {
       console.warn(er);
@@ -106,17 +110,27 @@ class BuildNav {
   }
   static build(callback) {
     let ROOT = (BuildNav.JSON = new RootElement());
-    let introduction = new NavElement(null, "Introduction", "1", BuildNav.HEADER);
+    let introduction = new NavElement(
+      null,
+      "Introduction",
+      "1",
+      BuildNav.HEADER
+    );
     ROOT.addChild(introduction);
     try {
       $("section.docs-section").each(function(index, ROOT_SECTION) {
         let sectionHeading = $(ROOT_SECTION).find(".section-heading:first");
         let label = BuildNav.getLabel(sectionHeading);
         let id = $(ROOT_SECTION).attr("id");
-        
-        let navigationElement = new NavElement(ROOT, label, id, BuildNav.HEADER);
+
+        let navigationElement = new NavElement(
+          ROOT,
+          label,
+          id,
+          BuildNav.HEADER
+        );
         ROOT.addChild(navigationElement);
-        
+
         BuildNav.appendIndex(sectionHeading, id);
         let section = BuildNav.getHeaderTemplate(label, "folder", id);
         BuildNav.HTML_ARRAY.push(section);
@@ -142,11 +156,19 @@ class BuildNav {
           .find("h3")
           .each(function(index, CHILD_SECTION) {
             let label = $(CHILD_SECTION).text();
-            // console.log(" > > H3: ", label.trim());
             let id = $(CHILD_SECTION).attr("id");
             BuildNav.appendIndex(CHILD_SECTION, id);
             if (id && id !== "") {
               let section = BuildNav.getTemplate(label.trim(), "file", id);
+
+              let childElement = new NavElement(
+                navigationElement,
+                label,
+                id,
+                BuildNav.CHILD
+              );
+              navigationElement.addChild(childElement);
+
               BuildNav.HTML_ARRAY.push(section);
             }
           });
@@ -154,7 +176,7 @@ class BuildNav {
     } catch (er) {
       console.warn(er);
     }
-    console.log(BuildNav.HTML_ARRAY.join(""));
+    // console.log(BuildNav.HTML_ARRAY.join(""));
     console.log("ROOT", ROOT);
     $("#documentation-outline").html(BuildNav.HTML_ARRAY.join("") || "");
     if (callback) {
@@ -168,10 +190,10 @@ BuildNav.HTML_ARRAY = [
 ];
 
 class NavElement {
-  constructor(parent, label, id, type) {
-    this.label = label;
-    this.id = id;
-    this.type = type;
+  constructor(parent, label, id, type = BuildNav.HEADER) {
+    this.label = label.toString().trim();
+    this.id = id.toString().trim();
+    this.type = type.toString().trim();
     this.clicks = 0;
     /**
      * @type NavElement
@@ -179,16 +201,16 @@ class NavElement {
     this._parent = parent;
     this.children = [];
   }
-  get parent(){
-    if(this._parent){
+  get parent() {
+    if (this._parent) {
       return this._parent;
     }
     return NavElement.root;
   }
-  set parent(parent){
-    if(parent instanceof RootElement){
+  set parent(parent) {
+    if (parent instanceof RootElement) {
       this._parent = null;
-    } else if(parent instanceof NavElement){
+    } else if (parent instanceof NavElement) {
       this._parent = parent;
     }
   }
@@ -249,13 +271,15 @@ class RootElement extends NavElement {
     let t = this.getType();
     if (t === "header" || t === "root") {
       this.map.set(navElement.id, navElement);
-      console.warn(navElement.label + " does not have a parent to add this child to. ", navElement);
-      if(!navElement.parent){
-          this.children.push(navElement);
+      console.warn(
+        navElement.label + " does not have a parent to add this child to. ",
+        navElement
+      );
+      if (!navElement.parent) {
+        this.children.push(navElement);
       } else {
-          navElement.parent.children.push(navElement);
+        navElement.parent.children.push(navElement);
       }
-      
     }
   }
   getElement(id) {
