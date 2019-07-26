@@ -1,6 +1,7 @@
 /* ============= Base ============= */
 
 /*********** Theme Generic **********/
+@import "colors";
 body {
     font-family: 'Poppins', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -20,24 +21,24 @@ code {
 	background: $theme-bg-lighter !important;
 	color: $theme-text-color-primary !important;
 	padding: 0.25rem 0.375rem !important;
-	@include border-radius(0.25rem);
+	@include border-radius(8px);
 }
 
 
 .table-bordered th, .table-bordered td {
-	border-color: $theme-divider;
+	//border-color: $theme-divider;
 }
 
 .table th, .table td {
-	border-color: $theme-divider;
+	//border-color: $theme-divider;
 }
 
 .table thead th {
-	border-color: $theme-divider;
+	//border-color: $theme-divider;
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-	background-color: $smoky-white;
+	//background-color: $smoky-white;
 }
 
 .table-dark th, .table-dark td, .table-dark thead th {
@@ -77,9 +78,8 @@ a.theme-link {
 	padding: 0.6rem 1.25rem;
 	@include transition (all 0.4s ease-in-out);
 	border: none;
-	&:hover, &:active, &:focus {
-		box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
-		box-shadow: 0 12px 24px -6px rgba(0,0,0,0.15);
+	&:hover,&:active,&:focus {
+		box-shadow: 0 5px 15px 0 rgba(red($color-blue), green($color-blue), blue($color-blue),0.15),0 12px 24px -6px rgba(red($color-blue), green($color-blue), blue($color-blue),0.15);
 	}
 }
 
@@ -112,7 +112,7 @@ a.theme-link {
 	height: 2.75rem;
 	border-color: darken($theme-bg-light, 5%);
 	&:focus {
-		box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+		box-shadow: 0 5px 15px 0 rgba(red($color-blue), green($color-blue), blue($color-blue),0.15);
 		outline: none;
 	}
 }
@@ -190,7 +190,7 @@ a.theme-link {
 	    position: absolute;
 	    left: -90px;
 	    top: 0;
-	    @include border-radius(6px);
+	    @include border-radius(8px);
 	    @include skew(25,-12);
         @include transform-origin(top left);
 	}
@@ -203,7 +203,7 @@ a.theme-link {
 	    position: absolute;
 	    left: 0px;
 	    top: 30px;
-	    @include border-radius(4px);
+	    @include border-radius(8px);
 	    @include skew(-25,10);
         @include transform-origin(top left);
 	}
@@ -286,7 +286,7 @@ a.theme-link {
 }
 
 .header {
-	@include box-shadow(0 1px 4px 0 rgba(0,0,0,.1));
+	@include box-shadow(0 1px 4px 0 rgba(red($color-blue), green($color-blue), blue($color-blue),.1));
 	background: #fff;
 }
 

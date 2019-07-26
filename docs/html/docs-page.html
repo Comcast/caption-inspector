@@ -52,11 +52,11 @@
             <!--//docs-logo-wrapper-->
             <div class="docs-top-utilities d-flex justify-content-end align-items-center">
                 <div class="top-search-box d-none d-lg-flex">
-                    <form class="search-form" onsubmit="return false" action="#">
+                    <form action="#" class="search-form" onsubmit="return false">
                         <input class="form-control search-input" id="searchField1" name="search"
                                placeholder="Search the docs..." type="text">
-                        <button class="btn search-btn" type="submit" value="Search"
-                                onclick="searchDocs.search(this.form)"><i
+                        <button class="btn search-btn" onclick="searchDocs.search(this.form)" type="submit"
+                                value="Search"><i
                                 class="fas fa-search"></i>
                         </button>
                     </form>
@@ -84,7 +84,7 @@
     </div><!--//branding-->
     <div class="desktop-search-results">
         <h3>Search Results</h3>
-        <table class="table table-light">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <td class="bold">RESULT</td>
@@ -187,11 +187,11 @@
             </svg>
         </div>
         <div class="top-search-box d-lg-none p-3">
-            <form class="search-form" onsubmit="return false" action="#">
-                <input class="form-control search-input" name="search" id="searchField2"
+            <form action="#" class="search-form" onsubmit="return false">
+                <input class="form-control search-input" id="searchField2" name="search"
                        placeholder="Search the docs..." type="text">
-                <button class="btn search-btn" type="submit" value="Search"
-                        onclick="searchDocs.search(this.form)">
+                <button class="btn search-btn" onclick="searchDocs.search(this.form)" type="submit"
+                        value="Search">
                     <i class="fas fa-search"></i>
                 </button>
             </form>
@@ -206,48 +206,11 @@
         <div class="container">
             <article class="docs-article" id="section-1">
                 <header class="docs-header">
-                    <!--<img class="caption-inspector-logo" -->
-                    <!--data-src="./assets/brand/ci-logo-mono.png"-->
-                    <!--data-toggle="lightbox"-->
-                    <!--src="./assets/brand/ci-logo-mono.png" />-->
                     <img class="img-fluid" src="./assets/brand/logo-horizontal.png" />
                     <h1 class="docs-heading bump">Introduction <span
                             class="docs-time">Last updated: 2019-06-01</span>
                     </h1>
-                    <!--<section class="docs-test">-->
-                    <!--<div class="row">-->
-                    <!--<h2>Info Card Flip for Platforms</h2>-->
-                    <!--&lt;!&ndash; Info Card  &ndash;&gt;-->
-                    <!--<div class="info-card">-->
-                    <!--<div class="front">-->
-                    <!--<h3>Open Ingress</h3>-->
-                    <!--</div>-->
-                    <!--<div class="back">-->
-                    <!--<h2>Open Ingress</h2>-->
-                    <!--<p>Make your data available to consume by publishing your data to one of our fully managed platforms.</p>-->
-                    <!--<div class="btn-set">-->
-                    <!--<a href="#" class="btn btn-learn-more">Learn More</a>-->
-                    <!--<a href="#" class="btn btn-get-started">Get Started</a>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!---->
-                    <!--&lt;!&ndash; Info Card  &ndash;&gt;-->
-                    <!--<div class="info-card">-->
-                    <!--<div class="front">-->
-                    <!--<h3>Open Egress</h3>-->
-                    <!--</div>-->
-                    <!--<div class="back">-->
-                    <!--<h2>Open Egress</h2>-->
-                    <!--<p>Consume and store your data to our data lake, a remote database, or to another location.</p>-->
-                    <!--<div class="btn-set">-->
-                    <!--<a href="#" class="btn btn-learn-more">Learn More</a>-->
-                    <!--<a href="#" class="btn btn-get-started">Get Started</a>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</section>-->
+                    
                     <section class="docs-intro">
                         <p>
                             <a href="https://travis-ci.com/Comcast/caption-inspector">
@@ -555,13 +518,50 @@
                         </ol>
                     </ul>
                     <h3 class="bump">Developer Overview</h3>
-                    <p>The Caption Inspector project builds a C library, C executable, and Docker image that can be used to extract and decode Closed-Captions
-                       from various Video or Caption File Formats. Caption Inspector Supports CEA-608 and CEA-708 in MPEG-2 and MPEG-4 (.mpg, .ts, and .mp4
-                       containers), MCC (MacCaption Closed Captions), and SCC (Scenarist Closed Captions) files.
+                    <p>The Caption Inspector project builds a <span class="tag">C library</span>, <span class="tag">C executable</span>, and Docker image that can be used to extract and decode Closed-Captions
+                       from various Video or Caption File Formats. Caption Inspector Supports <span class="tag">CEA-608</span> and <span class="tag">CEA-708</span> in <span class="tag">MPEG-2</span> and <span class="tag">MPEG-4</span> (.mpg, .ts, and .mp4
+                       containers), <span class="tag">MCC</span> (MacCaption Closed Captions), and <span class="tag">SCC</span> (Scenarist Closed Captions) files.
                     </p>
-                    <p>Caption Inspector decodes the Closed Captioning Data into two basic types of output files. The first type has the Closed Captioning Data
-                       demultiplexed into output files for each service/channel with closed caption tags and text in the file.
-                    </p>
+    
+                    <section class="docs-test">
+                        <div class="info-cards">
+                            <h3>Two Basic Types</h3>
+                            <p>Caption Inspector decodes the Closed Captioning Data into two basic types of output files. The first type has the Closed Captioning Data <span class="tag">demultiplexed</span> into output files for each service/channel with closed caption tags and text in the file.
+                            </p>
+                                <!-- Info Card  -->
+                                <div class="info-card">
+                                    <div class="front">
+                                        <h3>Type</h3>
+                                    </div>
+                                    <div class="back">
+                                        <h2>Type</h2>
+                                        <p>Make your data available to consume by publishing your data to one of our fully managed platforms.</p>
+                                        <div class="btn-set">
+                                            <a class="btn btn-learn-more" href="#">Learn More</a>
+                                            <a class="btn btn-get-started" href="#">Get Started</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Info Card  -->
+                                <div class="info-card">
+                                    <div class="front">
+                                        <h3>Type</h3>
+                                    </div>
+                                    <div class="back">
+                                        <h2>Type</h2>
+                                        <p>Consume and store your data to our data lake, a remote database, or to another location.</p>
+                                        <div class="btn-set">
+                                            <a class="btn btn-learn-more" href="#">Learn More</a>
+                                            <a class="btn btn-get-started" href="#">Get Started</a>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            <div class="clearfix"></div>
+                        </div>
+                    </section>
+                    
+                    
                     <p>The second type has all of the Closed Captioning Data decoded in place, still multiplexed together. Beyond the current use case of
                        decoding and examining the Closed Captioning, the Caption Inspector Codebase can be leveraged as a reference implementation of the Closed
                        Captioning Specifications which would allow a developer to not have to understand the specifics of the specs just to access, manipulate,
@@ -605,27 +605,23 @@
                         </a>
                     </p>
                     <p>Caption Inspector is known to run with MediaInfo Version 18.12.</p>
-                    <pre><code class="language-bash">make caption-inspector
+                    <pre class="copy"><code class="language-bash"><span class="bold">make caption-inspector</span>
 ./caption-inspector -h
 ./caption-inspector -o . test/media/BigBuckBunny_256x144-24fps.ts
 ./caption-inspector -o . test/media/Plan9fromOuterSpace.scc -f 2400
 ./caption-inspector -o . test/media/NightOfTheLivingDead.mcc
 </code></pre>
-                    <p>Running with the <code>-h</code> option will simply print out the help text.
-                    </p>
-                    <p>Running against the video file <code>BigBuckBunny_256x144-24fps.ts</code> demonstrates decoding closed captions from a video file.
-                    </p>
-                    <p>Running against the caption file <code>Plan9fromOuterSpace.scc</code> demonstrates decoding an SCC file and CEA-608 Captions, as well as
-                       converting the contents of the SCC file into an MCC file.
-                    </p>
-                    <p>Running against the caption file <code>NightOfTheLivingDead.mcc</code> demonstrates decoding an MCC file, CEA-608 Captions, and CEA-708
-                       Captions.
-                    </p>
+                    <p><span class="bold">Running with the</span> <code>-h</code> option will simply print out the help text.</p>
+                    <p><span class="bold">Running against</span> the video file <code>BigBuckBunny_256x144-24fps.ts</code> demonstrates decoding closed captions from a video file.</p>
+                    <p><span class="bold">Running against</span> the caption file <code>Plan9fromOuterSpace.scc</code> demonstrates decoding an SCC file and CEA-608 Captions, as well as
+                       converting the contents of the SCC file into an MCC file.</p>
+                    <p><span class="bold">Running against</span> the caption file <code>NightOfTheLivingDead.mcc</code> demonstrates decoding an MCC file, CEA-608 Captions, and CEA-708
+                       Captions.</p>
                     <h3 class="bump" id="section-5-3">Building and Running in a Docker Container</h3>
                     <p>Obviously you need docker running on your local machine to build. Building inside of a docker image will remove the need to install any
                        dependencies, but comes at the expense of a slightly more complicated command line execution.
                     </p>
-                    <pre><code class="language-bash">make docker
+                    <pre class="copy"><code class="language-bash"><span class="bold">make docker</span>
 docker run -t caption-inspector -h
 docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/BigBuckBunny_256x144-24fps.ts
 docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Plan9fromOuterSpace.scc -f 2400
@@ -654,28 +650,26 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                        . Xunit Viewer is the application that takes the Xunit XML and converts it into a beautified HTML format. Once you have Xunit Viewer
                        installed, or if you ignore it, you just need to build and run the regression tests from the test directory.
                     </p>
-                    <pre><code>cd test
-make test
+                    <pre class="copy"><code>cd test
+<span class="bold">make</span> test
 </code></pre>
                     <p>The tests are a mix of C and Python, depending on which made more sense for the specific test. The build system will aggregate all of the
                        results from the tests in both languages.
                     </p>
                     <h3 title="Leveraging Python">Leveraging the Caption Inspector Functionality from Python</h3>
-                    <p><span
-                            class="language">C</span> was chosen as the language for Caption Inspector because of interoperability with FFMPEG and ease of
+                    <p><span class="language">C</span> was chosen as the language for Caption Inspector because of interoperability with FFMPEG and ease of
                                                       implementation of the specifications. While that choice made sense, there are lots of reasons to want to
-                                                      access this functionality as a library from a higher level language than C. To that end Python bindings,
-                                                      using CTypes, were added to the C functionality which can be compiled into a shared library and referenced
-                                                      from Python code. To use this functionality you just need to build the shared library using the command
+                                                       access this functionality as a library from a higher level language than C. To that end <span class="bold">Python</span> bindings,
+                                                       using <span class="bold">CTypes</span>, were added to the C functionality which can be compiled into a shared library and referenced
+                                                       from Python code. To use this functionality you just need to <span class="bold">build the shared library using the command</span>:
                         <code>make sharedlib</code>. Then leverage the file <code>python/cshim.py</code> inside of your Python code, making sure that it knows
                                                       where to find the shared library with the Caption Inspector Code.
                     </p>
                     <p>The Caption Inspector code that makes this possible, and the library it generates, can likely be reused for other high level languages
-                       such as Java/JNI, Golang/Cgo, etc. No work has been done in those languages, but if you do end up using it in a new language, please
-                       consider submitting the results back to the repository.
+                       such as Java/JNI, Golang/Cgo, etc. No work has been done in those languages, but if you do end up using it in a new language, <span class="bold">please consider submitting the results back to the repository.</span>
                     </p>
                     <!--<h3>Basic Usage</h3>-->
-                    <!--<pre><code>-->
+                    <!--<pre class="copy"><code>-->
                     <!--git clone git@github.comcast.com:vx/CaptionConverter.git-->
                     <!--make-->
                     <!--./caption-converter -h-->
@@ -690,7 +684,7 @@ make test
                     <!--by the job queue server script (`run.sh`), first build the cttp executable Docker image from the-->
                     <!--root directory, then build the cc-image docker image from the python and tag it for-->
                     <!--deployment:</p>-->
-                    <!--<pre><code>-->
+                    <!--<pre class="copy"><code>-->
                     <!--make docker-->
                     <!--cd python-->
                     <!--make test build itest tag-->
@@ -707,7 +701,7 @@ make test
                         <div class="content">
                             <span class="callout-icon-holder mr-1"><i class="fas fa-bullhorn"></i></span>
                             <h4 class="callout-title">Warning</h4>
-                            <p>Its important to read warning messages when you see them, with the exception of this one because testing overlooked this warning.
+                            <p>THIS IS ONLY AN EXAMPLE. Its important to read warning messages when you see them, with the exception of this one because testing overlooked this warning.
                                We figure its important that everyone has something to do...
                             </p>
                         </div>
@@ -722,10 +716,10 @@ make test
                     <h3>File Types</h3>
                     <table class="table file-types">
                         <thead>
-                            <tr>
-                                <td>FILE TYPE</td>
-                                <td>DESCRIPTION</td>
-                            </tr>
+                        <tr>
+                            <td>FILE TYPE</td>
+                            <td>DESCRIPTION</td>
+                        </tr>
                         </thead>
                         <tr>
                             <td>
@@ -889,7 +883,7 @@ make test
                         <li><span class="tag">Drop Frame Number</span></li>
                         <li><span class="tag">Millisecond</span></li>
                     </ol>
-                    <pre><code>
+                    <pre class="copy"><code>
 <b>Drop Frame Number Timestamps format</b>
 `&lt;Hour&gt;:&lt;Minute&gt;:&lt;Second&gt;;&lt;Frame&gt;`
 
@@ -910,7 +904,7 @@ make test
                     <h3 id="section-7-3">The Basis for Reading Output - Hex Data</h3>
                     The Hex Data representation of the Closed Captioning Construct is intended to be the most direct representation of the `cc_data()`
                     structure, which is comprised of the following fields:
-                    <pre><code>
+                    <pre class="copy"><code>
  01.    { cc_valid  }{cc_type}:{cc_data_1}{cc_data_2}
  02.    { F | P | X  }{  S  | D }:
 </code></pre>
@@ -919,7 +913,7 @@ make test
                     </p>
                     <p>The `cc_type` field determines the type of data that will be in `cc_data_1` and `cc_data_2`. This field can have the following values:
                     </p>
-                    <pre><code>
+                    <pre class="copy"><code>
  '1': Line 21 Field 1 Data,
  '2': Line 21 Field 2 Data,
      'S': DTVCC Packet Data Start,
@@ -1204,6 +1198,15 @@ make test
                     <p>The packet structure is made up of a Packet Start followed by a number of Data Packets. Receiving another Packet Start ends the current
                        packet and tells the closed captioning service to process all of the data that was in the previous packet structure.
                     </p>
+                    <div class="callout-block callout-block-warning">
+                        <div class="content">
+                            <span class="callout-icon-holder mr-1"><i class="fas fa-bullhorn"></i></span>
+                            <h4 class="callout-title">Warning</h4>
+                            <p>THIS IS ONLY AN EXAMPLE. Its important to read warning messages when you see them, with the exception of this one because testing overlooked this warning.
+                               We figure its important that everyone has something to do...
+                            </p>
+                        </div>
+                    </div>
                     <p>To make the start of the packet structure stick out in the decoded data, it has an arrow on the Packet Start: `<-`.</p>
                     <div class="graphic-caption">[ 708 Packet Start ] ( ccd708PacketStart.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
