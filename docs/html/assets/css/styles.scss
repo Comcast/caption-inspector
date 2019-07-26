@@ -17,17 +17,19 @@
 $color-blue
 
  */
-.trans {
-    -webkit-transition : all 2s ease-out;
-    -moz-transition    : all 2s ease-out;
-    -o-transition      : all 2s ease-out;
-    transition         : all 2s ease-out;
+@mixin trans($count: 0.3s) {
+    -webkit-transition : all $count ease-out;
+    -moz-transition    : all $count ease-out;
+    -o-transition      : all $count ease-out;
+    transition         : all $count ease-out;
+}
+@mixin blue-shadow($depth: 20px, $alpha: 0.1) {
+    -webkit-box-shadow : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.1) !important;
+    -moz-box-shadow    : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.1) !important;
+    box-shadow         : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.1) !important;
 }
 .trans {
-    -webkit-transition : all 2s ease-out;
-    -moz-transition    : all 2s ease-out;
-    -o-transition      : all 2s ease-out;
-    transition         : all 2s ease-out;
+    @include trans(1.75s);
 }
 
 .block {
@@ -35,11 +37,7 @@ $color-blue
 }
 body {
     header.header {
-
-        -webkit-transition : all 1s ease-out;
-        -moz-transition    : all 1s ease-out;
-        -o-transition      : all 1s ease-out;
-        transition         : all 1s ease-out;
+        @include trans(1s);
         height             : 80px !important;
         > div.desktop-search-results {
             > h3, h2, td, a {
@@ -67,14 +65,10 @@ body {
             //}
         }
         &.fixed-top {
-            -webkit-box-shadow : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.1) !important;
-            -moz-box-shadow    : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.1) !important;
-            box-shadow         : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.1) !important;
+            @include blue-shadow();
             &:hover {
-                -webkit-box-shadow : 0px 20px 80px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.45) !important;
-                -moz-box-shadow    : 0px 20px 80px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.45) !important;
-                box-shadow         : 0px 20px 80px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.45) !important;
-                height             : 50vh !important;
+                @include blue-shadow(80px, 0.45);
+                height             : 70vh !important;
                 > div.desktop-search-results {
                     background-color : rgba(red($color-blue), green($color-blue), blue($color-blue), 1);
                     color            : white !important;
@@ -86,20 +80,38 @@ body {
             }
         }
     }
-    nav.docs-nav.navbar {
-        -webkit-box-shadow : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.1) !important;
-        -moz-box-shadow    : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.1) !important;
-        box-shadow         : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.1) !important;
-        -webkit-transition : all 1s ease-out;
-        -moz-transition    : all 1s ease-out;
-        -o-transition      : all 1s ease-out;
-        transition         : all 1s ease-out;
-        &:hover {
-            -webkit-box-shadow : 0px 20px 80px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.45) !important;
-            -moz-box-shadow    : 0px 20px 80px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.45) !important;
-            box-shadow         : 0px 20px 80px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.45) !important;
+    .docs-wrapper {
+        >.docs-sidebar{
+            background-color: $color-cool-grey-12 !important;
+            .top-search-box {
+
+            }
+            &:hover {
+                .top-search-box {
+                    display: block;
+                }
+            }
+        }
+        nav.docs-nav.navbar {
+            background-color: $color-cool-grey-1;
+            @include trans(0.3s);
+            ul.section-items > li  {
+                a {
+                    &:hover {
+                        padding-bottom:30px;
+                    }
+                }
+                @include trans(0.6s);
+                &:hover {
+                    border-top:1px solid white;
+                }
+            }
+            &:hover {
+                background-color: white !important;
+            }
         }
     }
+
     article {
         margin-bottom : 100px;
         &.docs-article {
@@ -129,9 +141,13 @@ body {
                 margin-bottom : 2rem !important;
                 color         : $color-blue;
             }
+            ol,ul {
+                text-align : left;
+            }
             p {
                 color      : #777788 !important;
-                text-align : left;
+                text-align : justify;
+                margin-bottom : 2.5rem !important;
                 &.section-intro {
                     color        : $color-blue !important;
                     font-weight  : 300 !important;
@@ -150,11 +166,11 @@ body {
                     margin-bottom : 1rem !important;
                 }
                 > h3 {
-                    font-weight   : 700;
-                    font-size     : calc(20px + (48 - 20) * ((100vw - 300px) / (1600 - 300))) !important;
-                    margin-top    : 100px !important;
-                    margin-bottom : 1.75rem !important;
-                    color         : $color-blue;
+                    font-weight   : 100 !important;
+                    font-size     : calc(18px + (48 - 18) * ((100vw - 300px) / (1600 - 300))) !important;
+                    margin-top    : 70px !important;
+                    margin-bottom : 1.4rem !important;
+                    color         : $color-xfinity-pumkin;
                     &.title {
                         font-size : calc(20px + (48 - 20) * ((100vw - 300px) / (1600 - 300))) !important;
                     }
@@ -185,8 +201,6 @@ body {
                     color       : #5D6778;
                 }
                 blockquote, .blockquote {
-
-
                     position                : relative;
                     border-radius           : 8px 8px 8px 8px !important;
                     width                   : 100% !important;
@@ -197,13 +211,8 @@ body {
                     display                 : block !important;
                     margin                  : 60px 0px !important;
                     padding                 : 60px 60px !important;
-                    -webkit-box-shadow      : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.2) !important;
-                    -moz-box-shadow         : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.2) !important;
-                    box-shadow              : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.2) !important;
-                    -webkit-transition      : all 1s ease-out;
-                    -moz-transition         : all 1s ease-out;
-                    -o-transition           : all 1s ease-out;
-                    transition              : all 1s ease-out;
+                    @include blue-shadow();
+                    @include trans(1s);
                     h3 {
                         font-size   : 35px !important;
                         line-height : 35px !important;
@@ -267,9 +276,7 @@ body {
                         }
                     }
                     &:hover {
-                        -webkit-box-shadow : 0px 20px 80px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.45) !important;
-                        -moz-box-shadow    : 0px 20px 80px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.45) !important;
-                        box-shadow         : 0px 20px 80px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.45) !important;
+                        @include blue-shadow(80px, 0.45);
                         p.reference {
 
                             background-color : $color-cool-grey-1;
@@ -279,7 +286,9 @@ body {
                 }
             }
         }
-
+        header {
+            border-bottom : 3px solid $color-cool-grey-7 !important;
+        }
     }
     footer {
 
@@ -377,59 +386,53 @@ span.language {
         margin    : 15px 0.25% !important;
     }
 }
-svg#CaptionInspectorCircle {
-    g.caption-inspector-logo {
-        -webkit-box-shadow : 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
-        -moz-box-shadow    : 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
-        box-shadow         : 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
-        -webkit-transition : all 1s ease-out;
-        -moz-transition    : all 1s ease-out;
-        -o-transition      : all 1s ease-out;
-        transition         : all 1s ease-out;
-        circle.circle-background {
-            fill               : #F9F9F9;
-            border             : 10px solid rgba(140, 140, 140, 0.5);
-            stroke             : rgba(140, 140, 140, 0.15);
-            stroke-width       : 1%;
-            -webkit-transition : all 0.3s ease-out;
-            -moz-transition    : all 0.3s ease-out;
-            -o-transition      : all 0.3s ease-out;
-            transition         : all 0.3s ease-out;
 
-        }
-        path.eye-glass {
-            fill               : #FFFFFF;
-            opacity            : 0.20;
-            -webkit-transition : all 2s ease-out;
-            -moz-transition    : all 2s ease-out;
-            -o-transition      : all 2s ease-out;
-            transition         : all 2s ease-out;
-        }
-        path.inspector-face {
-            fill               : #232334;
-            -webkit-transition : all 0.85s ease-out;
-            -moz-transition    : all 0.85s ease-out;
-            -o-transition      : all 0.85s ease-out;
-            transition         : all 0.85s ease-out;
-        }
-        &:hover {
+
+
+.logo-container {
+    @include blue-shadow(80px, 0.45);
+    svg#CaptionInspectorCircle {
+        margin:40px;
+        g.caption-inspector-logo {
+            @include trans(1s);
             circle.circle-background {
-                fill         : #FFFFFD !important;
-                stroke       : rgba(207, 139, 53, 0.95);
-                stroke-width : 4%;
-            }
-            path.inspector-face {
-                fill : #D59E25 !important;
+                @include blue-shadow(80px, 0.45);
+                fill               : $color-cool-grey-1;
+                stroke             : $color-cool-grey-3;
+                stroke-width       : 2%;
+                @include trans(0.3s);
+
             }
             path.eye-glass {
-                opacity : 0.85;
-                size    : 50%;
+                fill               : #FFFFFF;
+                opacity            : 0.20;
+                -webkit-transition : all 2s ease-out;
+                -moz-transition    : all 2s ease-out;
+                -o-transition      : all 2s ease-out;
+                transition         : all 2s ease-out;
+            }
+            path.inspector-face {
+                fill               : $color-cool-grey-12;
+                @include trans(0.5s);
+            }
+            &:hover {
+                circle.circle-background {
+                    @include blue-shadow(80px, 0.45);
+                    fill         : #FFFFFD !important;
+                    stroke       : lighten($color-xfinity-pumkin, 10%);
+                    stroke-width : 4%;
+                }
+                path.inspector-face {
+                    fill : $color-xfinity-pumkin !important;
+                }
+                path.eye-glass {
+                    opacity : 0.85;
+                    size    : 50%;
+                }
             }
         }
     }
-
 }
-
 .bump {
     margin-top : 25px;
 }
@@ -447,8 +450,10 @@ span.language {
 }
 table.software > thead {
     color            : #FFFFFF !important;
-    background-color : $color-blue !important;
+    background-color : $color-xfinity-pumkin !important;
 }
+
+
 
 ol.guidelines > li {
     margin-left : 45px;
@@ -560,9 +565,19 @@ a.nav-link {
 td h1, td h2, td h3, td h4, td h5 {
     margin-top : 0px !important;
 }
+
 table {
     margin-top    : 75px;
     margin-bottom : 55px;
+    &.software, &.file-types {
+        > thead {
+            color            : #FFFFFF !important;
+            background-color : $color-xfinity-pumkin !important;
+        }
+    }
+    td {
+        padding-top:10px;
+    }
 }
 //code {
 //    color            : $color-blue;
@@ -873,7 +888,7 @@ pre {
 }
 code {
     padding          : 2px 4px;
-    color            : #C7254E;
+    color            : $color-xfinity-haute;
     background-color : #F9F2F4;
     border-radius    : 4px;
     kbd {
@@ -894,8 +909,8 @@ kbd {
     padding : 2px 4px;
 }
 kbd {
-    color            : #FFFFFF;
-    background-color : #333333;
+    color            : $color-xfinity-pumkin;
+    background-color : #F9F2F4;
     border-radius    : 3px;
     box-shadow       : inset 0 -1px 0 rgba(0, 0, 0, 0.25);
 }

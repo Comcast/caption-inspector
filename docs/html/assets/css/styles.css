@@ -16,17 +16,10 @@ $color-blue
 
  */
 .trans {
-  -webkit-transition: all 2s ease-out;
-  -moz-transition: all 2s ease-out;
-  -o-transition: all 2s ease-out;
-  transition: all 2s ease-out;
-}
-
-.trans {
-  -webkit-transition: all 2s ease-out;
-  -moz-transition: all 2s ease-out;
-  -o-transition: all 2s ease-out;
-  transition: all 2s ease-out;
+  -webkit-transition: all 1.75s ease-out;
+  -moz-transition: all 1.75s ease-out;
+  -o-transition: all 1.75s ease-out;
+  transition: all 1.75s ease-out;
 }
 
 .block {
@@ -66,10 +59,10 @@ body header.header.fixed-top {
   box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
 }
 body header.header.fixed-top:hover {
-  -webkit-box-shadow: 0px 20px 80px rgba(85, 121, 210, 0.45) !important;
-  -moz-box-shadow: 0px 20px 80px rgba(85, 121, 210, 0.45) !important;
-  box-shadow: 0px 20px 80px rgba(85, 121, 210, 0.45) !important;
-  height: 50vh !important;
+  -webkit-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
+  -moz-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
+  box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
+  height: 70vh !important;
 }
 body header.header.fixed-top:hover > div.desktop-search-results {
   background-color: #5579d2;
@@ -77,19 +70,33 @@ body header.header.fixed-top:hover > div.desktop-search-results {
   opacity: 1;
   visibility: visible;
 }
-body nav.docs-nav.navbar {
-  -webkit-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
-  -moz-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
-  box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
-  -webkit-transition: all 1s ease-out;
-  -moz-transition: all 1s ease-out;
-  -o-transition: all 1s ease-out;
-  transition: all 1s ease-out;
+body .docs-wrapper > .docs-sidebar {
+  background-color: #44484c !important;
 }
-body nav.docs-nav.navbar:hover {
-  -webkit-box-shadow: 0px 20px 80px rgba(85, 121, 210, 0.45) !important;
-  -moz-box-shadow: 0px 20px 80px rgba(85, 121, 210, 0.45) !important;
-  box-shadow: 0px 20px 80px rgba(85, 121, 210, 0.45) !important;
+body .docs-wrapper > .docs-sidebar:hover .top-search-box {
+  display: block;
+}
+body .docs-wrapper nav.docs-nav.navbar {
+  background-color: #fbfcfc;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+body .docs-wrapper nav.docs-nav.navbar ul.section-items > li {
+  -webkit-transition: all 0.6s ease-out;
+  -moz-transition: all 0.6s ease-out;
+  -o-transition: all 0.6s ease-out;
+  transition: all 0.6s ease-out;
+}
+body .docs-wrapper nav.docs-nav.navbar ul.section-items > li a:hover {
+  padding-bottom: 30px;
+}
+body .docs-wrapper nav.docs-nav.navbar ul.section-items > li:hover {
+  border-top: 1px solid white;
+}
+body .docs-wrapper nav.docs-nav.navbar:hover {
+  background-color: white !important;
 }
 body article {
   margin-bottom: 100px;
@@ -120,9 +127,13 @@ body article.docs-article h3.section-heading {
   margin-bottom: 2rem !important;
   color: #5579D2;
 }
+body article.docs-article ol, body article.docs-article ul {
+  text-align: left;
+}
 body article.docs-article p {
   color: #777788 !important;
-  text-align: left;
+  text-align: justify;
+  margin-bottom: 2.5rem !important;
 }
 body article.docs-article p.section-intro {
   color: #5579D2 !important;
@@ -145,11 +156,11 @@ body article.docs-article section.docs-section h2.section-heading {
   margin-bottom: 1rem !important;
 }
 body article.docs-article section.docs-section > h3 {
-  font-weight: 700;
-  font-size: calc(20px + (48 - 20) * ((100vw - 300px) / (1600 - 300))) !important;
-  margin-top: 100px !important;
-  margin-bottom: 1.75rem !important;
-  color: #5579D2;
+  font-weight: 100 !important;
+  font-size: calc(18px + (48 - 18) * ((100vw - 300px) / (1600 - 300))) !important;
+  margin-top: 70px !important;
+  margin-bottom: 1.4rem !important;
+  color: #ffa700;
 }
 body article.docs-article section.docs-section > h3.title {
   font-size: calc(20px + (48 - 20) * ((100vw - 300px) / (1600 - 300))) !important;
@@ -187,9 +198,9 @@ body article.docs-article section.docs-section blockquote, body article.docs-art
   display: block !important;
   margin: 60px 0px !important;
   padding: 60px 60px !important;
-  -webkit-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.2) !important;
-  -moz-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.2) !important;
-  box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.2) !important;
+  -webkit-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
+  -moz-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
+  box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
   -webkit-transition: all 1s ease-out;
   -moz-transition: all 1s ease-out;
   -o-transition: all 1s ease-out;
@@ -256,12 +267,15 @@ body article.docs-article section.docs-section blockquote p.reference a.referenc
   display: block !important;
 }
 body article.docs-article section.docs-section blockquote:hover, body article.docs-article section.docs-section .blockquote:hover {
-  -webkit-box-shadow: 0px 20px 80px rgba(85, 121, 210, 0.45) !important;
-  -moz-box-shadow: 0px 20px 80px rgba(85, 121, 210, 0.45) !important;
-  box-shadow: 0px 20px 80px rgba(85, 121, 210, 0.45) !important;
+  -webkit-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
+  -moz-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
+  box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
 }
 body article.docs-article section.docs-section blockquote:hover p.reference, body article.docs-article section.docs-section .blockquote:hover p.reference {
   background-color: #fbfcfc;
+}
+body article header {
+  border-bottom: 3px solid #c7cdd2 !important;
 }
 body .to-top {
   display: block !important;
@@ -379,26 +393,33 @@ span.language {
   margin: 15px 0.25% !important;
 }
 
-svg#CaptionInspectorCircle g.caption-inspector-logo {
+.logo-container {
   -webkit-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
   -moz-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
   box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
+}
+.logo-container svg#CaptionInspectorCircle {
+  margin: 40px;
+}
+.logo-container svg#CaptionInspectorCircle g.caption-inspector-logo {
   -webkit-transition: all 1s ease-out;
   -moz-transition: all 1s ease-out;
   -o-transition: all 1s ease-out;
   transition: all 1s ease-out;
 }
-svg#CaptionInspectorCircle g.caption-inspector-logo circle.circle-background {
-  fill: #F9F9F9;
-  border: 10px solid rgba(140, 140, 140, 0.5);
-  stroke: rgba(140, 140, 140, 0.15);
-  stroke-width: 1%;
+.logo-container svg#CaptionInspectorCircle g.caption-inspector-logo circle.circle-background {
+  -webkit-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
+  -moz-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
+  box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
+  fill: #fbfcfc;
+  stroke: #eef1f3;
+  stroke-width: 2%;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
-svg#CaptionInspectorCircle g.caption-inspector-logo path.eye-glass {
+.logo-container svg#CaptionInspectorCircle g.caption-inspector-logo path.eye-glass {
   fill: #FFFFFF;
   opacity: 0.2;
   -webkit-transition: all 2s ease-out;
@@ -406,22 +427,25 @@ svg#CaptionInspectorCircle g.caption-inspector-logo path.eye-glass {
   -o-transition: all 2s ease-out;
   transition: all 2s ease-out;
 }
-svg#CaptionInspectorCircle g.caption-inspector-logo path.inspector-face {
-  fill: #232334;
-  -webkit-transition: all 0.85s ease-out;
-  -moz-transition: all 0.85s ease-out;
-  -o-transition: all 0.85s ease-out;
-  transition: all 0.85s ease-out;
+.logo-container svg#CaptionInspectorCircle g.caption-inspector-logo path.inspector-face {
+  fill: #44484c;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
-svg#CaptionInspectorCircle g.caption-inspector-logo:hover circle.circle-background {
+.logo-container svg#CaptionInspectorCircle g.caption-inspector-logo:hover circle.circle-background {
+  -webkit-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
+  -moz-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
+  box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
   fill: #FFFFFD !important;
-  stroke: rgba(207, 139, 53, 0.95);
+  stroke: #ffb933;
   stroke-width: 4%;
 }
-svg#CaptionInspectorCircle g.caption-inspector-logo:hover path.inspector-face {
-  fill: #D59E25 !important;
+.logo-container svg#CaptionInspectorCircle g.caption-inspector-logo:hover path.inspector-face {
+  fill: #ffa700 !important;
 }
-svg#CaptionInspectorCircle g.caption-inspector-logo:hover path.eye-glass {
+.logo-container svg#CaptionInspectorCircle g.caption-inspector-logo:hover path.eye-glass {
   opacity: 0.85;
   size: 50%;
 }
@@ -446,7 +470,7 @@ span.language {
 
 table.software > thead {
   color: #FFFFFF !important;
-  background-color: #5579D2 !important;
+  background-color: #ffa700 !important;
 }
 
 ol.guidelines > li {
@@ -567,6 +591,13 @@ td h1, td h2, td h3, td h4, td h5 {
 table {
   margin-top: 75px;
   margin-bottom: 55px;
+}
+table.software > thead, table.file-types > thead {
+  color: #FFFFFF !important;
+  background-color: #ffa700 !important;
+}
+table td {
+  padding-top: 10px;
 }
 
 .no-shadow,
@@ -774,7 +805,7 @@ pre {
 
 code {
   padding: 2px 4px;
-  color: #C7254E;
+  color: #ff5a5a;
   background-color: #F9F2F4;
   border-radius: 4px;
 }
@@ -797,8 +828,8 @@ kbd {
 }
 
 kbd {
-  color: #FFFFFF;
-  background-color: #333333;
+  color: #ffa700;
+  background-color: #F9F2F4;
   border-radius: 3px;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
 }

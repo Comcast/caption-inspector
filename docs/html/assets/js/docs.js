@@ -297,12 +297,15 @@ class SearchTags {
   }
 }
 
-class SearchContainer {
-  constructor() {
+class SearchDocs {
+  constructor(searchField) {
+    this.field = document.getElementById(searchField);
     this.searches = [];
     this.currentSearch = {};
   }
-  search(term) {
+  search(form) {
+    let field = form.elements[0];
+    let term = ((field && field.value())||  this.field.value()||"").toString().trim();
     if (term && term !== "") {
       let currentSearch = this.current;
       if (currentSearch && currentSearch.terms !== term) {
@@ -310,6 +313,7 @@ class SearchContainer {
         this.searches.push(searchTerm);
       }
     }
+    console.log(this);
   }
   get current() {
     if (this.searches.length > 0) {
@@ -326,6 +330,7 @@ class SearchContainer {
   }
 }
 
+let searchDocs;
 $(document).ready(function() {
   BuildNav.build(() => {
     $("#docs-sidebar-toggler").on("click", function() {
@@ -363,6 +368,7 @@ $(document).ready(function() {
       $("body").scrollTo(urlhash, 800, { offset: -69, axis: "y" });
     }
   });
+  searchDocs = new SearchDocs('searchField1');
   /* Bootstrap lightbox */
   /* Ref: http://ashleydw.github.io/lightbox/ */
   $(document).delegate('*[data-toggle="lightbox"]', "click", function(e) {
