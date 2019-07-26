@@ -184,7 +184,7 @@ class BuildNav {
     }
   }
 }
-
+BuildNav.JSON = {};
 BuildNav.HTML_ARRAY = [
   '<li class="nav-item section-title"><a class="nav-link scrollto active" href="${PAGE_URL}#section-1"><span class="theme-icon-holder mr-2"><i class="fas fa-folder"></i></span><div class="outline-indicator"></div>Introduction</a></li>'
 ];
