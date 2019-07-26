@@ -39,7 +39,7 @@ const navigationTemplate =
   "</li>";
 
 class BuildNav {
-  static JSON;
+  static JSON = {};
   static HTML_ARRAY = [];
   static ROOT = "root";
   static HEADER = "header";
