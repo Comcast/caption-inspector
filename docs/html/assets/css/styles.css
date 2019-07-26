@@ -482,7 +482,7 @@ span.language {
   -webkit-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.75) !important;
   -moz-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.75) !important;
   box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.75) !important;
-  fill: rgba(255, 255, 255, 0.55);
+  fill: rgba(255, 255, 255, 0.75);
   stroke: rgba(255, 255, 255, 0.95);
   stroke-width: 2%;
   -webkit-transition: all 0.5s ease-out;
@@ -491,7 +491,7 @@ span.language {
   transition: all 0.5s ease-out;
 }
 .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo path.eye-glass {
-  fill: rgba(255, 255, 255, 0.95);
+  fill: rgba(255, 255, 255, 0.55);
   opacity: 0.2;
   -webkit-transition: all 2s ease-out;
   -moz-transition: all 2s ease-out;
@@ -500,8 +500,8 @@ span.language {
 }
 .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo path.inspector-face {
   fill: #44484c;
-  fill: #3f64be;
-  stroke: rgba(43, 100, 170, 0.2);
+  fill: #3c3c46;
+  stroke: rgba(100, 100, 140, 0.2);
   stroke-width: 2%;
   -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
@@ -674,9 +674,11 @@ td h1, td h2, td h3, td h4, td h5 {
   vertical-align: top;
   border-top: none !important;
   border-bottom: none !important;
+  text-align: left !important;
 }
 
 table {
+  text-align: left !important;
   border-collapse: collapse !important;
   border: none !important;
   border-style: none !important;
@@ -707,9 +709,10 @@ table {
   -moz-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
   box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
   margin-top: 75px;
-  margin-bottom: 55px;
+  margin-bottom: 75px !important;
 }
 table th, table td {
+  text-align: left !important;
   border-top: none !important;
   border-bottom: none !important;
 }
@@ -725,6 +728,7 @@ table:hover {
   box-shadow: 0px 10px 60px rgba(85, 121, 210, 0.3) !important;
 }
 table.software, table.file-types {
+  text-align: left !important;
   border-collapse: collapse !important;
   border-right: 8px !important;
   -moz-border-radius: 8px !important;
@@ -742,7 +746,9 @@ table.software > thead, table.file-types > thead {
   background-color: #ffa700 !important;
 }
 table tr > td {
+  text-align: left !important;
   padding-top: 15px;
+  margin-top: 1px;
 }
 table.file-types tr > td {
   padding-top: 30px !important;

@@ -449,13 +449,13 @@ span.language {
             @include trans(1s);
             circle.circle-background {
                 @include blue-shadow(80px, 0.75);
-                fill         : rgba(255, 255, 255, 0.55);
+                fill         : rgba(255, 255, 255, 0.75);
                 stroke       : rgba(255, 255, 255, 0.95);
                 stroke-width : 2%;
                 @include trans(0.5s);
             }
             path.eye-glass {
-                fill               : rgba(255, 255, 255, 0.95);
+                fill               : rgba(255, 255, 255, 0.55);
                 opacity            : 0.20;
                 -webkit-transition : all 2s ease-out;
                 -moz-transition    : all 2s ease-out;
@@ -464,8 +464,8 @@ span.language {
             }
             path.inspector-face {
                 fill         : $color-cool-grey-12;
-                fill         : rgb(63, 100, 190);
-                stroke       : rgba(43, 100, 170, 0.2);
+                fill         : rgb(60, 60, 70);
+                stroke       : rgba(100, 100, 140, 0.2);
                 stroke-width : 2%;
                 @include trans(0.5s);
             }
@@ -632,8 +632,10 @@ td h1, td h2, td h3, td h4, td h5 {
     vertical-align : top;
     border-top     : none !important;
     border-bottom  : none !important;
+    text-align: left !important;
 }
 table {
+    text-align: left !important;
     border-collapse     : collapse !important;
     border              : none !important;
     border-style        : none !important;
@@ -662,6 +664,7 @@ table {
     border-image-repeat : none !important;
 
     th, td {
+        text-align: left !important;
         border-top    : none !important;
         border-bottom : none !important;
     }
@@ -677,8 +680,9 @@ table {
         @include blue-shadow(60px, 0.3);
     }
     margin-top          : 75px;
-    margin-bottom       : 55px;
+    margin-bottom       : 75px !important;
     &.software, &.file-types {
+        text-align: left !important;
         border-collapse       : collapse !important;
         border-right          : 8px !important;
         -moz-border-radius    : 8px !important;
@@ -697,7 +701,9 @@ table {
     }
     tr {
         > td {
+            text-align: left !important;
             padding-top : 15px;
+            margin-top : 1px;
         }
     }
     &.file-types {
