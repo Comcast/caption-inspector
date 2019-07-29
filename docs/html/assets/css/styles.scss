@@ -31,7 +31,6 @@ $color-blue
 .trans {
     @include trans(1.75s);
 }
-
 .block {
     display : block !important;
 }
@@ -77,7 +76,7 @@ body {
             @include blue-shadow();
             &:hover {
                 @include blue-shadow(80px, 0.45);
-                height : 70vh !important;
+                //height : 70vh !important;
                 @media (max-width : 768px) {
                     height : 80px !important;
                 }
@@ -254,8 +253,16 @@ body {
                     -webkit-font-smoothing  : antialiased;
                     -moz-osx-font-smoothing : grayscale;
                     display                 : block !important;
-                    margin                  : 60px 0px !important;
-                    padding                 : 60px 60px !important;
+                    margin                  : 60px 0px;
+                    padding                 : 60px 60px;
+                    &.blockquote-lite {
+                        border-radius           : 6px 6px 6px 6px !important;
+                        background-color        : $color-cool-grey-1 !important;
+                        border-top              : 4px solid $color-cool-grey-8 !important;
+                        border-bottom           : 4px solid $color-cool-grey-8 !important;
+                        margin                  : 20px 0px !important;
+                        padding                 : 20px 20px !important;
+                    }
                     @include blue-shadow();
                     @include trans(1s);
                     h3 {
@@ -381,7 +388,6 @@ body {
 
     }
 }
-
 .stretched {
     letter-spacing : 3px;
     display        : block !important;
@@ -434,8 +440,6 @@ span.language {
         margin    : 15px 0.25% !important;
     }
 }
-
-
 .logo-container {
     //border-radius:200px;
     @include blue-shadow(30px, 0.45);
@@ -493,8 +497,6 @@ span.language {
         display : none !important;
     }
 }
-
-
 .bump {
     margin-top : 25px;
 }
@@ -504,7 +506,6 @@ span.language {
 .bump.bump.bump {
     margin-top : 75px;
 }
-
 span.language {
     font-family : "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
     color       : #5D6778;
@@ -514,8 +515,6 @@ table.software > thead {
     color            : #FFFFFF !important;
     background-color : $color-xfinity-pumkin !important;
 }
-
-
 ol.guidelines > li {
     margin-left : 45px;
 
@@ -525,7 +524,6 @@ ol.guidelines li > span.bold {
 ol.guidelines li > span.description {
     display : block !important;
 }
-
 div.outline-indicator {
     display    : block !important;
     /*float      : right !important;*/
@@ -583,7 +581,6 @@ div.outline-indicator {
         }
     }
 }
-
 a.nav-link {
     display : block;
 }
@@ -715,12 +712,6 @@ table {
     }
 
 }
-//code {
-//    color            : $color-blue;
-//    background-color : #F9F2F4;
-//    border-radius    : 4px;
-//}
-
 .no-shadow,
 .no-shadow:hover {
     -webkit-box-shadow : none;

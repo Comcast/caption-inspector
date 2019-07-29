@@ -10793,6 +10793,14 @@ blockquote, .blockquote {
 blockquote *, .blockquote * {
   color: #5579D2;
 }
+blockquote.blockquote-lite, .blockquote.blockquote-lite {
+  border-radius: 6px 6px 6px 6px !important;
+  background-color: #fbfcfc !important;
+  border-top: 4px solid #b1b9bf !important;
+  border-bottom: 4px solid #b1b9bf !important;
+  margin: 20px 0px !important;
+  padding: 20px 20px !important;
+}
 blockquote h3, .blockquote h3 {
   font-size: 35px !important;
   line-height: 35px !important;

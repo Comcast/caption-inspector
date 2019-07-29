@@ -72,7 +72,6 @@ body header.header.fixed-top:hover {
   -webkit-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
   -moz-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
   box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
-  height: 70vh !important;
 }
 @media (max-width: 768px) {
   body header.header.fixed-top:hover {
@@ -258,8 +257,8 @@ body article.docs-article section.docs-section blockquote, body article.docs-art
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: block !important;
-  margin: 60px 0px !important;
-  padding: 60px 60px !important;
+  margin: 60px 0px;
+  padding: 60px 60px;
   -webkit-box-shadow: 0px 10px 20px rgba(85, 121, 210, 0.1) !important;
   -moz-box-shadow: 0px 10px 20px rgba(85, 121, 210, 0.1) !important;
   box-shadow: 0px 10px 20px rgba(85, 121, 210, 0.1) !important;
@@ -267,6 +266,14 @@ body article.docs-article section.docs-section blockquote, body article.docs-art
   -moz-transition: all 1s ease-out;
   -o-transition: all 1s ease-out;
   transition: all 1s ease-out;
+}
+body article.docs-article section.docs-section blockquote.blockquote-lite, body article.docs-article section.docs-section .blockquote.blockquote-lite {
+  border-radius: 6px 6px 6px 6px !important;
+  background-color: #fbfcfc !important;
+  border-top: 4px solid #b1b9bf !important;
+  border-bottom: 4px solid #b1b9bf !important;
+  margin: 20px 0px !important;
+  padding: 20px 20px !important;
 }
 body article.docs-article section.docs-section blockquote h3, body article.docs-article section.docs-section .blockquote h3 {
   font-size: 35px !important;

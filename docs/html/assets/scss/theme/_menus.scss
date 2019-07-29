@@ -110,6 +110,14 @@ blockquote, .blockquote {
   -moz-transition         : all 1s ease-out;
   -o-transition           : all 1s ease-out;
   transition              : all 1s ease-out;
+  &.blockquote-lite {
+    border-radius           : 6px 6px 6px 6px !important;
+    background-color        : $color-cool-grey-1 !important;
+    border-top              : 4px solid $color-cool-grey-8 !important;
+    border-bottom           : 4px solid $color-cool-grey-8 !important;
+    margin                  : 20px 0px !important;
+    padding                 : 20px 20px !important;
+  }
   h3 {
     font-size   : 35px !important;
     line-height : 35px !important;

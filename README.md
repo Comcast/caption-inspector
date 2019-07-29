@@ -7,7 +7,7 @@ The Caption Inspector project builds a C library, C executable, and Docker image
 Closed-Captions from various Video or Caption File Formats. Caption Inspector Supports CEA-608 and CEA-708 in MPEG-2 and
 MPEG-4 (.mpg, .ts, and .mp4 containers), MCC (MacCaption Closed Captions), and SCC (Scenarist Closed Captions) files.
 
-![Overview](./docs/Overview.png)
+![Overview](./docs/html/assets/content-images/Overview.png)
 
 Caption Inspector has a plugin pipeline architecture that can be configured in various ways and allows the user to add
 new plugins to perform various transformations. Currently, the following are the main use cases that the Caption
