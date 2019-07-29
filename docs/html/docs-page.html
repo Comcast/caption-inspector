@@ -227,6 +227,8 @@
                                                                                                                                  title="Closed captions were created for deaf or hard of hearing individuals to assist in comprehension. They can also be used as a tool by those learning to  read, learning to speak a non-native language, or in an environment where the audio is difficult to hear or is intentionally muted.">Closed Captions (CC)</span>
                             content from a video assets or caption files.
                         </p>
+                        <p>Closed Captioning Quality is required in many industries, companies, and countries for the sake of accessibility. Caption Inspector provides the necessary service of validating Closed Captioned content, and is especially useful when sharing content between Content Providers and Distributors, who then in turn, make the content available to Consumers.
+                        </p>
                         <table class="table table-striped software">
                             <thead>
                             <tr>
@@ -268,14 +270,18 @@
                 </header>
                 <section class="docs-section" id="section-1-0">
                      <h2 class="section-heading">Overview</h2>
+                    <p>Caption Inspector extracts and decodes Closed-Captions (CC) from various Video or Caption File Formats.</p>
                     <img class="img-fluid float-right" src="./assets/content-images/ico-generate.png" style="max-width:200px" />
                     <P>The Caption Inspector project builds a <span class="language">C library</span>, <span class="language">C executable</span>, and <span
-                            class="language">Docker</span> image that can be used to extract and decode Closed-Captions from various Video or Caption File
-                       Formats.
+                            class="language">Docker</span> image that can be used to extract and decode CC.
                     </P>
-                    <P>Caption Inspector Supports CEA-608 and CEA-708 in MPEG-2 and MPEG-4 (.mpg, .ts, and .mp4 containers), MCC (MacCaption Closed Captions),
-                       and SCC (Scenarist Closed Captions) files. For this, FFMPEG is required*.
-                    </P>
+                    <h4>Supported Formats</h4>
+                    <p>Caption Inspector Supports <span class="tag"></span>CEA-608 and
+                        <span class="tag">CEA-708</span> in <span class="tag">MPEG-2</span> and <span class="tag">MPEG-4</span> (.mpg, .ts, and .mp4 containers), <span class="tag">MCC</span> (MacCaption Closed Captions),
+                       and <span class="tag">SCC</span> (Scenarist Closed Captions) files. For this, FFMPEG is required*.
+                    </p>
+                    
+                    
                     <a data-toggle="lightbox" href="./assets/content-images/Overview.png">
                         <caption class="diagram">OVERVIEW DIAGRAM 1.0</caption>
                         <img class="img-fluid" src="./assets/content-images/Overview.png">
@@ -291,12 +297,7 @@
                             </p>
                         </div>
                     </div>
-                    <br><br><br>
-                    <h1 id="section-1-2">Brief</h1>
-                    <p>Caption Inspector is important because Closed Captioning Quality is required in many industries, companies, and countries for the sake of
-                       accessibility and this tool provides the necessary service of validating Closed Captioned content when shared between Content Providers
-                       and Distributors who then make the content available to Consumers.
-                    </p>
+                    
                 </section>
                 <section class="docs-section" id="section-2-0">
                     <h2 class="section-heading" title="Code Overview">Caption Inspector Overview</h2>
