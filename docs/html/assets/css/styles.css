@@ -343,6 +343,61 @@ body article.docs-article section.docs-section blockquote:hover, body article.do
 body article.docs-article section.docs-section blockquote:hover p.reference, body article.docs-article section.docs-section .blockquote:hover p.reference {
   background-color: #fbfcfc;
 }
+body article.docs-article section.docs-section .panel-group {
+  margin-top: 65px;
+  border-radius: 4px !important;
+  font-size: small;
+}
+body article.docs-article section.docs-section .panel-group .panel {
+  margin-top: 35px;
+  border-radius: 4px !important;
+  -webkit-box-shadow: 0px 10px 20px rgba(85, 121, 210, 0.1) !important;
+  -moz-box-shadow: 0px 10px 20px rgba(85, 121, 210, 0.1) !important;
+  box-shadow: 0px 10px 20px rgba(85, 121, 210, 0.1) !important;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  margin: 10px 0px !important;
+}
+body article.docs-article section.docs-section .panel-group .panel .panel-heading {
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  border-radius: 4px !important;
+  background-color: #5579D2;
+  text-decoration: none !important;
+  color: white;
+}
+body article.docs-article section.docs-section .panel-group .panel .panel-heading:hover {
+  background-color: #7d99dd;
+}
+body article.docs-article section.docs-section .panel-group .panel .panel-heading a {
+  text-decoration: none !important;
+  color: #868f96;
+}
+body article.docs-article section.docs-section .panel-group .panel .panel-heading a:hover {
+  text-decoration: none !important;
+}
+body article.docs-article section.docs-section .panel-group .panel .panel-heading h4.panel-title {
+  font-weight: 400;
+  font-size: 18px !important;
+  border-radius: 4px !important;
+  padding: 10px;
+  color: white;
+}
+body article.docs-article section.docs-section .panel-group .panel .panel-heading h4.panel-title a {
+  text-decoration: none !important;
+  color: white;
+  display: block;
+}
+body article.docs-article section.docs-section .panel-group .panel .panel-heading h4.panel-title a:hover {
+  text-decoration: none !important;
+}
+body article.docs-article section.docs-section .panel-group .panel .panel-body {
+  padding: 10px 20px !important;
+}
 body article header {
   border-bottom: 3px solid #c7cdd2 !important;
 }

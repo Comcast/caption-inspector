@@ -414,21 +414,17 @@
                         <ol>
                             <p>
                                 <b>FFMPEG*</b><br> Caption Inspector requires FFMPEG to be installed on your machine. Please download the appropriate version of
-                                                   FFMPEG from the website and install it on your machine. <span class="details">Caption Inspector is known to run with FFMPEG Version 4.0.2.</span>
+                                                   FFMPEG from the website and install it on your machine. <span class="details">Caption Inspector is known to run with FFMPEG Version 4.0.2.</span>.<br><br>
+                                <a href="https://ffmpeg.org/download.html" target="_blank" class="btn btn-primary"><span class="bold">Get &nbsp;</span>  <span class="lite">https://ffmpeg.org/download.html</span></a>
                             </p>
-                            <ul>
-                                <ol>https://ffmpeg.org/download.html</ol>
-                            </ul>
                         </ol>
                         <ol>
                             <p>
                                 <b>Drop Frame</b><br> While not required, Caption Inspector leverages a tool called MediaInfo to determine whether or not an
                                                       asset is, or is not, Drop Frame. You can download the command line version of MediaInfo. <span
-                                    class="details">Caption Inspector is known to run with MediaInfo Version 18.12.</span>
+                                    class="details">Caption Inspector is known to run with MediaInfo Version 18.12.</span><br><br>
+                                <a href="https://mediaarea.net/en/MediaInfo/Download" target="_blank" class="btn btn-primary"><span class="bold">Get &nbsp;</span>  <span class="lite">https://mediaarea.net/en/MediaInfo/Download</span></a>
                             </p>
-                            <ul>
-                                <ol>https://mediaarea.net/en/MediaInfo/Download</ol>
-                            </ul>
                         </ol>
                     </ul>
                     <h3 class="bump">Developer Overview</h3>
@@ -443,9 +439,9 @@
                             <p>Caption Inspector decodes the Closed Captioning Data into two basic types of output files. The first type has the Closed Captioning Data <span class="tag">demultiplexed</span> into output files for each service/channel with closed caption tags and text in the file.
                             </p>
                                 <!-- Info Card  -->
-                                <div class="info-card">
+                                <div class="info-card" hidden>
                                     <div class="front">
-                                        <h3>Type</h3>
+                                        <h3>DATA</h3>
                                     </div>
                                     <div class="back">
                                         <h2>Type</h2>
@@ -457,7 +453,7 @@
                                     </div>
                                 </div>
                                 <!-- Info Card  -->
-                                <div class="info-card">
+                                <div class="info-card" hidden>
                                     <div class="front">
                                         <h3>Type</h3>
                                     </div>
@@ -1235,7 +1231,492 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                          src="./assets/content-images/ccd708Reserved.png">
                 </section>
                 <section class="docs-section" id="section-11-0">
-                    <h2 class="section-heading" title="Debugging">Debugging Caption Inspector</h2>
+                    <h2 class="section-heading" title="Glossary">Glossary of Terms</h2>
+    
+                    
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-0">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-0" aria-expanded="false" aria-controls="collapse-1"> Demultiplex (DEMUX) </a> </h4>
+                            </div>
+                            <div id="collapse-0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-0">
+                                <div class="panel-body bg-accordian">
+                                    <p>Multiplex is a system of transmitting several messages or signals simultaneously on the same circuit or channel, combining all streams into a shared resource. For Closed Captioning, this means that all of the closed captioning data is in a single resource, the video content.</p>
+                                    <p>Demultiplex (DEMUX) is the reverse of the multiplex (MUX), which is the process of separating these resources. This is a major part of what Caption Inspector is providing as a service.
+                                    </p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-1">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1"> Section 508 </a> </h4>
+                            </div>
+                            <div id="collapse-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-1">
+                                <div class="panel-body bg-accordian">
+                                    <p>Section 508 refers to accessibility law, which requires video broadcasts and many webcasts to be made accessible to the deaf and hard of hearing. Please see the <a href="http://www.section508.gov/" target="_blank">official Section 508 web site</a>&nbsp;for more details. Not directly related to&nbsp;CEA-608&nbsp;and CEA-708, which are technical standards.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-2">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2"> CEA-608 </a> </h4>
+                            </div>
+                            <div id="collapse-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2" style="height: 0px;">
+                                <div class="panel-body bg-accordian">
+                                    <p>CEA-608 refers to the technical standard for captioning&nbsp;standard-definition&nbsp;NTSC video. It is also commonly referred to as "Line 21&nbsp;closed captioning".</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-3">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3"> CEA-708 </a> </h4>
+                            </div>
+                            <div id="collapse-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-3">
+                                <div class="panel-body bg-accordian">
+                                    <p>CEA-708 refers to the technical standards for captioning&nbsp;high-definition&nbsp;video. It is also commonly referred to as the&nbsp;VANC&nbsp;data or "Line 9&nbsp;closed captioning".</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-4">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4"> Active Format Description </a> </h4>
+                            </div>
+                            <div id="collapse-4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-4">
+                                <div class="panel-body bg-accordian">
+                                    <p>Active Format Description (AFD)is a standard for telling a receiving device how to best frame video. For example, without AFD, a 16:9 signal which contains a pillarboxed 4:3 video would then be letterboxed for display on a 4:3 TV, making a tiny image surrounded by black bars on all sides. With AFD, the TV knows that it can crop the video so that the actual picture fills the whole screen. For more information&nbsp;<a href="http://en.wikipedia.org/wiki/Active_Format_Description" target="_blank">click here</a>&nbsp;(Wikipedia).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-5">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5"> ATSC </a> </h4>
+                            </div>
+                            <div id="collapse-5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-5">
+                                <div class="panel-body bg-accordian">
+                                    <p>ATSC (Advanced Television Systems Committee) is the digital television (DTV) standard used by broadcasters for&nbsp;HDTV&nbsp;and the digital broadcast of&nbsp;SD&nbsp;in the United States and Canada. ATSC supports closed captioning (608&nbsp;and&nbsp;708) in the metadata of the video signal.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-6">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-6" aria-expanded="false" aria-controls="collapse-6"> Burn-in </a> </h4>
+                            </div>
+                            <div id="collapse-6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-6">
+                                <div class="panel-body bg-accordian">
+                                    <p>Burn-in refers to a graphic, text, or image that is superimposed on video, and thus becomes part of the video itself. Closed captions are not burned in, since they can be turned on and off, unlike&nbsp;open captions&nbsp;and many&nbsp;subtitles&nbsp;which cannot.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-7">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-7" aria-expanded="false" aria-controls="collapse-7"> .CAP </a> </h4>
+                            </div>
+                            <div id="collapse-7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-7">
+                                <div class="panel-body bg-accordian">
+                                    <p>A .cap file can refer to many different types of files, so you need to be careful when using them. Several formats of caption files have the .cap extension, including the popular Cheetah .cap format. A .cap file can also be a project file for CPC Caption maker (PC) which must be opened in&nbsp;CaptionMaker&nbsp;before exporting to another caption format.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-8">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-8" aria-expanded="false" aria-controls="collapse-8"> Capture Card </a> </h4>
+                            </div>
+                            <div id="collapse-8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-8">
+                                <div class="panel-body bg-accordian">
+                                    <p>A capture card is a piece of hardware for your computer that allows you to bring video into your computer for editing and output back to a physical format like tape. Many capture cards support closed captioning for HD and SD, including ones from&nbsp;<a href="http://www.matrox.com/video/en/home/" target="_blank">Matrox</a>,&nbsp;<a href="http://www.aja.com/" target="_blank">AJA</a>, and&nbsp;<a href="http://www.blackmagic-design.com/" target="_blank">Blackmagic.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-9">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-9" aria-expanded="false" aria-controls="collapse-1"> CaptionMaker </a> </h4>
+                            </div>
+                            <div id="collapse-9" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-9">
+                                <div class="panel-body bg-accordian">
+                                    <p>CaptionMaker is closed captioning software developed by CPC for the PC platform. CaptionMaker reads and writes all major captioning formats and supports many traditional workflows involving&nbsp;hardware encoders. In addition to broadcast SD video, CaptionMaker encodes captions for web formats like Quicktime, Flash, YouTube, and Windows Media, and also tapeless workflows like MPEG-2 Program Streams.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-10">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-10" aria-expanded="false" aria-controls="collapse-10"> Closed Captioning </a> </h4>
+                            </div>
+                            <div id="collapse-10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-10" style="height: 0px;">
+                                <div class="panel-body bg-accordian">
+                                    <p>Closed Captioning is text that appears over video that can be turned on an off using a&nbsp;decoder&nbsp;which is built into most consumer television sets and cable boxes. Closed Captions differ from&nbsp;subtitles&nbsp;in that they contain information about all audio, not just dialogue.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-11">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-11" aria-expanded="false" aria-controls="collapse-11"> Codec </a> </h4>
+                            </div>
+                            <div id="collapse-11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-11" style="height: 0px;">
+                                <div class="panel-body bg-accordian">
+                                    <p>Codec stands for "coder-decoder", it is a method of compressing video in order to strike a balance between file size and quality. Different codecs have different data rates, aspect ratios, and methods of closed captioning in order to achieve this balance. Some examples of codecs are DV,&nbsp;MPEG-2, WMV, H.264, Uncompressed, and ProRes. To watch a video, your computer needs the specific codec that video uses, otherwise it will not play. Not all codecs are available for all operating systems, and they may not be free to use.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-12">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-12" aria-expanded="false" aria-controls="collapse-12"> Container Format </a> </h4>
+                            </div>
+                            <div id="collapse-12" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-12" style="height: 0px;">
+                                <div class="panel-body bg-accordian">
+                                    <p>A container format is a way to encapsulate video so that it can be viewed in a video player, edited in an non-linear editor, or processed in some other way. Examples of container formats are Quicktime, AVI and MXF.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-13">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-13" aria-expanded="false" aria-controls="collapse-13"> Decoder </a> </h4>
+                            </div>
+                            <div id="collapse-13" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-13" style="height: 0px;">
+                                <div class="panel-body bg-accordian">
+                                    <p>A decoder is a device that makes enables closed captions to be turned on if they are present in the video signal, essentially turning closed captions into open captions. Typically a decoder is inside your TV or cable box and you can turn captions on using your remote or a setting in the menus. There are also hardware and software decoders available that allow you to preview captions on your computer or a master tape to ensure that they are present.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-14">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-14" aria-expanded="false" aria-controls="collapse-14"> Drift </a> </h4>
+                            </div>
+                            <div id="collapse-14" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-14">
+                                <div class="panel-body bg-accordian">
+                                    <p>"Drift" is a term used to describe a specific type of behavior of closed captions. It can either mean they are appearing progressively later than they should, or progressively earlier. Most often, this occurs slowly over the duration of a program, resulting in a discrepancy of over three seconds by the end of an hour. Drift is most often caused by a&nbsp;drop-frame&nbsp;/&nbsp;non-drop&nbsp;discrepancy.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-15">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-15" aria-expanded="false" aria-controls="collapse-15"> Drop-frame </a> </h4>
+                            </div>
+                            <div id="collapse-15" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-15">
+                                <div class="panel-body bg-accordian">
+                                    <p>Drop-frame timecode refers to a method of counting timecode in 29.97 fps video. It does not refer to actual frames of video being dropped that would affect video quality. Since 29.97 fps is not exactly 30 fps, when counting in drop-frame certain numbers in the timecode counter are skipped in order to ensure that the timecode will reflect the real-time length of the program.</p>
+                                    <p>The counterpart of drop-frame is non-drop&nbsp;which does not skip numbers when counting timecode. To prevent&nbsp;drift, it is important to timestamp in the correct mode (or convert your captions' timecode using CPC software) when closed captioning a 29.97 fps program.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-16">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-16" aria-expanded="false" aria-controls="collapse-16"> DTV </a> </h4>
+                            </div>
+                            <div id="collapse-16" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-16">
+                                <div class="panel-body bg-accordian">
+                                    <p>DTV stands for "digital television" and is a general term encompassing digital television around the world to distinguish is from analog television (such as&nbsp;NTSC). In the US the standard for DTV is&nbsp;ATSC.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-17">
+                                <h4 class="panel-title bold"> <a role="button" class="" data-toggle="collapse" data-parent="#accordion" href="#collapse-17" aria-expanded="false" aria-controls="collapse-17"> Elementary Stream </a> </h4>
+                            </div>
+                            <div id="collapse-17" class="panel-collapse in" role="tabpanel" aria-labelledby="heading-17" style="height: auto;">
+                                <div class="panel-body bg-accordian">
+                                    <p>A data stream that contains either video or audio data, but not both. Usually associated with MPEG video files and given the extension .m2v for video, or .m2a or .ac3 for audio. Elementary&nbsp;MPEG-2&nbsp;video streams can contain closed caption data. A Program or&nbsp;Transport&nbsp;stream can be demultiplexed, or separated, into its component Elementary streams.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-18">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-18" aria-expanded="false" aria-controls="collapse-18"> Encoder </a> </h4>
+                            </div>
+                            <div id="collapse-18" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-18">
+                                <div class="panel-body bg-accordian">
+                                    <p>The term "encoder" typically refers to a hardware encoder, but can refer to software encoders as well. A hardware encoder is usually a rack-mounted device that accepts a video signal, marries it to closed captions, and then outputs a new closed captioned video signal, usually resulting in generation loss.</p>
+                                    <p>A software encoder, such as&nbsp;MacCaption, can add captions to video without a hardware encoder. You can simply encode captions to video files already present on your computer, or to file formats that will add captions as you output from your NLE with no generation loss.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-19">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-19" aria-expanded="false" aria-controls="collapse-19"> High Definition (HD) </a> </h4>
+                            </div>
+                            <div id="collapse-19" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-19">
+                                <div class="panel-body bg-accordian">
+                                    <p>High Definition is a television standard with either 720 or 1080 lines in the video signal. Closed captioning for HD is sometimes called&nbsp;Line 9&nbsp;or&nbsp;VANC, and is codified under the&nbsp;708&nbsp;standard.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-20">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-20" aria-expanded="false" aria-controls="collapse-20"> Japanese Ruby Annotations </a> </h4>
+                            </div>
+                            <div id="collapse-20" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-20">
+                                <div class="panel-body bg-accordian">
+                                    <p>Ruby subtitle formatting is a popular style of formatting that allows viewers to see an annotated description of a word on screen. Typically, the annotation is located above the text and is shown in smaller text size. This formatting is compatible with subtitle burn-in exports such as "Combined Subtitles" and with TTML OTT formated files such as iTunes .iTT.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-21">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-21" aria-expanded="false" aria-controls="collapse-21"> Line 9 </a> </h4>
+                            </div>
+                            <div id="collapse-21" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-21">
+                                <div class="panel-body bg-accordian">
+                                    <p>Line 9 refers to the location of the&nbsp;VANC&nbsp;closed captioning data in an&nbsp;HD&nbsp;video signal. In the full raster, it appears it is the 9th line from the top of the frame.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-22">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-22" aria-expanded="false" aria-controls="collapse-22"> Line 21 </a> </h4>
+                            </div>
+                            <div id="collapse-22" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-22">
+                                <div class="panel-body bg-accordian">
+                                    <p>Line 21 refers to the location of the&nbsp;VBI&nbsp;closed captioning data in an&nbsp;NTSC 720x486 signal. It actually appears on lines 21 and 22 since line 22 is the second field of the closed captioning data.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-23">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-23" aria-expanded="false" aria-controls="collapse-23"> Live Captioning </a> </h4>
+                            </div>
+                            <div id="collapse-23" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-23">
+                                <div class="panel-body bg-accordian">
+                                    <p>Live captioning is captioning process used for live webcasts or broadcasts to add captions to video on the fly. It requires several important tools. The first is a source of transcription such as a stenographer or&nbsp;speech recognition&nbsp;software.</p>
+                                    <p>Please note, getting speech recognition software to usable levels of accuracy still requires an individual to operate it. That second item required for live captioning is a hardware&nbsp;encoder&nbsp;which will accept the video signal and the closed caption data and combine them for output. Last, you may need captioning software to tie these two things together (especially if you're using speech recognition software).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-24">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-24" aria-expanded="false" aria-controls="collapse-24"> Live Text Stream </a> </h4>
+                            </div>
+                            <div id="collapse-24" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-24">
+                                <div class="panel-body bg-accordian">
+                                    <p>A live captioning text stream is an output of a live caption text stream to a URL specified in the Live Text Stream Options dialog.  This a way to stream live captions to an HTML web page separate from the live video stream.</p>
+                                    <p>Live Text Stream can be used in a closed local area network web page or over the world wide internet.  Viewers can vide the live text stream on any web browser both on a personal computer or mobile phone.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-25">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-25" aria-expanded="false" aria-controls="collapse-25"> MacCaption </a> </h4>
+                            </div>
+                            <div id="collapse-25" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-25">
+                                <div class="panel-body bg-accordian">
+                                    <p>MacCaption is closed captioning software developed by CPC for the Mac platform. MacCaption reads and writes all major captioning formats and supports the latest closed captioning workflows for Final Cut Pro. In addition to broadcast HD and SD video, MacCaption encodes captions for web formats like Quicktime, Flash, YouTube, and Windows Media, and also tapeless workflows like MPEG-2 Transport Streams, DVCPRO HD and XDCAM.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-27">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-27" aria-expanded="false" aria-controls="collapse-27"> .MCC </a> </h4>
+                            </div>
+                            <div id="collapse-27" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-27" style="height: 0px;">
+                                <div class="panel-body bg-accordian">
+                                    <p>A .MCC is a MaCCaption closed captioning file, and the only file format that supports both 608 and 708 (SD&nbsp;and&nbsp;HD) closed captioning, unlike&nbsp;.SCC, which only can encode 608 (SD) closed captions. This comprehensive format is being used by several companies for integration in to their closed captioning workflows.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-28">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-28" aria-expanded="false" aria-controls="collapse-28"> MPEG-2 </a> </h4>
+                            </div>
+                            <div id="collapse-28" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-28">
+                                <div class="panel-body bg-accordian">
+                                    <p>MPEG-2 can refer to not only a video&nbsp;codec, but also a&nbsp;container format. MPEG-2 can come in three different file types,&nbsp;Elementary Streams,&nbsp;Program Streams&nbsp;and Transport Streams. MPEG-2 files are becoming a more common form of video delivery because it allows a broadcaster to put it directly on their server instead of ingesting from tape. MacCaption&nbsp;can add captions to all three forms of MPEG-2 files.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-29">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-29" aria-expanded="false" aria-controls="collapse-29"> Non-Drop </a> </h4>
+                            </div>
+                            <div id="collapse-29" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-29">
+                                <div class="panel-body bg-accordian">
+                                    <p>Non-Drop timecode refers to a method of counting timecode in 29.97 fps video. It does not refer to actual frames of video being dropped that would affect video quality. Since 29.97 fps is not exactly 30 fps, when counting in non-drop, the timecode will get progressively further and further behind "real time."</p>
+                                    <p>For instance, after 2000 frames a&nbsp;drop-frame&nbsp;counter will display 00:01:06:22, while a non-drop counter will display 00:01:06:20, but the content and real-time length of the video will be the same. The drop-frame counter is slightly ahead because it's goes straight from 00:00:59:29 to 00:01:00:02. To prevent&nbsp;drift, it is important to timestamp in the correct timecode mode (or convert your captions' timecode using CPC software) when closed captioning a 29.97 fps program.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-30">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-30" aria-expanded="false" aria-controls="collapse-30"> Non-linear Editor </a> </h4>
+                            </div>
+                            <div id="collapse-30" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-30">
+                                <div class="panel-body bg-accordian">
+                                    <p>A non-linear editor (NLE) is a piece of software that allows you to edit video by moving pieces of it around in a timeline with multiple layers of video. This is in contrast to linear editing, which forces you to add one piece of video after another to tape in a linear fashion. Many NLEs support closed captioning for HD, SD, or both. Examples of non-linear editors are&nbsp;AVID,&nbsp;<a href="http://www.apple.com/final-cut-pro/" target="_blank">Final Cut Pro</a>,&nbsp;<a href="http://www.adobe.com/products/premiere/" target="_blank">Premiere Pro</a>, and&nbsp;<a href="http://www.sonycreativesoftware.com/vegaspro" target="_blank">Sony Vegas</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-31">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-31" aria-expanded="false" aria-controls="collapse-31"> NTSC </a> </h4>
+                            </div>
+                            <div id="collapse-31" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-31">
+                                <div class="panel-body bg-accordian">
+                                    <p>NTSC (National Television Systems Committee) is the analog television standard for North America, Japan, and some other parts of the world. NTSC supports closed captioning (608&nbsp;only) on Line 21 of the video signal.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-33">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-33" aria-expanded="false" aria-controls="collapse-33"> OP-47 Teletext </a> </h4>
+                            </div>
+                            <div id="collapse-33" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-33">
+                                <div class="panel-body bg-accordian">
+                                    <p>OP-47 (Operational Practice number 47) is a solution for inserting a Teletext ancillary data channel into HD media. OP-47 was originally developed by Australian broadcasters and is now widely used. The data can be stored in the SMPTE 436M track of an MXF wrapper. OP-47 Teletext stores data in selectable pages within magazines (1-8). These can be selected by viewers using menu controls on their TV monitor. Typically, the subtitle data can be stored in magazine 8 page 01, or Teletext 801. Other samples may have Teletext 888, which is magazine 8 page 88. This is according to the SMPTE-RDD8 specification.</p>
+                                    <p>Teletext supports Latin, Hebrew, Arabic, Greek, and Cyrillic alphabet. However, it does not support Asian unicode characters such as Chinese and Japanese. CaptionMaker can only insert Latin alphabet Characters into OP-47.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-34">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-34" aria-expanded="false" aria-controls="collapse-34"> Open Captions </a> </h4>
+                            </div>
+                            <div id="collapse-34" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-34">
+                                <div class="panel-body bg-accordian">
+                                    <p>Open captions are captions that do not need to be turned on, they are always visible. This is opposed to closed captions which must be turned on with a decoder. Open captions are actually part of the image itself, this is also known as burned-in&nbsp;captions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-35">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-35" aria-expanded="false" aria-controls="collapse-35"> Paint-on </a> </h4>
+                            </div>
+                            <div id="collapse-35" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-35">
+                                <div class="panel-body bg-accordian">
+                                    <p>Paint-on captions appear on the screen from left to right, one character at a time. This mode of displaying captions is uncommon except as the first caption of many commercial spots to reduce lag.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-36">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-36" aria-expanded="false" aria-controls="collapse-36"> Pop-on </a> </h4>
+                            </div>
+                            <div id="collapse-36" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-36">
+                                <div class="panel-body bg-accordian">
+                                    <p>Pop-on captions appear on the screen one at a time, usually two or three lines at a once. This mode of displaying captions is typically used for pre-recorded television.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-37">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-37" aria-expanded="false" aria-controls="collapse-37"> Program Stream </a> </h4>
+                            </div>
+                            <div id="collapse-37" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-37">
+                                <div class="panel-body bg-accordian">
+                                    <p>Program Stream is a data stream that multiplexes, or combines, a single video and a single audio stream together. Usually given the extension .mpg, and used for files to be played on a PC, some DVD authoring systems, and some tapeless distribution.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-38">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-38" aria-expanded="false" aria-controls="collapse-38"> Roll-up </a> </h4>
+                            </div>
+                            <div id="collapse-38" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-38">
+                                <div class="panel-body bg-accordian">
+                                    <p>Roll-up captions appear from the bottom of the screen one line at a time, usually with only three lines visible at a time. This mode of displaying captions is typically used by&nbsp;live&nbsp;television like news broadcasts.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-39">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-39" aria-expanded="false" aria-controls="collapse-39"> .SCC file </a> </h4>
+                            </div>
+                            <div id="collapse-39" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-39">
+                                <div class="panel-body bg-accordian">
+                                    <p>SCC stands for "Scenarist Closed Caption", a file type developed by Sonic. SCC files have become a popular standard for many different applications of closed captions. Some programs that use .scc files are Sonic Scenarist, DVD Studio Pro, Final Cut Pro, and Compressor.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-40">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-41" aria-expanded="false" aria-controls="collapse-41"> Shadow Speaker </a> </h4>
+                            </div>
+                            <div id="collapse-41" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-41">
+                                <div class="panel-body bg-accordian">
+                                    <p>When using&nbsp;speech recognition&nbsp;software, a shadow speaker is a person who repeats everything said in a programs in to a microphone so that the speech recognition software only has to interpret that shadow speaker's voice and not the multiple voices in the program. After training the software (about 15 minutes), it can achieve accuracy rates up to 90-95% in a clean audio environment.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-42">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-42" aria-expanded="false" aria-controls="collapse-42"> Speech Recognition </a> </h4>
+                            </div>
+                            <div id="collapse-42" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-42">
+                                <div class="panel-body bg-accordian">
+                                    <p>Speech recognition software takes spoken word and translates it into text. State of the art speech recognition technology can only achieve 60-80% accuracy without the use of a&nbsp;shadow speaker. Software that uses a shadow speaker can achieve up to 90-95% accuracy, but is limited to recognizing one person's voice at a time and needs to be used in a clean audio environment.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-43">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-43" aria-expanded="false" aria-controls="collapse-43"> Standard Definition (SD) </a> </h4>
+                            </div>
+                            <div id="collapse-43" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-43">
+                                <div class="panel-body bg-accordian">
+                                    <p>Standard Definition is a television standard with (typically) 480 lines in the video signal (486 when&nbsp;NTSC). Closed captioning for SD sometimes called&nbsp;Line 21&nbsp;and is codified under the&nbsp;608&nbsp;standard.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-44">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-44" aria-expanded="false" aria-controls="collapse-44"> Stenographer </a> </h4>
+                            </div>
+                            <div id="collapse-44" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-44">
+                                <div class="panel-body bg-accordian">
+                                    <p>A stenographer is a person who can transcribe video from audio on the fly (like a court reporter). Stenographers can dial in to a hardware&nbsp;encoder&nbsp;remotely over a phone line so that closed captions can be added to a video signal for live broadcast. See also:&nbsp;Live Captioning.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-45">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-45" aria-expanded="false" aria-controls="collapse-45"> Subtitling </a> </h4>
+                            </div>
+                            <div id="collapse-45" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-45">
+                                <div class="panel-body bg-accordian">
+                                    <p>Subtitling is text that appears on screen that normally only gives information about dialogue that is spoken. With the exception of DVD and Blu-ray, subtitles cannot be turned off, but are&nbsp;burned into&nbsp;the image.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-46">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-46" aria-expanded="false" aria-controls="collapse-46"> Transport Stream </a> </h4>
+                            </div>
+                            <div id="collapse-46" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-46">
+                                <div class="panel-body bg-accordian">
+                                    <p>Transport Stream is a data stream that multiplexes, or combines, multiple video and audio streams together with other metadata. Usually given the extension .ts, .m2t, or .m2ts, and used for&nbsp;DTV broadcast, VOD, tapeless delivery, and other systems where multiple channels are mixed together.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-47">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-47" aria-expanded="false" aria-controls="collapse-47"> VANC </a> </h4>
+                            </div>
+                            <div id="collapse-47" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-47">
+                                <div class="panel-body bg-accordian">
+                                    <p>VANC stands for "Vertical ANCillary data space" and refers to the data stored on Line 9 &nbsp;in&nbsp; HD &nbsp;video (outside the display area) that holds the&nbsp;708 closed captioning data while it is going over an HD-SDI signal or on an HD tape format. VANC data appears on only the part of Line 9 towards the left, but VANC data can also carry different information, like V-chip data.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-48">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-48" aria-expanded="false" aria-controls="collapse-48"> VBI </a> </h4>
+                            </div>
+                            <div id="collapse-48" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-48">
+                                <div class="panel-body bg-accordian">
+                                    <p>VBI stands for "Vertical Blanking Interval" and is the time between the last line or field drawn in a video frame and the first line or field of the next frame. This is usually measured with lines, in&nbsp;NTSC there are 40 lines for VBI. Closed Captioning data for NTSC video is stored on&nbsp;Line 21&nbsp;of the VBI.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-49">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-49" aria-expanded="false" aria-controls="collapse-49"> Voice Recognition </a> </h4>
+                            </div>
+                            <div id="collapse-49" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-49">
+                                <div class="panel-body bg-accordian">
+                                    <p>See Speech Recognition.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </section>
                 <section class="docs-section" id="section-12-0">
                     <h2 class="section-heading" title="Resources">Resources</h2>

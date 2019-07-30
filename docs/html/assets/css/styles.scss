@@ -336,6 +336,57 @@ body {
                     }
 
                 }
+
+                .panel-group {
+                    margin-top:65px;
+                    border-radius: 4px !important;
+                    font-size: small;
+                    .panel {
+                        margin-top:35px;
+                        border-radius: 4px !important;
+                        @include blue-shadow();
+                        @include trans(.3s);
+                        margin                  : 10px 0px !important;
+                        &.panel-default{}
+                        .panel-heading{
+                            @include trans(.3s);
+                            border-radius: 4px !important;
+
+                            background-color: $color-blue;
+                            text-decoration: none !important;
+                            color:white;
+                            &:hover{
+                                background-color: lighten($color-blue, 10%);
+                            }
+                            a{
+                                text-decoration: none !important;
+                                color:$color-cool-grey-10;
+                                &:hover{
+                                    text-decoration: none !important;
+                                }
+                            }
+                            h4.panel-title{
+                                font-weight:400;
+                                font-size:18px!important;
+                                border-radius: 4px !important;
+                                padding:10px;
+                                color:white;
+                                a{
+                                    text-decoration: none !important;
+                                    color:white;
+                                    display: block;
+                                    &:hover{
+                                        text-decoration: none !important;
+                                    }
+                                }
+                            }
+                        }
+                        .panel-body {
+                            &.bg-accordian{}
+                            padding                 : 10px 20px !important;
+                        }
+                    }
+                }
             }
         }
         header {
