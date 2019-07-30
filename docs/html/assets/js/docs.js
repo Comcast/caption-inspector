@@ -91,7 +91,9 @@ class BuildNav {
   }
   static getLabel(element, maxLength = 18) {
     // Prefer title over text.
-    let label = $(element).attr("title") || $(element).text();
+    let label = $(element).attr("alt") || $(element).attr("data-title") || $(element).attr("data-menu") || $(element).attr("title") || $(element).text();
+    
+    
     return BuildNav.formatLabel(label, maxLength);
   }
   static appendIndex(element, indexId) {
@@ -123,12 +125,7 @@ class BuildNav {
         let label = BuildNav.getLabel(sectionHeading);
         let id = $(ROOT_SECTION).attr("id");
 
-        let navigationElement = new NavElement(
-          ROOT,
-          label,
-          id,
-          BuildNav.HEADER
-        );
+        let navigationElement = new NavElement(ROOT,label,id,BuildNav.HEADER);
         ROOT.addChild(navigationElement);
 
         BuildNav.appendIndex(sectionHeading, id);
@@ -138,7 +135,7 @@ class BuildNav {
          * Now, find all children navigational elements
          */
         $(ROOT_SECTION)
-          .find("rh2")
+          .find("h2")
           .each(function(index, PARENT_SECTION) {
             let sectionHeading = $(PARENT_SECTION).find(
               ".section-heading:first"
@@ -155,7 +152,7 @@ class BuildNav {
         $(this)
           .find("h3")
           .each(function(index, CHILD_SECTION) {
-            let label = $(CHILD_SECTION).text();
+            let label = BuildNav.getLabel(CHILD_SECTION);
             let id = $(CHILD_SECTION).attr("id");
             BuildNav.appendIndex(CHILD_SECTION, id);
             if (id && id !== "") {

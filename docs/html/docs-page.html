@@ -64,7 +64,7 @@
                 <!--<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">-->
                 <li class="list-inline-item">
                     <a href="https://github.com/Comcast/caption-inspector"
-                       target="Comcast/caption-inspector" title="Caption Inpector Project">
+                       target="Comcast/caption-inspector" data-title="Caption Inpector Project">
                         <i class="fab fa-github fa-fw fa-lg" style="margin:2px 8px"></i>
                         <!--<span style="margin:2px 15px"></span>-->
                     </a>
@@ -297,7 +297,7 @@
                     
                 </section>
                 <section class="docs-section" id="section-2-0">
-                    <h2 class="section-heading" title="Code Overview">Caption Inspector Overview</h2>
+                    <h2 class="section-heading" data-data-title="Code Overview">Caption Inspector Overview</h2>
                     <h4>Decoding and Examining the Closed Captioning</h4>
                     <p>Use Caption Inspector to validate video content adheres to expected Specifications, Compliance Policies and/or laws.</p>
                     <blockquote>
@@ -332,7 +332,7 @@
                         </li>
                         <li>The second type has all of the Closed Captioning Data decoded in place, still multiplexed together.</li>
                     </ol>
-                    <h3 class="mt-5">Developer Reference</h3>
+                    <h3 class="mt-5" id="section-2-1">Developer Reference</h3>
                     As a extra benefit the Caption Inspector Codebase can be utilized as a reference. Developers can leverage the implementation of the Closed
                     Captioning code without knowing the exact Specifications by examining the output and logs.</p>
                     <p>Caption Inspector has a plugin pipeline architecture that can be configured in various ways and allows the user to add new plugins to
@@ -351,7 +351,7 @@
                     </ul>
                 </section>
                 <section class="docs-section" id="section-3-0">
-                    <h2 class="section-heading" title="Quality of Captions">
+                    <h2 class="section-heading" data-data-title="Quality">
                         The Expected Quality of Captions </h2>
                     <p>Today, there is a gap in the process of Closed Caption Quality production caused by errors within the CC content. Prior to this software,
                        content delivered to Distributors could not be easily validated without going through (watching) all of the video content, frame by
@@ -362,7 +362,7 @@
                        or the Distributor, each video can now be validated by each party in a relatively short period of time. Thus, Content Providers can be
                        certain of what they deliver, and Distributors do not have to accept faulty content, and be at risk of providing a low-quality product.
                     </p>
-                    <h5>Accepted Industry Guidelines</h5>
+                    <h3 id="section-3-1" data-data-title="Industry Guidelines">Industry Accepted Guidelines</h3>
                     <p>The following are the accepted industry guidelines and best practices for quality: (https://dcmp.org)
                     <ol class="guidelines">
                         <li>
@@ -427,7 +427,7 @@
                             </p>
                         </ol>
                     </ul>
-                    <h3 class="bump">Developer Overview</h3>
+                    <h3 class="bump" id="section-4-1">Developer Overview</h3>
                     <p>The Caption Inspector project builds a <span class="tag">C library</span>, <span class="tag">C executable</span>, and Docker image that can be used to extract and decode Closed-Captions
                        from various Video or Caption File Formats. Caption Inspector Supports <span class="tag">CEA-608</span> and <span class="tag">CEA-708</span> in <span class="tag">MPEG-2</span> and <span class="tag">MPEG-4</span> (.mpg, .ts, and .mp4
                        containers), <span class="tag">MCC</span> (MacCaption Closed Captions), and <span class="tag">SCC</span> (Scenarist Closed Captions) files.
@@ -479,8 +479,8 @@
                     </p>
                 </section>
                 <section class="docs-section" id="section-5-0">
-                    <h2 class="section-heading" title="Installation">Installation & Start Up</h2>
-                    <h4>Caption Inspector Executable</h4>
+                    <h2 class="section-heading" data-title="Installation">Installation & Start Up</h2>
+                    <h3 id="section-5-1" data-title="Building and Running">Caption Inspector Executable</h3>
                     <p class="section-intro">This is a one-time installation. When the Executable has been installed you will only need to start up your server
                                              to be able to use the tools. If you shutdown, and restart your computer, you will need to restart your server from
                                              within Docker, unless you configure Docker to automatically restart at Login.
@@ -504,7 +504,7 @@
                             </p>
                         </div>
                     </div>
-                    <h3 id="section-5-2">Building and Running Locally</h3>
+                    <h3 id="section-5-2" data-title="Locally">Building and Running Locally</h3>
                     <p>Caption Inspector requires FFMPEG to be installed on your machine. Please download the appropriate version of FFMPEG from
                         <a href="https://ffmpeg.org/download.html">here</a>
                        and install it in your machine. Caption Inspector is known to run with FFMPEG Version 4.0.2.
@@ -527,7 +527,7 @@
                        converting the contents of the <span data-placement="top" data-toggle="tooltip" class="tooltip" title="SCC: Scenarist Closed Captions">SCC</span> file into an MCC file.</p>
                     <p><span class="bold">Running against</span> the caption file <code>NightOfTheLivingDead.mcc</code> demonstrates decoding an MCC file, CEA-608 Captions, and CEA-708
                        Captions.</p>
-                    <h3 class="bump" id="section-5-3">Building and Running in a Docker Container</h3>
+                    <h3 class="bump" id="section-5-3" data-title="Docker">Building and Running in a Docker Container</h3>
                     <p>Obviously you need docker running on your local machine to build. Building inside of a docker image will remove the need to install any
                        dependencies, but comes at the expense of a slightly more complicated command line execution.
                     </p>
@@ -542,7 +542,9 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                        output file is located in the current directory <code>./</code> and the input file is located in a directory underneath the current
                        directory, specifically <code>./test/media/*</code>.
                     </p>
-                    <h2 class="bump bump" id="section-5-4">Regression Testing</h2>
+                </section>
+                <section class="docs-section" id="section-6-0">
+                    <h2 class="section-heading" data-title="Regression Testing">Regression Testing</h2>
                     <p>While the testing is not complete yet, there are several Unit Tests, Integration Tests, and System Tests that run on the Caption
                        Inspector Codebase. These are intended to be run as integration tests and verify that nothing has broken as a result of a change. They
                        are run as part of a pull request, but for debugging purposes they can also be run locally (even in an IDE) before a pull request is
@@ -566,17 +568,15 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                     <p>The tests are a mix of C and Python, depending on which made more sense for the specific test. The build system will aggregate all of the
                        results from the tests in both languages.
                     </p>
-                    <h3 title="Leveraging Python">Leveraging the Caption Inspector Functionality from Python</h3>
+                    <h3 id="section-6-1" data-title="Leveraging Python">Leveraging the Caption Inspector Functionality from Python</h3>
                     <p><span class="language">C</span> was chosen as the language for Caption Inspector because of interoperability with FFMPEG and ease of
                                                       implementation of the specifications. While that choice made sense, there are lots of reasons to want to
                                                        access this functionality as a library from a higher level language than C. To that end <span class="bold">Python</span> bindings,
                                                        using <span class="bold">CTypes</span>, were added to the C functionality which can be compiled into a shared library and referenced
                                                        from Python code. To use this functionality you just need to <span class="bold">build the shared library using the command</span>:
-                        <code>make sharedlib</code>. Then leverage the file <code>python/cshim.py</code> inside of your Python code, making sure that it knows
-                                                      where to find the shared library with the Caption Inspector Code.
+                        <code>make sharedlib</code>. Then leverage the file <code>python/cshim.py</code> inside of your Python code, making sure that it knows where to find the shared library with the Caption Inspector Code.
                     </p>
-                    <p>The Caption Inspector code that makes this possible, and the library it generates, can likely be reused for other high level languages
-                       such as Java/JNI, Golang/Cgo, etc. No work has been done in those languages, but if you do end up using it in a new language, <span class="bold">please consider submitting the results back to the repository.</span>
+                    <p>The Caption Inspector code that makes this possible, and the library it generates, can likely be reused for other high level languages such as Java/JNI, Golang/Cgo, etc.
                     </p>
                     <!--<h3>Basic Usage</h3>-->
                     <!--<pre class="copy"><code>-->
@@ -611,19 +611,18 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                         <div class="content">
                             <span class="callout-icon-holder mr-1"><i class="fas fa-bullhorn"></i></span>
                             <h4 class="callout-title">Warning</h4>
-                            <p>THIS IS ONLY AN EXAMPLE. Its important to read warning messages when you see them, with the exception of this one because testing overlooked this warning.
-                               We figure its important that everyone has something to do...
+                            <p>No work has been done in those languages [Java/JNI, Golang/Cgo, etc], but if you do end up using it in a new language, <span class="bold">please consider submitting the results back to the repository.</span>
                             </p>
                         </div>
                     </div>
                 </section>
-                <section class="docs-section" id="section-6-0">
+                <section class="docs-section" id="section-7-0">
                     <h2 class="section-heading"
-                        title="Artifacts and Files">Caption Inspector Artifacts (FILES)</h2>
+                        data-title="Artifacts and Files">Caption Inspector Artifacts (FILES)</h2>
                     <p>There are several different types of artifacts that can be generated by Caption Inspector. They get output when an artifact directory
                        gets specified as a command line argument to Caption Inspector.
                     </p>
-                    <h3>File Types</h3>
+                    <h3 id="section-7-1">File Types</h3>
                     <table class="table software">
                         <thead>
                         <tr>
@@ -641,7 +640,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                                 </p>
                             </td>
                             <td>
-                                <h3>
+                                <h3 id="section-7-2" data-title="CEA-608 Decode File">
                                     <a name="section-6-78">CEA-608 Decode File (</a>
                                     <span class="file-ext">.608</span>)
                                 </h3>
@@ -668,8 +667,8 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                                 </p>
                             </td>
                             <td>
-                                <h3>
-                                    <a name="section-6-79">CEA-708 Decode File (</a>
+                                <h3 id="section-7-3" data-title="CEA-708 Decode File">
+                                    <a name="section-7-3-1">CEA-708 Decode File (</a>
                                     <span class="file-ext">.708</span>)
                                 </h3>
                                 <p>Caption Inspector will output decoded CEA-708 as text with inline tags from the 708
@@ -691,7 +690,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                                 </p>
                             </td>
                             <td>
-                                <h3>
+                                <h3 id="section-7-4" data-title="Descriptor File">
                                     <a name="section-6-80">Closed Caption Descriptor File (</a>
                                     <span class="file-ext">.ccd</span>)
                                 </h3>
@@ -716,8 +715,8 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                                 </p>
                             </td>
                             <td>
-                                <h3>
-                                    <a name="section-6-81">Media Info File (</a>
+                                <h3 id="section-7-5" data-title="Media Info File">
+                                    <a name="section-7-5-1">Media Info File (</a>
                                     <span class="file-ext">.inf</span>)
                                 </h3>
                                 <p>Caption Inspector runs <span
@@ -736,8 +735,8 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                                 </p>
                             </td>
                             <td>
-                                <h3>
-                                    <a name="section-6-82">Debug File (</a>
+                                <h3 id="section-7-6" data-title="Debug File">
+                                    <a name="section-7-6-1">Debug File (</a>
                                     <span class="file-ext">.dbg</span>)
                                 </h3>
                                 <p>Caption Inspector has a logging mechanism that aggregates information, warnings, and errors related to the processing of the
@@ -748,10 +747,8 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                             </td>
                         </tr>
                     </table>
-                    <h2 class="section-heading"
-                        id="section-6-2">Understanding Closed Caption Descriptor</h2>
-                    <h3 class="lite">
-                        Closed Caption Descriptor File (.ccd) </h3>
+                    <h3 class="section-heading" id="section-7-7" alt="Caption Descriptor Details">Understanding Closed Caption Descriptor</h3>
+                    <h4 class="lite">Closed Caption Descriptor File (.ccd) </h4>
                     <p>Caption Inspector will output a single Closed Caption Descriptor File for each asset that it processes. The Closed Caption Descriptor
                        Files are intended to be annotated hex dumps of the closed captioning descriptors located on every frame of video or every line of an MCC
                        file.
@@ -760,7 +757,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                        have traceability back to the original/unmodified hex that was extracted from the asset or caption file. The Closed Caption Descriptor
                        File contains a decoded binary representation of Closed Captioning Data.
                     </p>
-                    <h4 id="section-6-3">CCD Details</h4>
+                    <h4 id="section-7-8" data-title="CCD Details">CCD Details</h4>
                     <p>Each grouping of text immediately following a timestamp represents the Closed Captioning Data - `cc_data()` that would be associated with
                        a frame of video, or a line from an MacCaption (MCC) file. Each "line" contains the same groups of elements: Timestamp, Hex Data, Decoded
                        Data, Supplemental Decoded Data, and Text (if it exists in the line). These elements can describe both CEA-608 and CEA-708 data contained
@@ -774,14 +771,13 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                             <p>A multiplex or mux (called virtual sub-channel in the United States and Canada, and bouquet in France) is a grouping of program
                                services as interleaved data packets for broadcast over a network or modulated multiplexed medium. The program services are split
                                out at the receiving end.
-                                <a href="#"></a>
                             </p>
                         </div>
                     </div>
                 </section>
-                <section class="docs-section" id="section-7-0">
-                    <h2 class="section-heading" title="About Windows">About Closed Caption Windows</h2>
-                    <h3 id="section-7-1" title="Timestamps">Timestamp</h3>
+                <section class="docs-section" id="section-8-0">
+                    <h2 class="section-heading" data-title="About Windows">About Closed Caption Windows</h2>
+                    <h3 id="section-8-1" data-title="Timestamps">Timestamp</h3>
                     <p>On the leftmost portion of the document is the timestamp. Each Closed Caption Data (CCD) packet has a timestamp, which corresponds with the frame of the asset containing the CCD packet. For readability sake, the timestamp is only printed out when specific <a href="section-8-2" class="tag">Global Control Codes</a> are encountered. There are three types of timestamps: Frame Number, Drop Frame Number, and Millisecond. This refers to the last number, and the symbol that separates it from the second to last number.
                     </p>
                     <p><b>There are three types of timestamps:</b></p>
@@ -804,11 +800,11 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                     <p>For a description of what Drop Frame is, and why we have it see:
                         <a href="http://www.bodenzord.com/archives/79">http://www.bodenzord.com/archives/79</a>
                     </p>
-                    <h3 id="section-7-2">Aggregated Text</h3>
+                    <h3 id="section-8-2">Aggregated Text</h3>
                     <p>If there is text detected in the line, it will be pulled together and gets labeled with the Channel or Service Number that it is
                        associated with. This is done to easily be able to see what the text spells out.
                     </p>
-                    <h3 id="section-7-3" title="Reading Output">The Basis for Reading Output - Hex Data</h3>
+                    <h3 id="section-8-3" data-title="Reading Output">The Basis for Reading Output - Hex Data</h3>
                     The Hex Data representation of the Closed Captioning Construct is intended to be the most direct representation of the `cc_data()`
                     structure, which is comprised of the following fields:
 <pre class="copy"><code>
@@ -827,18 +823,18 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
 </code></pre>
                     <p>The fields `cc_data_1` and `cc_data_2` are the actual two bytes of payload data, which are represented in hexadecimal.</p>
                     
-                    <h3 id="section-7-4" title="Decoded Data">Decoded Data and Supplemental Decoded Data</h3>
+                    <h3 id="section-8-4" data-title="Decoded Data">Decoded Data and Supplemental Decoded Data</h3>
                     <p>Decoded Data and Supplemental Decoded Data are intended to be the inline decode of the corresponding Hex Data using the 608 and 708 Specs. The Decoded Data is a high level decode of the code referenced by the hex value, and the supplemental decoded data describes the flags and values referenced by the hex value.
                     </p>
                     <p><b>Supplemental decoded data</b> plays a larger role in 708 because more information is crammed into bit fields in the magic numbers.</p>
                 </section>
-                <section class="docs-section" id="section-8-0">
+                <section class="docs-section" id="section-9-0">
                     <h2 class="section-heading">CEA-608</h2>
-                    <h3 id="section-8-1" title="NULL Data">NULL Data &nbsp;<span class="lite">(CEA-608)</span></h3>
+                    <h3 id="section-9-1" data-title="NULL Data">NULL Data &nbsp;<span class="lite">(CEA-608)</span></h3>
                     <p>CEA-608 tends to have its fill data be NULL Data. NULL Data is just `0x00` with a parity bit in the msb position. Since this is placed in
                        specific to 608, it gets decoded to NULL (as opposed to 708 NULL Data, which is shown as a blank line).
                     </p>
-                    <h3 id="section-8-2" title="Global Control Codes">Global Control Codes &nbsp;<span class="lite">(CEA-608)
+                    <h3 id="section-9-2" data-title="Global Control Codes">Global Control Codes &nbsp;<span class="lite">(CEA-608)
                     </span></h3>
                     <p>There is not much decoding to do around Global Control Codes in CEA-608. Basically, it is just the Channel Number that gets decoded and
                        added to the Decoded Data. The Supplemental Decoded Data field is basically used to try to spell out the control code as much as space
@@ -857,13 +853,13 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                         </p>
                     </blockquote>
                     
-                    <h3 id="section-8-4" title="Preamble Access Codes">Preamble Access Codes (PAC) &nbsp;<span
+                    <h3 id="section-9-4" data-title="Preamble Access Codes">Preamble Access Codes (PAC) &nbsp;<span
                             class="lite">(CEA-608)</span></h3>
                     <p>PACs come in two types, Address PACs which describe where the cursor should be located, and Style PACs which describe what style/color
                        should be used when writing to the screen. The Decoded Data field denotes that the decoded code is a PAC, and which channel it is
                        associated with. The Supplemental Decoded Data field spells out the Address and Style information of the PAC.
                     </p>
-                    <h3 id="section-8-5" title="Mid Row Style Change Code">Mid Row Style Change Code &nbsp;<span
+                    <h3 id="section-9-5" data-title="Mid Row Style Change Code">Mid Row Style Change Code &nbsp;<span
                             class="lite">(CEA-608)</span></h3>
                     <p>Midrow Style Changes come in two types, Foreground and Background Style Change. Additionally, the Foreground
                     <p>MidRow Style Change can indicate that the text is Partially Transparent, and the Background Midrow Style Change can indicate that the
@@ -872,13 +868,13 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                     <div class="graphic-caption">[ 608 MidRow ] ( ccd608MidRowStyle.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
                          src="./assets/content-images/ccd608MidRowStyle.png">
-                    <h3 id="section-8-6" title="Tab Control Code">Tab Control Code &nbsp;<span class="lite">(CEA-608)</span>
+                    <h3 id="section-9-6" data-title="Tab Control Code">Tab Control Code &nbsp;<span class="lite">(CEA-608)</span>
                     </h3>
                     <p>Tab Controls, in combination with an Address PAC can point the cursor to anywhere inside of the text window.</p>
                 </section>
-                <section class="docs-section" id="section-9-0">
+                <section class="docs-section" id="section-10-0">
                     <h2 class="section-heading">CEA-708</h2>
-                    <h3 id="section-9-1">Packet Structure &nbsp;<span class="lite"></span></h3>
+                    <h3 id="section-10-1">Packet Structure &nbsp;<span class="lite"></span></h3>
                     <p>CEA-708 is able to support 64 services, rather than the 4 channels in 608, in part by defining a variable length packet structure and
                        then associating each group of packets to a specific service.
                     </p>
@@ -898,44 +894,44 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                     <div class="graphic-caption">[ 708 Packet Start ] ( ccd708PacketStart.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
                          src="./assets/content-images/ccd708PacketStart.png">
-                    <h3 id="section-9-2">Spurious Data &nbsp;<span class="lite">(CEA-708)</span>
+                    <h3 id="section-10-2">Spurious Data &nbsp;<span class="lite">(CEA-708)</span>
                     </h3>
                     <p>When a byte is unexpected, it gets printed out in the below format. For this example, two unexpected 0 bytes were encountered.</p>
-                    <h3 id="section-9-3">Set Current Window &nbsp;<span
+                    <h3 id="section-10-3">Set Current Window &nbsp;<span
                             class="lite">(CEA-708)</span></h3>
                     <p>Set Current Window specifies the window to which all subsequent window style and pen commands are directed.</p>
                     <div class="graphic-caption">[ 708 Set Current Window ] ( ccd708SetCurrentWindow.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
                          src="./assets/content-images/ccd708SetCurrentWindow.png">
-                    <h3 id="section-9-4">Define Window &nbsp;<span class="lite">(CEA-708)</span>
+                    <h3 id="section-10-4">Define Window &nbsp;<span class="lite">(CEA-708)</span>
                     </h3>
                     <p>Define Window creates a window and initializes the window with the parameters listed in the command.</p>
-                    <h3 id="section-9-5">Display Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <h3 id="section-10-5">Display Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Display Windows causes the specified windows to be visible.</p>
-                    <h3 id="section-9-6">708 Display Window &nbsp;<span class="lite"></span></h3>
-                    <h3 id="section-9-7">Clear Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <h3 id="section-10-6">708 Display Window &nbsp;<span class="lite"></span></h3>
+                    <h3 id="section-10-7">Clear Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
                     Clear Windows removes any existing text from the specified windows in the window map and replaces the entire window with the window fill
                     color.
                     <div class="graphic-caption">[ 708 Clear Windows ] ( ccd708ClearWindow.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
                          src="./assets/content-images/ccd708ClearWindow.png">
-                    <h3 id="section-9-8">Delete Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <h3 id="section-10-8">Delete Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Delete Windows removes all specified windows.</p>
                     <div class="graphic-caption">[ 708 Delete Windows ] ( ccd708DeleteWindow.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
                          src="./assets/content-images/ccd708DeleteWindow.png">
                      
-                    <h3 id="section-9-9">Hide Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <h3 id="section-10-9">Hide Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Hide Windows causes the specified windows to be removed from the screen.</p>
                     <div class="graphic-caption">[ 708 Hide Windows ] ( ccd708HideWindow.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
                          src="./assets/content-images/ccd708HideWindow.png">
-                    <h3 id="section-9-10" title="Toggle Windows">Toggle Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <h3 id="section-10-10" data-title="Toggle Windows">Toggle Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Toggle Windows causes all specified windows to toggle whether they are displayed or hidden.</p>
                     <div class="graphic-caption">[ 708 Toggle Windows ] ( ccd708ToggleWindow.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
                          src="./assets/content-images/ccd708ToggleWindow.png">
-                    <h3 id="section-9-11" title="Set Window Attributes">Set Window Attributes &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <h3 id="section-10-11" data-title="Set Window Attributes">Set Window Attributes &nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Set Window Attributes assigns the specified style attributes to the current window.</p>
                     <div class="graphic-caption">[ 708 Set Window Attributes ] ( ccd708SetWindowAttributes.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
@@ -951,23 +947,23 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                             </p>
                         </div>
                     </div>
-                    <h2 id="section-9-12" title="Set Pen Attributes">Set Pen Attributes &nbsp;<span class="lite">(CEA-708)</span></h2>
+                    <h3 id="section-10-12" data-title="Set Pen Attributes">Set Pen Attributes &nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Set Pen Attributes assigns pen style attributes for the currently defined window. Text written to the current window will have the
                        attributes specified by the most recent Set Pen Attributes command written to the window.
                     </p>
                     <div class="graphic-caption">[ 708 Set Pen Attributes ] ( ccd708SetPenAttributes.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
                          src="./assets/content-images/ccd708SetPenAttributes.png">
-                    <h3 id="section-9-13" title="Set Pen Color">Set Pen Color &nbsp;<span class="lite"></span></h3>
+                    <h3 id="section-10-13" data-title="Set Pen Color">Set Pen Color &nbsp;<span class="lite"></span></h3>
                     <p>Set Pen Color assigns the pen color attributes for the current window. Text written to that window will have the color attributes
                        specified by the most recent Set Pen Color command.
                     </p>
                     <div class="graphic-caption"> [ 708 Set Pen Color ] ( ccd708SetPenColor.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
                          src="./assets/content-images/ccd708SetPenColor.png">
-                    <h3 id="section-9-14" title="Set Pen Location">Set Pen Location &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <h3 id="section-10-14" data-title="Set Pen Location">Set Pen Location &nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Set Pen Location repositions the pen cursor for the current window, as specified by the current window ID.</p>
-                    <h2 id="section-9-15" id="section-" title="Justification Rules">Justification Rules &nbsp;<span class="lite">(CEA-708)</span></h2>
+                    <h3 id="section-10-15" data-title="Justification Rules">Justification Rules &nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>When the window justification type is 'left' the next group of text written to the current window will start at the specified row and
                        column, and justification will be ignored.
                     </p>
@@ -975,7 +971,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                        ignored.</p>
                     
                 
-                    <h2 id="section-9-16" class="section-heading" title="Windows">Windows - CEA-708 </h2>
+                    <h3 id="section-10-16" class="section-heading" data-title="Windows">Windows - CEA-708 </h3>
                     <p>When the window justification type is not left and the print direction is top-to-bottom or bottom-to-top, the row parameter shall be
                        ignored.
                     </p>
@@ -983,23 +979,23 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                     <div class="graphic-caption">[ 708 Set Pen Location ] ( ccd708SetPenLocation.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
                          src="./assets/content-images/ccd708SetPenLocation.png">
-                    <h3 id="section-9-17" title="Delay">Delay &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <h3 id="section-10-17" data-title="Delay">Delay &nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Delay suspends interpretation of the command input buffer. Once the delay expires captioning resumes.</p>
                     <div class="graphic-caption">[ 708 Delay ] ( ccd708Delay.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
                          src="./assets/content-images/ccd708Delay.png">
-                    <h3 id="section-9-18" title="Delay Cancel">Delay Cancel&nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <h3 id="section-10-18" data-title="Delay Cancel">Delay Cancel&nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Delay Cancel terminates an active Delay command and captioning resumes.</p>
                     <div class="graphic-caption">[708 Delay Cancel ] ( ccd708DelayCancel.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
                          src="./assets/content-images/ccd708DelayCancel.png">
-                    <h3 id="section-9-19" title="Reset">Reset &nbsp;<span class="lite">(CEA-708)</span>
+                    <h3 id="section-10-19" data-title="Reset">Reset &nbsp;<span class="lite">(CEA-708)</span>
                     </h3>
                     <p>Reset command reinitializes the service for which it is received.</p>
                     <div class="graphic-caption">[ 708 Reset ] ( ccd708Reset.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
                          src="./assets/content-images/ccd708Reset.png">
-                    <h3 id="section-9-20" title="Reserved">Reserved <span class="lite">(CEA-708)</span>
+                    <h3 id="section-10-20" data-title="Reserved">Reserved <span class="lite">(CEA-708)</span>
                     </h3>
                     <p>Reserved Codes are just that, Reserved Codes. They are not believed to be used.</p>
                     <div class="graphic-caption">[ 708 Reserved ] ( ccd708Reserved.png )</div>
@@ -1007,9 +1003,9 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                          src="./assets/content-images/ccd708Reserved.png">
                 </section>
                 
-                <section class="docs-section" id="section-10-0">
+                <section class="docs-section" id="section-11-0">
                     <h2 class="section-heading">Reference Tables</h2>
-                    <h3 id="section-10-1" title="Window Commands">Window Commands</h3>
+                    <h3 id="section-11-1" data-title="Window Commands">Window Commands</h3>
                     <table class="table table-striped software">
                         <thead>
                         <tr>
@@ -1117,7 +1113,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                         </tbody>
                     </table>
     
-                    <h3 id="section-10-2" title="608/708 Codes">CEA-608/CEA-708 Codes</h3>
+                    <h3 id="section-11-2" data-title="608/708 Codes">CEA-608/CEA-708 Codes</h3>
                     <p>The Hex Data specifies the hexadecimal equivalents for Channels 1 through 4 found in the <span data-placement="top" data-toggle="tooltip" class="tooltip" title="SCC: Scenarist Closed Captions">SCC</span> file, using the standard ISO 8859-0
                        Character Set. Decoded Data refers to Channel Number (1 - 4).
                     </p>
@@ -1232,8 +1228,8 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                     </table>
                     
                 </section>
-                <section class="docs-section" id="section-11-0">
-                    <h2 class="section-heading" title="Glossary Terms">Glossary of Terms</h2>
+                <section class="docs-section" id="section-12-0">
+                    <h2 class="section-heading" data-title="Glossary Terms">Glossary of Terms</h2>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading-0">
@@ -1718,7 +1714,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                     
                 </section>
 <!--                <section class="docs-section" id="section-12-0">-->
-<!--                    <h2 class="section-heading" title="Resources">Resources</h2>-->
+<!--                    <h2 class="section-heading" data-title="Resources">Resources</h2>-->
 <!--                    <div class="lighthouse">-->
 <!--                        <img class="icon_profile"-->
 <!--                             data-toggle="lightbox" src="./assets/brand/ci-icon-stamp-blue.png" />-->
