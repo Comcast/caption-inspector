@@ -1,0 +1,21 @@
+/*!
+ * CoderDocs - Bootstrap 4 Documentation Template for Software Projects
+ * Version: 1.0
+ * Author: Xiaoying Riley
+ * Copyright: 3rd Wave Media Ltd.
+ * Website: http://themes.3rdwavemedia.com/
+ * Twitter: @3rdwave_themes
+*/
+@import "colors";
+@import "mixins";
+@import "base";
+@import "docs";
+@import "menus";
+/*! Circle Menu */
+@import "circle-menu";
+
+.color-blue-light  {
+    color: $color-blue-light !important;
+}
+
+

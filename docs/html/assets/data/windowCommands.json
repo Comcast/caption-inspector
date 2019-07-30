@@ -1,0 +1,79 @@
+[
+  {
+    "Command": "CW0",
+    "Description": "Current Window CW0, CW1, CW2, CW3, CW4, CW5, CW6, CW7; The “Current Window” sets the context to set attributes and properties for within. ",
+    "Attributes": "window: priority, anchor number, anchor vertical, anchor horizontal, row count, column count, locked, visible, centered, styleID"
+  },
+  {
+    "Command": "DF0",
+    "Description": "Delete Window #: DW0, DW1, DW2, DW3, DW4, DW5, DW6, DW7; Clear the content in window, and Hide it.",
+    "Attributes": "NA",
+    "Properties": "NA"
+  },
+  {
+    "Command": "DLY",
+    "Description": "Delay: Delay Cancel in tenths of seconds",
+    "Attributes": "number: 0.1",
+    "Properties": "NA"
+  },
+  {
+    "Command": "DLC",
+    "Description": "Delay Cancel: Delay Cancel in tenths of seconds",
+    "Attributes": "number",
+    "Properties": "NA"
+  },
+  {
+    "Command": "DLW",
+    "Description": "Delete Window: Delete (the Current) Window",
+    "Attributes": "NA",
+    "Properties": "NA"
+  },
+  {
+    "Command": "ETX",
+    "Description": "EndOfText: End of Text for the captions. Captions can span unto 15 rows. ETX identifies the end of a given set of text. The next will reset and start a new set. ",
+    "Attributes": "NA",
+    "Properties": "NA"
+  },
+  {
+    "Command": "HDW",
+    "Description": "Hide Window: Hide (the Current) Window",
+    "Attributes": "NA",
+    "Properties": "NA"
+  },
+  {
+    "Command": "RST",
+    "Description": "Reset Window: Reset (the Current) Window",
+    "Attributes": "NA",
+    "Properties": "NA"
+  },
+  {
+    "Command": "SPA",
+    "Description": "Set Pen Attributes : (Within the context of the “Current Window”) : (Font Attributes: size, underline, italic, script, bold, foreground color, foreground opacity, background color, background opacity, edge color, edge type. )",
+    "Attributes": "font",
+    "Properties": "size, underline, italic, script, bold, foreground color, foreground opacity, background color, background opacity, edge color, edge type"
+  },
+  {
+    "Command": "SPC",
+    "Description": "Set Pen Color",
+    "Attributes": "background, foreground, border, opacity",
+    "Properties": "Color: [white, black, green, blue, cyan, red, yellow, magenta] "
+  },
+  {
+    "Command": "SPL",
+    "Description": "Set Pen Location",
+    "Attributes": "Row, Column",
+    "Properties": "Row: [0-15], Column: [0-32]"
+  },
+  {
+    "Command": "SWA",
+    "Description": "Set Window Attribute: Set Window Attributes such as justify, print direction, scroll direction, WW: word wrap, display effect, effect direction, effect rate, fill color, border color, border type, opacity",
+    "Attributes": "PD: Print Direction, SD: Scroll Direction, JD: Jump Direction, LtoR: Left to Right, RtoL: Right to Left, WW: Word Wrap, Snap: 1.0 seconds",
+    "Properties": "justify, print direction, scroll direction, word wrap, display effect, effect direction, effect rate, fill color, border color, border type, opacity"
+  },
+  {
+    "Command": "TGW",
+    "Description": "Toggle Window : Toggle (the Current) Window",
+    "Attributes": "NA",
+    "Properties": "NA"
+  }
+]

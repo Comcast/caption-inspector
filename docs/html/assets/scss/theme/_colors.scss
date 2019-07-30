@@ -1,0 +1,97 @@
+// Define theme colour scheme
+// PRIMARY COLORS
+$color-white: #ffffff;
+$color-off-white: #f9f9fa;
+$color-blue-lighter: #bbc2ff;
+$color-blue-light: #96a1ff;
+//$color-blue: #1d32e3;
+
+$color-blue: #5579D2;
+$color-blue-dark: #4867B1;
+$color-blue-darker: #354C82;
+
+$color-xfinity-sky: #0272b6;
+$color-xfinity-blue-1: #2b9cd8;
+$color-xfinity-blue-2: #0b7dbb;
+$color-xfinity-blue-3: #0272b6;
+$color-xfinity-blue-4: #00619a;
+
+$color-xfinity-lemon: #ffd871;
+$color-xfinity-pumkin: #ffa700;
+$color-xfinity-haute: #ff5a5a;
+$color-xfinity-lagoon: #1bcfe1;
+$color-xfinity-minty: #65d0a7;
+
+// COMCAST COOL GREY COLORS
+$color-cool-grey-1: #fbfcfc;
+$color-cool-grey-2: #f2f4f5;
+$color-cool-grey-3: #eef1f3;
+$color-cool-grey-4: #ebeef0;
+$color-cool-grey-5: #e6eaed;
+$color-cool-grey-6: #dde2e6;
+$color-cool-grey-7: #c7cdd2;
+$color-cool-grey-8: #b1b9bf;
+$color-cool-grey-9: #9ba4aa;
+$color-cool-grey-10: #868f96;
+$color-cool-grey-11: #646a70;
+$color-cool-grey-12: #44484c;
+$color-cool-grey-13: #2a2c2d;
+$color-cool-grey-14: #191919;
+$color-black: #000000;
+
+// SWATCHES
+$swatch-color-1: $color-blue-light;
+$swatch-color-2: $color-blue-light;
+$swatch-color-3: $color-blue-lighter;
+$swatch-color-4: $color-off-white;
+$swatch-color-5: $color-cool-grey-14;
+
+
+$bg: $color-white;
+$txt-color: $color-cool-grey-11;
+$txt-size: 16px;
+$color-black: #000000;
+
+$theme-color-primary: $color-blue;
+$theme-text-color-primary: #252930;
+$theme-text-color-secondary: lighten($theme-text-color-primary, 25%);
+$theme-text-color-light: lighten($theme-text-color-primary, 40%);
+
+$theme-bg-light: $color-blue-lighter;
+$theme-bg-lighter: lighten($color-blue-lighter, 30%);
+$theme-bg-dark: $theme-color-primary;
+$theme-bg-color: $theme-color-primary;
+
+$theme-border-color:  #efefff;
+$theme-divider-color: #efefef;
+
+$theme-divider: lighten($theme-text-color-primary, 75%);
+
+$theme-color-new: $color-blue;
+$theme-error: #EC575B;
+
+$smoky-white: #f5f5f5;
+$google-color: #d73d32;
+$facebook-color: #3b5998;
+$twitter-color: #1DA1F2;
+$github-color: #24282D;
+$producthunt-color: #da552f;
+$wordpress-color: #028cb0;
+
+$single-col-max: 900px;
+
+$theme-success-color: $color-xfinity-minty;
+$theme-warning-color: $color-xfinity-pumkin;
+$theme-info-color:    $color-xfinity-sky;
+$theme-danger-color:  $color-xfinity-haute;
+
+$gray-100: lighten($theme-text-color-secondary, 65%);
+$gray-200: lighten($theme-text-color-secondary, 55%);
+$gray-300: lighten($theme-text-color-secondary, 50%);
+$gray-400: lighten($theme-text-color-secondary, 45%);
+$gray-500: lighten($theme-text-color-secondary, 40%);
+$gray-600: lighten($theme-text-color-secondary, 30%);
+$gray-700: lighten($theme-text-color-secondary, 20%);
+$gray-800: lighten($theme-text-color-secondary, 10%);
+$gray-900: $theme-text-color-primary;
+

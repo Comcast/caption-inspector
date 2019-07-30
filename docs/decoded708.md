@@ -8,7 +8,7 @@ and valid captions associated with the specific service.
 Here is an example of a Decoded CEA-708 file that was produced by Caption Inspector, followed by a description of the
 different elements in the file.
 
-![Decoded CEA-708 File Image](Decoded708.png)
+![Decoded CEA-708 File Image](./html/assets/content-images/Decoded708.png)
 
 Timestamp
 ---------
@@ -38,7 +38,7 @@ Set Current Window
 
 Set Current Window specifies the window to which all subsequent window style and pen commands are directed.
 
-![Set Current Window](708SetCurrentWindow.png)
+![Set Current Window](./html/assets/content-images/708SetCurrentWindow.png)
 
 
 Define Window
@@ -46,7 +46,7 @@ Define Window
 
 Define Window creates a window and initializes the window with the parameters listed in the command.
 
-![Define Windows](708DefineWindow.png)
+![Define Windows](./html/assets/content-images/708DefineWindow.png)
 
 Clear Windows
 --------------
@@ -54,42 +54,42 @@ Clear Windows
 Clear Windows removes any existing text from the specified windows in the window map and replaces the entire window
 with the window fill color.
 
-![Clear Windows](708ClearWindows.png)
+![Clear Windows](./html/assets/content-images/708ClearWindows.png)
 
 Delete Windows
 --------------
 
 Delete Windows removes all specified windows.
 
-![Delete Windows](708DeleteWindows.png)
+![Delete Windows](./html/assets/content-images/708DeleteWindows.png)
 
 Display Windows
 ---------------
 
 Display Windows causes the specified windows to be visible.
 
-![Display Windows](708DisplayWindows.png)
+![Display Windows](./html/assets/content-images/708DisplayWindows.png)
 
 Hide Windows
 ------------
 
 Hide Windows causes the specified windows to be removed from the screen.
 
-![Hide Windows](708HideWindows.png)
+![Hide Windows](./html/assets/content-images/708HideWindows.png)
 
 Toggle Windows
 --------------
 
 Toggle Windows causes all specified windows to toggle whether they are displayed or hidden.
 
-![Toggle Windows](708ToggleWindows.png)
+![Toggle Windows](./html/assets/content-images/708ToggleWindows.png)
 
 Set Window Attributes
 ---------------------
 
 Set Window Attributes assigns the specified style attributes to the current window.
 
-![Set Window Attributes](708SetWindowAttributes.png)
+![Set Window Attributes](./html/assets/content-images/708SetWindowAttributes.png)
 
 Set Pen Attributes
 ------------------
@@ -97,7 +97,7 @@ Set Pen Attributes
 Set Pen Attributes assigns pen style attributes for the currently defined window. Text written to the current window
 will have the attributes specified by the most recent Set Pen Attributes command written to the window.
 
-![Set Pen Attributes](708SetPenAttributes.png)
+![Set Pen Attributes](./html/assets/content-images/708SetPenAttributes.png)
 
 Set Pen Color
 -------------
@@ -105,7 +105,7 @@ Set Pen Color
 Set Pen Color assigns the pen color attributes for the current window. Text written to that window will have the color
 attributes specified by the most recent Set Pen Color command.
 
-![Set Pen Color](708SetPenColor.png)
+![Set Pen Color](./html/assets/content-images/708SetPenColor.png)
 
 Set Pen Location
 ----------------
@@ -117,32 +117,32 @@ direction is left-to-right or right-to-left, the column parameter shall be ignor
 is not left and the print direction is top-to-bottom or bottom-to-top, the row parameter shall be ignored. When the
 window justification type is not left, text shall be formatted based upon the current window justification type.
 
-![Set Pen Location](708SetPenLocation.png)
+![Set Pen Location](./html/assets/content-images/708SetPenLocation.png)
 
 Delay
 -----
 
 Delay suspends interpretation of the command input buffer. Once the delay expires captioning resumes.
 
-![Delay](708Delay.png)
+![Delay](./html/assets/content-images/708Delay.png)
 
 Delay Cancel
 ------------
 
 Delay Cancel terminates an active Delay command and captioning resumes.
 
-![Delay Cancel](708DelayCancel.png)
+![Delay Cancel](./html/assets/content-images/708DelayCancel.png)
 
 Reset
 -----
 
 Reset command reinitializes the service for which it is received.
 
-![Reset](708Reset.png)
+![Reset](./html/assets/content-images/708Reset.png)
 
 Reserved
 --------
 
 Reserved Codes are just that, Reserved Codes. They are not believed to be used.
 
-![Reserved](708Reserved.png)
+![Reserved](./html/assets/content-images/708Reserved.png)

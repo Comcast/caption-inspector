@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <base href="./">
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Caption Inspector has been created to be a common toolset used to decode and validate Closed Captions (CC) from a video asset or a captions file."
+          name="description">
+    <meta content="Drew Ambrose" name="author">
+    <link href="./favicon.ico" rel="shortcut icon">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,400,600,700,800&display=swap"
+          rel="stylesheet">
+    <!-- FontAwesome JS-->
+    <script defer src="./assets/fontawesome/js/all.min.js"></script>
+    <!-- Plugins CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/solarized_light.min.css"
+          rel="stylesheet">
+    <!-- Theme CSS -->
+    <link href="./assets/css/styles.css" id="style" rel="stylesheet">
+    <link href="./assets/scss/theme.css" id="theme-style" rel="stylesheet">
+    <title>CI | Documentation | Caption Inspector</title>
+    <style>
+    </style>
+</head>
+<body class="docs-page">
+<header class="header fixed-top">
+    <div class="branding docs-branding">
+        <div class="container-fluid position-relative py-2">
+            <div class="docs-logo-wrapper">
+                <button class="docs-sidebar-toggler docs-sidebar-visible mr-2 d-xl-none"
+                        id="docs-sidebar-toggler" type="button">
+                    <span id="hamburger-1"></span> <span id="hamburger-2"></span> <span
+                        id="hamburger-3"></span>
+                </button>
+                <div class="site-logo">
+                    <div class="logo-container">
+                        <svg data-name="CaptionInspectorLayer" id="CaptionInspectorCircle"
+                             viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                            </defs>
+                            <title>Caption Inspector Logo | SVG</title>
+                            <g class="caption-inspector-logo">
+                                <circle class="circle-background" cx="215.82" cy="216" r="206.35" />
+                                <g>
+                                    <g>
+                                        <!-- Inspector's Face -->
+                                        <path class="inspector-face"
+                                              d="M346.58,177.8c0-8.42-6.79-20.55-20.56-20.55-3,0-5.81.11-13.91,5.42-29.29,19.24-60.82,29.43-95.26,29.43-52.37,0-88.59-24.56-91.82-26.75-3-2-5.82-4.6-9.1-6.24a20.72,20.72,0,0,0-18.21,0,20.29,20.29,0,0,0-6.14,31.57,46.44,46.44,0,0,0,8.28,7.12,226.68,226.68,0,0,0,26.31,14.86,14.37,14.37,0,0,1,1.84,1.2,5.75,5.75,0,0,1,1.76,2,3.5,3.5,0,0,1-.48,3.83,12.16,12.16,0,0,1-10,4.25c3,1.61,8.75,2,12.59,2.09-3.17,3.4-3.85,8.46-4,13.22,7.53-10.43,21.73-16.94,38.73-12.2,4,1.12,6.89,4.17,9.41,7.33s5.6,6.69,10.2,6.44c-1.2,4-5,6.05-8.9,6.36a14.31,14.31,0,0,1-6.15-.86,30.78,30.78,0,0,0-7.92-2.2,23.82,23.82,0,0,0-15.23,3.6,27.9,27.9,0,0,0-5.63,4.7,32.52,32.52,0,0,0-2.37,2.87,13.26,13.26,0,0,0-.81,1.5s.81.64,1.06.82a30.84,30.84,0,0,0,6.56,3.79,24.09,24.09,0,0,0,8.35,1.64c5.87.12,11.25-2,16.94-3.08s13.19-.6,16.48,2a30.46,30.46,0,0,0,2.65,2.16c.1.06.19.13.29.18a2.43,2.43,0,0,0,.53.25,3.52,3.52,0,0,0,1.78.18,3.57,3.57,0,0,0,2.94-3c0-.06,0-.13,0-.2.51-.92.89-2.1,1.61-3.51,1.2-2.38,3.31-4.21,3.9-6.88.65-2.93-.27-5.88-.79-8.76-.49-2.67-.12-5.1,1.94-7a33.94,33.94,0,0,1,6.25-4.45,14.08,14.08,0,0,1,7.34-2.1,11.34,11.34,0,0,1,6.77,2.82,20.56,20.56,0,0,1,2.55,2.56c.43.5.78.72.46,1.34s-.85,1.28-1.24,1.92a41.46,41.46,0,0,0-3.79,7.85,37.71,37.71,0,0,0-2.16,16.1,24.37,24.37,0,0,0,2.2,8.12c1.22,2.6,2.89,5,3.79,7.72a19.55,19.55,0,0,1,.84,3.86c.15,1.25.08,2.43,1.13,3.31a11.4,11.4,0,0,0,2.76,1.46,35.63,35.63,0,0,1,3.77,1.86c3.61,2.15,8.45,7.46,3.55,11-.71.5-2.92,1.66-3.81,1.54a3.74,3.74,0,0,0-2.78-1.54,3.25,3.25,0,0,0-2.24.68c-1,.7-1.7,2.16-2.44,3.14a14.28,14.28,0,0,1-12.54,6,15.21,15.21,0,0,1-6.28-2,20.23,20.23,0,0,1-4.91-4.46c-1.49-1.67-3.35-3.24-5.74-3-1.11.12-1.91.86-3.05.76a9.24,9.24,0,0,1-3.27-1.1,11.3,11.3,0,0,1-5-5.46c-.17-.39-.15-.65-.59-.73a5.37,5.37,0,0,0-1.67.52c-1.41.48-2.79,1-4.15,1.65a56.26,56.26,0,0,0-14,9.48,39.07,39.07,0,0,0-5.58,6.13c-1.56,2.16-3.06,4.35-4.72,6.43a45.58,45.58,0,0,1-11.25,10.48c-9.56,6-21.1,5.26-31.21,1.09a17.23,17.23,0,0,1-9.39-8.82,18.09,18.09,0,0,1-.52-13.3,20.35,20.35,0,0,1,1.71-3.55,7.06,7.06,0,0,1,1.82-2.37,1.74,1.74,0,0,1,2.35.26c.62.79.41,1.94.46,2.86a12.31,12.31,0,0,0,6.61,10.19c8.46,4.36,18.8-3.08,17.4-12.48a12.16,12.16,0,0,0-8.44-9.84c-5.18-1.51-10.31.3-14.49,3.41a27.53,27.53,0,0,0-9.14,11.81,30.14,30.14,0,0,0-1.29,16.74,40.69,40.69,0,0,0,15,24.68c8.78,6.7,20.1,9.76,31,10,2.5.06,10,0,14.39-1.92a.65.65,0,0,1,.8.93c-2.14,3.56-6.38,5.55-11,5.48,4.32,2.07,9.21,2.07,14.22,1.89,5.2-.19,10.37-1.5,15.39-2.84a68.73,68.73,0,0,0,26.32-13.19,30,30,0,0,0,5.55-5.36,26.91,26.91,0,0,0,2.14-3,5.33,5.33,0,0,1,2.4-2.59,3.83,3.83,0,0,1,5.18,2.73c.74,2.51,3.88,5.84,6.55,7.95,8.36,6.59,17.55,9.68,27.24,12.64A89,89,0,0,0,270,364.07a55.62,55.62,0,0,0,8.84.47c2.67-.1,5.76-.46,8-2a11.76,11.76,0,0,1-11.3-6.25.37.37,0,0,1,.53-.47c4.33,2.63,9.54,3.52,14.55,3.63a59.77,59.77,0,0,0,17-2.07c11.46-3.15,20.38-11.36,25.32-22.07,4.79-10.39,6.24-23.07,0-33.17a26.73,26.73,0,0,0-4.91-5.85,18.74,18.74,0,0,0-6.73-4.24c-5.29-1.51-10.75,3-9.29,8.58a7.11,7.11,0,0,0,13.93-.78,1.68,1.68,0,0,1,2-1.52c1.11.22,2.06,1.66,2.71,2.49a18.35,18.35,0,0,1,3.54,15.38,17.86,17.86,0,0,1-9.51,11.67c-10.34,5.19-23.76,2.9-31.57-5.64-2.12-2.31-3.85-4.92-6-7.21a60.18,60.18,0,0,0-7.15-6.49A36.86,36.86,0,0,0,276.3,306c-1-.62-2.22-1.21-2.69-2.39a2.87,2.87,0,0,1,1.18-3.44A17.51,17.51,0,0,1,278,299c11.52-4.2,21.68-13.25,25.14-25a54.81,54.81,0,0,0,1.69-7.06,17.3,17.3,0,0,1-.05-22.45,10.68,10.68,0,0,1,1.74-2,.61.61,0,0,0,.07-.86,6,6,0,0,1,1-8.95l.54-.39c-3-.79-6.67-2.73-7.91-6.23,3.82,0,10.09-.39,13.29-2.1a12.22,12.22,0,0,1-9.82-4,3.8,3.8,0,0,1,.67-5.56,20.42,20.42,0,0,1,2.11-1.31,246.89,246.89,0,0,0,23.87-13.36C338,194.72,346.58,189.45,346.58,177.8Z" />
+                                        <path class="inspector-face"
+                                              d="M216.74,186c50.2,0,86.1-23.63,94.16-29.43a4.56,4.56,0,0,0,1.58-3.35c0-4.45-.81-13.62-.81-13.62-3-38.59-40.63-83.92-94.93-83.15-64.74.91-91.06,53.76-94.85,82.65a94.48,94.48,0,0,0-1,13.79,5,5,0,0,0,2.07,3.87C138.49,167.72,172.25,186,216.74,186Z" />
+                                        <path class="inspector-face"
+                                              d="M323.79,238.34a5.36,5.36,0,0,0-2.3-4.46c-1.23-.84-3.8-.7-4.06-.7h-6a4.58,4.58,0,0,0-4.55,5,4.75,4.75,0,0,0,4.8,4.14H313a1.63,1.63,0,0,1,1.64,1.64v.91a4.74,4.74,0,0,0,4.14,4.8,4.59,4.59,0,0,0,5-4.55Z" />
+                                        <path class="inspector-face" d="M319.92,319.9a3.56,3.56,0,1,0-4.08-4.07A3.57,3.57,0,0,0,319.92,319.9Z" />
+                                        <path class="inspector-face" d="M323.31,255.8a4,4,0,1,0-4.59,4.59A4,4,0,0,0,323.31,255.8Z" />
+                                        <path class="inspector-face" d="M323.31,268.6a4,4,0,1,0-4.59,4.59A4,4,0,0,0,323.31,268.6Z" />
+                                        <path class="inspector-face" d="M320,278.08a4,4,0,1,0,3.32,3.32A4,4,0,0,0,320,278.08Z" />
+                                    </g>
+                                    <path class="inspector-face" d="M319.35,361.1a2.83,2.83,0,1,0,2.83,2.83A2.83,2.83,0,0,0,319.35,361.1Z" />
+                                    <path class="inspector-face" d="M305.61,251.5h0v0Z" />
+                                    <circle class="circle-background" cx="319.35" cy="340.48" r="2.74" />
+                                    <path class="eye-glass"
+                                          d="M295,258.69a32,32,0,1,1-61.54-12.47c4.86-11.5,30.71-2.88,50.54-11.69A32,32,0,0,1,295,258.69Z" />
+                                    <path class="inspector-face" d="M230.68,285.54a3.55,3.55,0,1,0-4.07-4.07A3.57,3.57,0,0,0,230.68,285.54Z" />
+                                    <path class="inspector-face" d="M197.75,306.11a3.55,3.55,0,1,0-4.07-4.07A3.58,3.58,0,0,0,197.75,306.11Z" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <a class="navbar-brand" href="../index.html">
+                        <span class="logo-text">Caption <span
+                                class="text-alt">Inspector</span></span>
+                    </a>
+                </div>
+            </div>
+            <!--//docs-logo-wrapper-->
+            <div class="docs-top-utilities d-flex justify-content-end align-items-center">
+                <div class="top-search-box d-none d-lg-flex" hidden>
+                    <form action="#" class="search-form" onsubmit="return false" hidden>
+                        <input class="form-control search-input" id="searchField1" name="search"
+                               placeholder="Search the docs..." type="text">
+                        <button class="btn search-btn" onclick="searchDocs.search(this.form)" type="submit"
+                                value="Search"><i
+                                class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <a class="btn btn-primary btn-get-started d-none d-lg-flex" style="margin:0 0 10px 0;"
+                   href="https://github.com/Comcast/caption-inspector/archive/master.zip"
+                   title="Download th Caption Inpector project from GitHub (zip)">
+                    <i class="fab fa-github fa-fw"
+                       style="margin:2px 15px -20px 0; font-weight:900;"></i> Download Source
+                </a>
+            </div><!--//docs-top-utilities-->
+        </div><!--//container-->
+    </div>
+    <div class="desktop-search-results" hidden>
+        <h3 hidden>Search Results</h3>
+        <table class="table table-striped software" hidden>
+            <thead>
+            <tr>
+                <th class="bold">RESULT</th>
+                <th class="bold">PREVIEW</th>
+                <th class="bold">SCORE</th>
+            </tr>
+            </thead>
+            <tbody style="overflow: scroll">
+            <tr>
+                <td>
+                    <a href="./docs-page.html#section-1">
+                        Resluting term
+                    </a>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</header>
+
+<div class="docs-wrapper">
+    <div class="docs-sidebar" id="docs-sidebar">
+        <nav class="docs-nav navbar" id="docs-nav">
+            <ul class="section-items list-unstyled nav flex-column pb-3"
+                id="documentation-outline">
+            </ul>
+        </nav>
+    </div>
+    <div class="docs-content">
+        <div class="container-fluid">
+            <article class="docs-article" id="section-1">
+                <header class="docs-header">
+                    <img class="img-fluid" src="./assets/brand/logo-horizontal.png" />
+                    <h1 class="docs-heading bump">Introduction <span
+                            class="docs-time">Last updated: 2019-06-01</span>
+                    </h1>
+                    <section class="docs-intro">
+                        <blockquote class="blockquote-lite">
+                            <a href="https://travis-ci.com/Comcast/caption-inspector">
+                                <img alt="Build Status" src="https://travis-ci.com/Comcast/caption-inspector.svg?branch=master">
+                            </a>
+                            <a  style="margin:2px 0 0 15px " class="btn btn-md btn-link litest" href="https://github.com/Comcast/caption-inspector" target="_blank">
+                                <i class="fab fa-github fa-fw" style="margin:2px 15px 0 0"></i><span class="bold">Install Now: </span>&nbsp; https://github.com/Comcast/caption-inspector
+                            </a>
+                        </blockquote>
+                        <p class="section-intro">
+                            Caption Inspector was created to be an open and accessible toolset used to decode and validate
+                            <span data-placement="top" data-toggle="tooltip" class="tooltip" title="Closed captions were created for deaf or hard of hearing individuals to assist in comprehension. They can also be used as a tool by those learning to  read, learning to speak a non-native language, or in an environment where the audio is difficult to hear or is intentionally muted.">Closed Captions (CC)</span>
+                            content from a video assets or caption file.
+                        </p>
+                        <p>Closed Captioning Quality is required in many industries, companies, and countries for the sake of accessibility. Caption Inspector provides the necessary service of validating Closed Captioned content, and is especially useful when sharing content between Content Providers and Distributors, who then in turn, make the content available to Consumers.
+                        </p>
+                        <table class="table table-striped software">
+                            <thead>
+                            <tr>
+                                <th>Property</th>
+                                <th>Details</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Developer/Author:</td>
+                                <td>
+                                    <span class="user-name">Rob Taylor</span>, <span class="user-title">Principle Engineer at Comcast</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Repository:</td>
+                                <td>https://github.com/Comcast/caption-inspector</td>
+                            </tr>
+                            <tr>
+                                <td>Software Version:</td>
+                                <td>1.0</td>
+                            </tr>
+                            <tr>
+                                <td>Build Status:</td>
+                                <td>Success</td>
+                            </tr>
+                            <tr>
+                                <td>License:</td>
+                                <td>Apache License 2.0*</td>
+                            </tr>
+                            <tr>
+                                <td>Created:</td>
+                                <td>2018 – 2019</td>
+                            </tr>
+                            <tr>
+                                <td>Published</td>
+                                <td>July, 2019</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <h3 class="bump">*Apache License 2.0</h3>
+                        <P>A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express
+                           grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source
+                           code.
+                        </P>
+                    </section>
+                </header>
+                <section class="docs-section" id="section-1-0">
+                     <h2 class="section-heading">Overview</h2>
+                    <p>Caption Inspector extracts and decodes Closed-Captions (CC) from various Video or Caption File Formats.</p>
+                    <img class="img-fluid float-right" src="./assets/content-images/ico-generate.png" style="max-width:200px" />
+                    <P>The Caption Inspector project builds a <span class="language">C library</span>, <span class="language">C executable</span>, and <span
+                            class="language">Docker</span> image that can be used to extract and decode CC.
+                    </P>
+                    <h4>Supported Formats</h4>
+                    <p>Caption Inspector Supports <span class="tag"></span>CEA-608 and
+                        <span class="tag">CEA-708</span> in <span class="tag">MPEG-2</span> and <span class="tag">MPEG-4</span> (.mpg, .ts, and .mp4 containers), <span class="tag">MCC</span> (MacCaption Closed Captions),
+                       and <span class="tag">SCC</span> (Scenarist Closed Captions) files. For this, FFMPEG is required*.
+                    </p>
+                    
+                    
+                    <a data-toggle="lightbox" href="./assets/content-images/Overview.png">
+                        <caption class="diagram">OVERVIEW DIAGRAM 1.0</caption>
+                        <img class="img-fluid" src="./assets/content-images/Overview.png">
+                    </a>
+                    <div class="callout-block callout-block-info">
+                        <div class="content">
+                            <h4 class="callout-title"><span class="callout-icon-holder mr-1">
+		                                <i class="fas fa-info-circle"></i>
+		                            </span>Note </h4>
+                            <p>Closed captions were created for deaf or hard of hearing individuals to assist in comprehension. They can also be used as a tool
+                               by those learning to read, learning to speak a non-native language, or in an environment where the audio is difficult to hear or
+                               is intentionally muted.
+                            </p>
+                        </div>
+                    </div>
+                    
+                </section>
+                <section class="docs-section" id="section-2-0">
+                    <h2 class="section-heading" data-title="Code Overview">Caption Inspector Overview</h2>
+                    <h4>Decoding and Examining the Closed Captioning</h4>
+                    <p>Use Caption Inspector to validate video content adheres to expected Specifications, Compliance Policies and/or laws.</p>
+                    <blockquote>
+                        <h3>Television Decoder Circuitry Act<span class="lite">&amp;</span></h3>
+                        <h4>Communications and Video Accessibility Act</h4>
+                        <hr>
+                        <p>"Closed captioning has been provided on a voluntary basis by many movie producers, studios, and distributors for movie videos and
+                           DVDs produced for sale or rent."
+                        </p>
+                        <p>"The Internet is the new frontier for captioning. The law is generally clear that government agencies must make their websites
+                           accessible. The 21st Century Communications and Video Accessibility Act (“CVAA”) <b>expanded the scope of devices that must display
+                                                                                                               captions under the Television Decoder Circuitry
+                                                                                                               Act</b> to all video devices that receive or
+                           display video programming transmitted simultaneously with sound, including those that can receive or display programming carried over
+                           the Internet. The NAD was a leading member of the Coalition of Organizations for Accessible Technology (“COAT”) which was
+                           instrumental in drafting and getting CVAA passed." <br><span class="quoted bold"> - National Association of the Deaf</span>
+                        </p>
+                        <p class="reference">
+                            <i class="icon fas fa-info-circle"></i> <span class="block stretched mb-4">REFERENCES:</span>
+                            <a class="reference-link" href="https://www.nad.org/resources/technology/captioning-for-access/when-is-captioning-required/">
+                                https://www.nad.org/resources/technology/captioning-for-access/when-is-captioning-required/
+                            </a>
+                            <a class="reference-link" href="https://en.wikipedia.org/wiki/Closed_captioning#Legislative_development_in_the_U.S.">
+                                https://en.wikipedia.org/wiki/Closed_captioning#Legislative_development_in_the_U.S.
+                            </a>
+                        </p>
+                    </blockquote>
+                    <p><b>Caption Inspector decodes the Closed Captioning Data into two basic types of output files.</b></p>
+                    <ol class="outline">
+                        <li>The first type has the Closed Captioning Data demultiplexed into output files for each service/channel with closed caption tags and
+                            text in the file.
+                        </li>
+                        <li>The second type has all of the Closed Captioning Data decoded in place, still multiplexed together.</li>
+                    </ol>
+                    <h3 class="mt-5" id="section-2-1">Developer Reference</h3>
+                    As a extra benefit the Caption Inspector Codebase can be utilized as a reference. Developers can leverage the implementation of the Closed
+                    Captioning code without knowing the exact Specifications by examining the output and logs.</p>
+                    <p>Caption Inspector has a plugin pipeline architecture that can be configured in various ways and allows the user to add new plugins to
+                       perform various transformations. Currently, the following are the main use cases that the Caption Inspector Software covers:
+                    </p>
+                    <ul>
+                        <li><b>Pulling Captions from a Video Asset</b> and writing them to an MCC Caption File, a CEA-608 Decode File, a CEA-708 Decode File,
+                                                                       and a Closed Caption Descriptor Decode File.
+                        </li>
+                        <li><b>Decoding a MCC Caption file</b> and writing the decoded captions into a CEA-608 Decode File, a CEA-708 Decode File, and a Closed
+                                                               Caption Descriptor Decode File.
+                        </li>
+                        <li><b>Decoding a SCC Caption file</b> and writing the decoded captions into a MCC Caption File, a CEA-608 Decode File, and a Closed
+                                                               Caption Descriptor Decode File.
+                        </li>
+                    </ul>
+                </section>
+                <section class="docs-section" id="section-3-0">
+                    <h2 class="section-heading" data-title="Expected Quality">
+                        The Expected Quality of Captions </h2>
+                    <p>Today, there is a gap in the process of Closed Caption Quality production caused by errors within the CC content. Prior to this software,
+                       content delivered to Distributors could not be easily validated without going through (watching) all of the video content, frame by
+                       frame. This makes checking content impractical, and its often overlooked when distributed.
+                    </p>
+                    <p>This has caused the content to be delivered with Closed Caption errors. As a result, this content is then provided to consumers with
+                       errors, making the Distributors at fault for faulty content. Regardless of where the responsibility lies, whether the Content Provider,
+                       or the Distributor, each video can now be validated by each party in a relatively short period of time. Thus, Content Providers can be
+                       certain of what they deliver, and Distributors do not have to accept faulty content, and be at risk of providing a low-quality product.
+                    </p>
+                    <h3 id="section-3-1" data-title="Industry Guidelines">Industry Accepted Guidelines</h3>
+                    <p>The following are the accepted industry guidelines and best practices for quality: (https://dcmp.org)
+                    <ol class="outline guidelines">
+                        <li>
+                            <span class="bold">Accuracy</span> <span class="description">Errorless captions are the goal for each
+                       production</span>
+                        </li>
+                        <li>
+                            <span class="bold">Consistancy</span> <span class="description">Uniformity in style and presentation of all captioning features is
+                       crucial for viewer understanding.</span>
+                        </li>
+                        <li>
+                            <span class="bold">Clarity</span> <span class="description">A complete textual representation of the audio,
+                       including speaker identification and non-speech information, provides clarity</span>
+                        </li>
+                        <li>
+                            <span class="bold">Readable</span> <span class="description">Captions are displayed with enough time to be read completely, are in synchronization with the
+                       audio, and are not obscured by (nor do they obscure) the visual content.</span>
+                        </li>
+                        <li>
+                            <span class="bold">Equality of Accessibility</span> <span
+                                class="description">Equal access
+                       requires that the meaning and intention of the material is completely preserved.</span>
+                        </li>
+                    </ol>
+                    <br>
+                    <h3 class="section-heading bump bump bump" id="section-3-2">How is it Used</h3>
+                    <p><b>Caption Inspector is a Command Line Interface (CLI)</b> tool that takes a video or caption file as input, extracts the embedded data,
+                                                                                  and outputs this to a text file, formatted in either a standard
+                        <span data-placement="top" data-toggle="tooltip" class="tooltip" title="MCC: MacCaption Closed Captions">`.mcc`</span>, or
+                        <span data-placement="top" data-toggle="tooltip" class="tooltip" title="SCC: Scenarist Closed Captions">`.scc`</span> file format. Yet, this tool is not simply an extractor of embedded data, but a primary purpose of this tool is to validate the embedded transcript for errors.
+                    </p>
+                    <p><b>Processing content will create several files</b>, which includes:
+                    <ul>
+                        <li><b>Content Descriptor Document (CDD) File.</b> A single CDD `.ccd file` shows each frame's binary caption data as hex values
+                                                                           followed by decoded characters and control-codes (much like how the output of the
+                                                                           Linux `xxd` command shows the hex values followed by ascii).
+                        </li>
+                        <li>And, Individual <b>.608 and .708 files</b> are also generated for each channel/service, separating the binary caption data into
+                            frame-indexed, service-specific, human-readable text and control-codes for analysis.
+                        </li>
+                    </ul>
+                    </p>
+                </section>
+                <section class="docs-section" id="section-4-0">
+                    <h2 class="section-heading">Prerequisites</h2>
+                    <p>Basic Software and computer skills are required for installation and usage.</p>
+                    <p>Prerequisites to Building the Caption Inspector Executable</p>
+                    <ul class="none">
+                        <li>
+                            <p>
+                                <b>FFMPEG*</b><br> Caption Inspector requires FFMPEG to be installed on your machine. Please download the appropriate version of
+                                                   FFMPEG from the website and install it on your machine. <span class="details">Caption Inspector is known to run with FFMPEG Version 4.0.2.</span>.<br><br>
+                                <a href="https://ffmpeg.org/download.html" target="_blank" class="btn btn-primary"><span class="bold">Get &nbsp;</span>  <span class="lite">https://ffmpeg.org/download.html</span></a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <b>Drop Frame</b><br> While not required, Caption Inspector leverages a tool called MediaInfo to determine whether or not an
+                                                      asset is, or is not, Drop Frame. You can download the command line version of MediaInfo. <span
+                                    class="details">Caption Inspector is known to run with MediaInfo Version 18.12.</span><br><br>
+                                <a href="https://mediaarea.net/en/MediaInfo/Download" target="_blank" class="btn btn-primary"><span class="bold">Get &nbsp;</span>  <span class="lite">https://mediaarea.net/en/MediaInfo/Download</span></a>
+                            </p>
+                        </li>
+                    </ul>
+                    <h3 class="bump" id="section-4-1">Developer Overview</h3>
+                    <p>The Caption Inspector project builds a <span class="tag">C library</span>, <span class="tag">C executable</span>, and Docker image that can be used to extract and decode Closed-Captions
+                       from various Video or Caption File Formats. Caption Inspector Supports <span class="tag">CEA-608</span> and <span class="tag">CEA-708</span> in <span class="tag">MPEG-2</span> and <span class="tag">MPEG-4</span> (.mpg, .ts, and .mp4
+                       containers), <span class="tag">MCC</span> (MacCaption Closed Captions), and <span class="tag">SCC</span> (Scenarist Closed Captions) files.
+                    </p>
+    
+                    <section class="docs-test">
+                        <div class="info-cards">
+                            <h3>Two Basic Types</h3>
+                            <p>Caption Inspector decodes the Closed Captioning Data into two basic types of output files. The first type has the Closed Captioning Data <span class="tag">demultiplexed</span> into output files for each service/channel with closed caption tags and text in the file.
+                            </p>
+                                <!-- Info Card  -->
+                                <div class="info-card" hidden>
+                                    <div class="front">
+                                        <h3>DATA</h3>
+                                    </div>
+                                    <div class="back">
+                                        <h2>Type</h2>
+                                        <p>Make your data available to consume by publishing your data to one of our fully managed platforms.</p>
+                                        <div class="btn-set">
+                                            <a class="btn btn-learn-more" href="#">Learn More</a>
+                                            <a class="btn btn-get-started" href="#">Get Started</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Info Card  -->
+                                <div class="info-card" hidden>
+                                    <div class="front">
+                                        <h3>Type</h3>
+                                    </div>
+                                    <div class="back">
+                                        <h2>Type</h2>
+                                        <p>Consume and store your data to our data lake, a remote database, or to another location.</p>
+                                        <div class="btn-set">
+                                            <a class="btn btn-learn-more" href="#">Learn More</a>
+                                            <a class="btn btn-get-started" href="#">Get Started</a>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            <div class="clearfix"></div>
+                        </div>
+                    </section>
+                    
+                    
+                    <p>The second type has all of the Closed Captioning Data decoded in place, still multiplexed together. Beyond the current use case of
+                       decoding and examining the Closed Captioning, the Caption Inspector Codebase can be leveraged as a reference implementation of the Closed
+                       Captioning Specifications which would allow a developer to not have to understand the specifics of the specs just to access, manipulate,
+                       and modify the encoded Closed Captioning.
+                    </p>
+                </section>
+                <section class="docs-section" id="section-5-0">
+                    <h2 class="section-heading" data-title="Installation">Installation & Start Up</h2>
+                    <h3 id="section-5-1" data-title="Building and Running">Caption Inspector Executable</h3>
+                    <p class="section-intro">This is a one-time installation. When the Executable has been installed you will only need to start up your server
+                                             to be able to use the tools. If you shutdown, and restart your computer, you will need to restart your server from
+                                             within Docker, unless you configure Docker to automatically restart at Login.
+                    </p>
+                    <p>Future updates will require a reinstallation along with steps we will at that time provide and will likely be a similar process. This step is a one-time set up process. Building the Caption Inspector Executable can be done at the root level, or at the "src level".
+                       Once it has been built, Caption Inspector can be used to decode the captions from a test file.
+                    </p>
+                    <div class="callout-block callout-block-info">
+                        <div class="content">
+                            <span class="callout-icon-holder mr-1"><i class="fas fa-info-circle"></i></span>
+                            <h4 class="callout-title">Note</h4>
+                            <p>A person with root level access is called an "administrator," "root user" or "superuser." While "root level" access is considered
+                               a "high" privilege level for the user, it is at the same time considered "low" level access to the system.
+                            </p>
+                            <p>Visit:
+                                <a href="https://www.yourdictionary.com/root-level#computer"
+                                   target="_blank">
+                                    https:// www.yourdictionary.com/ root-level#computer
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <h3 id="section-5-2" data-title="Locally">Building and Running Locally</h3>
+                    <p>Caption Inspector requires FFMPEG to be installed on your machine. Please download the appropriate version of FFMPEG from
+                        <a href="https://ffmpeg.org/download.html">here</a>
+                       and install it in your machine.
+                    </p>
+                    <div class="callout-block callout-block-info">
+                        <div class="content">
+                            <h4 class="callout-title"><span class="callout-icon-holder mr-1"> <i class="fas fa-info-circle"></i> </span>Note </h4>
+                            <p>Caption Inspector is known to run with <span class="bold">FFMPEG Version 4.0.2</span>.</p>
+                        </div>
+                    </div>
+                    <p>While not required, Caption Inspector leverages a tool called MediaInfo to determine whether or not an asset is, or is not, Drop Frame.
+                       You can download the command line version of MediaInfo from
+                        <a href="https://mediaarea.net/en/MediaInfo/Download">https://mediaarea .net/en/MediaInfo/Download
+                        </a>
+                    </p>
+                    <div class="callout-block callout-block-info">
+                        <div class="content">
+                            <h4 class="callout-title"><span class="callout-icon-holder mr-1"> <i class="fas fa-info-circle"></i> </span>Note </h4>
+                            <p>Caption Inspector is known to run with <span class="bold">MediaInfo Version 18.12</span>.</p>
+                        </div>
+                    </div>
+                    <h3 id="section-5-3" class="x-large" data-title="Using the CLI">Using the CLI</h3>
+                    <pre class="copy"><code class="language-bash"><span class="bold">make caption-inspector</span>
+./<span class="text-blue">caption-inspector</span> <span class="text-orange">-h</span>
+./<span class="text-blue">caption-inspector</span> <span class="text-orange">-o</span> <span class="text-grey">.test/media/BigBuckBunny_256x144-24fps.ts</span>
+./<span class="text-blue">caption-inspector</span> <span class="text-orange">-o</span> <span class="text-grey">.test/media/Plan9fromOuterSpace.scc <span class="text-orange">-f</span> 2400</span>
+./<span class="text-blue">caption-inspector</span> <span class="text-orange">-o</span> <span class="text-grey">.test/media/NightOfTheLivingDead.mcc</span>
+</code></pre>
+                    <table class="table table-striped software">
+                        <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Usage</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>- h </td>
+                            <td>
+                                <p><span class="bold">Running with the</span> <code>-h</code> option will simply print out the help text.</p>
+                                <p><span class="bold">Running against</span> the video file <code>BigBuckBunny_256x144-24fps.ts</code> demonstrates decoding closed captions from a video file.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>-o</td>
+                            <td>
+                                <p><span class="bold">Running against</span> the caption file <code>Plan9fromOuterSpace.scc</code> demonstrates decoding an <span data-placement="top" data-toggle="tooltip" class="tooltip" title="SCC: Scenarist Closed Captions">SCC</span> file and CEA-608 Captions, as well as converting the contents of the <span data-placement="top" data-toggle="tooltip" class="tooltip" title="SCC: Scenarist Closed Captions">SCC</span> file into an MCC file.</p>
+                                <p><span class="bold">Running against</span> the caption file <code>NightOfTheLivingDead.mcc</code> demonstrates decoding an MCC file, CEA-608 Captions, and CEA-708 Captions.</p>
+            
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <h3 class="bump" id="section-5-4" data-title="Docker">Building and Running in a Docker Container</h3>
+                    <p>Obviously you need docker running on your local machine to build. Building inside of a docker image will remove the need to install any
+                       dependencies, but comes at the expense of a slightly more complicated command line execution.
+                    </p>
+                    <h3 id="section-5-5" class="x-large" data-title="Docker &amp; the CLI">Using the CLI with Docker</h3>
+                    <pre class="copy"><code class="language-bash"><span class="bold">make docker</span>
+docker run -t caption-inspector -h
+docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/BigBuckBunny_256x144-24fps.ts
+docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Plan9fromOuterSpace.scc -f 2400
+docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/NightOfTheLivingDead.mcc
+</code></pre>
+                    <p>In the <code>docker run</code> command, your current working directory will be remapped to <code>/files</code> inside of the container,
+                       so you will need to prefix your input and output paths to that so that it can place the files in the correct spot. For this example, the
+                       output file is located in the current directory <code>./</code> and the input file is located in a directory underneath the current
+                       directory, specifically <code>./test/media/*</code>.
+                    </p>
+                </section>
+                <section class="docs-section" id="section-6-0">
+                    <h2 class="section-heading" data-title="Regression Testing">Regression Testing</h2>
+                    <p>While the testing is not complete yet, there are several Unit Tests, Integration Tests, and System Tests that run on the Caption
+                       Inspector Codebase. These are intended to be run as integration tests and verify that nothing has broken as a result of a change. They
+                       are run as part of a pull request, but for debugging purposes they can also be run locally (even in an IDE) before a pull request is
+                       issued. The easiest way to run these is inside of docker, as the dependencies are handled for you. But if you need to run them with an
+                       IDE/debugger, they can also be run from the command line.
+                    </p>
+                    <p>To run the regression tests from inside of docker, simply call <code>make docker-test</code> at the root directory. This will build the
+                       docker image and run the tests. The output generated by this activity can give information about any test case that does not pass, but
+                       even more useful is an HTML file that is the output of the test. It contains all of the tests, and their statuses. It is in the root
+                       directory and takes the form <code>&lt;date&gt;__&lt;time&gt;_test_output.html</code>. The build system will attempt to open it in a
+                       browser on your local machine. If there is a problem with that operation you can open the file manually from a browser.
+                    </p>
+                    <p>To run the regression tests from the command line, you need to install Xunit Viewer, which can be found
+                        <a href="https://github.com/lukejpreston/xunit-viewer">Xunit Viewer</a>
+                       . Xunit Viewer is the application that takes the Xunit XML and converts it into a beautified HTML format. Once you have Xunit Viewer
+                       installed, or if you ignore it, you just need to build and run the regression tests from the test directory.
+                    </p>
+                    <pre class="copy"><code>cd test
+<span class="bold">make</span> test
+</code></pre>
+                    <p>The tests are a mix of C and Python, depending on which made more sense for the specific test. The build system will aggregate all of the
+                       results from the tests in both languages.
+                    </p>
+                    <h3 id="section-6-1" data-title="Leveraging Python">Leveraging the Caption Inspector Functionality from Python</h3>
+                    <p><span class="language">C</span> was chosen as the language for Caption Inspector because of interoperability with FFMPEG and ease of
+                                                      implementation of the specifications. While that choice made sense, there are lots of reasons to want to
+                                                       access this functionality as a library from a higher level language than C. To that end <span class="bold">Python</span> bindings,
+                                                       using <span class="bold">CTypes</span>, were added to the C functionality which can be compiled into a shared library and referenced
+                                                       from Python code. To use this functionality you just need to <span class="bold">build the shared library using the command</span>:
+                        <code>make sharedlib</code>. Then leverage the file <code>python/cshim.py</code> inside of your Python code, making sure that it knows where to find the shared library with the Caption Inspector Code.
+                    </p>
+                    <p>The Caption Inspector code that makes this possible, and the library it generates, can likely be reused for other high level languages such as Java/JNI, Golang/Cgo, etc.
+                    </p>
+                    <!--<h3>Basic Usage</h3>-->
+                    <!--<pre class="copy"><code>-->
+                    <!--git clone git@github.comcast.com:vx/CaptionConverter.git-->
+                    <!--make-->
+                    <!--./caption-converter -h-->
+                    <!--./caption-converter test/media/BigBuckBunny_256x144-24fps.ts -a .-->
+                    <!--</code></pre>-->
+                    <!--<p>Running with the <b>`-h`</b> option will simply print out the help text. The next line will extract the-->
+                    <!--Closed Captions from an asset that is included in this distribution. Several artifacts will be-->
+                    <!--created once Caption Inspector runs against the asset. To understand what is contained in the-->
+                    <!--various artifact files, see Artifacts & Files.</p>-->
+                    <!--<h2>Building the Docker Image</h2>-->
+                    <!--<p>In order to make and deploy the latest version of the Caption Inspector Docker image that is used-->
+                    <!--by the job queue server script (`run.sh`), first build the cttp executable Docker image from the-->
+                    <!--root directory, then build the cc-image docker image from the python and tag it for-->
+                    <!--deployment:</p>-->
+                    <!--<pre class="copy"><code>-->
+                    <!--make docker-->
+                    <!--cd python-->
+                    <!--make test build itest tag-->
+                    <!--</code></pre>-->
+                    <!--<h3>Publishing the Build</h3>-->
+                    <!--<p>You can then publish the build to the repository with `make push` allowing users to pull this-->
+                    <!--latest build down from the repository with the -l flag passed to `./run.sh`. The following are-->
+                    <!--the file formats produced by Caption Inspector. `<span class="tag">.CCD</span>`, `<span-->
+                    <!--class="tag">.INF</span>`,-->
+                    <!--`<span class="tag">.DBG</span>`, `<span class="tag">.608</span>`, `<span class="tag">. 708</span>`.-->
+                    <!--See-->
+                    <!--"Caption Inspector Artifacts".</p>-->
+                    <div class="callout-block callout-block-warning">
+                        <div class="content">
+                            <span class="callout-icon-holder mr-1"><i class="fas fa-bullhorn"></i></span>
+                            <h4 class="callout-title">Warning</h4>
+                            <p>No work has been done in those languages [Java/JNI, Golang/Cgo, etc], but if you do end up using it in a new language, <span class="bold">please consider submitting the results back to the repository.</span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="docs-section" id="section-7-0">
+                    <h2 class="section-heading"
+                        data-title="Artifacts and Files">Caption Inspector Artifacts (FILES)</h2>
+                    <p>There are several different types of artifacts that can be generated by Caption Inspector. They get output when an artifact directory
+                       gets specified as a command line argument to Caption Inspector.
+                    </p>
+                    <h3 id="section-7-1">File Types</h3>
+                    <table class="table software">
+                        <thead>
+                        <tr>
+                            <th>FILE TYPE</th>
+                            <th>DESCRIPTION</th>
+                        </tr>
+                        </thead>
+                        <tr>
+                            <td>
+                                <p>
+                                    <img alt="File Icon: CEA-608 Decode" border="0"
+                                         class="file-icon" data-toggle="lightbox" height="80"
+                                         id="CEA-608DecodeFile"
+                                         src="./assets/content-images/image003.png" width="80">
+                                </p>
+                            </td>
+                            <td>
+                                <h3 id="section-7-2" data-title="CEA-608 Decode File">
+                                    <a name="section-6-78">CEA-608 Decode File (</a>
+                                    <span class="file-ext">.608</span>)
+                                </h3>
+                                <p>Caption Inspector will output decoded CEA-608 as text with inline tags from the <span class="tag">
+                    608</span>(
+                                    <a href="https://en.wikipedia.org/wiki/EIA-608">https://en.wikipedia.org/wiki/EIA-608</a>
+                                   .
+                                </p>
+                                <p>Each Channel of <span
+                                        class="tag">608</span> captions that are found are written to their own file. Each file contains the channel number
+                                   appended to the end of the filename. <i>
+                        <span>This happens as a result of finding 'any' captions for a specific channel and does
+                              not necessarily indicate that a specific channel is a valid channel with
+                              captions.</span></i><span> </span><br> <br>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <img alt="File Icon: CEA-708 Decode" border="0"
+                                         data-toggle="lightbox" height="80" id="CEA-708DecodeFile"
+                                         src="./assets/content-images/image004.png" width="80">
+                                </p>
+                            </td>
+                            <td>
+                                <h3 id="section-7-3" data-title="CEA-708 Decode File">
+                                    <a name="section-7-3-1">CEA-708 Decode File (</a>
+                                    <span class="file-ext">.708</span>)
+                                </h3>
+                                <p>Caption Inspector will output decoded CEA-708 as text with inline tags from the 708
+                                    <a href="https://en.wikipedia.org/wiki/CEA-708">https://en.wikipedia.org/wiki/CEA-708</a>
+                                   .
+                                </p>
+                                <p>Similar to 608, each Service of 708 captions that are found are written in their own file, regardless of whether or not there
+                                   are full and valid captions associated with the specific service. <br> <br>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <img alt="File Icon: Closed Caption Descriptor"
+                                         border="0" data-toggle="lightbox"
+                                         height="81" id="ClosedCaptionDescriptorFile"
+                                         src="./assets/content-images/image005.png" width="81">
+                                </p>
+                            </td>
+                            <td>
+                                <h3 id="section-7-4" data-title="Descriptor File">
+                                    <a name="section-6-80">Closed Caption Descriptor File (</a>
+                                    <span class="file-ext">.ccd</span>)
+                                </h3>
+                                <p>Caption Inspector will output a single Closed Caption Descriptor File for each asset that it processes. The Closed Caption
+                                   Descriptor Files are intended to be annotated hex dumps of the closed captioning descriptors located on every frame of video
+                                   or every line of an MCC file.
+                                </p>
+                                <p>Unlike the other artifacts, the CCD files are decoded inline, all channels and services have been left "<span
+                                        class="bold">multiplexed</span>" together and have traceability back to the original/unmodified hex that was extracted
+                                   from the asset or caption file.
+                                </p>
+                                <p><span>The Closed Caption Descriptor File contains a decoded binary representation of Closed
+                         Captioning Data. </span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <img alt="File Icon: Media Info" border="0"
+                                         data-toggle="lightbox" height="81" id="MediaInfoFileIcon"
+                                         src="./assets/content-images/image006.png" width="81">
+                                </p>
+                            </td>
+                            <td>
+                                <h3 id="section-7-5" data-title="Media Info File">
+                                    <a name="section-7-5-1">Media Info File (</a>
+                                    <span class="file-ext">.inf</span>)
+                                </h3>
+                                <p>Caption Inspector runs <span
+                                        class="bold">Media Info</span> as part of its processing. This is used primarily to best determine whether an asset is a
+                                   Drop Frame asset or not. Additionally, <span class="bold">Media
+  Info</span> compiles an amount of information about the asset. This file is the output of that information<br> <br>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p data-toggle="lightbox">
+                                    <img alt="Debug File" border="0"
+                                         height="81" id="DebugFile"
+                                         src="./assets/content-images/image007.png" width="81">
+                                </p>
+                            </td>
+                            <td>
+                                <h3 id="section-7-6" data-title="Debug File">
+                                    <a name="section-7-6-1">Debug File (</a>
+                                    <span class="file-ext">.dbg</span>)
+                                </h3>
+                                <p>Caption Inspector has a logging mechanism that aggregates information, warnings, and errors related to the processing of the
+                                   asset. It logs warnings and errors both for its own internal operations, and also for where the captions it encounters differ
+                                   from the specs. <span class="bold">These
+  logs can be used to both debug problems with the Caption Inspector
+  Application and also with the captions in the asset.   </span></p>
+                            </td>
+                        </tr>
+                    </table>
+                    <h3 class="section-heading" id="section-7-7" alt="Caption Descriptor Details">Understanding Closed Caption Descriptor</h3>
+                    <h4 class="lite">Closed Caption Descriptor File (.ccd) </h4>
+                    <p>Caption Inspector will output a single Closed Caption Descriptor File for each asset that it processes. The Closed Caption Descriptor
+                       Files are intended to be annotated hex dumps of the closed captioning descriptors located on every frame of video or every line of an MCC
+                       file.
+                    </p>
+                    <p>Unlike the other artifacts, the CCD files are decoded inline, and all channels and services have been left "multiplexed" together and
+                       have traceability back to the original/unmodified hex that was extracted from the asset or caption file. The Closed Caption Descriptor
+                       File contains a decoded binary representation of Closed Captioning Data.
+                    </p>
+                    <h4 id="section-7-8" data-title="CCD Details">CCD Details</h4>
+                    <p>Each grouping of text immediately following a timestamp represents the Closed Captioning Data - `cc_data()` that would be associated with
+                       a frame of video, or a line from an MacCaption (MCC) file. Each "line" contains the same groups of elements: Timestamp, Hex Data, Decoded
+                       Data, Supplemental Decoded Data, and Text (if it exists in the line). These elements can describe both CEA-608 and CEA-708 data contained
+                       in the Closed Captioning Descriptors.
+                    </p>
+                    <div class="callout-block callout-block-info">
+                        <div class="content">
+                            <h4 class="callout-title"><span class="callout-icon-holder mr-1">
+		                                <i class="fas fa-info-circle"></i>
+		                            </span>Note </h4>
+                            <p>A multiplex or mux (called virtual sub-channel in the United States and Canada, and bouquet in France) is a grouping of program
+                               services as interleaved data packets for broadcast over a network or modulated multiplexed medium. The program services are split
+                               out at the receiving end.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="docs-section" id="section-8-0">
+                    <h2 class="section-heading" data-title="About Windows">About Closed Caption Windows</h2>
+                    <h3 id="section-8-1" data-title="Timestamps">Timestamp</h3>
+                    <p>On the leftmost portion of the document is the timestamp. Each Closed Caption Data (CCD) packet has a timestamp, which corresponds with the frame of the asset containing the CCD packet. For readability sake, the timestamp is only printed out when specific <a href="section-8-2" class="tag">Global Control Codes</a> are encountered. There are three types of timestamps: Frame Number, Drop Frame Number, and Millisecond. This refers to the last number, and the symbol that separates it from the second to last number.
+                    </p>
+                    <p class="bold x-large text-black mb-0 pb-0">There are three types of timestamps:</p>
+                    <ul class="mt-0">
+                        <li><span class="tag">Frame Number</span></li>
+                        <li><span class="tag">Drop Frame Number</span></li>
+                        <li><span class="tag">Millisecond</span></li>
+                    </ul>
+<pre class="copy"><code>
+<b>Drop Frame Number Timestamps format</b>
+`&lt;Hour&gt;:&lt;Minute&gt;:&lt;Second&gt;;&lt;Frame&gt;`
+
+<b>Frame Number Timestamps format</b>
+`&lt;Hour&gt;:&lt;Minute&gt;:&lt;Second&gt;:&lt;Frame&gt;`
+
+<b>Millisecond Timestamps format</b>
+`&lt;Hour&gt;:&lt;Minute&gt;:&lt;Second&gt;,&lt;Millisecond&gt;`
+ </code></pre>
+                    <p>The Frame Number vs. Drop Frame Number is differentiated by using either a colon `:` for Frame or a semi-colon`;` for Drop Frame.</p>
+                    <p>For a description of what Drop Frame is, and why we have it see:
+                        <a href="http://www.bodenzord.com/archives/79">http://www.bodenzord.com/archives/79</a>
+                    </p>
+                    <h3 id="section-8-2">Aggregated Text</h3>
+                    <p>If there is text detected in the line, it will be pulled together and gets labeled with the Channel or Service Number that it is
+                       associated with. This is done to easily be able to see what the text spells out.
+                    </p>
+                    <h3 id="section-8-3" data-title="Reading Output">The Basis for Reading Output - Hex Data</h3>
+                    The Hex Data representation of the Closed Captioning Construct is intended to be the most direct representation of the `cc_data()`
+                    structure, which is comprised of the following fields:
+<pre class="copy"><code>
+01. { cc_valid  }{cc_type}:{cc_data_1}{cc_data_2}
+02. { F | P | X  }{  S  | D }:
+</code></pre>
+                    <p>The `cc_valid` field determines whether the subsequent fields are to be considered valid and thus be interpreted. The value will either be `F` for Valid Line 21, `P` for Valid DTVCC, or `X` for Invalid.
+                    </p>
+                    <p>The `cc_type` field determines the type of data that will be in `cc_data_1` and `cc_data_2`. This field can have the following values:
+                    </p>
+<pre class="copy"><code>
+'1': Line 21 Field 1 Data,
+'2': Line 21 Field 2 Data,
+    'S': DTVCC Packet Data Start,
+    'D': DTVCC Packet Data.
+</code></pre>
+                    <p>The fields `cc_data_1` and `cc_data_2` are the actual two bytes of payload data, which are represented in hexadecimal.</p>
+                    
+                    <h3 id="section-8-4" data-title="Decoded Data">Decoded Data and Supplemental Decoded Data</h3>
+                    <p>Decoded Data and Supplemental Decoded Data are intended to be the inline decode of the corresponding Hex Data using the 608 and 708 Specs. The Decoded Data is a high level decode of the code referenced by the hex value, and the supplemental decoded data describes the flags and values referenced by the hex value.
+                    </p>
+                    <p><b>Supplemental decoded data</b> plays a larger role in 708 because more information is crammed into bit fields in the magic numbers.</p>
+                </section>
+                <section class="docs-section" id="section-9-0">
+                    <h2 class="section-heading">CEA-608</h2>
+                    <h3 id="section-9-1" data-title="NULL Data">NULL Data &nbsp;<span class="lite">(CEA-608)</span></h3>
+                    <p>CEA-608 tends to have its fill data be NULL Data. NULL Data is just `0x00` with a parity bit in the msb position. Since this is placed in
+                       specific to 608, it gets decoded to NULL (as opposed to 708 NULL Data, which is shown as a blank line).
+                    </p>
+                    <h3 id="section-9-2" data-title="Global Control Codes">Global Control Codes &nbsp;<span class="lite">(CEA-608)
+                    </span></h3>
+                    <p>There is not much decoding to do around Global Control Codes in CEA-608. Basically, it is just the Channel Number that gets decoded and
+                       added to the Decoded Data. The Supplemental Decoded Data field is basically used to try to spell out the control code as much as space
+                       permits, rather than using the code that is found in the Decoded Data.
+                    </p>
+                    
+<!--                    <div class="diagram" id="1_Caption_Windows" style="max-height: 56.25%">-->
+<!--                        <div class="graphic-caption">[ Caption Windows ] ( caption-windows.png )</div>-->
+<!--                        <img data-toggle="lightbox" src="./assets/content-images/caption-windows.png"-->
+<!--                                style="width:-->
+<!--                        100%" />-->
+<!--                        <div class="caption">Caption Windows</div>-->
+<!--                    </div>-->
+                    <blockquote class="blockquote-lite">
+                        <p>These commands apply to the <code>Window</code>, or the caption inside the <code>Current Window</code>.
+                        </p>
+                    </blockquote>
+                    
+                    <h3 id="section-9-4" data-title="Preamble Access Codes">Preamble Access Codes (PAC) &nbsp;<span
+                            class="lite">(CEA-608)</span></h3>
+                    <p>PACs come in two types, Address PACs which describe where the cursor should be located, and Style PACs which describe what style/color
+                       should be used when writing to the screen. The Decoded Data field denotes that the decoded code is a PAC, and which channel it is
+                       associated with. The Supplemental Decoded Data field spells out the Address and Style information of the PAC.
+                    </p>
+                    <h3 id="section-9-5" data-title="Mid Row Style Change Code">Mid Row Style Change Code &nbsp;<span
+                            class="lite">(CEA-608)</span></h3>
+                    <p>Midrow Style Changes come in two types, Foreground and Background Style Change. Additionally, the Foreground
+                    <p>MidRow Style Change can indicate that the text is Partially Transparent, and the Background Midrow Style Change can indicate that the
+                       text is underlined.
+                    </p>
+                    <div class="graphic-caption">[ 608 MidRow ] ( ccd608MidRowStyle.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd608MidRowStyle.png">
+                    <h3 id="section-9-6" data-title="Tab Control Code">Tab Control Code &nbsp;<span class="lite">(CEA-608)</span>
+                    </h3>
+                    <p>Tab Controls, in combination with an Address PAC can point the cursor to anywhere inside of the text window.</p>
+                </section>
+                <section class="docs-section" id="section-10-0">
+                    <h2 class="section-heading">CEA-708</h2>
+                    <h3 id="section-10-1">Packet Structure &nbsp;<span class="lite"></span></h3>
+                    <p>CEA-708 is able to support 64 services, rather than the 4 channels in 608, in part by defining a variable length packet structure and
+                       then associating each group of packets to a specific service.
+                    </p>
+                    <p>The packet structure is made up of a Packet Start followed by a number of Data Packets. Receiving another Packet Start ends the current
+                       packet and tells the closed captioning service to process all of the data that was in the previous packet structure.
+                    </p>
+                    <div class="callout-block callout-block-warning">
+                        <div class="content">
+                            <span class="callout-icon-holder mr-1"><i class="fas fa-bullhorn"></i></span>
+                            <h4 class="callout-title">Warning</h4>
+                            <p>THIS IS ONLY AN EXAMPLE. Its important to read warning messages when you see them, with the exception of this one because testing overlooked this warning.
+                               We figure its important that everyone has something to do...
+                            </p>
+                        </div>
+                    </div>
+                    <p>To make the start of the packet structure stick out in the decoded data, it has an arrow on the Packet Start: `<-`.</p>
+                    <div class="graphic-caption">[ 708 Packet Start ] ( ccd708PacketStart.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708PacketStart.png">
+                    <h3 id="section-10-2">Spurious Data &nbsp;<span class="lite">(CEA-708)</span>
+                    </h3>
+                    <p>When a byte is unexpected, it gets printed out in the below format. For this example, two unexpected 0 bytes were encountered.</p>
+                    <h3 id="section-10-3">Set Current Window &nbsp;<span
+                            class="lite">(CEA-708)</span></h3>
+                    <p>Set Current Window specifies the window to which all subsequent window style and pen commands are directed.</p>
+                    <div class="graphic-caption">[ 708 Set Current Window ] ( ccd708SetCurrentWindow.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708SetCurrentWindow.png">
+                    <h3 id="section-10-4">Define Window &nbsp;<span class="lite">(CEA-708)</span>
+                    </h3>
+                    <p>Define Window creates a window and initializes the window with the parameters listed in the command.</p>
+                    <h3 id="section-10-5">Display Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Display Windows causes the specified windows to be visible.</p>
+                    <h3 id="section-10-6">708 Display Window &nbsp;<span class="lite"></span></h3>
+                    <h3 id="section-10-7">Clear Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    Clear Windows removes any existing text from the specified windows in the window map and replaces the entire window with the window fill
+                    color.
+                    <div class="graphic-caption">[ 708 Clear Windows ] ( ccd708ClearWindow.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708ClearWindow.png">
+                    <h3 id="section-10-8">Delete Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Delete Windows removes all specified windows.</p>
+                    <div class="graphic-caption">[ 708 Delete Windows ] ( ccd708DeleteWindow.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708DeleteWindow.png">
+                     
+                    <h3 id="section-10-9">Hide Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Hide Windows causes the specified windows to be removed from the screen.</p>
+                    <div class="graphic-caption">[ 708 Hide Windows ] ( ccd708HideWindow.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708HideWindow.png">
+                    <h3 id="section-10-10" data-title="Toggle Windows">Toggle Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Toggle Windows causes all specified windows to toggle whether they are displayed or hidden.</p>
+                    <div class="graphic-caption">[ 708 Toggle Windows ] ( ccd708ToggleWindow.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708ToggleWindow.png">
+                    <h3 id="section-10-11" data-title="Set Window Attributes">Set Window Attributes &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Set Window Attributes assigns the specified style attributes to the current window.</p>
+                    <div class="graphic-caption">[ 708 Set Window Attributes ] ( ccd708SetWindowAttributes.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708SetWindowAttributes.png">
+                    <div class="callout-block callout-block-info">
+                        <div class="content">
+                            <h4 class="callout-title"><span class="callout-icon-holder mr-1">
+		                                <i class="fas fa-info-circle"></i>
+		                            </span>Note </h4>
+                            <p>You need to multiply the high bit (value above the 'H') by 4 and add it to the low bits (value above the 'L') to get the final
+                               code for the Border Type.
+                                <a href="#"></a>
+                            </p>
+                        </div>
+                    </div>
+                    <h3 id="section-10-12" data-title="Set Pen Attributes">Set Pen Attributes &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Set Pen Attributes assigns pen style attributes for the currently defined window. Text written to the current window will have the
+                       attributes specified by the most recent Set Pen Attributes command written to the window.
+                    </p>
+                    <div class="graphic-caption">[ 708 Set Pen Attributes ] ( ccd708SetPenAttributes.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708SetPenAttributes.png">
+                    <h3 id="section-10-13" data-title="Set Pen Color">Set Pen Color &nbsp;<span class="lite"></span></h3>
+                    <p>Set Pen Color assigns the pen color attributes for the current window. Text written to that window will have the color attributes
+                       specified by the most recent Set Pen Color command.
+                    </p>
+                    <div class="graphic-caption"> [ 708 Set Pen Color ] ( ccd708SetPenColor.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708SetPenColor.png">
+                    <h3 id="section-10-14" data-title="Set Pen Location">Set Pen Location &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Set Pen Location repositions the pen cursor for the current window, as specified by the current window ID.</p>
+                    <h3 id="section-10-15" data-title="Justification Rules">Justification Rules &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>When the window justification type is 'left' the next group of text written to the current window will start at the specified row and
+                       column, and justification will be ignored.
+                    </p>
+                    <p>When the window justification type is not left and the print direction is left-to-right or right-to-left, the column parameter shall be
+                       ignored.</p>
+                    
+                
+                    <h3 id="section-10-16" class="section-heading" data-title="Windows">Windows - CEA-708 </h3>
+                    <p>When the window justification type is not left and the print direction is top-to-bottom or bottom-to-top, the row parameter shall be
+                       ignored.
+                    </p>
+                    <p>When the window justification type is not left, text shall be formatted based upon the current window justification type.</p>
+                    <div class="graphic-caption">[ 708 Set Pen Location ] ( ccd708SetPenLocation.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708SetPenLocation.png">
+                    <h3 id="section-10-17" data-title="Delay">Delay &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Delay suspends interpretation of the command input buffer. Once the delay expires captioning resumes.</p>
+                    <div class="graphic-caption">[ 708 Delay ] ( ccd708Delay.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708Delay.png">
+                    <h3 id="section-10-18" data-title="Delay Cancel">Delay Cancel&nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Delay Cancel terminates an active Delay command and captioning resumes.</p>
+                    <div class="graphic-caption">[708 Delay Cancel ] ( ccd708DelayCancel.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708DelayCancel.png">
+                    <h3 id="section-10-19" data-title="Reset">Reset &nbsp;<span class="lite">(CEA-708)</span>
+                    </h3>
+                    <p>Reset command reinitializes the service for which it is received.</p>
+                    <div class="graphic-caption">[ 708 Reset ] ( ccd708Reset.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708Reset.png">
+                    <h3 id="section-10-20" data-title="Reserved">Reserved <span class="lite">(CEA-708)</span>
+                    </h3>
+                    <p>Reserved Codes are just that, Reserved Codes. They are not believed to be used.</p>
+                    <div class="graphic-caption">[ 708 Reserved ] ( ccd708Reserved.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708Reserved.png">
+                </section>
+                
+                <section class="docs-section" id="section-11-0">
+                    <h2 class="section-heading">Reference Tables</h2>
+                    <h3 id="section-11-1" data-title="Window Commands">Window Commands</h3>
+                    <table class="table table-striped software">
+                        <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Description</th>
+                            <th>Attributes</th>
+                            <th>Properties</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>CW0</td>
+                            <td>Current Window CW0, CW1, CW2, CW3, CW4, CW5, CW6, CW7; The "Current Window" sets the context to set attributes and properties
+                                for within.
+                            </td>
+                            <td>window: priority, anchor number, anchor vertical, anchor horizontal, row count, column count, locked, visible, centered, styleID
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>DF0</td>
+                            <td>Delete Window #: DW0, DW1, DW2, DW3, DW4, DW5, DW6, DW7; Clear the content in window, and Hide it.
+                            </td>
+                            <td>NA</td>
+                            <td>NA</td>
+                        </tr>
+                        <tr>
+                            <td>DLY</td>
+                            <td>Delay: Delay Cancel in tenths of seconds</td>
+                            <td>number: 0.1</td>
+                            <td>NA</td>
+                        </tr>
+                        <tr>
+                            <td>DLC</td>
+                            <td>Delay Cancel: Delay Cancel in tenths of seconds</td>
+                            <td>number</td>
+                            <td>NA</td>
+                        </tr>
+                        <tr>
+                            <td>DLW</td>
+                            <td>Delete Window: Delete (the Current) Window</td>
+                            <td>NA</td>
+                            <td>NA</td>
+                        </tr>
+                        <tr>
+                            <td>ETX</td>
+                            <td>EndOfText: End of Text for the captions. Captions can span unto 15 rows. ETX identifies the end of a given set of text. The next
+                                will reset and start a new set.
+                            </td>
+                            <td>NA</td>
+                            <td>NA</td>
+                        </tr>
+                        <tr>
+                            <td>HDW</td>
+                            <td>Hide Window: Hide (the Current) Window</td>
+                            <td>NA</td>
+                            <td>NA</td>
+                        </tr>
+                        <tr>
+                            <td>RST</td>
+                            <td>Reset Window: Reset (the Current) Window</td>
+                            <td>NA</td>
+                            <td>NA</td>
+                        </tr>
+                        <tr>
+                            <td>SPA</td>
+                            <td>Set Pen Attributes : (Within the context of the "Current Window") : (Font Attributes: size, underline, italic, script, bold,
+                                foreground color, foreground opacity, background color, background opacity, edge color, edge type. )
+                            </td>
+                            <td>font</td>
+                            <td>size, underline, italic, script, bold, foreground color, foreground opacity, background color, background opacity, edge color,
+                                edge type
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SPC</td>
+                            <td>Set Pen Color</td>
+                            <td>background, foreground, border, opacity</td>
+                            <td>Color: [white, black, green, blue, cyan, red, yellow, magenta]</td>
+                        </tr>
+                        <tr>
+                            <td>SPL</td>
+                            <td>Set Pen Location</td>
+                            <td>Row, Column</td>
+                            <td>Row: [0-15], Column: [0-32]</td>
+                        </tr>
+                        <tr>
+                            <td>SWA</td>
+                            <td>Set Window Attribute: Set Window Attributes such as justify, print direction, scroll direction, WW: word wrap, display effect,
+                                effect direction, effect rate, fill color, border color, border type, opacity
+                            </td>
+                            <td>PD: Print Direction, SD: Scroll Direction, JD: Jump Direction, LtoR: Left to Right, RtoL: Right to Left, WW: Word Wrap, Snap:
+                                1.0 seconds
+                            </td>
+                            <td>justify, print direction, scroll direction, word wrap, display effect, effect direction, effect rate, fill color, border color,
+                                border type, opacity
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TGW</td>
+                            <td>Toggle Window : Toggle (the Current) Window</td>
+                            <td>NA</td>
+                            <td>NA</td>
+                        </tr>
+                        </tbody>
+                    </table>
+    
+                    <h3 id="section-11-2" data-title="608/708 Codes">CEA-608/CEA-708 Codes</h3>
+                    <p>The Hex Data specifies the hexadecimal equivalents for Channels 1 through 4 found in the <span data-placement="top" data-toggle="tooltip" class="tooltip" title="SCC: Scenarist Closed Captions">SCC</span> file, using the standard ISO 8859-0
+                       Character Set. Decoded Data refers to Channel Number (1 - 4).
+                    </p>
+                    <table class="table table-striped software">
+                        <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{RCL}</td>
+                            <td>Resume Caption Loading</td>
+                            <td>Starts a pop-on caption. All following non-global codes and characters will be applied to the off-screen buffer until {EOC} is
+                                received.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{BS}</td>
+                            <td>Backspace</td>
+                            <td>Backspace Overwrites the last character.</td>
+                        </tr>
+                        <tr>
+                            <td>{AOF}</td>
+                            <td>Alarm Off</td>
+                            <td>This code is currently unused.</td>
+                        </tr>
+                        <tr>
+                            <td>{AON}</td>
+                            <td>Alarm On</td>
+                            <td>This code is currently unused.</td>
+                        </tr>
+                        <tr>
+                            <td>{DER}</td>
+                            <td>Delete to End of Row</td>
+                            <td>Delete current character and all that follow it on the row.</td>
+                        </tr>
+                        <tr>
+                            <td>{RU2}</td>
+                            <td>Roll-Up Captions Two Rows</td>
+                            <td>Starts a roll-up caption in rows 14 and 15, unless followed by a PAC and/or TO (which will establish the bottom row). All
+                                following codes and characters will be applied directly to the caption screen. This command also clears the screen and buffer of
+                                any pop-on or paint-on captions.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{RU3}</td>
+                            <td>Roll-Up Captions Three Rows</td>
+                            <td>Starts a roll-up caption in rows 13 and 15, unless followed by a PAC and/or TO (which will establish the bottom row). All
+                                following codes and characters will be applied directly to the caption screen. This command also clears the screen and buffer of
+                                any pop-on or paint-on captions.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{RU4}</td>
+                            <td>Roll-Up Captions Four Rows</td>
+                            <td>Starts a roll-up caption in rows 12 and 15, unless followed by a PAC and/or TO (which will establish the bottom row). All
+                                following codes and characters will be applied directly to the caption screen. This command also clears the screen and buffer of
+                                any pop-on or paint-on captions.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{FON}</td>
+                            <td>Flash On</td>
+                            <td>Flashes Captions on 0.25 seconds once per second.</td>
+                        </tr>
+                        <tr>
+                            <td>{RDC}</td>
+                            <td>Resume Direct Captioning</td>
+                            <td>Starts a paint-on caption. All following codes and characters will be applied directly to the caption screen.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{TR}</td>
+                            <td>Text Restart</td>
+                            <td>Starts a text message at the upper rightmost position and clears the text screen. All following codes and characters will be
+                                applied directly to the text screen, which by default has an opaque black background that blocks out the TV signal behind it.
+                                Positioning from that point is performed via the {BS}, {CR}, and PAC codes.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{RTD}</td>
+                            <td>Resume Text Display</td>
+                            <td>Switches to Text Mode to continue a text message begun with {TR}.</td>
+                        </tr>
+                        <tr>
+                            <td>{EDM}</td>
+                            <td>Erase Displayed Memory</td>
+                            <td>Clear the current screen of any displayed captions or text.</td>
+                        </tr>
+                        <tr>
+                            <td>{CR}</td>
+                            <td>Carriage Return</td>
+                            <td>For roll-up caption, move cursor to bottom-left position of caption and move all lines up (deleting top row once it scrolls
+                                above window). For Text mode, move down to first column of next row (scrolling everything up if this is the bottom row). Does
+                                nothing in paint-on or pop-on captions.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{ENM}</td>
+                            <td>Erase Non-Displayed Memory</td>
+                            <td>Clear the off-screen buffer (only affects pop-on captions).</td>
+                        </tr>
+                        <tr>
+                            <td>{EOC}</td>
+                            <td>End of Caption</td>
+                            <td>Swap off-screen buffer with caption screen.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    
+                </section>
+                <section class="docs-section" id="section-12-0">
+                    <h2 class="section-heading" data-title="Glossary Terms">Glossary of Terms</h2>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-0">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-0" aria-expanded="false" aria-controls="collapse-1"> Demultiplex (DEMUX) </a> </h4>
+                            </div>
+                            <div id="collapse-0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-0">
+                                <div class="panel-body bg-accordian">
+                                    <p>Multiplex is a system of transmitting several messages or signals simultaneously on the same circuit or channel, combining all streams into a shared resource. For Closed Captioning, this means that all of the closed captioning data is in a single resource, the video content.</p>
+                                    <p>Demultiplex (DEMUX) is the reverse of the multiplex (MUX), which is the process of separating these resources. This is a major part of what Caption Inspector is providing as a service.
+                                    </p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-1">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="false" aria-controls="collapse-1"> Section 508 </a> </h4>
+                            </div>
+                            <div id="collapse-1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-1">
+                                <div class="panel-body bg-accordian">
+                                    <p>Section 508 refers to accessibility law, which requires video broadcasts and many webcasts to be made accessible to the deaf and hard of hearing. Please see the <a href="http://www.section508.gov/" target="_blank">official Section 508 web site</a>&nbsp;for more details. Not directly related to&nbsp;CEA-608&nbsp;and CEA-708, which are technical standards.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-2">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2"> CEA-608 </a> </h4>
+                            </div>
+                            <div id="collapse-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2" style="height: 0px;">
+                                <div class="panel-body bg-accordian">
+                                    <p>CEA-608 refers to the technical standard for captioning&nbsp;standard-definition&nbsp;NTSC video. It is also commonly referred to as "Line 21&nbsp;closed captioning".</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-3">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3"> CEA-708 </a> </h4>
+                            </div>
+                            <div id="collapse-3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-3">
+                                <div class="panel-body bg-accordian">
+                                    <p>CEA-708 refers to the technical standards for captioning&nbsp;high-definition&nbsp;video. It is also commonly referred to as the&nbsp;VANC&nbsp;data or "Line 9&nbsp;closed captioning".</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-4">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4"> Active Format Description </a> </h4>
+                            </div>
+                            <div id="collapse-4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-4">
+                                <div class="panel-body bg-accordian">
+                                    <p>Active Format Description (AFD)is a standard for telling a receiving device how to best frame video. For example, without AFD, a 16:9 signal which contains a pillarboxed 4:3 video would then be letterboxed for display on a 4:3 TV, making a tiny image surrounded by black bars on all sides. With AFD, the TV knows that it can crop the video so that the actual picture fills the whole screen. For more information&nbsp;<a href="http://en.wikipedia.org/wiki/Active_Format_Description" target="_blank">click here</a>&nbsp;(Wikipedia).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-5">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5"> ATSC </a> </h4>
+                            </div>
+                            <div id="collapse-5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-5">
+                                <div class="panel-body bg-accordian">
+                                    <p>ATSC (Advanced Television Systems Committee) is the digital television (DTV) standard used by broadcasters for&nbsp;HDTV&nbsp;and the digital broadcast of&nbsp;SD&nbsp;in the United States and Canada. ATSC supports closed captioning (608&nbsp;and&nbsp;708) in the metadata of the video signal.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-6">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-6" aria-expanded="false" aria-controls="collapse-6"> Burn-in </a> </h4>
+                            </div>
+                            <div id="collapse-6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-6">
+                                <div class="panel-body bg-accordian">
+                                    <p>Burn-in refers to a graphic, text, or image that is superimposed on video, and thus becomes part of the video itself. Closed captions are not burned in, since they can be turned on and off, unlike&nbsp;open captions&nbsp;and many&nbsp;subtitles&nbsp;which cannot.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-7">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-7" aria-expanded="false" aria-controls="collapse-7"> .CAP </a> </h4>
+                            </div>
+                            <div id="collapse-7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-7">
+                                <div class="panel-body bg-accordian">
+                                    <p>A .cap file can refer to many different types of files, so you need to be careful when using them. Several formats of caption files have the .cap extension, including the popular Cheetah .cap format. A .cap file can also be a project file for CPC Caption maker (PC) which must be opened in&nbsp;CaptionMaker&nbsp;before exporting to another caption format.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-8">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-8" aria-expanded="false" aria-controls="collapse-8"> Capture Card </a> </h4>
+                            </div>
+                            <div id="collapse-8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-8">
+                                <div class="panel-body bg-accordian">
+                                    <p>A capture card is a piece of hardware for your computer that allows you to bring video into your computer for editing and output back to a physical format like tape. Many capture cards support closed captioning for HD and SD, including ones from&nbsp;<a href="http://www.matrox.com/video/en/home/" target="_blank">Matrox</a>,&nbsp;<a href="http://www.aja.com/" target="_blank">AJA</a>, and&nbsp;<a href="http://www.blackmagic-design.com/" target="_blank">Blackmagic.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-9">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-9" aria-expanded="false" aria-controls="collapse-1"> CaptionMaker </a> </h4>
+                            </div>
+                            <div id="collapse-9" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-9">
+                                <div class="panel-body bg-accordian">
+                                    <p>CaptionMaker is closed captioning software developed by CPC for the PC platform. CaptionMaker reads and writes all major captioning formats and supports many traditional workflows involving&nbsp;hardware encoders. In addition to broadcast SD video, CaptionMaker encodes captions for web formats like Quicktime, Flash, YouTube, and Windows Media, and also tapeless workflows like MPEG-2 Program Streams.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-10">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-10" aria-expanded="false" aria-controls="collapse-10"> Closed Captioning </a> </h4>
+                            </div>
+                            <div id="collapse-10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-10" style="height: 0px;">
+                                <div class="panel-body bg-accordian">
+                                    <p>Closed Captioning is text that appears over video that can be turned on an off using a&nbsp;decoder&nbsp;which is built into most consumer television sets and cable boxes. Closed Captions differ from&nbsp;subtitles&nbsp;in that they contain information about all audio, not just dialogue.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-11">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-11" aria-expanded="false" aria-controls="collapse-11"> Codec </a> </h4>
+                            </div>
+                            <div id="collapse-11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-11" style="height: 0px;">
+                                <div class="panel-body bg-accordian">
+                                    <p>Codec stands for "coder-decoder", it is a method of compressing video in order to strike a balance between file size and quality. Different codecs have different data rates, aspect ratios, and methods of closed captioning in order to achieve this balance. Some examples of codecs are DV,&nbsp;MPEG-2, WMV, H.264, Uncompressed, and ProRes. To watch a video, your computer needs the specific codec that video uses, otherwise it will not play. Not all codecs are available for all operating systems, and they may not be free to use.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-12">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-12" aria-expanded="false" aria-controls="collapse-12"> Container Format </a> </h4>
+                            </div>
+                            <div id="collapse-12" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-12" style="height: 0px;">
+                                <div class="panel-body bg-accordian">
+                                    <p>A container format is a way to encapsulate video so that it can be viewed in a video player, edited in an non-linear editor, or processed in some other way. Examples of container formats are Quicktime, AVI and MXF.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-13">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-13" aria-expanded="false" aria-controls="collapse-13"> Decoder </a> </h4>
+                            </div>
+                            <div id="collapse-13" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-13" style="height: 0px;">
+                                <div class="panel-body bg-accordian">
+                                    <p>A decoder is a device that makes enables closed captions to be turned on if they are present in the video signal, essentially turning closed captions into open captions. Typically a decoder is inside your TV or cable box and you can turn captions on using your remote or a setting in the menus. There are also hardware and software decoders available that allow you to preview captions on your computer or a master tape to ensure that they are present.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-14">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-14" aria-expanded="false" aria-controls="collapse-14"> Drift </a> </h4>
+                            </div>
+                            <div id="collapse-14" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-14">
+                                <div class="panel-body bg-accordian">
+                                    <p>"Drift" is a term used to describe a specific type of behavior of closed captions. It can either mean they are appearing progressively later than they should, or progressively earlier. Most often, this occurs slowly over the duration of a program, resulting in a discrepancy of over three seconds by the end of an hour. Drift is most often caused by a&nbsp;drop-frame&nbsp;/&nbsp;non-drop&nbsp;discrepancy.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-15">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-15" aria-expanded="false" aria-controls="collapse-15"> Drop-frame </a> </h4>
+                            </div>
+                            <div id="collapse-15" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-15">
+                                <div class="panel-body bg-accordian">
+                                    <p>Drop-frame timecode refers to a method of counting timecode in 29.97 fps video. It does not refer to actual frames of video being dropped that would affect video quality. Since 29.97 fps is not exactly 30 fps, when counting in drop-frame certain numbers in the timecode counter are skipped in order to ensure that the timecode will reflect the real-time length of the program.</p>
+                                    <p>The counterpart of drop-frame is non-drop&nbsp;which does not skip numbers when counting timecode. To prevent&nbsp;drift, it is important to timestamp in the correct mode (or convert your captions' timecode using CPC software) when closed captioning a 29.97 fps program.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-16">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-16" aria-expanded="false" aria-controls="collapse-16"> DTV </a> </h4>
+                            </div>
+                            <div id="collapse-16" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-16">
+                                <div class="panel-body bg-accordian">
+                                    <p>DTV stands for "digital television" and is a general term encompassing digital television around the world to distinguish is from analog television (such as&nbsp;NTSC). In the US the standard for DTV is&nbsp;ATSC.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-17">
+                                <h4 class="panel-title bold"> <a role="button" class="" data-toggle="collapse" data-parent="#accordion" href="#collapse-17" aria-expanded="false" aria-controls="collapse-17"> Elementary Stream </a> </h4>
+                            </div>
+                            <div id="collapse-17" class="panel-collapse in" role="tabpanel" aria-labelledby="heading-17" style="height: auto;">
+                                <div class="panel-body bg-accordian">
+                                    <p>A data stream that contains either video or audio data, but not both. Usually associated with MPEG video files and given the extension .m2v for video, or .m2a or .ac3 for audio. Elementary&nbsp;MPEG-2&nbsp;video streams can contain closed caption data. A Program or&nbsp;Transport&nbsp;stream can be demultiplexed, or separated, into its component Elementary streams.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-18">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-18" aria-expanded="false" aria-controls="collapse-18"> Encoder </a> </h4>
+                            </div>
+                            <div id="collapse-18" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-18">
+                                <div class="panel-body bg-accordian">
+                                    <p>The term "encoder" typically refers to a hardware encoder, but can refer to software encoders as well. A hardware encoder is usually a rack-mounted device that accepts a video signal, marries it to closed captions, and then outputs a new closed captioned video signal, usually resulting in generation loss.</p>
+                                    <p>A software encoder, such as&nbsp;MacCaption, can add captions to video without a hardware encoder. You can simply encode captions to video files already present on your computer, or to file formats that will add captions as you output from your NLE with no generation loss.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-19">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-19" aria-expanded="false" aria-controls="collapse-19"> High Definition (HD) </a> </h4>
+                            </div>
+                            <div id="collapse-19" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-19">
+                                <div class="panel-body bg-accordian">
+                                    <p>High Definition is a television standard with either 720 or 1080 lines in the video signal. Closed captioning for HD is sometimes called&nbsp;Line 9&nbsp;or&nbsp;VANC, and is codified under the&nbsp;708&nbsp;standard.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-20">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-20" aria-expanded="false" aria-controls="collapse-20"> Japanese Ruby Annotations </a> </h4>
+                            </div>
+                            <div id="collapse-20" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-20">
+                                <div class="panel-body bg-accordian">
+                                    <p>Ruby subtitle formatting is a popular style of formatting that allows viewers to see an annotated description of a word on screen. Typically, the annotation is located above the text and is shown in smaller text size. This formatting is compatible with subtitle burn-in exports such as "Combined Subtitles" and with TTML OTT formated files such as iTunes .iTT.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-21">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-21" aria-expanded="false" aria-controls="collapse-21"> Line 9 </a> </h4>
+                            </div>
+                            <div id="collapse-21" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-21">
+                                <div class="panel-body bg-accordian">
+                                    <p>Line 9 refers to the location of the&nbsp;VANC&nbsp;closed captioning data in an&nbsp;HD&nbsp;video signal. In the full raster, it appears it is the 9th line from the top of the frame.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-22">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-22" aria-expanded="false" aria-controls="collapse-22"> Line 21 </a> </h4>
+                            </div>
+                            <div id="collapse-22" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-22">
+                                <div class="panel-body bg-accordian">
+                                    <p>Line 21 refers to the location of the&nbsp;VBI&nbsp;closed captioning data in an&nbsp;NTSC 720x486 signal. It actually appears on lines 21 and 22 since line 22 is the second field of the closed captioning data.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-23">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-23" aria-expanded="false" aria-controls="collapse-23"> Live Captioning </a> </h4>
+                            </div>
+                            <div id="collapse-23" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-23">
+                                <div class="panel-body bg-accordian">
+                                    <p>Live captioning is captioning process used for live webcasts or broadcasts to add captions to video on the fly. It requires several important tools. The first is a source of transcription such as a stenographer or&nbsp;speech recognition&nbsp;software.</p>
+                                    <p>Please note, getting speech recognition software to usable levels of accuracy still requires an individual to operate it. That second item required for live captioning is a hardware&nbsp;encoder&nbsp;which will accept the video signal and the closed caption data and combine them for output. Last, you may need captioning software to tie these two things together (especially if you're using speech recognition software).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-24">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-24" aria-expanded="false" aria-controls="collapse-24"> Live Text Stream </a> </h4>
+                            </div>
+                            <div id="collapse-24" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-24">
+                                <div class="panel-body bg-accordian">
+                                    <p>A live captioning text stream is an output of a live caption text stream to a URL specified in the Live Text Stream Options dialog.  This a way to stream live captions to an HTML web page separate from the live video stream.</p>
+                                    <p>Live Text Stream can be used in a closed local area network web page or over the world wide internet.  Viewers can vide the live text stream on any web browser both on a personal computer or mobile phone.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-25">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-25" aria-expanded="false" aria-controls="collapse-25"> MacCaption </a> </h4>
+                            </div>
+                            <div id="collapse-25" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-25">
+                                <div class="panel-body bg-accordian">
+                                    <p>MacCaption is closed captioning software developed by CPC for the Mac platform. MacCaption reads and writes all major captioning formats and supports the latest closed captioning workflows for Final Cut Pro. In addition to broadcast HD and SD video, MacCaption encodes captions for web formats like Quicktime, Flash, YouTube, and Windows Media, and also tapeless workflows like MPEG-2 Transport Streams, DVCPRO HD and XDCAM.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-27">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-27" aria-expanded="false" aria-controls="collapse-27"> .MCC </a> </h4>
+                            </div>
+                            <div id="collapse-27" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-27" style="height: 0px;">
+                                <div class="panel-body bg-accordian">
+                                    <p>A .MCC is a MaCCaption closed captioning file, and the only file format that supports both 608 and 708 (SD&nbsp;and&nbsp;HD) closed captioning, unlike&nbsp;.SCC, which only can encode 608 (SD) closed captions. This comprehensive format is being used by several companies for integration in to their closed captioning workflows.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-28">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-28" aria-expanded="false" aria-controls="collapse-28"> MPEG-2 </a> </h4>
+                            </div>
+                            <div id="collapse-28" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-28">
+                                <div class="panel-body bg-accordian">
+                                    <p>MPEG-2 can refer to not only a video&nbsp;codec, but also a&nbsp;container format. MPEG-2 can come in three different file types,&nbsp;Elementary Streams,&nbsp;Program Streams&nbsp;and Transport Streams. MPEG-2 files are becoming a more common form of video delivery because it allows a broadcaster to put it directly on their server instead of ingesting from tape. MacCaption&nbsp;can add captions to all three forms of MPEG-2 files.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-29">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-29" aria-expanded="false" aria-controls="collapse-29"> Non-Drop </a> </h4>
+                            </div>
+                            <div id="collapse-29" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-29">
+                                <div class="panel-body bg-accordian">
+                                    <p>Non-Drop timecode refers to a method of counting timecode in 29.97 fps video. It does not refer to actual frames of video being dropped that would affect video quality. Since 29.97 fps is not exactly 30 fps, when counting in non-drop, the timecode will get progressively further and further behind "real time."</p>
+                                    <p>For instance, after 2000 frames a&nbsp;drop-frame&nbsp;counter will display 00:01:06:22, while a non-drop counter will display 00:01:06:20, but the content and real-time length of the video will be the same. The drop-frame counter is slightly ahead because it's goes straight from 00:00:59:29 to 00:01:00:02. To prevent&nbsp;drift, it is important to timestamp in the correct timecode mode (or convert your captions' timecode using CPC software) when closed captioning a 29.97 fps program.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-30">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-30" aria-expanded="false" aria-controls="collapse-30"> Non-linear Editor </a> </h4>
+                            </div>
+                            <div id="collapse-30" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-30">
+                                <div class="panel-body bg-accordian">
+                                    <p>A non-linear editor (NLE) is a piece of software that allows you to edit video by moving pieces of it around in a timeline with multiple layers of video. This is in contrast to linear editing, which forces you to add one piece of video after another to tape in a linear fashion. Many NLEs support closed captioning for HD, SD, or both. Examples of non-linear editors are&nbsp;AVID,&nbsp;<a href="http://www.apple.com/final-cut-pro/" target="_blank">Final Cut Pro</a>,&nbsp;<a href="http://www.adobe.com/products/premiere/" target="_blank">Premiere Pro</a>, and&nbsp;<a href="http://www.sonycreativesoftware.com/vegaspro" target="_blank">Sony Vegas</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-31">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-31" aria-expanded="false" aria-controls="collapse-31"> NTSC </a> </h4>
+                            </div>
+                            <div id="collapse-31" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-31">
+                                <div class="panel-body bg-accordian">
+                                    <p>NTSC (National Television Systems Committee) is the analog television standard for North America, Japan, and some other parts of the world. NTSC supports closed captioning (608&nbsp;only) on Line 21 of the video signal.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-33">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-33" aria-expanded="false" aria-controls="collapse-33"> OP-47 Teletext </a> </h4>
+                            </div>
+                            <div id="collapse-33" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-33">
+                                <div class="panel-body bg-accordian">
+                                    <p>OP-47 (Operational Practice number 47) is a solution for inserting a Teletext ancillary data channel into HD media. OP-47 was originally developed by Australian broadcasters and is now widely used. The data can be stored in the SMPTE 436M track of an MXF wrapper. OP-47 Teletext stores data in selectable pages within magazines (1-8). These can be selected by viewers using menu controls on their TV monitor. Typically, the subtitle data can be stored in magazine 8 page 01, or Teletext 801. Other samples may have Teletext 888, which is magazine 8 page 88. This is according to the SMPTE-RDD8 specification.</p>
+                                    <p>Teletext supports Latin, Hebrew, Arabic, Greek, and Cyrillic alphabet. However, it does not support Asian unicode characters such as Chinese and Japanese. CaptionMaker can only insert Latin alphabet Characters into OP-47.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-34">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-34" aria-expanded="false" aria-controls="collapse-34"> Open Captions </a> </h4>
+                            </div>
+                            <div id="collapse-34" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-34">
+                                <div class="panel-body bg-accordian">
+                                    <p>Open captions are captions that do not need to be turned on, they are always visible. This is opposed to closed captions which must be turned on with a decoder. Open captions are actually part of the image itself, this is also known as burned-in&nbsp;captions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-35">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-35" aria-expanded="false" aria-controls="collapse-35"> Paint-on </a> </h4>
+                            </div>
+                            <div id="collapse-35" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-35">
+                                <div class="panel-body bg-accordian">
+                                    <p>Paint-on captions appear on the screen from left to right, one character at a time. This mode of displaying captions is uncommon except as the first caption of many commercial spots to reduce lag.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-36">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-36" aria-expanded="false" aria-controls="collapse-36"> Pop-on </a> </h4>
+                            </div>
+                            <div id="collapse-36" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-36">
+                                <div class="panel-body bg-accordian">
+                                    <p>Pop-on captions appear on the screen one at a time, usually two or three lines at a once. This mode of displaying captions is typically used for pre-recorded television.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-37">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-37" aria-expanded="false" aria-controls="collapse-37"> Program Stream </a> </h4>
+                            </div>
+                            <div id="collapse-37" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-37">
+                                <div class="panel-body bg-accordian">
+                                    <p>Program Stream is a data stream that multiplexes, or combines, a single video and a single audio stream together. Usually given the extension .mpg, and used for files to be played on a PC, some DVD authoring systems, and some tapeless distribution.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-38">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-38" aria-expanded="false" aria-controls="collapse-38"> Roll-up </a> </h4>
+                            </div>
+                            <div id="collapse-38" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-38">
+                                <div class="panel-body bg-accordian">
+                                    <p>Roll-up captions appear from the bottom of the screen one line at a time, usually with only three lines visible at a time. This mode of displaying captions is typically used by&nbsp;live&nbsp;television like news broadcasts.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-39">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-39" aria-expanded="false" aria-controls="collapse-39"> .SCC file </a> </h4>
+                            </div>
+                            <div id="collapse-39" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-39">
+                                <div class="panel-body bg-accordian">
+                                    <p>SCC stands for "Scenarist Closed Caption", a file type developed by Sonic. SCC files have become a popular standard for many different applications of closed captions. Some programs that use .scc files are Sonic Scenarist, DVD Studio Pro, Final Cut Pro, and Compressor.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-40">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-41" aria-expanded="false" aria-controls="collapse-41"> Shadow Speaker </a> </h4>
+                            </div>
+                            <div id="collapse-41" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-41">
+                                <div class="panel-body bg-accordian">
+                                    <p>When using&nbsp;speech recognition&nbsp;software, a shadow speaker is a person who repeats everything said in a programs in to a microphone so that the speech recognition software only has to interpret that shadow speaker's voice and not the multiple voices in the program. After training the software (about 15 minutes), it can achieve accuracy rates up to 90-95% in a clean audio environment.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-42">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-42" aria-expanded="false" aria-controls="collapse-42"> Speech Recognition </a> </h4>
+                            </div>
+                            <div id="collapse-42" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-42">
+                                <div class="panel-body bg-accordian">
+                                    <p>Speech recognition software takes spoken word and translates it into text. State of the art speech recognition technology can only achieve 60-80% accuracy without the use of a&nbsp;shadow speaker. Software that uses a shadow speaker can achieve up to 90-95% accuracy, but is limited to recognizing one person's voice at a time and needs to be used in a clean audio environment.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-43">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-43" aria-expanded="false" aria-controls="collapse-43"> Standard Definition (SD) </a> </h4>
+                            </div>
+                            <div id="collapse-43" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-43">
+                                <div class="panel-body bg-accordian">
+                                    <p>Standard Definition is a television standard with (typically) 480 lines in the video signal (486 when&nbsp;NTSC). Closed captioning for SD sometimes called&nbsp;Line 21&nbsp;and is codified under the&nbsp;608&nbsp;standard.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-44">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-44" aria-expanded="false" aria-controls="collapse-44"> Stenographer </a> </h4>
+                            </div>
+                            <div id="collapse-44" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-44">
+                                <div class="panel-body bg-accordian">
+                                    <p>A stenographer is a person who can transcribe video from audio on the fly (like a court reporter). Stenographers can dial in to a hardware&nbsp;encoder&nbsp;remotely over a phone line so that closed captions can be added to a video signal for live broadcast. See also:&nbsp;Live Captioning.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-45">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-45" aria-expanded="false" aria-controls="collapse-45"> Subtitling </a> </h4>
+                            </div>
+                            <div id="collapse-45" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-45">
+                                <div class="panel-body bg-accordian">
+                                    <p>Subtitling is text that appears on screen that normally only gives information about dialogue that is spoken. With the exception of DVD and Blu-ray, subtitles cannot be turned off, but are&nbsp;burned into&nbsp;the image.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-46">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-46" aria-expanded="false" aria-controls="collapse-46"> Transport Stream </a> </h4>
+                            </div>
+                            <div id="collapse-46" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-46">
+                                <div class="panel-body bg-accordian">
+                                    <p>Transport Stream is a data stream that multiplexes, or combines, multiple video and audio streams together with other metadata. Usually given the extension .ts, .m2t, or .m2ts, and used for&nbsp;DTV broadcast, VOD, tapeless delivery, and other systems where multiple channels are mixed together.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-47">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-47" aria-expanded="false" aria-controls="collapse-47"> VANC </a> </h4>
+                            </div>
+                            <div id="collapse-47" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-47">
+                                <div class="panel-body bg-accordian">
+                                    <p>VANC stands for "Vertical ANCillary data space" and refers to the data stored on Line 9 &nbsp;in&nbsp; HD &nbsp;video (outside the display area) that holds the&nbsp;708 closed captioning data while it is going over an HD-SDI signal or on an HD tape format. VANC data appears on only the part of Line 9 towards the left, but VANC data can also carry different information, like V-chip data.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-48">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-48" aria-expanded="false" aria-controls="collapse-48"> VBI </a> </h4>
+                            </div>
+                            <div id="collapse-48" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-48">
+                                <div class="panel-body bg-accordian">
+                                    <p>VBI stands for "Vertical Blanking Interval" and is the time between the last line or field drawn in a video frame and the first line or field of the next frame. This is usually measured with lines, in&nbsp;NTSC there are 40 lines for VBI. Closed Captioning data for NTSC video is stored on&nbsp;Line 21&nbsp;of the VBI.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading-49">
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-49" aria-expanded="false" aria-controls="collapse-49"> Voice Recognition </a> </h4>
+                            </div>
+                            <div id="collapse-49" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-49">
+                                <div class="panel-body bg-accordian">
+                                    <p>See Speech Recognition.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+                <section class="docs-section" id="section-13-0">
+                    <h2 class="section-heading" data-title="Resources">Resources</h2>
+                    <div class="lighthouse" data-toggle="lightbox" >
+                        <img class="icon_profile"
+                             data-toggle="lightbox" src="./assets/brand/ci-icon-stamp-blue.png" />
+                        
+                        <img class="icon_profile"
+                             data-toggle="lightbox" src="./assets/brand/ci-icon-stamp-green.png" />
+                        <img class="icon_profile"
+                             data-toggle="lightbox" src="./assets/brand/ci-icon-stamp-salmon.png" />
+    
+                        <img class="icon_profile" src="./assets/brand/logo-duo.png" />
+                        
+                    </div>
+                </section>
+                <a class="btn to-top" href="./docs-page.html#section-1" title="Scroll to Top">TOP</a>
+            </article>
+            <footer class="footer">
+                <div class="container">
+                    <div class="section">
+                        <p class="legal text-justify">We are committed to open source software. We use it to build products, attract talent and evolve the technology we use to improve the customer experience. Beyond using open-source technologies to build our products, we contribute actively to a wide range of open-source and open-standards groups including the Linux Foundation, OpenStack Foundation, Apache Foundation, Cloud Foundry Foundation and Internet Engineering Task Force, to name just a few. We also encourage and support our software engineers in open-sourcing the projects they develop at Comcast.</p>
+                    </div>
+                </div>
+                <div class="footer-bottom text-center py-5">
+                    <ul class="social-list list-unstyled pb-5 mb-0">
+                        <li class="list-inline-item"  style="background-color:#f9f9fa">
+                            <nobr><a href="https://github.com/Comcast/caption-inspector" target="Comcast/caption-inspector" title="Caption Inspector (https://github.com/Comcast/caption-inspector)"><i
+                                    class="fab fa-github fa-fw" style="color:#5579D1"></i></a></nobr>
+                        </li>
+                        <li class="list-inline-item" style="background-color:#f9f9fa">
+                            <a href="https://comcast.github.io/" title="Comcast Open Source (https://comcast.github.io/)"><i class="fab fa-github fa-fw"
+                                                                                                                             style="color:#C7332C"></i> </a>
+                        </li>
+                        <!--            <li class="list-inline-item">-->
+                        <!--                <a href="#"><i class="fab fa-slack fa-fw"></i></a>-->
+                        <!--            </li>-->
+                    </ul>
+                    <!--/*
+                    Although modified, this template used http://themes.3rdwavemedia.com themes (Docs).
+                    This template is released under the Creative Commons Attribution 3.0 License.
+                    Please keep the attribution link below when using for your own project. Thank you for your support. :)
+                    If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+                    <small class="copyright" title="Designed with love by Comcast for Open Source Developers. (See https://github.comcast.io)"  style="color: #555; letter-spacing:1px;font-variant-caps: all-small-caps">Designed with <i class="fas fa-heart" style="color: #D70051;" title="LOVE"></i> by
+                        <a class="theme-link" href="https://github.comcast.io" target="_blank" title="https://github.comcast.io" style="color: #D70051;text-decoration: none;font-weight:700">Comcast</a> for <span  style="color: #5579D1;">Open-Source Developers</span>
+                    </small>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+<!-- Javascript -->
+<script src="./assets/js/jquery-3.4.1.min.js"></script>
+<script src="./assets/js/popper.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/highlight.min.js"></script>
+<script src="./assets/js/highlight-custom.js"></script>
+<script src="./assets/js/jquery.scrollTo.min.js"></script>
+<script src="./assets/js/ekko-lightbox.min.js"></script>
+<script src="./assets/js/docs.js"></script>
+</body>
+</html>
+
