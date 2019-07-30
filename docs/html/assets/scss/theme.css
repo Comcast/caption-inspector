@@ -9676,6 +9676,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #5d6778;
   padding-top: 100px;
+  font-style: normal !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -10387,6 +10388,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #5d6778;
   padding-top: 100px;
+  font-style: normal !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -10715,7 +10717,7 @@ a.theme-link:hover {
   margin-bottom: 5px;
 }
 .info-stack .card-header {
-  border-bottom-color: #edeff0;
+  border-bottom-color: #EDEFF0;
   background: transparent;
 }
 .info-stack .card-header button > .fa-stack > .fa-plus {
@@ -10758,12 +10760,10 @@ a.theme-link:hover {
   padding: 2px 7px;
   border-radius: 4px !important;
   color: #44484c;
-  border: 1px solid #eef1f3;
-  background-color: #fbfcfc;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: smaller;
-  letter-spacing: 1px;
-  line-height: 25px;
+  border: none;
+  -webkit-box-shadow: 0px 0px 5px rgba(85, 121, 210, 0.15) !important;
+  -moz-box-shadow: 0px 0px 5px rgba(85, 121, 210, 0.15) !important;
+  box-shadow: 0px 0px 5px rgba(85, 121, 210, 0.15) !important;
   cursor: pointer;
 }
 .tag:hover {
@@ -10868,14 +10868,6 @@ blockquote:hover, .blockquote:hover {
 }
 blockquote:hover p.reference, .blockquote:hover p.reference {
   background-color: #fbfcfc;
-}
-
-span.outline-indicator {
-  display: inline-block;
-  color: #868f96;
-  width: 40px;
-  float: right;
-  clear-after: both;
 }
 
 /*! Circle Menu */

@@ -14,15 +14,13 @@
     <meta content="Drew Ambrose" name="author">
     <link href="./favicon.ico" rel="shortcut icon">
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap"
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,600,700,800&display=swap"
           rel="stylesheet">
     <!-- FontAwesome JS-->
     <script defer src="./assets/fontawesome/js/all.min.js"></script>
     <!-- Plugins CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/solarized_light.min.css"
           rel="stylesheet">
-    <link href="http://design.comcast.com/css/standards.css" rel="stylesheet">
-    <link href="http://design.comcast.com/css/global.css" rel="stylesheet">
     <!-- Theme CSS -->
     <link href="./assets/css/styles.css" id="style" rel="stylesheet">
     <link href="./assets/scss/theme.css" id="theme-style" rel="stylesheet">
@@ -31,6 +29,7 @@
     </style>
 </head>
 <body class="docs-page">
+
 <header class="header fixed-top">
     <div class="branding docs-branding">
         <div class="container-fluid position-relative py-2">
@@ -82,30 +81,16 @@
             </div>
             <!--//docs-logo-wrapper-->
             <div class="docs-top-utilities d-flex justify-content-end align-items-center">
-<!--                <div class="top-search-box d-none d-lg-flex">-->
-<!--                    <form action="#" class="search-form" onsubmit="return false">-->
-<!--                        <input class="form-control search-input" id="searchField1" name="search"-->
-<!--                               placeholder="Search the docs..." type="text">-->
-<!--                        <button class="btn search-btn" onclick="searchDocs.search(this.form)" type="submit"-->
-<!--                                value="Search"><i-->
-<!--                                class="fas fa-search"></i>-->
-<!--                        </button>-->
-<!--                    </form>-->
-<!--                </div>-->
-                <!--<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">-->
-    
-<!--                <li class="list-inline-item">-->
-<!--                    <a href="https://github.com/Comcast" style="color:#C7332C; background-color: none"-->
-<!--                       target="Comcast/caption-inspector" data-title="Visit: Open Source Software at Comcast(https://comcast.github.io)">-->
-<!--                        <i class="fab fa-github fa-fw fa-lg" style="margin:2px 0px 8px 8px"></i>-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li class="list-inline-item">-->
-<!--                    <a href="https://github.com/Comcast/caption-inspector"-->
-<!--                       target="Comcast/caption-inspector" data-title="View the Caption Inpector Project">-->
-<!--                        <i class="fab fa-github fa-fw fa-lg" style="margin:2px 15px 8px 8px"></i>-->
-<!--                    </a>-->
-<!--                </li>-->
+                <div class="top-search-box d-none d-lg-flex" hidden>
+                    <form action="#" class="search-form" onsubmit="return false" hidden>
+                        <input class="form-control search-input" id="searchField1" name="search"
+                               placeholder="Search the docs..." type="text">
+                        <button class="btn search-btn" onclick="searchDocs.search(this.form)" type="submit"
+                                value="Search"><i
+                                class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
                 <a class="btn btn-primary btn-get-started d-none d-lg-flex" style="margin:0 0 10px 0;"
                    href="https://github.com/Comcast/caption-inspector/archive/master.zip"
                    title="Download th Caption Inpector project from GitHub (zip)">
@@ -114,11 +99,10 @@
                 </a>
             </div><!--//docs-top-utilities-->
         </div><!--//container-->
-    </div><!--//branding-->
-    
+    </div>
     <div class="desktop-search-results" hidden>
-        <h3>Search Results</h3>
-        <table class="table table-striped software">
+        <h3 hidden>Search Results</h3>
+        <table class="table table-striped software" hidden>
             <thead>
             <tr>
                 <th class="bold">RESULT</th>
@@ -140,6 +124,7 @@
         </table>
     </div>
 </header>
+
 <div class="docs-wrapper">
     <div class="docs-sidebar" id="docs-sidebar">
         <div class="logo-container">
@@ -211,15 +196,15 @@
                         <p class="section-intro">
                             Caption Inspector was created to be an open and accessible toolset used to decode and validate
                             <span data-placement="top" data-toggle="tooltip" class="tooltip" title="Closed captions were created for deaf or hard of hearing individuals to assist in comprehension. They can also be used as a tool by those learning to  read, learning to speak a non-native language, or in an environment where the audio is difficult to hear or is intentionally muted.">Closed Captions (CC)</span>
-                            content from a video assets or caption files.
+                            content from a video assets or caption file.
                         </p>
                         <p>Closed Captioning Quality is required in many industries, companies, and countries for the sake of accessibility. Caption Inspector provides the necessary service of validating Closed Captioned content, and is especially useful when sharing content between Content Providers and Distributors, who then in turn, make the content available to Consumers.
                         </p>
                         <table class="table table-striped software">
                             <thead>
                             <tr>
-                                <th>Software</th>
-                                <th>Caption Inspector</th>
+                                <th>Property</th>
+                                <th>Details</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -239,7 +224,7 @@
                             </tr>
                             <tr>
                                 <td>Build Status:</td>
-                                <td>1.0</td>
+                                <td>Success</td>
                             </tr>
                             <tr>
                                 <td>License:</td>
@@ -294,11 +279,11 @@
                     
                 </section>
                 <section class="docs-section" id="section-2-0">
-                    <h2 class="section-heading" data-data-title="Code Overview">Caption Inspector Overview</h2>
+                    <h2 class="section-heading" data-title="Code Overview">Caption Inspector Overview</h2>
                     <h4>Decoding and Examining the Closed Captioning</h4>
                     <p>Use Caption Inspector to validate video content adheres to expected Specifications, Compliance Policies and/or laws.</p>
                     <blockquote>
-                        <h3>Television Decoder Circuitry Act &nbsp; <span class="lite">&amp;</span></h3>
+                        <h3>Television Decoder Circuitry Act<span class="lite">&amp;</span></h3>
                         <h4>Communications and Video Accessibility Act</h4>
                         <hr>
                         <p>"Closed captioning has been provided on a voluntary basis by many movie producers, studios, and distributors for movie videos and
@@ -313,7 +298,7 @@
                            instrumental in drafting and getting CVAA passed." <br><span class="quoted bold"> - National Association of the Deaf</span>
                         </p>
                         <p class="reference">
-                            <i class="icon fas fa-stack"></i> <span class="stretched">REFERENCES:</span> <br>
+                            <i class="icon fas fa-info-circle"></i> <span class="block stretched mb-4">REFERENCES:</span>
                             <a class="reference-link" href="https://www.nad.org/resources/technology/captioning-for-access/when-is-captioning-required/">
                                 https://www.nad.org/resources/technology/captioning-for-access/when-is-captioning-required/
                             </a>
@@ -348,7 +333,7 @@
                     </ul>
                 </section>
                 <section class="docs-section" id="section-3-0">
-                    <h2 class="section-heading" data-data-title="Quality">
+                    <h2 class="section-heading" data-title="Expected Quality">
                         The Expected Quality of Captions </h2>
                     <p>Today, there is a gap in the process of Closed Caption Quality production caused by errors within the CC content. Prior to this software,
                        content delivered to Distributors could not be easily validated without going through (watching) all of the video content, frame by
@@ -359,7 +344,7 @@
                        or the Distributor, each video can now be validated by each party in a relatively short period of time. Thus, Content Providers can be
                        certain of what they deliver, and Distributors do not have to accept faulty content, and be at risk of providing a low-quality product.
                     </p>
-                    <h3 id="section-3-1" data-data-title="Industry Guidelines">Industry Accepted Guidelines</h3>
+                    <h3 id="section-3-1" data-title="Industry Guidelines">Industry Accepted Guidelines</h3>
                     <p>The following are the accepted industry guidelines and best practices for quality: (https://dcmp.org)
                     <ol class="guidelines">
                         <li>
@@ -777,12 +762,12 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                     <h3 id="section-8-1" data-title="Timestamps">Timestamp</h3>
                     <p>On the leftmost portion of the document is the timestamp. Each Closed Caption Data (CCD) packet has a timestamp, which corresponds with the frame of the asset containing the CCD packet. For readability sake, the timestamp is only printed out when specific <a href="section-8-2" class="tag">Global Control Codes</a> are encountered. There are three types of timestamps: Frame Number, Drop Frame Number, and Millisecond. This refers to the last number, and the symbol that separates it from the second to last number.
                     </p>
-                    <p><b>There are three types of timestamps:</b></p>
-                    <ol>
+                    <p class="bold x-large text-black mb-0 pb-0">There are three types of timestamps:</p>
+                    <ul class="mt-0">
                         <li><span class="tag">Frame Number</span></li>
                         <li><span class="tag">Drop Frame Number</span></li>
                         <li><span class="tag">Millisecond</span></li>
-                    </ol>
+                    </ul>
 <pre class="copy"><code>
 <b>Drop Frame Number Timestamps format</b>
 `&lt;Hour&gt;:&lt;Minute&gt;:&lt;Second&gt;;&lt;Frame&gt;`

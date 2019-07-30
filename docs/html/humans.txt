@@ -1,0 +1,21 @@
+/* TEAM */
+
+	Core Developer: Rob Taylor
+	From: Denver, Colorado, USA
+
+	Supporting Developer: Phil Batey
+	From: Denver, Colorado, USA
+
+	Branding Support: Drew Ambrose
+	From: Denver, Colorado, USA
+
+
+/* THANKS */
+
+	Open Source Developers: You know who you are!
+	From: Everywhere!
+
+/* SITE */
+	Last update: 2019/07/30
+	Language: English
+	Doctype: HTML5

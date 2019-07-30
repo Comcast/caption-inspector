@@ -3,199 +3,194 @@
 
 
 .h-card, .vcard {
-  padding: 15px 25px;
-  border-radius: 8px !important;
-  color: white;
-  border: 1px solid $swatch-color-3;
-  background-color: $swatch-color-2;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.35px;
-  line-height: 25px;
-  font-weight: 300;
-  &:hover {
-    cursor: pointer;
-    background-color: $color-blue;
-    border: 1px solid $swatch-color-3;
-  }
+    padding          : 15px 25px;
+    border-radius    : 8px !important;
+    color            : white;
+    border           : 1px solid $swatch-color-3;
+    background-color : $swatch-color-2;
+    font-family      : "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size        : 13px;
+    letter-spacing   : 0.35px;
+    line-height      : 25px;
+    font-weight      : 300;
+    &:hover {
+        cursor           : pointer;
+        background-color : $color-blue;
+        border           : 1px solid $swatch-color-3;
+    }
 }
 .info-stack {
-  max-width: 90%;
-  margin: 50px auto;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  border-radius: 4px !important;
-  h2, h3, h4, h5 {
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-  .card-header {
-    border-bottom-color: #edeff0;
-    background: transparent;
-    button {
-      >.fa-stack {
-        > .fa-plus {
-          display: none;
-        }
-        > .fa-minus {
-          display: block;
-        }
-      }
-      &.collapsed {
-        >.fa-stack {
-          >.fa-plus{ display: block;}
-          >.fa-minus{ display: none;}
-        }
-      }
+    max-width     : 90%;
+    margin        : 50px auto;
+    box-shadow    : 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius : 4px !important;
+    h2, h3, h4, h5 {
+        margin-top    : 5px;
+        margin-bottom : 5px;
     }
-  }
-  .fa-stack {
-    font-size: 18px;
-  }
-  .btn {
-    width: 100%;
-    font-weight: bold;
-    color: $color-blue;
-    padding: 0;
-  }
-  .btn-link {
-    &:hover{text-decoration: none;}
-    &:focus{text-decoration: none;}
-  }
-  li+li {
-    margin-top: 10px;
-  }
+    .card-header {
+        border-bottom-color : #EDEFF0;
+        background          : transparent;
+        button {
+            > .fa-stack {
+                > .fa-plus {
+                    display : none;
+                }
+                > .fa-minus {
+                    display : block;
+                }
+            }
+            &.collapsed {
+                > .fa-stack {
+                    > .fa-plus { display : block;}
+                    > .fa-minus { display : none;}
+                }
+            }
+        }
+    }
+    .fa-stack {
+        font-size : 18px;
+    }
+    .btn {
+        width       : 100%;
+        font-weight : bold;
+        color       : $color-blue;
+        padding     : 0;
+    }
+    .btn-link {
+        &:hover {text-decoration : none;}
+        &:focus {text-decoration : none;}
+    }
+    li + li {
+        margin-top : 10px;
+    }
 }
 .info-stack .card,
 .info-stack .card:last-child .card-header {
-  border: none !important;
+    border : none !important;
 }
 
 .tag {
-  padding: 2px 7px;
-  border-radius: 4px !important;
-  color: $color-cool-grey-12;
-  border: 1px solid $color-cool-grey-3;
-  background-color: $color-cool-grey-1;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: smaller;
-  letter-spacing: 1px;
-  line-height: 25px;
-  //font-weight: 300;
-  cursor: pointer;
-  &:hover {
-    color: $color-blue;
-    //border: 1px solid $swatch-color-3;
-  }
+    padding            : 2px 7px;
+    border-radius      : 4px !important;
+    color              : $color-cool-grey-12;
+    border             : none;
+    -webkit-box-shadow : 0px 0px 5px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.15) !important;
+    -moz-box-shadow    : 0px 0px 5px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.15) !important;
+    box-shadow         : 0px 0px 5px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.15) !important;
+    //font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    //font-size: smaller;
+    //letter-spacing: 1px;
+    //line-height: 25px;
+    //font-weight: 300;
+    cursor             : pointer;
+    &:hover {
+        color : $color-blue;
+    }
 }
 
 blockquote, .blockquote {
-  color: $color-blue;
-  *{
-    color: $color-blue;
-  }
-  position                : relative !important;
-  border-radius           : 8px 8px 8px 8px !important;
-  width                   : 100% !important;
-  border-top              : 12px solid $color-blue;
-  border-bottom           : 4px solid $color-blue;
-  -webkit-font-smoothing  : antialiased;
-  -moz-osx-font-smoothing : grayscale;
-  display                 : block !important;
-  margin                  : 60px 0px !important;
-  padding                 : 60px 60px !important;
-  -webkit-box-shadow      : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.2) !important;
-  -moz-box-shadow         : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.2) !important;
-  box-shadow              : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.2) !important;
-  -webkit-transition      : all 1s ease-out;
-  -moz-transition         : all 1s ease-out;
-  -o-transition           : all 1s ease-out;
-  transition              : all 1s ease-out;
-  &.blockquote-lite {
-    border-radius           : 6px 6px 6px 6px !important;
-    background-color        : $color-cool-grey-1 !important;
-    border-top              : 4px solid $color-cool-grey-8 !important;
-    border-bottom           : 4px solid $color-cool-grey-8 !important;
-    margin                  : 20px 0px !important;
-    padding                 : 20px 20px !important;
-  }
-  h3 {
-    font-size   : 35px !important;
-    line-height : 35px !important;
-    font-weight : 900 !important;
-    color       : $color-blue;
-  }
-  h4 {
-    font-size   : 22px !important;
-    line-height : 22px !important;
-    font-weight : 200 !important;
-    color       : $color-cool-grey-9;
-  }
-  .quoted {
-    display : block !important;
-    margin  : 20px 0 30px 0 !important;
-  }
-  i.icon.fas {
-    display   : block !important;
-    position  : absolute !important;
-    top       : 12px !important;
-    left      : 12px !important;
-    width     : 32px !important;
-    height    : 32px;
-    font-size : 30px !important;
-
-  }
-  > p {
-    text-align : justify !important;
-    margin     : 40px 0;
-  }
-  p.reference {
-    position         : relative;
+    color                   : $color-blue;
+    * {
+        color : $color-blue;
+    }
+    position                : relative !important;
+    border-radius           : 8px 8px 8px 8px !important;
+    width                   : 100% !important;
+    border-top              : 12px solid $color-blue;
+    border-bottom           : 4px solid $color-blue;
+    -webkit-font-smoothing  : antialiased;
+    -moz-osx-font-smoothing : grayscale;
+    display                 : block !important;
+    margin                  : 60px 0px !important;
+    padding                 : 60px 60px !important;
+    -webkit-box-shadow      : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.2) !important;
+    -moz-box-shadow         : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.2) !important;
+    box-shadow              : 0px 10px 30px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.2) !important;
+    -webkit-transition      : all 1s ease-out;
+    -moz-transition         : all 1s ease-out;
+    -o-transition           : all 1s ease-out;
+    transition              : all 1s ease-out;
+    &.blockquote-lite {
+        border-radius    : 6px 6px 6px 6px !important;
+        background-color : $color-cool-grey-1 !important;
+        border-top       : 4px solid $color-cool-grey-8 !important;
+        border-bottom    : 4px solid $color-cool-grey-8 !important;
+        margin           : 20px 0px !important;
+        padding          : 20px 20px !important;
+    }
+    h3 {
+        font-size   : 35px !important;
+        line-height : 35px !important;
+        font-weight : 900 !important;
+        color       : $color-blue;
+    }
+    h4 {
+        font-size   : 22px !important;
+        line-height : 22px !important;
+        font-weight : 200 !important;
+        color       : $color-cool-grey-9;
+    }
+    .quoted {
+        display : block !important;
+        margin  : 20px 0 30px 0 !important;
+    }
     i.icon.fas {
-      display   : block !important;
-      position  : absolute !important;
-      top       : 12px !important;
-      left      : -25px !important;
-      width     : 32px !important;
-      height    : 32px;
-      font-size : 20px !important;
+        display   : block !important;
+        position  : absolute !important;
+        top       : 12px !important;
+        left      : 12px !important;
+        width     : 32px !important;
+        height    : 32px;
+        font-size : 30px !important;
 
     }
-    border-radius    : 5px;
-    font-size        : 13px !important;
-    line-height      : 15px !important;
-    font-weight      : 600 !important;
-    color            : $color-cool-grey-12;
-    background-color : $color-cool-grey-1;
-    border           : 2px solid $color-cool-grey-3;
-    border-left      : 45px solid $color-cool-grey-6;
-    padding          : 10px 15px;
-    margin           : 0 0 20px 0;
-    a.reference-link {
-      border-radius : 4px;
-      margin        : 0;
-      padding       : 5px 0;
-      font-size     : 12px !important;
-      color         : $color-cool-grey-12;
-      font-weight   : 300 !important;
-      display       : block !important;
+    > p {
+        text-align : justify !important;
+        margin     : 40px 0;
     }
-  }
-  &:hover {
-    -webkit-box-shadow : 0px 20px 80px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.45) !important;
-    -moz-box-shadow    : 0px 20px 80px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.45) !important;
-    box-shadow         : 0px 20px 80px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.45) !important;
     p.reference {
+        position         : relative;
+        i.icon.fas {
+            display   : block !important;
+            position  : absolute !important;
+            top       : 12px !important;
+            left      : -25px !important;
+            width     : 32px !important;
+            height    : 32px;
+            font-size : 20px !important;
 
-      background-color : $color-cool-grey-1;
+        }
+        border-radius    : 5px;
+        font-size        : 13px !important;
+        line-height      : 15px !important;
+        font-weight      : 600 !important;
+        color            : $color-cool-grey-12;
+        background-color : $color-cool-grey-1;
+        border           : 2px solid $color-cool-grey-3;
+        border-left      : 45px solid $color-cool-grey-6;
+        padding          : 10px 15px;
+        margin           : 0 0 20px 0;
+        a.reference-link {
+            border-radius : 4px;
+            margin        : 0;
+            padding       : 5px 0;
+            font-size     : 12px !important;
+            color         : $color-cool-grey-12;
+            font-weight   : 300 !important;
+            display       : block !important;
+        }
     }
-  }
+    &:hover {
+        -webkit-box-shadow : 0px 20px 80px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.45) !important;
+        -moz-box-shadow    : 0px 20px 80px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.45) !important;
+        box-shadow         : 0px 20px 80px rgba(red($color-blue), green($color-blue), blue($color-blue), 0.45) !important;
+        p.reference {
+
+            background-color : $color-cool-grey-1;
+        }
+    }
 
 }
 
-span.outline-indicator {
-  display: inline-block;
-  color : $color-cool-grey-10;
-  width:40px;
-  float:right;
-  clear-after: both;
-}
+

@@ -24,14 +24,14 @@ $color-blue
     transition         : all $count ease-out;
 }
 @mixin blue-shadow($depth: 20px, $alpha: 0.1) {
-    -webkit-box-shadow : 0px 10px $depth rgba(red($color-blue), green($color-blue), blue($color-blue), $alpha) !important;
-    -moz-box-shadow    : 0px 10px $depth rgba(red($color-blue), green($color-blue), blue($color-blue), $alpha) !important;
-    box-shadow         : 0px 10px $depth rgba(red($color-blue), green($color-blue), blue($color-blue), $alpha) !important;
+    -webkit-box-shadow : 0px $depth/2 $depth rgba(red($color-blue), green($color-blue), blue($color-blue), $alpha) !important;
+    -moz-box-shadow    : 0px $depth/2 $depth rgba(red($color-blue), green($color-blue), blue($color-blue), $alpha) !important;
+    box-shadow         : 0px $depth/2 $depth rgba(red($color-blue), green($color-blue), blue($color-blue), $alpha) !important;
 }
-@mixin square($size: 60px, $max-size: $size){
-    width :  $size !important;
-    height : $size !important;
-    max-width :  $max-size !important;
+@mixin square($size: 60px, $max-size: $size) {
+    width      : $size !important;
+    height     : $size !important;
+    max-width  : $max-size !important;
     max-height : $max-size !important;
 }
 .trans {
@@ -40,32 +40,40 @@ $color-blue
 .block {
     display : block !important;
 }
-img.icon_profile{
-    display: inline-block;
-    width: 100%;
-    max-width: 100px;
-    height: auto;
-    padding: 0.25rem;
-    &.left{
-        margin:0px 20px 20px 0;
+img.icon_profile {
+    display   : inline-block;
+    width     : 100%;
+    max-width : 100px;
+    height    : auto;
+    padding   : 0.25rem;
+    &.left {
+        margin : 0px 20px 20px 0;
     }
-    &.center{
-        margin:0 auto;
+    &.center {
+        margin : 0 auto;
     }
-    &.right{
-        margin:0px 0 20px 20px;
+    &.right {
+        margin : 0px 0 20px 20px;
     }
+}
+span.block {
+    display : block;
+}
+.tooltip {
+    color:$color-blue;
+    cursor : pointer;
+    text-decoration: underline dotted $color-xfinity-pumkin;
 }
 body {
     .container {
         @media print {
-            margin:50px 0 !important;
-            width:100% !important;
+            margin : 50px 0 !important;
+            width  : 100% !important;
         }
     }
     header.header {
         @media print {
-            display:none!important;
+            display : none !important;
         }
         @include trans(1s);
         height : 80px !important;
@@ -123,28 +131,26 @@ body {
     .docs-wrapper {
         > .docs-sidebar {
             @media print {
-                display:none!important;
+                display : none !important;
             }
-            width:350px !important;
+            width      : 300px !important;
             margin-top : 2px;
             padding    : 0px;
             @include trans(0.3s);
             background : rgb(53, 76, 130);
             background : linear-gradient(0deg, rgba(53, 76, 130, 1) 0%, rgba(85, 121, 210, 1) 33%, rgba(150, 161, 255, 1) 100%);
             .top-search-box {
-                margin-top : 20px;
+                //margin-top : 20px;
+                display : none;
             }
         }
         nav.docs-nav.navbar {
-
             margin-top       : 10px;
             padding-top      : 50px;
             @media (min-width : 769px) {
                 padding-top : 20px;
                 margin-top  : 50px;
             }
-
-
             background-color : $color-cool-grey-1;
             @include trans(0.3s);
             ul.section-items > li {
@@ -159,6 +165,7 @@ body {
                 }
                 @include trans(0.6s);
                 &:hover {
+                    color : $color-blue;
                     //border-top : 1px solid white;
                 }
             }
@@ -171,13 +178,13 @@ body {
 
     article {
         @media print {
-            width:100% !important;
+            width : 100% !important;
         }
         margin-bottom : 100px;
         &.docs-article {
 
             @media print {
-                width:100% !important;
+                width : 100% !important;
             }
             .docs-time {
                 color          : $color-cool-grey-10 !important;
@@ -225,7 +232,7 @@ body {
             section.docs-section {
 
                 @media print {
-                    width:100% !important;
+                    width : 100% !important;
                 }
                 h2.section-heading {
                     font-weight   : 900;
@@ -280,12 +287,12 @@ body {
                     margin                  : 60px 0px;
                     padding                 : 60px 60px;
                     &.blockquote-lite {
-                        border-radius           : 6px 6px 6px 6px !important;
-                        background-color        : $color-cool-grey-1 !important;
-                        border-top              : 4px solid $color-cool-grey-8 !important;
-                        border-bottom           : 4px solid $color-cool-grey-8 !important;
-                        margin                  : 15px 0px !important;
-                        padding                 : 10px 20px !important;
+                        border-radius    : 6px 6px 6px 6px !important;
+                        background-color : $color-cool-grey-1 !important;
+                        border-top       : 4px solid $color-cool-grey-8 !important;
+                        border-bottom    : 4px solid $color-cool-grey-8 !important;
+                        margin           : 15px 0px !important;
+                        padding          : 10px 20px !important;
                     }
                     @include blue-shadow();
                     @include trans(1s);
@@ -320,94 +327,130 @@ body {
                         margin     : 40px 0;
                     }
                     p.reference {
-                        position         : relative;
-                        i.icon.fas {
+                        position         : relative !important;
+                        border-radius    : 6px;
+                        border           : 4px solid $color-cool-grey-6;
+                        border-left      : 50px solid $color-cool-grey-6;
+
+                        font-size        : 16px !important;
+                        line-height      : 17px !important;
+                        font-weight      : 700 !important;
+                        color            : $color-cool-grey-12;
+
+                        background-color : $color-cool-grey-1;
+                        height           : auto !important;
+                        padding          : 25px 15px 0 15px !important;
+                        margin           : 22px 0 0 0 !important;
+                        @include trans(.6s);
+                        i.icon, svg.icon {
+                            @include trans(.7s);
+                            @include square(28px);
                             display   : block !important;
                             position  : absolute !important;
-                            top       : 12px !important;
-                            left      : -25px !important;
-                            width     : 32px !important;
-                            height    : 32px;
+                            top       : 18px !important;
+                            left      : -38px !important;
                             font-size : 20px !important;
-
+                            color     : $color-cool-grey-1;
+                            fill      : $color-cool-grey-1;
+                            > * {
+                                color : $color-cool-grey-1;
+                                fill  : $color-cool-grey-1;
+                            }
                         }
-                        border-radius    : 5px;
-                        font-size        : 13px !important;
-                        line-height      : 15px !important;
-                        font-weight      : 600 !important;
-                        color            : $color-cool-grey-12;
-                        background-color : $color-cool-grey-1;
-                        border           : 2px solid $color-cool-grey-3;
-                        border-left      : 45px solid $color-cool-grey-6;
-                        padding          : 10px 15px;
-                        margin           : 0 0 20px 0;
-                        a.reference-link {
-                            border-radius : 4px;
-                            margin        : 0;
-                            padding       : 5px 0;
-                            font-size     : 12px !important;
-                            color         : $color-cool-grey-12;
-                            font-weight   : 300 !important;
-                            display       : block !important;
+                        a, a.reference-link {
+                            @include trans(.6s);
+                            display         : none !important;
+                            border-radius   : 5px !important;
+                            margin          : 5px -5px;
+                            padding         : 10px 5px;
+                            font-size       : 14px !important;
+                            color           : $color-blue;
+                            font-weight     : 600 !important;
+                            text-decoration : none !important;
+                            &:hover {
+                                @include blue-shadow(5px, .2);
+                                text-decoration  : none !important;
+                                color            : white !important;
+                                background-color : $color-blue !important;
+
+                            }
+                        }
+                        &:hover {
+                            border-color      : $color-blue !important;
+                            border-left-color : $color-blue !important;
+                            padding-bottom    : 20px !important;
+                            color             : black;
+                            background-color  : $color-cool-grey-3;
+                            a.reference-link {
+                                display : block !important;
+                            }
+                            i.icon, svg.icon {
+                                color : white;
+                                fill  : white;
+                                > * {
+                                    color : white;
+                                    fill  : white;
+                                }
+                            }
                         }
                     }
                     &:hover {
                         @include blue-shadow(80px, 0.45);
                         p.reference {
 
-                            background-color : $color-cool-grey-1;
+                            background-color : $color-cool-grey-2;
                         }
                     }
 
                 }
 
                 .panel-group {
-                    margin-top:65px;
-                    border-radius: 4px !important;
-                    font-size: small;
+                    margin-top    : 65px;
+                    border-radius : 4px !important;
+                    font-size     : small;
                     .panel {
-                        margin-top:35px;
-                        border-radius: 4px !important;
+                        margin-top    : 35px;
+                        border-radius : 4px !important;
                         @include blue-shadow();
                         @include trans(.3s);
-                        margin                  : 10px 0px !important;
-                        &.panel-default{}
-                        .panel-heading{
+                        margin        : 10px 0px !important;
+                        &.panel-default {}
+                        .panel-heading {
                             @include trans(.3s);
-                            border-radius: 4px !important;
+                            border-radius    : 4px !important;
 
-                            background-color: $color-blue;
-                            text-decoration: none !important;
-                            color:white;
-                            &:hover{
-                                background-color: lighten($color-blue, 10%);
+                            background-color : $color-blue;
+                            text-decoration  : none !important;
+                            color            : white;
+                            &:hover {
+                                background-color : lighten($color-blue, 10%);
                             }
-                            a{
-                                text-decoration: none !important;
-                                color:$color-cool-grey-10;
-                                &:hover{
-                                    text-decoration: none !important;
+                            a {
+                                text-decoration : none !important;
+                                color           : $color-cool-grey-10;
+                                &:hover {
+                                    text-decoration : none !important;
                                 }
                             }
-                            h4.panel-title{
-                                font-weight:400;
-                                font-size:18px!important;
-                                border-radius: 4px !important;
-                                padding:10px;
-                                color:white;
-                                a{
-                                    text-decoration: none !important;
-                                    color:white;
-                                    display: block;
-                                    &:hover{
-                                        text-decoration: none !important;
+                            h4.panel-title {
+                                font-weight   : 400;
+                                font-size     : 18px !important;
+                                border-radius : 4px !important;
+                                padding       : 10px;
+                                color         : white;
+                                a {
+                                    text-decoration : none !important;
+                                    color           : white;
+                                    display         : block;
+                                    &:hover {
+                                        text-decoration : none !important;
                                     }
                                 }
                             }
                         }
                         .panel-body {
-                            &.bg-accordian{}
-                            padding                 : 10px 20px !important;
+                            &.bg-accordian {}
+                            padding : 10px 20px !important;
                         }
                     }
                 }
@@ -422,7 +465,7 @@ body {
     }
     .to-top {
         @media print {
-            display:none!important;
+            display : none !important;
         }
         display            : block !important;
         position           : fixed !important;
@@ -483,6 +526,18 @@ b, .bold {
 .small {
     font-size : small;
 }
+.text-black {
+    color:black !important;
+}
+.x-large {
+    font-size : x-large !important;
+}
+.larger {
+    font-size : larger !important;
+}
+.large {
+    font-size : large !important;
+}
 .reference {
     color     : $color-cool-grey-6;
     font-size : smaller;
@@ -521,11 +576,11 @@ span.language {
     -webkit-box-shadow : none !important;
     -moz-box-shadow    : none !important;
     box-shadow         : none !important;
-    background     : transparent !important;
-    padding-bottom : 0 !important;
-    border: none !important;
+    background         : transparent !important;
+    padding-bottom     : 0 !important;
+    border             : none !important;
     @include square(80px);
-    display: inline-block !important;
+    display            : inline-block !important;
     svg#CaptionInspectorCircle {
         @include square(58px);
         margin : 0 0 0 0;
@@ -579,11 +634,11 @@ span.language {
 }
 .logo-container {
     //border-radius:200px;
-    display: none !important;
+    display        : none !important;
     @include blue-shadow(30px, 0.45);
     background     : rgb(53, 76, 130);
     padding-bottom : 30px;
-    border-bottom: 2px solid rgb(85, 121, 210) !important;
+    border-bottom  : 2px solid rgb(85, 121, 210) !important;
     background     : linear-gradient(180deg, rgba(53, 76, 130, 1) 0%, rgba(85, 121, 210, 1) 33%, rgba(150, 161, 255, 1) 100%);
     > svg#CaptionInspectorCircle {
         margin : 40px 40px 0px 40px;
@@ -673,9 +728,16 @@ div.outline-indicator {
     top        : 5px !important;
     right      : 0 !important;
 }
+span.outline-indicator {
+    display: inline-block;
+    color : $color-cool-grey-10;
+    width:40px;
+    float:right;
+    clear-after: both;
+}
 .docs-nav {
     &.navbar {
-        width:400px;
+        width : 400px;
     }
     position : relative !important;
     a.nav-link {
@@ -770,10 +832,10 @@ td h1, td h2, td h3, td h4, td h5 {
     vertical-align : top;
     border-top     : none !important;
     border-bottom  : none !important;
-    text-align: left !important;
+    text-align     : left !important;
 }
 table {
-    text-align: left !important;
+    text-align          : left !important;
     border-collapse     : collapse !important;
     border              : none !important;
     border-style        : none !important;
@@ -802,7 +864,7 @@ table {
     border-image-repeat : none !important;
 
     th, td {
-        text-align: left !important;
+        text-align    : left !important;
         border-top    : none !important;
         border-bottom : none !important;
     }
@@ -820,7 +882,7 @@ table {
     margin-top          : 75px;
     margin-bottom       : 75px !important;
     &.software, &.file-types {
-        text-align: left !important;
+        text-align            : left !important;
         border-collapse       : collapse !important;
         border-right          : 8px !important;
         -moz-border-radius    : 8px !important;
@@ -839,9 +901,9 @@ table {
     }
     tr {
         > td {
-            text-align: left !important;
+            text-align  : left !important;
             padding-top : 15px;
-            margin-top : 1px;
+            margin-top  : 1px;
         }
     }
     &.file-types {

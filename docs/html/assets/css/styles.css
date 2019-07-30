@@ -43,6 +43,16 @@ img.icon_profile.right {
   margin: 0px 0 20px 20px;
 }
 
+span.block {
+  display: block;
+}
+
+.tooltip {
+  color: #5579D2;
+  cursor: pointer;
+  text-decoration: underline dotted #ffa700;
+}
+
 @media print {
   body .container {
     margin: 50px 0 !important;
@@ -86,9 +96,9 @@ body header.header.fixed-top {
   box-shadow: 0px 10px 20px rgba(85, 121, 210, 0.1) !important;
 }
 body header.header.fixed-top:hover {
-  -webkit-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
-  -moz-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
-  box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
+  -webkit-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
+  -moz-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
+  box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
 }
 @media (max-width: 768px) {
   body header.header.fixed-top:hover {
@@ -108,7 +118,7 @@ body header.header.fixed-top:hover > div.desktop-search-results {
   }
 }
 body .docs-wrapper > .docs-sidebar {
-  width: 350px !important;
+  width: 300px !important;
   margin-top: 2px;
   padding: 0px;
   -webkit-transition: all 0.3s ease-out;
@@ -124,7 +134,7 @@ body .docs-wrapper > .docs-sidebar {
   }
 }
 body .docs-wrapper > .docs-sidebar .top-search-box {
-  margin-top: 20px;
+  display: none;
 }
 body .docs-wrapper nav.docs-nav.navbar {
   margin-top: 10px;
@@ -157,6 +167,9 @@ body .docs-wrapper nav.docs-nav.navbar ul.section-items > li a:hover {
   color: #5579D2;
 }
 body .docs-wrapper nav.docs-nav.navbar ul.section-items > li a:hover * {
+  color: #5579D2;
+}
+body .docs-wrapper nav.docs-nav.navbar ul.section-items > li:hover {
   color: #5579D2;
 }
 body .docs-wrapper nav.docs-nav.navbar:hover {
@@ -323,43 +336,91 @@ body article.docs-article section.docs-section blockquote > p, body article.docs
   margin: 40px 0;
 }
 body article.docs-article section.docs-section blockquote p.reference, body article.docs-article section.docs-section .blockquote p.reference {
-  position: relative;
-  border-radius: 5px;
-  font-size: 13px !important;
-  line-height: 15px !important;
-  font-weight: 600 !important;
+  position: relative !important;
+  border-radius: 6px;
+  border: 4px solid #dde2e6;
+  border-left: 50px solid #dde2e6;
+  font-size: 16px !important;
+  line-height: 17px !important;
+  font-weight: 700 !important;
   color: #44484c;
   background-color: #fbfcfc;
-  border: 2px solid #eef1f3;
-  border-left: 45px solid #dde2e6;
-  padding: 10px 15px;
-  margin: 0 0 20px 0;
+  height: auto !important;
+  padding: 25px 15px 0 15px !important;
+  margin: 22px 0 0 0 !important;
+  -webkit-transition: all 0.6s ease-out;
+  -moz-transition: all 0.6s ease-out;
+  -o-transition: all 0.6s ease-out;
+  transition: all 0.6s ease-out;
 }
-body article.docs-article section.docs-section blockquote p.reference i.icon.fas, body article.docs-article section.docs-section .blockquote p.reference i.icon.fas {
+body article.docs-article section.docs-section blockquote p.reference i.icon, body article.docs-article section.docs-section blockquote p.reference svg.icon, body article.docs-article section.docs-section .blockquote p.reference i.icon, body article.docs-article section.docs-section .blockquote p.reference svg.icon {
+  -webkit-transition: all 0.7s ease-out;
+  -moz-transition: all 0.7s ease-out;
+  -o-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
+  width: 28px !important;
+  height: 28px !important;
+  max-width: 28px !important;
+  max-height: 28px !important;
   display: block !important;
   position: absolute !important;
-  top: 12px !important;
-  left: -25px !important;
-  width: 32px !important;
-  height: 32px;
+  top: 18px !important;
+  left: -38px !important;
   font-size: 20px !important;
+  color: #fbfcfc;
+  fill: #fbfcfc;
 }
-body article.docs-article section.docs-section blockquote p.reference a.reference-link, body article.docs-article section.docs-section .blockquote p.reference a.reference-link {
-  border-radius: 4px;
-  margin: 0;
-  padding: 5px 0;
-  font-size: 12px !important;
-  color: #44484c;
-  font-weight: 300 !important;
+body article.docs-article section.docs-section blockquote p.reference i.icon > *, body article.docs-article section.docs-section blockquote p.reference svg.icon > *, body article.docs-article section.docs-section .blockquote p.reference i.icon > *, body article.docs-article section.docs-section .blockquote p.reference svg.icon > * {
+  color: #fbfcfc;
+  fill: #fbfcfc;
+}
+body article.docs-article section.docs-section blockquote p.reference a, body article.docs-article section.docs-section blockquote p.reference a.reference-link, body article.docs-article section.docs-section .blockquote p.reference a, body article.docs-article section.docs-section .blockquote p.reference a.reference-link {
+  -webkit-transition: all 0.6s ease-out;
+  -moz-transition: all 0.6s ease-out;
+  -o-transition: all 0.6s ease-out;
+  transition: all 0.6s ease-out;
+  display: none !important;
+  border-radius: 5px !important;
+  margin: 5px -5px;
+  padding: 10px 5px;
+  font-size: 14px !important;
+  color: #5579D2;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+body article.docs-article section.docs-section blockquote p.reference a:hover, body article.docs-article section.docs-section blockquote p.reference a.reference-link:hover, body article.docs-article section.docs-section .blockquote p.reference a:hover, body article.docs-article section.docs-section .blockquote p.reference a.reference-link:hover {
+  -webkit-box-shadow: 0px 2.5px 5px rgba(85, 121, 210, 0.2) !important;
+  -moz-box-shadow: 0px 2.5px 5px rgba(85, 121, 210, 0.2) !important;
+  box-shadow: 0px 2.5px 5px rgba(85, 121, 210, 0.2) !important;
+  text-decoration: none !important;
+  color: white !important;
+  background-color: #5579D2 !important;
+}
+body article.docs-article section.docs-section blockquote p.reference:hover, body article.docs-article section.docs-section .blockquote p.reference:hover {
+  border-color: #5579D2 !important;
+  border-left-color: #5579D2 !important;
+  padding-bottom: 20px !important;
+  color: black;
+  background-color: #eef1f3;
+}
+body article.docs-article section.docs-section blockquote p.reference:hover a.reference-link, body article.docs-article section.docs-section .blockquote p.reference:hover a.reference-link {
   display: block !important;
 }
+body article.docs-article section.docs-section blockquote p.reference:hover i.icon, body article.docs-article section.docs-section blockquote p.reference:hover svg.icon, body article.docs-article section.docs-section .blockquote p.reference:hover i.icon, body article.docs-article section.docs-section .blockquote p.reference:hover svg.icon {
+  color: white;
+  fill: white;
+}
+body article.docs-article section.docs-section blockquote p.reference:hover i.icon > *, body article.docs-article section.docs-section blockquote p.reference:hover svg.icon > *, body article.docs-article section.docs-section .blockquote p.reference:hover i.icon > *, body article.docs-article section.docs-section .blockquote p.reference:hover svg.icon > * {
+  color: white;
+  fill: white;
+}
 body article.docs-article section.docs-section blockquote:hover, body article.docs-article section.docs-section .blockquote:hover {
-  -webkit-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
-  -moz-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
-  box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
+  -webkit-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
+  -moz-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
+  box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
 }
 body article.docs-article section.docs-section blockquote:hover p.reference, body article.docs-article section.docs-section .blockquote:hover p.reference {
-  background-color: #fbfcfc;
+  background-color: #f2f4f5;
 }
 body article.docs-article section.docs-section .panel-group {
   margin-top: 65px;
@@ -497,6 +558,22 @@ b, .bold {
   font-size: small;
 }
 
+.text-black {
+  color: black !important;
+}
+
+.x-large {
+  font-size: x-large !important;
+}
+
+.larger {
+  font-size: larger !important;
+}
+
+.large {
+  font-size: large !important;
+}
+
 .reference {
   color: #dde2e6;
   font-size: smaller;
@@ -567,9 +644,9 @@ span.language {
   transition: all 1s ease-out;
 }
 .site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo circle.circle-background {
-  -webkit-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.75) !important;
-  -moz-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.75) !important;
-  box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.75) !important;
+  -webkit-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.75) !important;
+  -moz-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.75) !important;
+  box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.75) !important;
   fill: rgba(255, 255, 255, 0.75);
   stroke: rgba(255, 255, 255, 0.95);
   stroke-width: 2%;
@@ -597,9 +674,9 @@ span.language {
   transition: all 0.5s ease-out;
 }
 .site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo:hover circle.circle-background {
-  -webkit-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
-  -moz-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
-  box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
+  -webkit-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
+  -moz-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
+  box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
   fill: #FFFFFD !important;
   stroke: #ffae14;
   stroke-width: 3%;
@@ -616,9 +693,9 @@ span.language {
 
 .logo-container {
   display: none !important;
-  -webkit-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.45) !important;
-  -moz-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.45) !important;
-  box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.45) !important;
+  -webkit-box-shadow: 0px 15px 30px rgba(85, 121, 210, 0.45) !important;
+  -moz-box-shadow: 0px 15px 30px rgba(85, 121, 210, 0.45) !important;
+  box-shadow: 0px 15px 30px rgba(85, 121, 210, 0.45) !important;
   background: #354c82;
   padding-bottom: 30px;
   border-bottom: 2px solid #5579d2 !important;
@@ -634,9 +711,9 @@ span.language {
   transition: all 1s ease-out;
 }
 .logo-container > svg#CaptionInspectorCircle g.caption-inspector-logo circle.circle-background {
-  -webkit-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.75) !important;
-  -moz-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.75) !important;
-  box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.75) !important;
+  -webkit-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.75) !important;
+  -moz-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.75) !important;
+  box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.75) !important;
   fill: rgba(255, 255, 255, 0.75);
   stroke: rgba(255, 255, 255, 0.95);
   stroke-width: 2%;
@@ -664,9 +741,9 @@ span.language {
   transition: all 0.5s ease-out;
 }
 .logo-container > svg#CaptionInspectorCircle g.caption-inspector-logo:hover circle.circle-background {
-  -webkit-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
-  -moz-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
-  box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
+  -webkit-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
+  -moz-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
+  box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
   fill: #FFFFFD !important;
   stroke: #ffae14;
   stroke-width: 3%;
@@ -727,6 +804,14 @@ div.outline-indicator {
   position: absolute !important;
   top: 5px !important;
   right: 0 !important;
+}
+
+span.outline-indicator {
+  display: inline-block;
+  color: #868f96;
+  width: 40px;
+  float: right;
+  clear-after: both;
 }
 
 .docs-nav {
@@ -863,9 +948,9 @@ table {
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  -webkit-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
-  -moz-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
-  box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
+  -webkit-box-shadow: 0px 15px 30px rgba(85, 121, 210, 0.1) !important;
+  -moz-box-shadow: 0px 15px 30px rgba(85, 121, 210, 0.1) !important;
+  box-shadow: 0px 15px 30px rgba(85, 121, 210, 0.1) !important;
   margin-top: 75px;
   margin-bottom: 75px !important;
 }
@@ -881,9 +966,9 @@ table tr:last-child td:last-child {
   border-bottom-right-radius: 8px !important;
 }
 table:hover {
-  -webkit-box-shadow: 0px 10px 60px rgba(85, 121, 210, 0.3) !important;
-  -moz-box-shadow: 0px 10px 60px rgba(85, 121, 210, 0.3) !important;
-  box-shadow: 0px 10px 60px rgba(85, 121, 210, 0.3) !important;
+  -webkit-box-shadow: 0px 30px 60px rgba(85, 121, 210, 0.3) !important;
+  -moz-box-shadow: 0px 30px 60px rgba(85, 121, 210, 0.3) !important;
+  box-shadow: 0px 30px 60px rgba(85, 121, 210, 0.3) !important;
 }
 table.software, table.file-types {
   text-align: left !important;
@@ -958,9 +1043,9 @@ img.caption-inspector-logo {
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  -webkit-box-shadow: 0px 10px 60px rgba(85, 121, 210, 0.3) !important;
-  -moz-box-shadow: 0px 10px 60px rgba(85, 121, 210, 0.3) !important;
-  box-shadow: 0px 10px 60px rgba(85, 121, 210, 0.3) !important;
+  -webkit-box-shadow: 0px 30px 60px rgba(85, 121, 210, 0.3) !important;
+  -moz-box-shadow: 0px 30px 60px rgba(85, 121, 210, 0.3) !important;
+  box-shadow: 0px 30px 60px rgba(85, 121, 210, 0.3) !important;
   color: white !important;
   border-radius: 8px !important;
   border-left-width: 60px !important;
@@ -1123,9 +1208,9 @@ img.caption-inspector-logo {
   color: #FFFFFF !important;
 }
 .info-card .front:hover, .info-card .back:hover {
-  -webkit-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.5) !important;
-  -moz-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.5) !important;
-  box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.5) !important;
+  -webkit-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.5) !important;
+  -moz-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.5) !important;
+  box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.5) !important;
 }
 .info-card .front {
   text-align: center;
@@ -1169,15 +1254,15 @@ pre {
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  -webkit-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
-  -moz-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
-  box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.1) !important;
+  -webkit-box-shadow: 0px 15px 30px rgba(85, 121, 210, 0.1) !important;
+  -moz-box-shadow: 0px 15px 30px rgba(85, 121, 210, 0.1) !important;
+  box-shadow: 0px 15px 30px rgba(85, 121, 210, 0.1) !important;
 }
 pre:hover {
   border: 4px solid #5579D2;
-  -webkit-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
-  -moz-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
-  box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
+  -webkit-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
+  -moz-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
+  box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
 }
 
 code {

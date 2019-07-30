@@ -22,7 +22,7 @@ const PAGE_URL = (() => {
   return url;
 })();
 const sectionHeaders =
-  '<li class="nav-item section-title">' +
+  '<li class="nav-item section-title" onclick="location.hash=\'{{SECTION}}\'">' +
   '<a class="nav-link scrollto" href="${PAGE_URL}#{{SECTION}}">' +
   '	<span class="theme-icon-holder mr-2">' +
   '		<i class="fas fa-{{ICON}}"></i></span>' +
@@ -31,7 +31,7 @@ const sectionHeaders =
   "</li>";
 
 const navigationTemplate =
-  '<li class="nav-item ">' +
+  '<li class="nav-item " onclick="location.hash=\'{{SECTION}}\'">' +
   '  <a class="nav-link scrollto" href="${PAGE_URL}#{{SECTION}}">' +
   '    <div class="outline-indicator">{{ID}}</div>' +
   "    <span>{{LABEL}}</span>" +
@@ -78,7 +78,7 @@ class BuildNav {
       .replace(/-/g, ".");
     return sectionString;
   }
-  static formatLabel(label, maxLength = 18) {
+  static formatLabel(label, maxLength = 20) {
     if (!label) {
       console.warn("Null Value: BuildNav.formatLabel( label < NULL VALUE )");
       return "";
@@ -92,7 +92,9 @@ class BuildNav {
   static getLabel(element, maxLength = 18) {
     // Prefer title over text.
     let label = $(element).attr("alt") || $(element).attr("data-title") || $(element).attr("data-menu") || $(element).attr("title") || $(element).text();
+    if(!label || label === ""){
     
+    }
     
     return BuildNav.formatLabel(label, maxLength);
   }
@@ -174,7 +176,7 @@ class BuildNav {
       console.warn(er);
     }
     // console.log(BuildNav.HTML_ARRAY.join(""));
-    console.log("ROOT", ROOT);
+    // console.log("ROOT", ROOT);
     $("#documentation-outline").html(BuildNav.HTML_ARRAY.join("") || "");
     if (callback) {
       callback();
