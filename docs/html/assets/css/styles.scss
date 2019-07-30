@@ -28,6 +28,12 @@ $color-blue
     -moz-box-shadow    : 0px 10px $depth rgba(red($color-blue), green($color-blue), blue($color-blue), $alpha) !important;
     box-shadow         : 0px 10px $depth rgba(red($color-blue), green($color-blue), blue($color-blue), $alpha) !important;
 }
+@mixin square($size: 60px, $max-size: $size){
+    width :  $size !important;
+    height : $size !important;
+    max-width :  $max-size !important;
+    max-height : $max-size !important;
+}
 .trans {
     @include trans(1.75s);
 }
@@ -509,14 +515,77 @@ span.language {
         margin    : 15px 0.25% !important;
     }
 }
+
+
+.site-logo > .logo-container {
+    -webkit-box-shadow : none !important;
+    -moz-box-shadow    : none !important;
+    box-shadow         : none !important;
+    background     : transparent !important;
+    padding-bottom : 0 !important;
+    border: none !important;
+    @include square(80px);
+    display: inline-block !important;
+    svg#CaptionInspectorCircle {
+        @include square(58px);
+        margin : 0 0 0 0;
+        g.caption-inspector-logo {
+            @include trans(1s);
+            circle.circle-background {
+                @include blue-shadow(80px, 0.75);
+                fill         : rgba(255, 255, 255, 0.75);
+                stroke       : rgba(255, 255, 255, 0.95);
+                stroke-width : 2%;
+                @include trans(0.5s);
+            }
+            path.eye-glass {
+                fill               : rgba(255, 255, 255, 0.55);
+                opacity            : 0.20;
+                -webkit-transition : all 2s ease-out;
+                -moz-transition    : all 2s ease-out;
+                -o-transition      : all 2s ease-out;
+                transition         : all 2s ease-out;
+            }
+            path.inspector-face {
+                fill         : $color-cool-grey-12;
+                fill         : rgb(60, 60, 70);
+                stroke       : rgba(100, 100, 140, 0.2);
+                stroke-width : 2%;
+                @include trans(0.5s);
+            }
+            &:hover {
+                circle.circle-background {
+                    @include blue-shadow(80px, 0.45);
+                    fill         : #FFFFFD !important;
+                    stroke       : lighten($color-xfinity-pumkin, 4%);
+                    stroke-width : 3%;
+                }
+                path.inspector-face {
+                    fill         : $color-xfinity-pumkin !important;
+
+                    stroke       : darken($color-xfinity-pumkin, 2%);
+                    stroke-width : 1%;
+                }
+                path.eye-glass {
+                    opacity : 0.85;
+                    size    : 50%;
+                }
+            }
+        }
+    }
+    //@media (max-width : 768px) {
+    //    display : none !important;
+    //}
+}
 .logo-container {
     //border-radius:200px;
+    display: none !important;
     @include blue-shadow(30px, 0.45);
     background     : rgb(53, 76, 130);
     padding-bottom : 30px;
     border-bottom: 2px solid rgb(85, 121, 210) !important;
     background     : linear-gradient(180deg, rgba(53, 76, 130, 1) 0%, rgba(85, 121, 210, 1) 33%, rgba(150, 161, 255, 1) 100%);
-    svg#CaptionInspectorCircle {
+    > svg#CaptionInspectorCircle {
         margin : 40px 40px 0px 40px;
         g.caption-inspector-logo {
             @include trans(1s);

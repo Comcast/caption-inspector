@@ -540,25 +540,33 @@ span.language {
   margin: 15px 0.25% !important;
 }
 
-.logo-container {
-  -webkit-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.45) !important;
-  -moz-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.45) !important;
-  box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.45) !important;
-  background: #354c82;
-  padding-bottom: 30px;
-  border-bottom: 2px solid #5579d2 !important;
-  background: linear-gradient(180deg, #354c82 0%, #5579d2 33%, #96a1ff 100%);
+.site-logo > .logo-container {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding-bottom: 0 !important;
+  border: none !important;
+  width: 80px !important;
+  height: 80px !important;
+  max-width: 80px !important;
+  max-height: 80px !important;
+  display: inline-block !important;
 }
-.logo-container svg#CaptionInspectorCircle {
-  margin: 40px 40px 0px 40px;
+.site-logo > .logo-container svg#CaptionInspectorCircle {
+  width: 58px !important;
+  height: 58px !important;
+  max-width: 58px !important;
+  max-height: 58px !important;
+  margin: 0 0 0 0;
 }
-.logo-container svg#CaptionInspectorCircle g.caption-inspector-logo {
+.site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo {
   -webkit-transition: all 1s ease-out;
   -moz-transition: all 1s ease-out;
   -o-transition: all 1s ease-out;
   transition: all 1s ease-out;
 }
-.logo-container svg#CaptionInspectorCircle g.caption-inspector-logo circle.circle-background {
+.site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo circle.circle-background {
   -webkit-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.75) !important;
   -moz-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.75) !important;
   box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.75) !important;
@@ -570,7 +578,7 @@ span.language {
   -o-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
-.logo-container svg#CaptionInspectorCircle g.caption-inspector-logo path.eye-glass {
+.site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo path.eye-glass {
   fill: rgba(255, 255, 255, 0.55);
   opacity: 0.2;
   -webkit-transition: all 2s ease-out;
@@ -578,7 +586,7 @@ span.language {
   -o-transition: all 2s ease-out;
   transition: all 2s ease-out;
 }
-.logo-container svg#CaptionInspectorCircle g.caption-inspector-logo path.inspector-face {
+.site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo path.inspector-face {
   fill: #44484c;
   fill: #3c3c46;
   stroke: rgba(100, 100, 140, 0.2);
@@ -588,7 +596,7 @@ span.language {
   -o-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
-.logo-container svg#CaptionInspectorCircle g.caption-inspector-logo:hover circle.circle-background {
+.site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo:hover circle.circle-background {
   -webkit-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
   -moz-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
   box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
@@ -596,12 +604,79 @@ span.language {
   stroke: #ffae14;
   stroke-width: 3%;
 }
-.logo-container svg#CaptionInspectorCircle g.caption-inspector-logo:hover path.inspector-face {
+.site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo:hover path.inspector-face {
   fill: #ffa700 !important;
   stroke: #f5a000;
   stroke-width: 1%;
 }
-.logo-container svg#CaptionInspectorCircle g.caption-inspector-logo:hover path.eye-glass {
+.site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo:hover path.eye-glass {
+  opacity: 0.85;
+  size: 50%;
+}
+
+.logo-container {
+  display: none !important;
+  -webkit-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.45) !important;
+  -moz-box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.45) !important;
+  box-shadow: 0px 10px 30px rgba(85, 121, 210, 0.45) !important;
+  background: #354c82;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #5579d2 !important;
+  background: linear-gradient(180deg, #354c82 0%, #5579d2 33%, #96a1ff 100%);
+}
+.logo-container > svg#CaptionInspectorCircle {
+  margin: 40px 40px 0px 40px;
+}
+.logo-container > svg#CaptionInspectorCircle g.caption-inspector-logo {
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+.logo-container > svg#CaptionInspectorCircle g.caption-inspector-logo circle.circle-background {
+  -webkit-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.75) !important;
+  -moz-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.75) !important;
+  box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.75) !important;
+  fill: rgba(255, 255, 255, 0.75);
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-width: 2%;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.logo-container > svg#CaptionInspectorCircle g.caption-inspector-logo path.eye-glass {
+  fill: rgba(255, 255, 255, 0.55);
+  opacity: 0.2;
+  -webkit-transition: all 2s ease-out;
+  -moz-transition: all 2s ease-out;
+  -o-transition: all 2s ease-out;
+  transition: all 2s ease-out;
+}
+.logo-container > svg#CaptionInspectorCircle g.caption-inspector-logo path.inspector-face {
+  fill: #44484c;
+  fill: #3c3c46;
+  stroke: rgba(100, 100, 140, 0.2);
+  stroke-width: 2%;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.logo-container > svg#CaptionInspectorCircle g.caption-inspector-logo:hover circle.circle-background {
+  -webkit-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
+  -moz-box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
+  box-shadow: 0px 10px 80px rgba(85, 121, 210, 0.45) !important;
+  fill: #FFFFFD !important;
+  stroke: #ffae14;
+  stroke-width: 3%;
+}
+.logo-container > svg#CaptionInspectorCircle g.caption-inspector-logo:hover path.inspector-face {
+  fill: #ffa700 !important;
+  stroke: #f5a000;
+  stroke-width: 1%;
+}
+.logo-container > svg#CaptionInspectorCircle g.caption-inspector-logo:hover path.eye-glass {
   opacity: 0.85;
   size: 50%;
 }
