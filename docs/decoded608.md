@@ -10,7 +10,7 @@ that is in the captioning and decodes as data for a specific channel which was n
 Here is an example of a Decoded CEA-608 file that was produced by Caption Inspector, followed by a description of the
 different elements in the file.
 
-![Decoded CEA-608 File Image](Decoded608.png)
+![Decoded CEA-608 File Image](./html/assets/content-images/Decoded608.png)
 
 Timestamp
 ---------
@@ -42,7 +42,7 @@ Inline Representation of Global Control Codes
 The Global Control are represented inline by wrapping the mnemonic code with braces: `{Code}` The codes can be
 interpreted using the following table.
 
-![Global Control Code Decode](608GlobalCtrlCodes.png)
+![Global Control Code Decode](./html/assets/content-images/608GlobalCtrlCodes.png)
 
 
 Inline Representation of Preamble Access Codes (PAC)
@@ -51,7 +51,7 @@ Inline Representation of Preamble Access Codes (PAC)
 There are two types of PACs, Address and Style. Address PACs relate specifically to positioning, and Style PACs
 describe the color of the captions.
 
-![Address and Style PACs](608PACs.png)
+![Address and Style PACs](./html/assets/content-images/608PACs.png)
 
 Inline Representation of Mid Row Style Change Code
 --------------------------------------------------
@@ -61,7 +61,7 @@ until either next change or end of row signaled by a Global Control Code or Prea
 Change will either change the Foreground Color or the Background Color. Additionally, it will signal whether the
 text is either Underlined, Partially Transparent, or both.
 
-![Midrow](608MidRow.png)
+![Midrow](./html/assets/content-images/608MidRow.png)
 
 Inline Representation of Tab Control Codes
 ------------------------------------------
@@ -70,5 +70,5 @@ Tab Control codes are used for positioning the captions. Specifically, they tell
 the current position. Used in conjunction with the Column Number from the Address PAC, it allows the captions to
 be placed anywhere in the text field.
 
-![Tab Offset](608TabOffset.png)
+![Tab Offset](./html/assets/content-images/608TabOffset.png)
 

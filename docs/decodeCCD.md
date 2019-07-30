@@ -10,7 +10,7 @@ was extracted from the asset or caption file.
 Here is an example of a Closed Caption Descriptor File that was produced by Caption Inspector, followed by a description
 of the different elements in the file.
 
-![Decoded CCD File Image](DecodedCCD.png)
+![Decoded CCD File Image](html/assets/content-images/DecodedCCD.png)
 
 File Structure
 --------------
