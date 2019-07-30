@@ -10004,10 +10004,10 @@ a.theme-link:hover {
   height: 100%;
 }
 .docs-overview .card:hover {
-  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-  -moz-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-  background: #bbc2ff;
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(85, 121, 210, 0.25) !important;
+  -moz-box-shadow: 0 0.5rem 1rem rgba(85, 121, 210, 0.25) !important;
+  box-shadow: 0 0.5rem 1rem rgba(85, 121, 210, 0.25) !important;
+  background: white;
 }
 .docs-overview .card:hover .card-icon-holder {
   background: #fff;

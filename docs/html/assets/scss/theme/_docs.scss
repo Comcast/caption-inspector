@@ -1,3 +1,5 @@
+@import "colors";
+
 .main-search-box {
 	max-width: 600px;
 }
@@ -24,8 +26,8 @@
 		position: relative;
 		height: 100%;
 		&:hover {
-			@include box-shadow(0 0.5rem 1rem rgba(0,0,0,0.15)!important);
-			background: $theme-bg-light;
+			@include box-shadow(0 0.5rem 1rem rgba(red($color-blue), green($color-blue), blue($color-blue),0.25)!important);
+			background: white;
 			.card-icon-holder {
 				background: #fff;
 			}
