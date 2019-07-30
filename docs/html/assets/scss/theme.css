@@ -9753,7 +9753,7 @@ a.theme-link:hover {
 
 .btn-secondary {
   background: #5d6778;
-  color: #fff;
+  color: #f9f9f9;
 }
 
 .btn-light {
@@ -9806,16 +9806,20 @@ a.theme-link:hover {
   right: 0;
   top: 0;
   overflow: hidden;
+  -webkit-transition: all 0.8s ease-out;
+  -moz-transition: all 0.8s ease-out;
+  -o-transition: all 0.8s ease-out;
+  transition: all 0.8s ease-out;
 }
 .theme-bg-shapes-right:before {
   content: "";
-  width: 300px;
+  width: 400px;
   height: 150px;
   background: rgba(255, 255, 255, 0.1);
   position: absolute;
   right: -60px;
   top: 0;
-  border-radius: 4px;
+  border-radius: 8px;
   -moz-transform: skew(25deg, -10deg);
   -o-transform: skew(25deg, -10deg);
   -ms-transform: skew(25deg, -10deg);
@@ -9826,6 +9830,10 @@ a.theme-link:hover {
   -ms-transform-origin: top left;
   -webkit-transform-origin: top left;
   transform-origin: top left;
+  -webkit-transition: all 0.7s ease-out;
+  -moz-transition: all 0.7s ease-out;
+  -o-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
 }
 .theme-bg-shapes-right:after {
   content: "";
@@ -9846,6 +9854,50 @@ a.theme-link:hover {
   -ms-transform-origin: top left;
   -webkit-transform-origin: top left;
   transform-origin: top left;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.theme-bg-shapes-right:hover:before {
+  content: "";
+  width: 300px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  right: 60px;
+  top: 40px;
+  border-radius: 40px;
+  -moz-transform: skew(95deg, 110deg);
+  -o-transform: skew(95deg, 110deg);
+  -ms-transform: skew(95deg, 110deg);
+  -webkit-transform: skew(95deg, 110deg);
+  transform: skew(95deg, 110deg);
+  moz-transform-origin: top left;
+  -o-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+}
+.theme-bg-shapes-right:hover:after {
+  content: "";
+  width: 150px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.15);
+  position: absolute;
+  right: 30px;
+  top: 100px;
+  border-radius: 600px;
+  -moz-transform: skew(2deg, 70deg);
+  -o-transform: skew(2deg, 70deg);
+  -ms-transform: skew(2deg, 70deg);
+  -webkit-transform: skew(2deg, 70deg);
+  transform: skew(2deg, 70deg);
+  moz-transform-origin: top left;
+  -o-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
 }
 
 .theme-bg-shapes-left {
@@ -9855,8 +9907,16 @@ a.theme-link:hover {
   right: 0;
   top: 0;
   overflow: hidden;
+  -webkit-transition: all 0.6s ease-out;
+  -moz-transition: all 0.6s ease-out;
+  -o-transition: all 0.6s ease-out;
+  transition: all 0.6s ease-out;
 }
 .theme-bg-shapes-left:before {
+  -webkit-transition: all 0.8s ease-out;
+  -moz-transition: all 0.8s ease-out;
+  -o-transition: all 0.8s ease-out;
+  transition: all 0.8s ease-out;
   content: "";
   width: 300px;
   height: 150px;
@@ -9877,6 +9937,10 @@ a.theme-link:hover {
   transform-origin: top left;
 }
 .theme-bg-shapes-left:after {
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
   content: "";
   width: 150px;
   height: 600px;
@@ -9890,6 +9954,46 @@ a.theme-link:hover {
   -ms-transform: skew(-25deg, 10deg);
   -webkit-transform: skew(-25deg, 10deg);
   transform: skew(-25deg, 10deg);
+  moz-transform-origin: top left;
+  -o-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+}
+.theme-bg-shapes-left:hover:before {
+  content: "";
+  width: 300px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  left: -90px;
+  top: 50px;
+  border-radius: 20px;
+  -moz-transform: skew(65deg, -12deg);
+  -o-transform: skew(65deg, -12deg);
+  -ms-transform: skew(65deg, -12deg);
+  -webkit-transform: skew(65deg, -12deg);
+  transform: skew(65deg, -12deg);
+  moz-transform-origin: top left;
+  -o-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+}
+.theme-bg-shapes-left:hover:after {
+  content: "";
+  width: 150px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.15);
+  position: absolute;
+  left: 100px;
+  top: 80px;
+  border-radius: 50px;
+  -moz-transform: skew(-25deg, 60deg);
+  -o-transform: skew(-25deg, 60deg);
+  -ms-transform: skew(-25deg, 60deg);
+  -webkit-transform: skew(-25deg, 60deg);
+  transform: skew(-25deg, 60deg);
   moz-transform-origin: top left;
   -o-transform-origin: top left;
   -ms-transform-origin: top left;
@@ -10020,30 +10124,6 @@ a.theme-link:hover {
   -webkit-box-shadow: 0px 20px 40px rgba(85, 121, 210, 0.6) !important;
   -moz-box-shadow: 0px 20px 40px rgba(85, 121, 210, 0.6) !important;
   box-shadow: 0px 20px 40px rgba(85, 121, 210, 0.6) !important;
-  background: #5579D2 !important;
-  border-color: white;
-  color: white !important;
-}
-.docs-overview .card:hover > h3 {
-  color: white !important;
-}
-.docs-overview .card:hover > h3 > .card-title-text {
-  color: white !important;
-}
-.docs-overview .card:hover svg {
-  color: white !important;
-  fill: white !important;
-  background-color: transparent !important;
-}
-.docs-overview .card:hover .card-icon-holder {
-  color: white !important;
-  fill: white !important;
-  background-color: transparent !important;
-}
-.docs-overview .card:hover .card-icon-holder svg {
-  color: white !important;
-  fill: white !important;
-  background-color: transparent !important;
 }
 .docs-overview .card-icon-holder {
   width: 60px;
@@ -10279,7 +10359,7 @@ header.header.fixed-top:hover > div.desktop-search-results {
 
 .docs-sidebar {
   display: none;
-  width: 300px;
+  width: 350px;
   position: fixed;
   z-index: 10;
   top: 69px;
@@ -10317,11 +10397,11 @@ header.header.fixed-top:hover > div.desktop-search-results {
   display: block;
 }
 .docs-sidebar.sidebar-hidden {
-  -moz-transform: translateX(-300px);
-  -o-transform: translateX(-300px);
-  -ms-transform: translateX(-300px);
-  -webkit-transform: translateX(-300px);
-  transform: translateX(-300px);
+  -moz-transform: translateX(-360px);
+  -o-transform: translateX(-360px);
+  -ms-transform: translateX(-360px);
+  -webkit-transform: translateX(-360px);
+  transform: translateX(-360px);
   display: block;
 }
 
@@ -10544,6 +10624,17 @@ p.legal {
     padding-top: 0.5rem;
   }
 }
+@media (max-width: 1499px) {
+  .docs-content {
+    margin-left: 0;
+  }
+
+  .docs-article .docs-time {
+    position: static;
+    display: block;
+    padding-top: 0.5rem;
+  }
+}
 /* ============= Base ============= */
 /*********** Theme Generic **********/
 body {
@@ -10629,7 +10720,7 @@ a.theme-link:hover {
 
 .btn-secondary {
   background: #5d6778;
-  color: #fff;
+  color: #f9f9f9;
 }
 
 .btn-light {
@@ -10682,16 +10773,20 @@ a.theme-link:hover {
   right: 0;
   top: 0;
   overflow: hidden;
+  -webkit-transition: all 0.8s ease-out;
+  -moz-transition: all 0.8s ease-out;
+  -o-transition: all 0.8s ease-out;
+  transition: all 0.8s ease-out;
 }
 .theme-bg-shapes-right:before {
   content: "";
-  width: 300px;
+  width: 400px;
   height: 150px;
   background: rgba(255, 255, 255, 0.1);
   position: absolute;
   right: -60px;
   top: 0;
-  border-radius: 4px;
+  border-radius: 8px;
   -moz-transform: skew(25deg, -10deg);
   -o-transform: skew(25deg, -10deg);
   -ms-transform: skew(25deg, -10deg);
@@ -10702,6 +10797,10 @@ a.theme-link:hover {
   -ms-transform-origin: top left;
   -webkit-transform-origin: top left;
   transform-origin: top left;
+  -webkit-transition: all 0.7s ease-out;
+  -moz-transition: all 0.7s ease-out;
+  -o-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
 }
 .theme-bg-shapes-right:after {
   content: "";
@@ -10722,6 +10821,50 @@ a.theme-link:hover {
   -ms-transform-origin: top left;
   -webkit-transform-origin: top left;
   transform-origin: top left;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.theme-bg-shapes-right:hover:before {
+  content: "";
+  width: 300px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  right: 60px;
+  top: 40px;
+  border-radius: 40px;
+  -moz-transform: skew(95deg, 110deg);
+  -o-transform: skew(95deg, 110deg);
+  -ms-transform: skew(95deg, 110deg);
+  -webkit-transform: skew(95deg, 110deg);
+  transform: skew(95deg, 110deg);
+  moz-transform-origin: top left;
+  -o-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+}
+.theme-bg-shapes-right:hover:after {
+  content: "";
+  width: 150px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.15);
+  position: absolute;
+  right: 30px;
+  top: 100px;
+  border-radius: 600px;
+  -moz-transform: skew(2deg, 70deg);
+  -o-transform: skew(2deg, 70deg);
+  -ms-transform: skew(2deg, 70deg);
+  -webkit-transform: skew(2deg, 70deg);
+  transform: skew(2deg, 70deg);
+  moz-transform-origin: top left;
+  -o-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
 }
 
 .theme-bg-shapes-left {
@@ -10731,8 +10874,16 @@ a.theme-link:hover {
   right: 0;
   top: 0;
   overflow: hidden;
+  -webkit-transition: all 0.6s ease-out;
+  -moz-transition: all 0.6s ease-out;
+  -o-transition: all 0.6s ease-out;
+  transition: all 0.6s ease-out;
 }
 .theme-bg-shapes-left:before {
+  -webkit-transition: all 0.8s ease-out;
+  -moz-transition: all 0.8s ease-out;
+  -o-transition: all 0.8s ease-out;
+  transition: all 0.8s ease-out;
   content: "";
   width: 300px;
   height: 150px;
@@ -10753,6 +10904,10 @@ a.theme-link:hover {
   transform-origin: top left;
 }
 .theme-bg-shapes-left:after {
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
   content: "";
   width: 150px;
   height: 600px;
@@ -10766,6 +10921,46 @@ a.theme-link:hover {
   -ms-transform: skew(-25deg, 10deg);
   -webkit-transform: skew(-25deg, 10deg);
   transform: skew(-25deg, 10deg);
+  moz-transform-origin: top left;
+  -o-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+}
+.theme-bg-shapes-left:hover:before {
+  content: "";
+  width: 300px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  left: -90px;
+  top: 50px;
+  border-radius: 20px;
+  -moz-transform: skew(65deg, -12deg);
+  -o-transform: skew(65deg, -12deg);
+  -ms-transform: skew(65deg, -12deg);
+  -webkit-transform: skew(65deg, -12deg);
+  transform: skew(65deg, -12deg);
+  moz-transform-origin: top left;
+  -o-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+}
+.theme-bg-shapes-left:hover:after {
+  content: "";
+  width: 150px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.15);
+  position: absolute;
+  left: 100px;
+  top: 80px;
+  border-radius: 50px;
+  -moz-transform: skew(-25deg, 60deg);
+  -o-transform: skew(-25deg, 60deg);
+  -ms-transform: skew(-25deg, 60deg);
+  -webkit-transform: skew(-25deg, 60deg);
+  transform: skew(-25deg, 60deg);
   moz-transform-origin: top left;
   -o-transform-origin: top left;
   -ms-transform-origin: top left;

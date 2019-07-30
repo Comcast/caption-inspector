@@ -40,7 +40,13 @@ $color-blue
 .block {
     display : block !important;
 }
-
+.text-orange {
+    color:$color-xfinity-pumkin !important;
+}
+.text-grey {
+    color:#445 !important;
+    letter-spacing: 0.6px;
+}
 img.icon_profile {
     display   : inline-block;
     width     : 100%;
@@ -141,7 +147,7 @@ body {
             @media print {
                 display : none !important;
             }
-            width      : 330px !important;
+            width      : 350px !important;
             margin-top : 0px;
             padding    : 0px;
             @include trans(0.3s);
@@ -153,11 +159,11 @@ body {
             }
         }
         nav.docs-nav.navbar {
-            margin-top       : 0px;
+            margin-top       : 30px;
             padding-top      : 50px;
             @media (min-width : 769px) {
                 padding-top : 20px;
-                margin-top  : 50px;
+                margin-top  : 30px;
             }
             background-color : $color-cool-grey-1;
             @include trans(0.3s);
@@ -192,7 +198,12 @@ body {
         }
         margin-bottom : 100px;
         &.docs-article {
-
+            margin-left : 50px !important;
+            margin-right : 50px !important;
+            @media (max-width : 768px) {
+                margin-left : 5px !important;
+                margin-right : 5px !important;
+            }
             @media print {
                 width : 100% !important;
             }
@@ -212,7 +223,7 @@ body {
             h2.section-heading {
                 font-weight   : 900;
                 font-size     : calc(28px + (48 - 28) * ((100vw - 300px) / (1600 - 300))) !important;
-                margin-top    : 25px !important;
+                margin-top    : 35px !important;
                 margin-bottom : 1rem !important;
             }
             h3.section-heading {
@@ -226,7 +237,15 @@ body {
             ol, ul {
                 text-align : left;
             }
-
+            ul.none {
+                list-style : none !important;
+            }
+            ol.outline {
+                text-align : left;
+                > li {
+                    padding-left : 20px;
+                }
+            }
             p {
                 color         : #777788 !important;
                 text-align    : justify;

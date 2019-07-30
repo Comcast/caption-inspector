@@ -133,7 +133,7 @@
         </nav>
     </div>
     <div class="docs-content">
-        <div class="container">
+        <div class="container-fluid">
             <article class="docs-article" id="section-1">
                 <header class="docs-header">
                     <img class="img-fluid" src="./assets/brand/logo-horizontal.png" />
@@ -264,7 +264,7 @@
                         </p>
                     </blockquote>
                     <p><b>Caption Inspector decodes the Closed Captioning Data into two basic types of output files.</b></p>
-                    <ol>
+                    <ol class="outline">
                         <li>The first type has the Closed Captioning Data demultiplexed into output files for each service/channel with closed caption tags and
                             text in the file.
                         </li>
@@ -302,7 +302,7 @@
                     </p>
                     <h3 id="section-3-1" data-title="Industry Guidelines">Industry Accepted Guidelines</h3>
                     <p>The following are the accepted industry guidelines and best practices for quality: (https://dcmp.org)
-                    <ol class="guidelines">
+                    <ol class="outline guidelines">
                         <li>
                             <span class="bold">Accuracy</span> <span class="description">Errorless captions are the goal for each
                        production</span>
@@ -348,22 +348,22 @@
                     <h2 class="section-heading">Prerequisites</h2>
                     <p>Basic Software and computer skills are required for installation and usage.</p>
                     <p>Prerequisites to Building the Caption Inspector Executable</p>
-                    <ul>
-                        <ol>
+                    <ul class="none">
+                        <li>
                             <p>
                                 <b>FFMPEG*</b><br> Caption Inspector requires FFMPEG to be installed on your machine. Please download the appropriate version of
                                                    FFMPEG from the website and install it on your machine. <span class="details">Caption Inspector is known to run with FFMPEG Version 4.0.2.</span>.<br><br>
                                 <a href="https://ffmpeg.org/download.html" target="_blank" class="btn btn-primary"><span class="bold">Get &nbsp;</span>  <span class="lite">https://ffmpeg.org/download.html</span></a>
                             </p>
-                        </ol>
-                        <ol>
+                        </li>
+                        <li>
                             <p>
                                 <b>Drop Frame</b><br> While not required, Caption Inspector leverages a tool called MediaInfo to determine whether or not an
                                                       asset is, or is not, Drop Frame. You can download the command line version of MediaInfo. <span
                                     class="details">Caption Inspector is known to run with MediaInfo Version 18.12.</span><br><br>
                                 <a href="https://mediaarea.net/en/MediaInfo/Download" target="_blank" class="btn btn-primary"><span class="bold">Get &nbsp;</span>  <span class="lite">https://mediaarea.net/en/MediaInfo/Download</span></a>
                             </p>
-                        </ol>
+                        </li>
                     </ul>
                     <h3 class="bump" id="section-4-1">Developer Overview</h3>
                     <p>The Caption Inspector project builds a <span class="tag">C library</span>, <span class="tag">C executable</span>, and Docker image that can be used to extract and decode Closed-Captions
@@ -423,8 +423,7 @@
                                              to be able to use the tools. If you shutdown, and restart your computer, you will need to restart your server from
                                              within Docker, unless you configure Docker to automatically restart at Login.
                     </p>
-                    <p>Future updates will require a reinstallation along with steps we will at that time provide and will likely be a similar process.</p>
-                    <p>This step is a one-time set up process. Building the Caption Inspector Executable can be done at the root level, or at the "src level".
+                    <p>Future updates will require a reinstallation along with steps we will at that time provide and will likely be a similar process. This step is a one-time set up process. Building the Caption Inspector Executable can be done at the root level, or at the "src level".
                        Once it has been built, Caption Inspector can be used to decode the captions from a test file.
                     </p>
                     <div class="callout-block callout-block-info">
@@ -445,30 +444,62 @@
                     <h3 id="section-5-2" data-title="Locally">Building and Running Locally</h3>
                     <p>Caption Inspector requires FFMPEG to be installed on your machine. Please download the appropriate version of FFMPEG from
                         <a href="https://ffmpeg.org/download.html">here</a>
-                       and install it in your machine. Caption Inspector is known to run with FFMPEG Version 4.0.2.
+                       and install it in your machine.
                     </p>
+                    <div class="callout-block callout-block-info">
+                        <div class="content">
+                            <h4 class="callout-title"><span class="callout-icon-holder mr-1"> <i class="fas fa-info-circle"></i> </span>Note </h4>
+                            <p>Caption Inspector is known to run with <span class="bold">FFMPEG Version 4.0.2</span>.</p>
+                        </div>
+                    </div>
                     <p>While not required, Caption Inspector leverages a tool called MediaInfo to determine whether or not an asset is, or is not, Drop Frame.
                        You can download the command line version of MediaInfo from
                         <a href="https://mediaarea.net/en/MediaInfo/Download">https://mediaarea .net/en/MediaInfo/Download
                         </a>
                     </p>
-                    <p>Caption Inspector is known to run with MediaInfo Version 18.12.</p>
+                    <div class="callout-block callout-block-info">
+                        <div class="content">
+                            <h4 class="callout-title"><span class="callout-icon-holder mr-1"> <i class="fas fa-info-circle"></i> </span>Note </h4>
+                            <p>Caption Inspector is known to run with <span class="bold">MediaInfo Version 18.12</span>.</p>
+                        </div>
+                    </div>
+                    <h3 id="section-5-3" class="x-large" data-title="Using the CLI">Using the CLI</h3>
                     <pre class="copy"><code class="language-bash"><span class="bold">make caption-inspector</span>
-./caption-inspector -h
-./caption-inspector -o . test/media/BigBuckBunny_256x144-24fps.ts
-./caption-inspector -o . test/media/Plan9fromOuterSpace.scc -f 2400
-./caption-inspector -o . test/media/NightOfTheLivingDead.mcc
+./<span class="text-blue">caption-inspector</span> <span class="text-orange">-h</span>
+./<span class="text-blue">caption-inspector</span> <span class="text-orange">-o</span> <span class="text-grey">.test/media/BigBuckBunny_256x144-24fps.ts</span>
+./<span class="text-blue">caption-inspector</span> <span class="text-orange">-o</span> <span class="text-grey">.test/media/Plan9fromOuterSpace.scc <span class="text-orange">-f</span> 2400</span>
+./<span class="text-blue">caption-inspector</span> <span class="text-orange">-o</span> <span class="text-grey">.test/media/NightOfTheLivingDead.mcc</span>
 </code></pre>
-                    <p><span class="bold">Running with the</span> <code>-h</code> option will simply print out the help text.</p>
-                    <p><span class="bold">Running against</span> the video file <code>BigBuckBunny_256x144-24fps.ts</code> demonstrates decoding closed captions from a video file.</p>
-                    <p><span class="bold">Running against</span> the caption file <code>Plan9fromOuterSpace.scc</code> demonstrates decoding an <span data-placement="top" data-toggle="tooltip" class="tooltip" title="SCC: Scenarist Closed Captions">SCC</span> file and CEA-608 Captions, as well as
-                       converting the contents of the <span data-placement="top" data-toggle="tooltip" class="tooltip" title="SCC: Scenarist Closed Captions">SCC</span> file into an MCC file.</p>
-                    <p><span class="bold">Running against</span> the caption file <code>NightOfTheLivingDead.mcc</code> demonstrates decoding an MCC file, CEA-608 Captions, and CEA-708
-                       Captions.</p>
-                    <h3 class="bump" id="section-5-3" data-title="Docker">Building and Running in a Docker Container</h3>
+                    <table class="table table-striped software">
+                        <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Usage</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>- h </td>
+                            <td>
+                                <p><span class="bold">Running with the</span> <code>-h</code> option will simply print out the help text.</p>
+                                <p><span class="bold">Running against</span> the video file <code>BigBuckBunny_256x144-24fps.ts</code> demonstrates decoding closed captions from a video file.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>-o</td>
+                            <td>
+                                <p><span class="bold">Running against</span> the caption file <code>Plan9fromOuterSpace.scc</code> demonstrates decoding an <span data-placement="top" data-toggle="tooltip" class="tooltip" title="SCC: Scenarist Closed Captions">SCC</span> file and CEA-608 Captions, as well as converting the contents of the <span data-placement="top" data-toggle="tooltip" class="tooltip" title="SCC: Scenarist Closed Captions">SCC</span> file into an MCC file.</p>
+                                <p><span class="bold">Running against</span> the caption file <code>NightOfTheLivingDead.mcc</code> demonstrates decoding an MCC file, CEA-608 Captions, and CEA-708 Captions.</p>
+            
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <h3 class="bump" id="section-5-4" data-title="Docker">Building and Running in a Docker Container</h3>
                     <p>Obviously you need docker running on your local machine to build. Building inside of a docker image will remove the need to install any
                        dependencies, but comes at the expense of a slightly more complicated command line execution.
                     </p>
+                    <h3 id="section-5-5" class="x-large" data-title="Docker &amp; the CLI">Using the CLI with Docker</h3>
                     <pre class="copy"><code class="language-bash"><span class="bold">make docker</span>
 docker run -t caption-inspector -h
 docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/BigBuckBunny_256x144-24fps.ts

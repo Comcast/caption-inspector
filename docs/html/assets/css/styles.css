@@ -26,6 +26,15 @@ $color-blue
   display: block !important;
 }
 
+.text-orange {
+  color: #ffa700 !important;
+}
+
+.text-grey {
+  color: #445 !important;
+  letter-spacing: 0.6px;
+}
+
 img.icon_profile {
   display: inline-block;
   width: 100%;
@@ -68,7 +77,7 @@ body {
   }
 }
 body .docs-wrapper > .docs-sidebar {
-  width: 330px !important;
+  width: 350px !important;
   margin-top: 0px;
   padding: 0px;
   -webkit-transition: all 0.3s ease-out;
@@ -85,7 +94,7 @@ body .docs-wrapper > .docs-sidebar .top-search-box {
   display: none !important;
 }
 body .docs-wrapper nav.docs-nav.navbar {
-  margin-top: 0px;
+  margin-top: 30px;
   padding-top: 50px;
   background-color: #fbfcfc;
   -webkit-transition: all 0.3s ease-out;
@@ -96,7 +105,7 @@ body .docs-wrapper nav.docs-nav.navbar {
 @media (min-width: 769px) {
   body .docs-wrapper nav.docs-nav.navbar {
     padding-top: 20px;
-    margin-top: 50px;
+    margin-top: 30px;
   }
 }
 body .docs-wrapper nav.docs-nav.navbar ul.section-items > li {
@@ -134,7 +143,15 @@ body article {
   }
 }
 body article.docs-article {
+  margin-left: 50px !important;
+  margin-right: 50px !important;
   font-weight: 500;
+}
+@media (max-width: 768px) {
+  body article.docs-article {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
 }
 @media print {
   body article.docs-article {
@@ -157,7 +174,7 @@ body article.docs-article h1 {
 body article.docs-article h2.section-heading {
   font-weight: 900;
   font-size: calc(28px + (48 - 28) * ((100vw - 300px) / (1600 - 300))) !important;
-  margin-top: 25px !important;
+  margin-top: 35px !important;
   margin-bottom: 1rem !important;
 }
 body article.docs-article h3.section-heading {
@@ -170,6 +187,15 @@ body article.docs-article h3.section-heading {
 }
 body article.docs-article ol, body article.docs-article ul {
   text-align: left;
+}
+body article.docs-article ul.none {
+  list-style: none !important;
+}
+body article.docs-article ol.outline {
+  text-align: left;
+}
+body article.docs-article ol.outline > li {
+  padding-left: 20px;
 }
 body article.docs-article p {
   color: #777788 !important;

@@ -54,30 +54,30 @@
         }
         &:hover {
             @include blue-shadow(40px, 0.6);
-            background   : $color-blue !important;
-            border-color : white;
-            color        : white !important;
-            > h3 {
-                color : white !important;
-                > .card-title-text {
-                    color : white !important;
-                }
-            }
-            svg {
-                color            : white !important;
-                fill             : white !important;
-                background-color : transparent !important;
-            }
-            .card-icon-holder {
-                color            : white !important;
-                fill             : white !important;
-                background-color : transparent !important;
-                svg {
-                    color            : white !important;
-                    fill             : white !important;
-                    background-color : transparent !important;
-                }
-            }
+        //    background   : $color-blue !important;
+        //    border-color : white;
+        //    color        : white !important;
+        //    > h3 {
+        //        color : white !important;
+        //        > .card-title-text {
+        //            color : white !important;
+        //        }
+        //    }
+        //    svg {
+        //        color            : white !important;
+        //        fill             : white !important;
+        //        background-color : transparent !important;
+        //    }
+        //    .card-icon-holder {
+        //        color            : white !important;
+        //        fill             : white !important;
+        //        background-color : transparent !important;
+        //        svg {
+        //            color            : white !important;
+        //            fill             : white !important;
+        //            background-color : transparent !important;
+        //        }
+        //    }
         }
     }
     .card-icon-holder {
@@ -357,7 +357,7 @@ header.header {
 }
 .docs-sidebar {
     display         : none;
-    width           : 300px;
+    width           : 350px;
     position        : fixed;
     z-index         : 10;
     top             : 69px;
@@ -387,7 +387,7 @@ header.header {
         display : block;
     }
     &.sidebar-hidden {
-        @include transform(translateX(-300px));
+        @include transform(translateX(-360px));
         display : block;
     }
 }
@@ -645,6 +645,18 @@ p.legal {
 
 // Large devices (desktops, less than 1200px)
 @media (max-width : 1199.98px) {
+    .docs-content {
+        margin-left : 0;
+    }
+    .docs-article .docs-time {
+        position    : static;
+        display     : block;
+        padding-top : 0.5rem;
+    }
+
+
+}
+@media (max-width : 1499px) {
     .docs-content {
         margin-left : 0;
     }
