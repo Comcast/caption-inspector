@@ -26,6 +26,23 @@ $color-blue
   display: block !important;
 }
 
+img.icon_profile {
+  display: inline-block;
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  padding: 0.25rem;
+}
+img.icon_profile.left {
+  margin: 0px 20px 20px 0;
+}
+img.icon_profile.center {
+  margin: 0 auto;
+}
+img.icon_profile.right {
+  margin: 0px 0 20px 20px;
+}
+
 @media print {
   body .container {
     margin: 50px 0 !important;
