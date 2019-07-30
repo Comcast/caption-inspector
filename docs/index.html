@@ -41,13 +41,25 @@
                 </div>
             </div><!--//docs-logo-wrapper-->
             <div class="docs-top-utilities d-flex justify-content-end align-items-center">
-                <ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
-                    <li class="list-inline-item">
-                        <a href="https://github.com/Comcast/caption-inspector" target="Comcast/caption-inspector"><i
-                                class="fab fa-github fa-fw" style="margin:2px 15px"></i></a>
-                    </li>
-                </ul>
-                <a class="btn btn-primary d-none d-lg-flex" href="html/docs-page.html#StartHere">Get Started</a>
+                <a class="btn btn-get-started d-none d-lg-flex"
+                   href="https://github.com/Comcast/caption-inspector/archive/master.zip"
+                   title="Download th Caption Inpector project from GitHub (zip)">
+                    <i class="fab fa-github fa-fw"
+                       style="margin:2px 15px -20px 0; font-weight:900;"></i> Download Source
+                </a>
+<!--                <ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">-->
+<!--                    <li class="list-inline-item">-->
+<!--                        <a class="btn btn-get-started d-none d-lg-flex"-->
+<!--                           href="https://github.com/Comcast/caption-inspector/archive/master.zip"-->
+<!--                           title="Download th Caption Inpector project from GitHub (zip)">-->
+<!--                            <i class="fab fa-github fa-fw"-->
+<!--                               style="margin:2px 15px; font-weight:900;"></i> Download Caption Inpector-->
+<!--                        </a>-->
+<!--&lt;!&ndash;                        <a href="https://github.com/Comcast/caption-inspector" target="Comcast/caption-inspector"><i&ndash;&gt;-->
+<!--&lt;!&ndash;                                class="fab fa-github fa-fw" style="margin:2px 15px"></i></a>&ndash;&gt;-->
+<!--                    </li>-->
+<!--                </ul>-->
+                <a class="btn btn-primary d-none d-lg-flex" href="./html/docs-page.html#section-1">Get Started</a>
             </div>
         </div>
     </div>
@@ -61,12 +73,12 @@
         <div class="page-intro single-col-max mx-auto">Caption Inspector has been created to be a common toolset used to decode and validate Closed Captions (CC) from a video asset or a captions file.
         </div>
         <div class="main-search-box pt-3 d-block mx-auto">
-            <form class="search-form w-100">
-                <input class="form-control search-input" name="search" placeholder="Search the docs..."
-                        type="text">
-                <button class="btn search-btn" type="submit" value="Search"><i
-                        class="fas fa-search"></i></button>
-            </form>
+<!--            <form class="search-form w-100">-->
+<!--                <input class="form-control search-input" name="search" placeholder="Search the docs..."-->
+<!--                        type="text">-->
+<!--                <button class="btn search-btn" type="submit" value="Search"><i-->
+<!--                        class="fas fa-search"></i></button>-->
+<!--            </form>-->
         </div>
     </div>
 </div>
@@ -143,33 +155,33 @@
 </section>
 <footer class="footer">
     <div class="footer-bottom text-center py-5">
-        <ul class="social-list list-unstyled pb-4 mb-0">
-            <li class="list-inline-item">
-                <a href="https://github.com/Comcast/caption-inspector" target="Comcast/caption-inspector"><i
-                        class="fab fa-github fa-fw" style="margin:2px 15px"></i></a>
+        <ul class="social-list list-unstyled pb-5 mb-0">
+            <li class="list-inline-item"  style="background-color:#f9f9fa">
+                <nobr><a href="https://github.com/Comcast/caption-inspector" target="Comcast/caption-inspector" title="Caption Inspector (https://github.com/Comcast/caption-inspector)"><i
+                        class="fab fa-github fa-fw" style="color:#5579D1"></i></a></nobr>
             </li>
-            <li class="list-inline-item">
-                <a href="https://comcast.github.io/"><i class="fab fa-github fa-fw"
-                        style="color:#99a"></i></a>
+            <li class="list-inline-item" style="background-color:#f9f9fa">
+                <a href="https://comcast.github.io/" title="Comcast Open Source (https://comcast.github.io/)"><i class="fab fa-github fa-fw"
+                        style="color:#C7332C"></i> </a>
             </li>
-            <li class="list-inline-item">
-                <a href="#"><i class="fab fa-slack fa-fw"></i></a>
-            </li>
+<!--            <li class="list-inline-item">-->
+<!--                <a href="#"><i class="fab fa-slack fa-fw"></i></a>-->
+<!--            </li>-->
         </ul>
-        <!--/* This template is released under the Creative Commons Attribution 3.0 License.
-        Please keep the attribution link below when using for your own project. Thank you for
-        your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
-        <small class="copyright">Designed with <i class="fas fa-heart"
-                style="color: #fb866a;"></i> by
-            <a class="theme-link" href="http://github.comcast.io" target="_blank">Comcast</a>
-                                 for Open-Source Developers
+        <!--/*
+        Although modified, this template used http://themes.3rdwavemedia.com themes (Docs).
+        This template is released under the Creative Commons Attribution 3.0 License.
+        Please keep the attribution link below when using for your own project. Thank you for your support. :)
+        If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+        <small class="copyright" title="Designed with love by Comcast for Open Source Developers. (See https://github.comcast.io)"  style="color: #555; letter-spacing:1px;font-variant-caps: all-small-caps">Designed with <i class="fas fa-heart" style="color: #D70051;" title="LOVE"></i> by
+            <a class="theme-link" href="https://github.comcast.io" target="_blank" title="https://github.comcast.io" style="color: #D70051;text-decoration: none;font-weight:700">Comcast</a> for <span  style="color: #5579D1;">Open-Source Developers</span>
         </small>
     </div>
 </footer>
 <!-- Javascript -->
-<script src="./html/assets/plugins/jquery-3.4.1.min.js"></script>
-<script src="./html/assets/plugins/popper.min.js"></script>
-<script src="./html/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="./html/assets/js/jquery-3.4.1.min.js"></script>
+<script src="./html/assets/js/popper.min.js"></script>
+<script src="./html/assets/js/bootstrap.min.js"></script>
 <script></script>
 </body>
 </html>
