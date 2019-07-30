@@ -40,6 +40,7 @@ $color-blue
 .block {
     display : block !important;
 }
+
 img.icon_profile {
     display   : inline-block;
     width     : 100%;
@@ -60,11 +61,12 @@ span.block {
     display : block;
 }
 .tooltip {
-    color:$color-blue;
-    cursor : pointer;
-    text-decoration: underline dotted $color-xfinity-pumkin;
+    color           : $color-blue;
+    cursor          : pointer;
+    text-decoration : underline dotted $color-xfinity-pumkin;
 }
 body {
+    font-weight : 500;
     .container {
         @media print {
             margin : 50px 0 !important;
@@ -75,77 +77,83 @@ body {
         @media print {
             display : none !important;
         }
-        @include trans(1s);
-        height : 80px !important;
-        > div.desktop-search-results {
-            > h3, h2, td, a {
-                color : white;
-            }
-            //background-color   : white;
-            overflow           : scroll;
-            position           : absolute;
-            display            : block;
-            visibility         : collapse;
-            opacity            : 0;
-            top                : 80px;
-            bottom             : 0px;
-            left               : 0px;
-            right              : 0px;
-            -webkit-transition : all 1s ease-out;
-            -moz-transition    : all 1s ease-out;
-            -o-transition      : all 1s ease-out;
-            transition         : all 1s ease-out;
-            padding            : 20px 20px !important;
-            //height           : 10px;
-            //>*{
-            //    display:none!important;
-            //    color:white !important;
-            //}
-        }
-        &.fixed-top {
-            @include blue-shadow();
-            &:hover {
-                @include blue-shadow(80px, 0.45);
-                //height : 70vh !important;
-                @media (max-width : 768px) {
-                    height : 80px !important;
-                }
-                > div.desktop-search-results {
-                    background : rgb(53, 76, 130);
-                    background : linear-gradient(0deg, rgba(53, 76, 130, 1) 0%, rgba(85, 121, 210, 1) 33%, rgba(150, 161, 255, 1) 100%);
-                    color      : white !important;
-                    opacity    : 1;
-                    visibility : visible;
-                    &:before {}
-
-                }
-            }
-        }
     }
-    @media (max-width : 768px) {
-        div.desktop-search-results {
-            display : none !important;
-        }
-    }
+    //header.header {
+    //    @media print {
+    //        display : none !important;
+    //    }
+    //    @include trans(1s);
+    //    height : 80px !important;
+    //    > div.desktop-search-results {
+    //        > h3, h2, td, a {
+    //            color : white;
+    //        }
+    //        //background-color   : white;
+    //        overflow           : scroll;
+    //        position           : absolute;
+    //        display            : block;
+    //        visibility         : collapse;
+    //        opacity            : 0;
+    //        top                : 80px;
+    //        bottom             : 0px;
+    //        left               : 0px;
+    //        right              : 0px;
+    //        -webkit-transition : all 1s ease-out;
+    //        -moz-transition    : all 1s ease-out;
+    //        -o-transition      : all 1s ease-out;
+    //        transition         : all 1s ease-out;
+    //        padding            : 20px 20px !important;
+    //        //height           : 10px;
+    //        //>*{
+    //        //    display:none!important;
+    //        //    color:white !important;
+    //        //}
+    //    }
+    //    &.fixed-top {
+    //        @include blue-shadow();
+    //        &:hover {
+    //            @include blue-shadow(80px, 0.45);
+    //            //height : 70vh !important;
+    //            @media (max-width : 768px) {
+    //                height : 80px !important;
+    //            }
+    //            > div.desktop-search-results {
+    //                background : rgb(53, 76, 130);
+    //                background : linear-gradient(0deg, rgba(53, 76, 130, 1) 0%, rgba(85, 121, 210, 1) 33%, rgba(150, 161, 255, 1) 100%);
+    //                color      : white !important;
+    //                opacity    : 1;
+    //                visibility : visible;
+    //                &:before {}
+    //
+    //            }
+    //        }
+    //    }
+    //}
+    //@media (max-width : 768px) {
+    //    div.desktop-search-results {
+    //        display : none !important;
+    //    }
+    //}
 
     .docs-wrapper {
+        //font-weight : 500;
         > .docs-sidebar {
             @media print {
                 display : none !important;
             }
-            width      : 300px !important;
-            margin-top : 2px;
+            width      : 330px !important;
+            margin-top : 0px;
             padding    : 0px;
             @include trans(0.3s);
-            background : rgb(53, 76, 130);
-            background : linear-gradient(0deg, rgba(53, 76, 130, 1) 0%, rgba(85, 121, 210, 1) 33%, rgba(150, 161, 255, 1) 100%);
+            //background : rgb(53, 76, 130);
+            //background : linear-gradient(0deg, rgba(53, 76, 130, 1) 0%, rgba(85, 121, 210, 1) 33%, rgba(150, 161, 255, 1) 100%);
             .top-search-box {
                 //margin-top : 20px;
-                display : none;
+                display : none !important;
             }
         }
         nav.docs-nav.navbar {
-            margin-top       : 10px;
+            margin-top       : 0px;
             padding-top      : 50px;
             @media (min-width : 769px) {
                 padding-top : 20px;
@@ -177,8 +185,10 @@ body {
     }
 
     article {
+        font-weight   : 500;
         @media print {
-            width : 100% !important;
+            width       : 100% !important;
+            font-weight : normal;
         }
         margin-bottom : 100px;
         &.docs-article {
@@ -186,10 +196,11 @@ body {
             @media print {
                 width : 100% !important;
             }
-            .docs-time {
-                color          : $color-cool-grey-10 !important;
-                font-size      : 20px !important;
-                letter-spacing : 5px !important;
+            font-weight : 500;
+            .docs-time {font-weight : 600;
+                color               : $color-cool-grey-8 !important;
+                font-size           : 18px !important;
+                letter-spacing      : 2px !important;
             }
             h1 {
                 font-weight   : 900;
@@ -215,10 +226,12 @@ body {
             ol, ul {
                 text-align : left;
             }
+
             p {
                 color         : #777788 !important;
                 text-align    : justify;
                 margin-bottom : 2.5rem !important;
+                font-weight   : normal;
                 &.section-intro {
                     color        : $color-blue !important;
                     font-weight  : 300 !important;
@@ -262,6 +275,20 @@ body {
                     font-size     : 1.4rem !important;
                     margin-top    : 45px !important;
                     margin-bottom : 1.2rem;
+                }
+                ol.bold-numbers {
+                    font-weight  : 700 !important;
+                    padding-left : 2rem;
+                    font-size    : large !important;
+                    > li {
+                        padding-left   : 1rem;
+                        padding-right  : 2rem;
+                        padding-bottom : 1rem;
+                        > span.normal {
+                            font-size   : medium !important;
+                            font-weight : normal !important;
+                        }
+                    }
                 }
                 border-bottom : 3px solid $color-cool-grey-7 !important;
                 margin-top    : 90px;
@@ -527,7 +554,7 @@ b, .bold {
     font-size : small;
 }
 .text-black {
-    color:black !important;
+    color : black !important;
 }
 .x-large {
     font-size : x-large !important;
@@ -572,124 +599,124 @@ span.language {
 }
 
 
-.site-logo > .logo-container {
-    -webkit-box-shadow : none !important;
-    -moz-box-shadow    : none !important;
-    box-shadow         : none !important;
-    background         : transparent !important;
-    padding-bottom     : 0 !important;
-    border             : none !important;
-    @include square(80px);
-    display            : inline-block !important;
-    svg#CaptionInspectorCircle {
-        @include square(58px);
-        margin : 0 0 0 0;
-        g.caption-inspector-logo {
-            @include trans(1s);
-            circle.circle-background {
-                @include blue-shadow(80px, 0.75);
-                fill         : rgba(255, 255, 255, 0.75);
-                stroke       : rgba(255, 255, 255, 0.95);
-                stroke-width : 2%;
-                @include trans(0.5s);
-            }
-            path.eye-glass {
-                fill               : rgba(255, 255, 255, 0.55);
-                opacity            : 0.20;
-                -webkit-transition : all 2s ease-out;
-                -moz-transition    : all 2s ease-out;
-                -o-transition      : all 2s ease-out;
-                transition         : all 2s ease-out;
-            }
-            path.inspector-face {
-                fill         : $color-cool-grey-12;
-                fill         : rgb(60, 60, 70);
-                stroke       : rgba(100, 100, 140, 0.2);
-                stroke-width : 2%;
-                @include trans(0.5s);
-            }
-            &:hover {
-                circle.circle-background {
-                    @include blue-shadow(80px, 0.45);
-                    fill         : #FFFFFD !important;
-                    stroke       : lighten($color-xfinity-pumkin, 4%);
-                    stroke-width : 3%;
-                }
-                path.inspector-face {
-                    fill         : $color-xfinity-pumkin !important;
-
-                    stroke       : darken($color-xfinity-pumkin, 2%);
-                    stroke-width : 1%;
-                }
-                path.eye-glass {
-                    opacity : 0.85;
-                    size    : 50%;
-                }
-            }
-        }
-    }
-    //@media (max-width : 768px) {
-    //    display : none !important;
-    //}
-}
-.logo-container {
-    //border-radius:200px;
-    display        : none !important;
-    @include blue-shadow(30px, 0.45);
-    background     : rgb(53, 76, 130);
-    padding-bottom : 30px;
-    border-bottom  : 2px solid rgb(85, 121, 210) !important;
-    background     : linear-gradient(180deg, rgba(53, 76, 130, 1) 0%, rgba(85, 121, 210, 1) 33%, rgba(150, 161, 255, 1) 100%);
-    > svg#CaptionInspectorCircle {
-        margin : 40px 40px 0px 40px;
-        g.caption-inspector-logo {
-            @include trans(1s);
-            circle.circle-background {
-                @include blue-shadow(80px, 0.75);
-                fill         : rgba(255, 255, 255, 0.75);
-                stroke       : rgba(255, 255, 255, 0.95);
-                stroke-width : 2%;
-                @include trans(0.5s);
-            }
-            path.eye-glass {
-                fill               : rgba(255, 255, 255, 0.55);
-                opacity            : 0.20;
-                -webkit-transition : all 2s ease-out;
-                -moz-transition    : all 2s ease-out;
-                -o-transition      : all 2s ease-out;
-                transition         : all 2s ease-out;
-            }
-            path.inspector-face {
-                fill         : $color-cool-grey-12;
-                fill         : rgb(60, 60, 70);
-                stroke       : rgba(100, 100, 140, 0.2);
-                stroke-width : 2%;
-                @include trans(0.5s);
-            }
-            &:hover {
-                circle.circle-background {
-                    @include blue-shadow(80px, 0.45);
-                    fill         : #FFFFFD !important;
-                    stroke       : lighten($color-xfinity-pumkin, 4%);
-                    stroke-width : 3%;
-                }
-                path.inspector-face {
-                    fill         : $color-xfinity-pumkin !important;
-
-                    stroke       : darken($color-xfinity-pumkin, 2%);
-                    stroke-width : 1%;
-                }
-                path.eye-glass {
-                    opacity : 0.85;
-                    size    : 50%;
-                }
-            }
-        }
-    }
-    @media (max-width : 768px) {
-        display : none !important;
-    }
-}
+//.site-logo > .logo-container {
+//    -webkit-box-shadow : none !important;
+//    -moz-box-shadow    : none !important;
+//    box-shadow         : none !important;
+//    background         : transparent !important;
+//    padding-bottom     : 0 !important;
+//    border             : none !important;
+//    @include square(80px);
+//    display            : inline-block !important;
+//    svg#CaptionInspectorCircle {
+//        @include square(58px);
+//        margin : 0 0 0 0;
+//        g.caption-inspector-logo {
+//            @include trans(1s);
+//            circle.circle-background {
+//                @include blue-shadow(80px, 0.75);
+//                fill         : rgba(255, 255, 255, 0.75);
+//                stroke       : rgba(255, 255, 255, 0.95);
+//                stroke-width : 2%;
+//                @include trans(0.5s);
+//            }
+//            path.eye-glass {
+//                fill               : rgba(255, 255, 255, 0.55);
+//                opacity            : 0.20;
+//                -webkit-transition : all 2s ease-out;
+//                -moz-transition    : all 2s ease-out;
+//                -o-transition      : all 2s ease-out;
+//                transition         : all 2s ease-out;
+//            }
+//            path.inspector-face {
+//                fill         : $color-cool-grey-12;
+//                fill         : rgb(60, 60, 70);
+//                stroke       : rgba(100, 100, 140, 0.2);
+//                stroke-width : 2%;
+//                @include trans(0.5s);
+//            }
+//            &:hover {
+//                circle.circle-background {
+//                    @include blue-shadow(80px, 0.45);
+//                    fill         : #FFFFFD !important;
+//                    stroke       : lighten($color-xfinity-pumkin, 4%);
+//                    stroke-width : 3%;
+//                }
+//                path.inspector-face {
+//                    fill         : $color-xfinity-pumkin !important;
+//
+//                    stroke       : darken($color-xfinity-pumkin, 2%);
+//                    stroke-width : 1%;
+//                }
+//                path.eye-glass {
+//                    opacity : 0.85;
+//                    size    : 50%;
+//                }
+//            }
+//        }
+//    }
+//    //@media (max-width : 768px) {
+//    //    display : none !important;
+//    //}
+//}
+//.logo-container {
+//    //border-radius:200px;
+//    display        : none !important;
+//    @include blue-shadow(30px, 0.45);
+//    background     : rgb(53, 76, 130);
+//    padding-bottom : 30px;
+//    border-bottom  : 2px solid rgb(85, 121, 210) !important;
+//    background     : linear-gradient(180deg, rgba(53, 76, 130, 1) 0%, rgba(85, 121, 210, 1) 33%, rgba(150, 161, 255, 1) 100%);
+//    > svg#CaptionInspectorCircle {
+//        margin : 40px 40px 0px 40px;
+//        g.caption-inspector-logo {
+//            @include trans(1s);
+//            circle.circle-background {
+//                @include blue-shadow(80px, 0.75);
+//                fill         : rgba(255, 255, 255, 0.75);
+//                stroke       : rgba(255, 255, 255, 0.95);
+//                stroke-width : 2%;
+//                @include trans(0.5s);
+//            }
+//            path.eye-glass {
+//                fill               : rgba(255, 255, 255, 0.55);
+//                opacity            : 0.20;
+//                -webkit-transition : all 2s ease-out;
+//                -moz-transition    : all 2s ease-out;
+//                -o-transition      : all 2s ease-out;
+//                transition         : all 2s ease-out;
+//            }
+//            path.inspector-face {
+//                fill         : $color-cool-grey-12;
+//                fill         : rgb(60, 60, 70);
+//                stroke       : rgba(100, 100, 140, 0.2);
+//                stroke-width : 2%;
+//                @include trans(0.5s);
+//            }
+//            &:hover {
+//                circle.circle-background {
+//                    @include blue-shadow(80px, 0.45);
+//                    fill         : #FFFFFD !important;
+//                    stroke       : lighten($color-xfinity-pumkin, 4%);
+//                    stroke-width : 3%;
+//                }
+//                path.inspector-face {
+//                    fill         : $color-xfinity-pumkin !important;
+//
+//                    stroke       : darken($color-xfinity-pumkin, 2%);
+//                    stroke-width : 1%;
+//                }
+//                path.eye-glass {
+//                    opacity : 0.85;
+//                    size    : 50%;
+//                }
+//            }
+//        }
+//    }
+//    @media (max-width : 768px) {
+//        display : none !important;
+//    }
+//}
 .bump {
     margin-top : 25px;
 }
@@ -729,11 +756,11 @@ div.outline-indicator {
     right      : 0 !important;
 }
 span.outline-indicator {
-    display: inline-block;
-    color : $color-cool-grey-10;
-    width:40px;
-    float:right;
-    clear-after: both;
+    display     : inline-block;
+    color       : $color-cool-grey-10;
+    width       : 40px;
+    float       : right;
+    clear-after : both;
 }
 .docs-nav {
     &.navbar {

@@ -60,7 +60,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
   color: #252930;
   text-align: left;
@@ -361,12 +361,12 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-weight: 500;
-  line-height: 1.2;
+  font-weight: 600;
+  line-height: 1.18;
 }
 
 h1, .h1 {
-  font-size: 2.5rem;
+  font-size: 2.7rem;
 }
 
 h2, .h2 {
@@ -397,25 +397,25 @@ h6, .h6 {
 .display-1 {
   font-size: 6rem;
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.18;
 }
 
 .display-2 {
   font-size: 5.5rem;
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.18;
 }
 
 .display-3 {
   font-size: 4.5rem;
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.18;
 }
 
 .display-4 {
   font-size: 3.5rem;
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.18;
 }
 
 hr {
@@ -428,7 +428,7 @@ hr {
 small,
 .small {
   font-size: 80%;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 mark,
@@ -1821,7 +1821,7 @@ pre code {
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
   color: #919aaa;
   background-color: #fff;
@@ -2263,7 +2263,7 @@ textarea.form-control {
 
 .btn {
   display: inline-block;
-  font-weight: 400;
+  font-weight: 500;
   color: #252930;
   text-align: center;
   vertical-align: middle;
@@ -2714,7 +2714,7 @@ fieldset:disabled a.btn {
 }
 
 .btn-link {
-  font-weight: 400;
+  font-weight: 500;
   color: #5579D2;
   text-decoration: none;
 }
@@ -2978,7 +2978,7 @@ input[type=button].btn-block {
   width: 100%;
   padding: 0.25rem 1.5rem;
   clear: both;
-  font-weight: 400;
+  font-weight: 500;
   color: #252930;
   text-align: inherit;
   white-space: nowrap;
@@ -3223,7 +3223,7 @@ input[type=button].btn-block {
   padding: 0.375rem 0.75rem;
   margin-bottom: 0;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
   color: #919aaa;
   text-align: center;
@@ -3431,7 +3431,7 @@ input[type=button].btn-block {
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 1.75rem 0.375rem 0.75rem;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
   color: #919aaa;
   vertical-align: middle;
@@ -3517,7 +3517,7 @@ input[type=button].btn-block {
   z-index: 1;
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
   color: #919aaa;
   background-color: #fff;
@@ -5291,7 +5291,7 @@ a.close.disabled {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
   text-align: left;
   text-align: start;
@@ -5393,7 +5393,7 @@ a.close.disabled {
   max-width: 276px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
   text-align: left;
   text-align: start;
@@ -9436,7 +9436,7 @@ button.bg-dark:focus {
 }
 
 .font-weight-normal {
-  font-weight: 400 !important;
+  font-weight: 500 !important;
 }
 
 .font-weight-bold {
@@ -9676,7 +9676,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #5d6778;
   padding-top: 100px;
-  font-style: normal !important;
+  font-weight: 500 !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -9984,9 +9984,9 @@ a.theme-link:hover {
   display: inline-block;
   margin: 0 1px 2px;
   padding: 4px;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #E6E6E6;
   border-radius: 4px;
-  background: #fafafa;
+  background: #FAFAFA;
 }
 
 .keystroke {
@@ -10000,23 +10000,56 @@ a.theme-link:hover {
 }
 
 .docs-overview .card {
+  border-width: 3px;
+  border-radius: 12px !important;
   border-color: #e7e9ed;
   position: relative;
   height: 100%;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  -webkit-box-shadow: 0px 5px 10px rgba(85, 121, 210, 0.1) !important;
+  -moz-box-shadow: 0px 5px 10px rgba(85, 121, 210, 0.1) !important;
+  box-shadow: 0px 5px 10px rgba(85, 121, 210, 0.1) !important;
+}
+.docs-overview .card svg {
+  background-color: transparent !important;
 }
 .docs-overview .card:hover {
-  -webkit-box-shadow: 0 1rem 2rem rgba(85, 121, 210, 0.25) !important;
-  -moz-box-shadow: 0 1rem 2rem rgba(85, 121, 210, 0.25) !important;
-  box-shadow: 0 1rem 2rem rgba(85, 121, 210, 0.25) !important;
-  background: white;
+  -webkit-box-shadow: 0px 20px 40px rgba(85, 121, 210, 0.6) !important;
+  -moz-box-shadow: 0px 20px 40px rgba(85, 121, 210, 0.6) !important;
+  box-shadow: 0px 20px 40px rgba(85, 121, 210, 0.6) !important;
+  background: #5579D2 !important;
+  border-color: white;
+  color: white !important;
+}
+.docs-overview .card:hover > h3 {
+  color: white !important;
+}
+.docs-overview .card:hover > h3 > .card-title-text {
+  color: white !important;
+}
+.docs-overview .card:hover svg {
+  color: white !important;
+  fill: white !important;
+  background-color: transparent !important;
 }
 .docs-overview .card:hover .card-icon-holder {
-  background: #fff;
+  color: white !important;
+  fill: white !important;
+  background-color: transparent !important;
+}
+.docs-overview .card:hover .card-icon-holder svg {
+  color: white !important;
+  fill: white !important;
+  background-color: transparent !important;
 }
 .docs-overview .card-icon-holder {
   width: 60px;
   height: 60px;
   font-size: 1.5rem;
+  margin-top: 2px !important;
   padding-top: 1rem;
   display: inline-block;
 }
@@ -10034,6 +10067,131 @@ a.theme-link:hover {
 }
 
 /* Docs page */
+header.header {
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  padding-top: 15px;
+  height: 100px !important;
+}
+@media print {
+  header.header {
+    display: none !important;
+  }
+}
+header.header > div.desktop-search-results {
+  overflow: scroll;
+  position: absolute;
+  display: block;
+  visibility: collapse;
+  opacity: 0;
+  top: 80px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  padding: 20px 20px !important;
+}
+header.header > div.desktop-search-results > h3, header.header > div.desktop-search-results h2, header.header > div.desktop-search-results td, header.header > div.desktop-search-results a {
+  color: white;
+}
+header.header.fixed-top {
+  -webkit-box-shadow: 0px 10px 20px rgba(85, 121, 210, 0.25) !important;
+  -moz-box-shadow: 0px 10px 20px rgba(85, 121, 210, 0.25) !important;
+  box-shadow: 0px 10px 20px rgba(85, 121, 210, 0.25) !important;
+}
+header.header.fixed-top:hover {
+  -webkit-box-shadow: 0px 25px 50px rgba(85, 121, 210, 0.65) !important;
+  -moz-box-shadow: 0px 25px 50px rgba(85, 121, 210, 0.65) !important;
+  box-shadow: 0px 25px 50px rgba(85, 121, 210, 0.65) !important;
+}
+@media (max-width: 768px) {
+  header.header.fixed-top:hover {
+    height: 80px !important;
+  }
+}
+header.header.fixed-top:hover > div.desktop-search-results {
+  color: white !important;
+  opacity: 1;
+  visibility: visible;
+}
+.site-logo > .logo-container {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding-bottom: 0 !important;
+  border: none !important;
+  width: 100px !important;
+  height: 100px !important;
+  max-width: 100px !important;
+  max-height: 100px !important;
+  display: inline-block !important;
+}
+.site-logo > .logo-container svg#CaptionInspectorCircle {
+  width: 78px !important;
+  height: 78px !important;
+  max-width: 78px !important;
+  max-height: 78px !important;
+  margin: -15px 0 0 0;
+}
+.site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo {
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+.site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo circle.circle-background {
+  -webkit-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.75) !important;
+  -moz-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.75) !important;
+  box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.75) !important;
+  fill: rgba(255, 255, 255, 0.75);
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-width: 2%;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo path.eye-glass {
+  fill: rgba(255, 255, 255, 0.55);
+  opacity: 0.2;
+  -webkit-transition: all 2s ease-out;
+  -moz-transition: all 2s ease-out;
+  -o-transition: all 2s ease-out;
+  transition: all 2s ease-out;
+}
+.site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo path.inspector-face {
+  fill: #44484c;
+  fill: #3c3c46;
+  stroke: rgba(100, 100, 140, 0.2);
+  stroke-width: 2%;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo:hover circle.circle-background {
+  -webkit-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
+  -moz-box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
+  box-shadow: 0px 40px 80px rgba(85, 121, 210, 0.45) !important;
+  fill: #FFFFFD !important;
+  stroke: #ffae14;
+  stroke-width: 3%;
+}
+.site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo:hover path.inspector-face {
+  fill: #ffa700 !important;
+  stroke: #f5a000;
+  stroke-width: 1%;
+}
+.site-logo > .logo-container svg#CaptionInspectorCircle g.caption-inspector-logo:hover path.eye-glass {
+  opacity: 0.85;
+}
+
 .search-form {
   position: relative;
   width: 100%;
@@ -10126,7 +10284,7 @@ a.theme-link:hover {
   z-index: 10;
   top: 69px;
   height: calc(100% - 69px);
-  background: #fff;
+  background: #FFF;
   overflow-y: auto;
   /* Forefox scrollbar */
   scrollbar-color: rgba(0, 0, 0, 0.2) #f5f5f5;
@@ -10211,7 +10369,7 @@ a.theme-link:hover {
   background-color: #5579D2;
 }
 .docs-nav .nav-link.active .theme-icon-holder {
-  color: #fff;
+  color: #FFF;
   background: #5579D2;
 }
 .docs-nav .nav-link:before {
@@ -10249,8 +10407,6 @@ a.theme-link:hover {
   display: inline-block;
   right: 0;
   bottom: 1rem;
-  font-size: 0.75rem;
-  font-weight: normal;
   color: #747f94;
 }
 .docs-article .docs-section {
@@ -10292,6 +10448,14 @@ a.theme-link:hover {
   padding-bottom: 0.5rem;
 }
 
+p.legal {
+  font-size: 16px !important;
+  letter-spacing: 0.01px !important;
+  line-height: 22px !important;
+  color: #c7cdd2 !important;
+  text-align: justify;
+}
+
 .docs-code-block {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -10305,7 +10469,7 @@ a.theme-link:hover {
   margin-bottom: 1rem;
 }
 .callout-block code {
-  background: #fff;
+  background: #FFF;
 }
 .callout-block .callout-title {
   font-size: 1rem;
@@ -10388,7 +10552,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #5d6778;
   padding-top: 100px;
-  font-style: normal !important;
+  font-weight: 500 !important;
 }
 
 h1, h2, h3, h4, h5, h6 {

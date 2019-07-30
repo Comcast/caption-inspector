@@ -80,7 +80,11 @@ class BuildNav {
   }
   static formatLabel(label, maxLength = 20) {
     if (!label) {
-      console.warn("Null Value: BuildNav.formatLabel( label < NULL VALUE )");
+      try {
+        throw "Null Value: BuildNav.formatLabel( label < NULL VALUE )";
+      } catch (er) {
+        //console.trace(er);
+      }
       return "";
     }
     label = label.trim();
@@ -89,14 +93,20 @@ class BuildNav {
     }
     return label;
   }
-  static getLabel(element, maxLength = 18) {
+  static getLabel(element, maxLength = 20) {
     // Prefer title over text.
-    let label = $(element).attr("alt") || $(element).attr("data-title") || $(element).attr("data-menu") || $(element).attr("title") || $(element).text();
-    if(!label || label === ""){
-    
+    if(element){
+      let label = $(element).attr("alt") || $(element).attr("data-title") || $(element).attr("data-menu") || $(element).attr("title") || $(element).text();
+      if(!label || label === ""){
+        console.log($(element).id)
+      }
+      
+  
+      return BuildNav.formatLabel(label, maxLength);
+    } else {
+      return "LABEL NF"
     }
     
-    return BuildNav.formatLabel(label, maxLength);
   }
   static appendIndex(element, indexId) {
     try {
@@ -124,6 +134,9 @@ class BuildNav {
     try {
       $("section.docs-section").each(function(index, ROOT_SECTION) {
         let sectionHeading = $(ROOT_SECTION).find(".section-heading:first");
+        if(!sectionHeading){
+          sectionHeading = $(ROOT_SECTION);
+        }
         let label = BuildNav.getLabel(sectionHeading);
         let id = $(ROOT_SECTION).attr("id");
 
@@ -273,10 +286,10 @@ class RootElement extends NavElement {
     let t = this.getType();
     if (t === "header" || t === "root") {
       this.map.set(navElement.id, navElement);
-      console.warn(
-        navElement.label + " does not have a parent to add this child to. ",
-        navElement
-      );
+      // console.warn(
+      //   navElement.label + " does not have a parent to add this child to. ",
+      //   navElement
+      // );
       if (!navElement.parent) {
         this.children.push(navElement);
       } else {
@@ -378,4 +391,7 @@ $(document).ready(function() {
     $(this).ekkoLightbox();
   });
   $('[data-toggle="tooltip"]').tooltip();
+  $(document).ready(function() {
+    $("ol.bold-numbers li").wrapInner("<span class='normal' />")
+  })
 });

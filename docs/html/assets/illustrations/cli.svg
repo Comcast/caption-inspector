@@ -4,22 +4,25 @@
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 193 193"
 	 style="enable-background:new 0 0 193 193;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:none;}
 	.st1{filter:url(#Adobe_OpacityMaskFilter);}
-	.st2{mask:url(#mask-2_1_);fill-rule:evenodd;clip-rule:evenodd;fill:#C4E1F7;}
+	.st2{mask:url(#mask-2_1_);
+	fill-rule:evenodd;
+	clip-rule:evenodd;
+	fill:#5579D2;}
 	.st3{filter:url(#Adobe_OpacityMaskFilter_1_);}
-	.st4{mask:url(#mask-4_1_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.st4{mask:url(#mask-4_1_);fill-rule:evenodd;clip-rule:evenodd;fill:none;}
 	.st5{filter:url(#Adobe_OpacityMaskFilter_2_);}
-	.st6{mask:url(#mask-8_1_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;fill-opacity:0.44;}
+	.st6{mask:url(#mask-8_1_);fill-rule:evenodd;clip-rule:evenodd;fill:none;fill-opacity:0.44;}
 	.st7{filter:url(#Adobe_OpacityMaskFilter_3_);}
-	.st8{mask:url(#mask-10_1_);fill-rule:evenodd;clip-rule:evenodd;fill:#C4E1F7;}
+	.st8{mask:url(#mask-10_1_);fill-rule:evenodd;clip-rule:evenodd;fill:#5579D2;}
 	.st9{fill:none;stroke:#1485E0;stroke-width:2;}
 	.st10{filter:url(#Adobe_OpacityMaskFilter_4_);}
-	.st11{mask:url(#mask-12_1_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.st11{mask:url(#mask-12_1_);fill-rule:evenodd;clip-rule:evenodd;fill:none;}
 	.st12{filter:url(#Adobe_OpacityMaskFilter_5_);}
-	.st13{mask:url(#mask-14_1_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.st13{mask:url(#mask-14_1_);fill-rule:evenodd;clip-rule:evenodd;fill:none;}
 	.st14{filter:url(#Adobe_OpacityMaskFilter_6_);}
-	.st15{mask:url(#mask-16_1_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.st15{mask:url(#mask-16_1_);fill-rule:evenodd;clip-rule:evenodd;fill:none;}
 	.st16{fill:none;stroke:#1485E0;stroke-width:4;}
 	.st17{fill-rule:evenodd;clip-rule:evenodd;fill:#1485E0;}
 </style>
