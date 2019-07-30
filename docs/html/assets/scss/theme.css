@@ -478,7 +478,6 @@ mark,
   height: auto;
 }
 
-
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -486,7 +485,6 @@ mark,
   border-radius: 0.25rem;
   max-width: 100%;
   height: auto;
-  border:none !important;
 }
 
 .figure {
@@ -9908,7 +9906,7 @@ a.theme-link:hover {
 }
 
 .single-col-max {
-  max-width: 800px;
+  max-width: 900px;
 }
 
 /* Header */
@@ -10619,7 +10617,7 @@ a.theme-link:hover {
 }
 
 .single-col-max {
-  max-width: 800px;
+  max-width: 900px;
 }
 
 /* Header */

@@ -108,6 +108,7 @@ body header.header.fixed-top:hover > div.desktop-search-results {
   }
 }
 body .docs-wrapper > .docs-sidebar {
+  width: 350px !important;
   margin-top: 2px;
   padding: 0px;
   -webkit-transition: all 0.3s ease-out;
@@ -655,6 +656,9 @@ div.outline-indicator {
 
 .docs-nav {
   position: relative !important;
+}
+.docs-nav.navbar {
+  width: 400px;
 }
 .docs-nav a.nav-link {
   display: block;

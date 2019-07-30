@@ -119,6 +119,7 @@ body {
             @media print {
                 display:none!important;
             }
+            width:350px !important;
             margin-top : 2px;
             padding    : 0px;
             @include trans(0.3s);
@@ -129,6 +130,7 @@ body {
             }
         }
         nav.docs-nav.navbar {
+
             margin-top       : 10px;
             padding-top      : 50px;
             @media (min-width : 769px) {
@@ -603,6 +605,9 @@ div.outline-indicator {
     right      : 0 !important;
 }
 .docs-nav {
+    &.navbar {
+        width:400px;
+    }
     position : relative !important;
     a.nav-link {
         display  : block;
