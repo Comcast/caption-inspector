@@ -221,7 +221,7 @@
                         </blockquote>
                         <p class="section-intro">
                             Caption Inspector was created to be an open and accessible toolset used to decode and validate
-                            <span data-placement="top" data-toggle="tooltip" title="Closed captions were created for deaf or hard of hearing individuals to assist in comprehension. They can also be used as a tool by those learning to  read, learning to speak a non-native language, or in an environment where the audio is difficult to hear or is intentionally muted.">Closed Captions (CC)</span>
+                            <span data-placement="top" data-toggle="tooltip" class="tooltip" title="Closed captions were created for deaf or hard of hearing individuals to assist in comprehension. They can also be used as a tool by those learning to  read, learning to speak a non-native language, or in an environment where the audio is difficult to hear or is intentionally muted.">Closed Captions (CC)</span>
                             content from a video assets or caption files.
                         </p>
                         <p>Closed Captioning Quality is required in many industries, companies, and countries for the sake of accessibility. Caption Inspector provides the necessary service of validating Closed Captioned content, and is especially useful when sharing content between Content Providers and Distributors, who then in turn, make the content available to Consumers.
@@ -391,8 +391,8 @@
                     <h3 class="section-heading bump bump bump" id="section-3-2">How is it Used</h3>
                     <p><b>Caption Inspector is a Command Line Interface (CLI)</b> tool that takes a video or caption file as input, extracts the embedded data,
                                                                                   and outputs this to a text file, formatted in either a standard
-                        <span data-placement="top" data-toggle="tooltip" title="MCC: MacCaption Closed Captions">`.mcc`</span>, or
-                        <span data-placement="top" data-toggle="tooltip" title="SCC: Scenarist Closed Captions">`.scc`</span> file format. Yet, this tool is not simply an extractor of embedded data, but a primary purpose of this tool is to validate the embedded transcript for errors.
+                        <span data-placement="top" data-toggle="tooltip" class="tooltip" title="MCC: MacCaption Closed Captions">`.mcc`</span>, or
+                        <span data-placement="top" data-toggle="tooltip" class="tooltip" title="SCC: Scenarist Closed Captions">`.scc`</span> file format. Yet, this tool is not simply an extractor of embedded data, but a primary purpose of this tool is to validate the embedded transcript for errors.
                     </p>
                     <p><b>Processing content will create several files</b>, which includes:
                     <ul>
@@ -523,8 +523,8 @@
 </code></pre>
                     <p><span class="bold">Running with the</span> <code>-h</code> option will simply print out the help text.</p>
                     <p><span class="bold">Running against</span> the video file <code>BigBuckBunny_256x144-24fps.ts</code> demonstrates decoding closed captions from a video file.</p>
-                    <p><span class="bold">Running against</span> the caption file <code>Plan9fromOuterSpace.scc</code> demonstrates decoding an <span data-placement="top" data-toggle="tooltip" title="SCC: Scenarist Closed Captions">SCC</span> file and CEA-608 Captions, as well as
-                       converting the contents of the <span data-placement="top" data-toggle="tooltip" title="SCC: Scenarist Closed Captions">SCC</span> file into an MCC file.</p>
+                    <p><span class="bold">Running against</span> the caption file <code>Plan9fromOuterSpace.scc</code> demonstrates decoding an <span data-placement="top" data-toggle="tooltip" class="tooltip" title="SCC: Scenarist Closed Captions">SCC</span> file and CEA-608 Captions, as well as
+                       converting the contents of the <span data-placement="top" data-toggle="tooltip" class="tooltip" title="SCC: Scenarist Closed Captions">SCC</span> file into an MCC file.</p>
                     <p><span class="bold">Running against</span> the caption file <code>NightOfTheLivingDead.mcc</code> demonstrates decoding an MCC file, CEA-608 Captions, and CEA-708
                        Captions.</p>
                     <h3 class="bump" id="section-5-3">Building and Running in a Docker Container</h3>
@@ -780,12 +780,9 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                     </div>
                 </section>
                 <section class="docs-section" id="section-7-0">
-                    <h2 class="section-heading">About Closed Caption Windows</h2>
-                    <h3 id="section-7-1">Timestamp</h3>
-                    <p>On the leftmost portion of the document is the timestamp. Each Closed Caption Data (CCD) packet has a timestamp, which corresponds with
-                       the frame of the asset containing the CCD packet. For readability sake, the timestamp is only printed out when specific Global Control
-                       Codes are encountered. There are three types of timestamps: Frame Number, Drop Frame Number, and Millisecond. This refers to the last
-                       number, and the symbol that separates it from the second to last number.
+                    <h2 class="section-heading" title="About Windows">About Closed Caption Windows</h2>
+                    <h3 id="section-7-1" title="Timestamps">Timestamp</h3>
+                    <p>On the leftmost portion of the document is the timestamp. Each Closed Caption Data (CCD) packet has a timestamp, which corresponds with the frame of the asset containing the CCD packet. For readability sake, the timestamp is only printed out when specific <a href="section-8-2" class="tag">Global Control Codes</a> are encountered. There are three types of timestamps: Frame Number, Drop Frame Number, and Millisecond. This refers to the last number, and the symbol that separates it from the second to last number.
                     </p>
                     <p><b>There are three types of timestamps:</b></p>
                     <ol>
@@ -793,7 +790,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                         <li><span class="tag">Drop Frame Number</span></li>
                         <li><span class="tag">Millisecond</span></li>
                     </ol>
-                    <pre class="copy"><code>
+<pre class="copy"><code>
 <b>Drop Frame Number Timestamps format</b>
 `&lt;Hour&gt;:&lt;Minute&gt;:&lt;Second&gt;;&lt;Frame&gt;`
 
@@ -811,47 +808,317 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                     <p>If there is text detected in the line, it will be pulled together and gets labeled with the Channel or Service Number that it is
                        associated with. This is done to easily be able to see what the text spells out.
                     </p>
-                    <h3 id="section-7-3">The Basis for Reading Output - Hex Data</h3>
+                    <h3 id="section-7-3" title="Reading Output">The Basis for Reading Output - Hex Data</h3>
                     The Hex Data representation of the Closed Captioning Construct is intended to be the most direct representation of the `cc_data()`
                     structure, which is comprised of the following fields:
-                    <pre class="copy"><code>
- 01.    { cc_valid  }{cc_type}:{cc_data_1}{cc_data_2}
- 02.    { F | P | X  }{  S  | D }:
+<pre class="copy"><code>
+01. { cc_valid  }{cc_type}:{cc_data_1}{cc_data_2}
+02. { F | P | X  }{  S  | D }:
 </code></pre>
-                    <p>The `cc_valid` field determines whether the subsequent fields are to be considered valid and thus be interpreted. The value will either
-                       be `F` for Valid Line 21, `P` for Valid DTVCC, or `X` for Invalid.
+                    <p>The `cc_valid` field determines whether the subsequent fields are to be considered valid and thus be interpreted. The value will either be `F` for Valid Line 21, `P` for Valid DTVCC, or `X` for Invalid.
                     </p>
                     <p>The `cc_type` field determines the type of data that will be in `cc_data_1` and `cc_data_2`. This field can have the following values:
                     </p>
-                    <pre class="copy"><code>
- '1': Line 21 Field 1 Data,
- '2': Line 21 Field 2 Data,
-     'S': DTVCC Packet Data Start,
-     'D': DTVCC Packet Data.
+<pre class="copy"><code>
+'1': Line 21 Field 1 Data,
+'2': Line 21 Field 2 Data,
+    'S': DTVCC Packet Data Start,
+    'D': DTVCC Packet Data.
 </code></pre>
                     <p>The fields `cc_data_1` and `cc_data_2` are the actual two bytes of payload data, which are represented in hexadecimal.</p>
-                    <h3 id="section-7-4">Decoded Data and Supplemental Decoded Data</h3>
-                    <p>Decoded Data and Supplemental Decoded Data are intended to be the inline decode of the corresponding Hex Data using the 608 and 708
-                       Specs. The Decoded Data is a high level decode of the code referenced by the hex value, and the supplemental decoded data describes the
-                       flags and values referenced by the hex value.
+                    
+                    <h3 id="section-7-4" title="Decoded Data">Decoded Data and Supplemental Decoded Data</h3>
+                    <p>Decoded Data and Supplemental Decoded Data are intended to be the inline decode of the corresponding Hex Data using the 608 and 708 Specs. The Decoded Data is a high level decode of the code referenced by the hex value, and the supplemental decoded data describes the flags and values referenced by the hex value.
                     </p>
-                    <p>Supplemental decoded data plays a larger role in 708 because more information is crammed into bit fields in the magic numbers.</p>
+                    <p><b>Supplemental decoded data</b> plays a larger role in 708 because more information is crammed into bit fields in the magic numbers.</p>
                 </section>
                 <section class="docs-section" id="section-8-0">
                     <h2 class="section-heading">CEA-608</h2>
-                    <h3 id="section-8-1">NULL Data &nbsp;<span class="lite">(CEA-608)</span></h3>
+                    <h3 id="section-8-1" title="NULL Data">NULL Data &nbsp;<span class="lite">(CEA-608)</span></h3>
                     <p>CEA-608 tends to have its fill data be NULL Data. NULL Data is just `0x00` with a parity bit in the msb position. Since this is placed in
                        specific to 608, it gets decoded to NULL (as opposed to 708 NULL Data, which is shown as a blank line).
                     </p>
-                    <h3 id="section-8-2">Global Control Codes &nbsp;<span class="lite">(CEA-608)
+                    <h3 id="section-8-2" title="Global Control Codes">Global Control Codes &nbsp;<span class="lite">(CEA-608)
                     </span></h3>
                     <p>There is not much decoding to do around Global Control Codes in CEA-608. Basically, it is just the Channel Number that gets decoded and
                        added to the Decoded Data. The Supplemental Decoded Data field is basically used to try to spell out the control code as much as space
                        permits, rather than using the code that is found in the Decoded Data.
                     </p>
-                    <h3 id="section-8-3">CEA-608/CEA-708 Codes &nbsp;<span class="lite">
-                        (CEA-608)</span></h3>
-                    <p>The Hex Data specifies the hexadecimal equivalents for Channels 1 through 4 found in the <span data-placement="top" data-toggle="tooltip" title="SCC: Scenarist Closed Captions">SCC</span> file, using the standard ISO 8859-0
+                    
+<!--                    <div class="diagram" id="1_Caption_Windows" style="max-height: 56.25%">-->
+<!--                        <div class="graphic-caption">[ Caption Windows ] ( caption-windows.png )</div>-->
+<!--                        <img data-toggle="lightbox" src="./assets/content-images/caption-windows.png"-->
+<!--                                style="width:-->
+<!--                        100%" />-->
+<!--                        <div class="caption">Caption Windows</div>-->
+<!--                    </div>-->
+                    <blockquote class="blockquote-lite">
+                        <p>These commands apply to the <code>Window</code>, or the caption inside the <code>Current Window</code>.
+                        </p>
+                    </blockquote>
+                    
+                    <h3 id="section-8-4" title="Preamble Access Codes">Preamble Access Codes (PAC) &nbsp;<span
+                            class="lite">(CEA-608)</span></h3>
+                    <p>PACs come in two types, Address PACs which describe where the cursor should be located, and Style PACs which describe what style/color
+                       should be used when writing to the screen. The Decoded Data field denotes that the decoded code is a PAC, and which channel it is
+                       associated with. The Supplemental Decoded Data field spells out the Address and Style information of the PAC.
+                    </p>
+                    <h3 id="section-8-5" title="Mid Row Style Change Code">Mid Row Style Change Code &nbsp;<span
+                            class="lite">(CEA-608)</span></h3>
+                    <p>Midrow Style Changes come in two types, Foreground and Background Style Change. Additionally, the Foreground
+                    <p>MidRow Style Change can indicate that the text is Partially Transparent, and the Background Midrow Style Change can indicate that the
+                       text is underlined.
+                    </p>
+                    <div class="graphic-caption">[ 608 MidRow ] ( ccd608MidRowStyle.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd608MidRowStyle.png">
+                    <h3 id="section-8-6" title="Tab Control Code">Tab Control Code &nbsp;<span class="lite">(CEA-608)</span>
+                    </h3>
+                    <p>Tab Controls, in combination with an Address PAC can point the cursor to anywhere inside of the text window.</p>
+                </section>
+                <section class="docs-section" id="section-9-0">
+                    <h2 class="section-heading">CEA-708</h2>
+                    <h3 id="section-9-1">Packet Structure &nbsp;<span class="lite"></span></h3>
+                    <p>CEA-708 is able to support 64 services, rather than the 4 channels in 608, in part by defining a variable length packet structure and
+                       then associating each group of packets to a specific service.
+                    </p>
+                    <p>The packet structure is made up of a Packet Start followed by a number of Data Packets. Receiving another Packet Start ends the current
+                       packet and tells the closed captioning service to process all of the data that was in the previous packet structure.
+                    </p>
+                    <div class="callout-block callout-block-warning">
+                        <div class="content">
+                            <span class="callout-icon-holder mr-1"><i class="fas fa-bullhorn"></i></span>
+                            <h4 class="callout-title">Warning</h4>
+                            <p>THIS IS ONLY AN EXAMPLE. Its important to read warning messages when you see them, with the exception of this one because testing overlooked this warning.
+                               We figure its important that everyone has something to do...
+                            </p>
+                        </div>
+                    </div>
+                    <p>To make the start of the packet structure stick out in the decoded data, it has an arrow on the Packet Start: `<-`.</p>
+                    <div class="graphic-caption">[ 708 Packet Start ] ( ccd708PacketStart.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708PacketStart.png">
+                    <h3 id="section-9-2">Spurious Data &nbsp;<span class="lite">(CEA-708)</span>
+                    </h3>
+                    <p>When a byte is unexpected, it gets printed out in the below format. For this example, two unexpected 0 bytes were encountered.</p>
+                    <h3 id="section-9-3">Set Current Window &nbsp;<span
+                            class="lite">(CEA-708)</span></h3>
+                    <p>Set Current Window specifies the window to which all subsequent window style and pen commands are directed.</p>
+                    <div class="graphic-caption">[ 708 Set Current Window ] ( ccd708SetCurrentWindow.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708SetCurrentWindow.png">
+                    <h3 id="section-9-4">Define Window &nbsp;<span class="lite">(CEA-708)</span>
+                    </h3>
+                    <p>Define Window creates a window and initializes the window with the parameters listed in the command.</p>
+                    <h3 id="section-9-5">Display Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Display Windows causes the specified windows to be visible.</p>
+                    <h3 id="section-9-6">708 Display Window &nbsp;<span class="lite"></span></h3>
+                    <h3 id="section-9-7">Clear Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    Clear Windows removes any existing text from the specified windows in the window map and replaces the entire window with the window fill
+                    color.
+                    <div class="graphic-caption">[ 708 Clear Windows ] ( ccd708ClearWindow.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708ClearWindow.png">
+                    <h3 id="section-9-8">Delete Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Delete Windows removes all specified windows.</p>
+                    <div class="graphic-caption">[ 708 Delete Windows ] ( ccd708DeleteWindow.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708DeleteWindow.png">
+                     
+                    <h3 id="section-9-9">Hide Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Hide Windows causes the specified windows to be removed from the screen.</p>
+                    <div class="graphic-caption">[ 708 Hide Windows ] ( ccd708HideWindow.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708HideWindow.png">
+                    <h3 id="section-9-10" title="Toggle Windows">Toggle Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Toggle Windows causes all specified windows to toggle whether they are displayed or hidden.</p>
+                    <div class="graphic-caption">[ 708 Toggle Windows ] ( ccd708ToggleWindow.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708ToggleWindow.png">
+                    <h3 id="section-9-11" title="Set Window Attributes">Set Window Attributes &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Set Window Attributes assigns the specified style attributes to the current window.</p>
+                    <div class="graphic-caption">[ 708 Set Window Attributes ] ( ccd708SetWindowAttributes.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708SetWindowAttributes.png">
+                    <div class="callout-block callout-block-info">
+                        <div class="content">
+                            <h4 class="callout-title"><span class="callout-icon-holder mr-1">
+		                                <i class="fas fa-info-circle"></i>
+		                            </span>Note </h4>
+                            <p>You need to multiply the high bit (value above the 'H') by 4 and add it to the low bits (value above the 'L') to get the final
+                               code for the Border Type.
+                                <a href="#"></a>
+                            </p>
+                        </div>
+                    </div>
+                    <h2 id="section-9-12" title="Set Pen Attributes">Set Pen Attributes &nbsp;<span class="lite">(CEA-708)</span></h2>
+                    <p>Set Pen Attributes assigns pen style attributes for the currently defined window. Text written to the current window will have the
+                       attributes specified by the most recent Set Pen Attributes command written to the window.
+                    </p>
+                    <div class="graphic-caption">[ 708 Set Pen Attributes ] ( ccd708SetPenAttributes.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708SetPenAttributes.png">
+                    <h3 id="section-9-13" title="Set Pen Color">Set Pen Color &nbsp;<span class="lite"></span></h3>
+                    <p>Set Pen Color assigns the pen color attributes for the current window. Text written to that window will have the color attributes
+                       specified by the most recent Set Pen Color command.
+                    </p>
+                    <div class="graphic-caption"> [ 708 Set Pen Color ] ( ccd708SetPenColor.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708SetPenColor.png">
+                    <h3 id="section-9-14" title="Set Pen Location">Set Pen Location &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Set Pen Location repositions the pen cursor for the current window, as specified by the current window ID.</p>
+                    <h2 id="section-9-15" id="section-" title="Justification Rules">Justification Rules &nbsp;<span class="lite">(CEA-708)</span></h2>
+                    <p>When the window justification type is 'left' the next group of text written to the current window will start at the specified row and
+                       column, and justification will be ignored.
+                    </p>
+                    <p>When the window justification type is not left and the print direction is left-to-right or right-to-left, the column parameter shall be
+                       ignored.</p>
+                    
+                
+                    <h2 id="section-9-16" class="section-heading" title="Windows">Windows - CEA-708 </h2>
+                    <p>When the window justification type is not left and the print direction is top-to-bottom or bottom-to-top, the row parameter shall be
+                       ignored.
+                    </p>
+                    <p>When the window justification type is not left, text shall be formatted based upon the current window justification type.</p>
+                    <div class="graphic-caption">[ 708 Set Pen Location ] ( ccd708SetPenLocation.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708SetPenLocation.png">
+                    <h3 id="section-9-17" title="Delay">Delay &nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Delay suspends interpretation of the command input buffer. Once the delay expires captioning resumes.</p>
+                    <div class="graphic-caption">[ 708 Delay ] ( ccd708Delay.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708Delay.png">
+                    <h3 id="section-9-18" title="Delay Cancel">Delay Cancel&nbsp;<span class="lite">(CEA-708)</span></h3>
+                    <p>Delay Cancel terminates an active Delay command and captioning resumes.</p>
+                    <div class="graphic-caption">[708 Delay Cancel ] ( ccd708DelayCancel.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708DelayCancel.png">
+                    <h3 id="section-9-19" title="Reset">Reset &nbsp;<span class="lite">(CEA-708)</span>
+                    </h3>
+                    <p>Reset command reinitializes the service for which it is received.</p>
+                    <div class="graphic-caption">[ 708 Reset ] ( ccd708Reset.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708Reset.png">
+                    <h3 id="section-9-20" title="Reserved">Reserved <span class="lite">(CEA-708)</span>
+                    </h3>
+                    <p>Reserved Codes are just that, Reserved Codes. They are not believed to be used.</p>
+                    <div class="graphic-caption">[ 708 Reserved ] ( ccd708Reserved.png )</div>
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                         src="./assets/content-images/ccd708Reserved.png">
+                </section>
+                
+                <section class="docs-section" id="section-10-0">
+                    <h2 class="section-heading">Reference Tables</h2>
+                    <h3 id="section-10-1" title="Window Commands">Window Commands</h3>
+                    <table class="table table-striped software">
+                        <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Description</th>
+                            <th>Attributes</th>
+                            <th>Properties</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>CW0</td>
+                            <td>Current Window CW0, CW1, CW2, CW3, CW4, CW5, CW6, CW7; The "Current Window" sets the context to set attributes and properties
+                                for within.
+                            </td>
+                            <td>window: priority, anchor number, anchor vertical, anchor horizontal, row count, column count, locked, visible, centered, styleID
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>DF0</td>
+                            <td>Delete Window #: DW0, DW1, DW2, DW3, DW4, DW5, DW6, DW7; Clear the content in window, and Hide it.
+                            </td>
+                            <td>NA</td>
+                            <td>NA</td>
+                        </tr>
+                        <tr>
+                            <td>DLY</td>
+                            <td>Delay: Delay Cancel in tenths of seconds</td>
+                            <td>number: 0.1</td>
+                            <td>NA</td>
+                        </tr>
+                        <tr>
+                            <td>DLC</td>
+                            <td>Delay Cancel: Delay Cancel in tenths of seconds</td>
+                            <td>number</td>
+                            <td>NA</td>
+                        </tr>
+                        <tr>
+                            <td>DLW</td>
+                            <td>Delete Window: Delete (the Current) Window</td>
+                            <td>NA</td>
+                            <td>NA</td>
+                        </tr>
+                        <tr>
+                            <td>ETX</td>
+                            <td>EndOfText: End of Text for the captions. Captions can span unto 15 rows. ETX identifies the end of a given set of text. The next
+                                will reset and start a new set.
+                            </td>
+                            <td>NA</td>
+                            <td>NA</td>
+                        </tr>
+                        <tr>
+                            <td>HDW</td>
+                            <td>Hide Window: Hide (the Current) Window</td>
+                            <td>NA</td>
+                            <td>NA</td>
+                        </tr>
+                        <tr>
+                            <td>RST</td>
+                            <td>Reset Window: Reset (the Current) Window</td>
+                            <td>NA</td>
+                            <td>NA</td>
+                        </tr>
+                        <tr>
+                            <td>SPA</td>
+                            <td>Set Pen Attributes : (Within the context of the "Current Window") : (Font Attributes: size, underline, italic, script, bold,
+                                foreground color, foreground opacity, background color, background opacity, edge color, edge type. )
+                            </td>
+                            <td>font</td>
+                            <td>size, underline, italic, script, bold, foreground color, foreground opacity, background color, background opacity, edge color,
+                                edge type
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SPC</td>
+                            <td>Set Pen Color</td>
+                            <td>background, foreground, border, opacity</td>
+                            <td>Color: [white, black, green, blue, cyan, red, yellow, magenta]</td>
+                        </tr>
+                        <tr>
+                            <td>SPL</td>
+                            <td>Set Pen Location</td>
+                            <td>Row, Column</td>
+                            <td>Row: [0-15], Column: [0-32]</td>
+                        </tr>
+                        <tr>
+                            <td>SWA</td>
+                            <td>Set Window Attribute: Set Window Attributes such as justify, print direction, scroll direction, WW: word wrap, display effect,
+                                effect direction, effect rate, fill color, border color, border type, opacity
+                            </td>
+                            <td>PD: Print Direction, SD: Scroll Direction, JD: Jump Direction, LtoR: Left to Right, RtoL: Right to Left, WW: Word Wrap, Snap:
+                                1.0 seconds
+                            </td>
+                            <td>justify, print direction, scroll direction, word wrap, display effect, effect direction, effect rate, fill color, border color,
+                                border type, opacity
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TGW</td>
+                            <td>Toggle Window : Toggle (the Current) Window</td>
+                            <td>NA</td>
+                            <td>NA</td>
+                        </tr>
+                        </tbody>
+                    </table>
+    
+                    <h3 id="section-10-2" title="608/708 Codes">CEA-608/CEA-708 Codes</h3>
+                    <p>The Hex Data specifies the hexadecimal equivalents for Channels 1 through 4 found in the <span data-placement="top" data-toggle="tooltip" class="tooltip" title="SCC: Scenarist Closed Captions">SCC</span> file, using the standard ISO 8859-0
                        Character Set. Decoded Data refers to Channel Number (1 - 4).
                     </p>
                     <table class="table table-striped software">
@@ -963,279 +1230,11 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                         </tr>
                         </tbody>
                     </table>
-                    <div class="diagram" id="1_Caption_Windows" style="max-height: 56.25%">
-                        <!--                        <div class="graphic-caption">[ Caption Windows ] ( caption-windows.png )</div>-->
-                        <!--                        <img data-toggle="lightbox" src="./assets/content-images/caption-windows.png"-->
-                        <!--                                style="width:-->
-                        <!--                        100%" />-->
-                        <div class="caption">Caption Windows</div>
-                    </div>
-                    <blockquote>
-                        <p>These commands apply to the <code>Window</code>, or the caption inside the <code>Current Window</code>.
-                        </p>
-                    </blockquote>
-                    <table class="table table-striped software">
-                        <thead>
-                        <tr>
-                            <th>Command</th>
-                            <th>Description</th>
-                            <th>Attributes</th>
-                            <th>Properties</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>CW0</td>
-                            <td>Current Window CW0, CW1, CW2, CW3, CW4, CW5, CW6, CW7; The "Current Window" sets the context to set attributes and properties
-                                for within.
-                            </td>
-                            <td>window: priority, anchor number, anchor vertical, anchor horizontal, row count, column count, locked, visible, centered, styleID
-                            </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>DF0</td>
-                            <td>Delete Window #: DW0, DW1, DW2, DW3, DW4, DW5, DW6, DW7; Clear the content in window, and Hide it.
-                            </td>
-                            <td>NA</td>
-                            <td>NA</td>
-                        </tr>
-                        <tr>
-                            <td>DLY</td>
-                            <td>Delay: Delay Cancel in tenths of seconds</td>
-                            <td>number: 0.1</td>
-                            <td>NA</td>
-                        </tr>
-                        <tr>
-                            <td>DLC</td>
-                            <td>Delay Cancel: Delay Cancel in tenths of seconds</td>
-                            <td>number</td>
-                            <td>NA</td>
-                        </tr>
-                        <tr>
-                            <td>DLW</td>
-                            <td>Delete Window: Delete (the Current) Window</td>
-                            <td>NA</td>
-                            <td>NA</td>
-                        </tr>
-                        <tr>
-                            <td>ETX</td>
-                            <td>EndOfText: End of Text for the captions. Captions can span unto 15 rows. ETX identifies the end of a given set of text. The next
-                                will reset and start a new set.
-                            </td>
-                            <td>NA</td>
-                            <td>NA</td>
-                        </tr>
-                        <tr>
-                            <td>HDW</td>
-                            <td>Hide Window: Hide (the Current) Window</td>
-                            <td>NA</td>
-                            <td>NA</td>
-                        </tr>
-                        <tr>
-                            <td>RST</td>
-                            <td>Reset Window: Reset (the Current) Window</td>
-                            <td>NA</td>
-                            <td>NA</td>
-                        </tr>
-                        <tr>
-                            <td>SPA</td>
-                            <td>Set Pen Attributes : (Within the context of the "Current Window") : (Font Attributes: size, underline, italic, script, bold,
-                                foreground color, foreground opacity, background color, background opacity, edge color, edge type. )
-                            </td>
-                            <td>font</td>
-                            <td>size, underline, italic, script, bold, foreground color, foreground opacity, background color, background opacity, edge color,
-                                edge type
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>SPC</td>
-                            <td>Set Pen Color</td>
-                            <td>background, foreground, border, opacity</td>
-                            <td>Color: [white, black, green, blue, cyan, red, yellow, magenta]</td>
-                        </tr>
-                        <tr>
-                            <td>SPL</td>
-                            <td>Set Pen Location</td>
-                            <td>Row, Column</td>
-                            <td>Row: [0-15], Column: [0-32]</td>
-                        </tr>
-                        <tr>
-                            <td>SWA</td>
-                            <td>Set Window Attribute: Set Window Attributes such as justify, print direction, scroll direction, WW: word wrap, display effect,
-                                effect direction, effect rate, fill color, border color, border type, opacity
-                            </td>
-                            <td>PD: Print Direction, SD: Scroll Direction, JD: Jump Direction, LtoR: Left to Right, RtoL: Right to Left, WW: Word Wrap, Snap:
-                                1.0 seconds
-                            </td>
-                            <td>justify, print direction, scroll direction, word wrap, display effect, effect direction, effect rate, fill color, border color,
-                                border type, opacity
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>TGW</td>
-                            <td>Toggle Window : Toggle (the Current) Window</td>
-                            <td>NA</td>
-                            <td>NA</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <h3 id="section-8-4">Preamble Access Codes (PAC) &nbsp;<span
-                            class="lite">(CEA-608)</span></h3>
-                    <p>PACs come in two types, Address PACs which describe where the cursor should be located, and Style PACs which describe what style/color
-                       should be used when writing to the screen. The Decoded Data field denotes that the decoded code is a PAC, and which channel it is
-                       associated with. The Supplemental Decoded Data field spells out the Address and Style information of the PAC.
-                    </p>
-                    <h3 id="section-8-5">Mid Row Style Change Code &nbsp;<span
-                            class="lite">(CEA-608)</span></h3>
-                    <p>Midrow Style Changes come in two types, Foreground and Background Style Change. Additionally, the Foreground
-                    <p>MidRow Style Change can indicate that the text is Partially Transparent, and the Background Midrow Style Change can indicate that the
-                       text is underlined.
-                    </p>
-                    <div class="graphic-caption">[ 608 MidRow ] ( ccd608MidRowStyle.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd608MidRowStyle.png">
-                    <h3 id="section-8-6">Tab Control Code &nbsp;<span class="lite">(CEA-608)</span>
-                    </h3>
-                    <p>Tab Controls, in combination with an Address PAC can point the cursor to anywhere inside of the text window.</p>
-                </section>
-                <section class="docs-section" id="section-9-0">
-                    <h2 class="section-heading">CEA-708 </h2>
-                    <h3 id="section-9-1">Packet Structure &nbsp;<span class="lite"></span></h3>
-                    <p>CEA-708 is able to support 64 services, rather than the 4 channels in 608, in part by defining a variable length packet structure and
-                       then associating each group of packets to a specific service.
-                    </p>
-                    <p>The packet structure is made up of a Packet Start followed by a number of Data Packets. Receiving another Packet Start ends the current
-                       packet and tells the closed captioning service to process all of the data that was in the previous packet structure.
-                    </p>
-                    <div class="callout-block callout-block-warning">
-                        <div class="content">
-                            <span class="callout-icon-holder mr-1"><i class="fas fa-bullhorn"></i></span>
-                            <h4 class="callout-title">Warning</h4>
-                            <p>THIS IS ONLY AN EXAMPLE. Its important to read warning messages when you see them, with the exception of this one because testing overlooked this warning.
-                               We figure its important that everyone has something to do...
-                            </p>
-                        </div>
-                    </div>
-                    <p>To make the start of the packet structure stick out in the decoded data, it has an arrow on the Packet Start: `<-`.</p>
-                    <div class="graphic-caption">[ 708 Packet Start ] ( ccd708PacketStart.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd708PacketStart.png">
-                    <h3 id="section-9-2">Spurious Data &nbsp;<span class="lite">(CEA-708)</span>
-                    </h3>
-                    <p>When a byte is unexpected, it gets printed out in the below format. For this example, two unexpected 0 bytes were encountered.</p>
-                    <h3 id="section-9-3">Set Current Window &nbsp;<span
-                            class="lite">(CEA-708)</span></h3>
-                    <p>Set Current Window specifies the window to which all subsequent window style and pen commands are directed.</p>
-                    <div class="graphic-caption">[ 708 Set Current Window ] ( ccd708SetCurrentWindow.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd708SetCurrentWindow.png">
-                    <h3 id="section-9-4">Define Window &nbsp;<span class="lite">(CEA-708)</span>
-                    </h3>
-                    <p>Define Window creates a window and initializes the window with the parameters listed in the command.</p>
-                    <h3>Display Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
-                    <p>Display Windows causes the specified windows to be visible.</p>
-                    <h3>708 Display Window &nbsp;<span class="lite"></span></h3>
-                    <h3>Clear Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
-                    Clear Windows removes any existing text from the specified windows in the window map and replaces the entire window with the window fill
-                    color.
-                    <div class="graphic-caption">[ 708 Clear Windows ] ( ccd708ClearWindow.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd708ClearWindow.png">
-                    <h3>Delete Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
-                    <p>Delete Windows removes all specified windows.</p>
-                    <div class="graphic-caption">[ 708 Delete Windows ] ( ccd708DeleteWindow.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd708DeleteWindow.png">
-                     
-                    <h3>Hide Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
-                    <p>Hide Windows causes the specified windows to be removed from the screen.</p>
-                    <div class="graphic-caption">[ 708 Hide Windows ] ( ccd708HideWindow.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd708HideWindow.png">
-                    <h3>Toggle Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
-                    <p>Toggle Windows causes all specified windows to toggle whether they are displayed or hidden.</p>
-                    <div class="graphic-caption">[ 708 Toggle Windows ] ( ccd708ToggleWindow.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd708ToggleWindow.png">
-                    <h2>Set Window Attributes &nbsp;<span class="lite">(CEA-708)</span></h2>
-                    <p>Set Window Attributes assigns the specified style attributes to the current window.</p>
-                    <div class="graphic-caption">[ 708 Set Window Attributes ] ( ccd708SetWindowAttributes.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd708SetWindowAttributes.png">
-                    <div class="callout-block callout-block-info">
-                        <div class="content">
-                            <h4 class="callout-title"><span class="callout-icon-holder mr-1">
-		                                <i class="fas fa-info-circle"></i>
-		                            </span>Note </h4>
-                            <p>You need to multiply the high bit (value above the 'H') by 4 and add it to the low bits (value above the 'L') to get the final
-                               code for the Border Type.
-                                <a href="#"></a>
-                            </p>
-                        </div>
-                    </div>
-                    <h3>Set Pen Attributes &nbsp;<span class="lite">(CEA-708)</span></h3>
-                    <p>Set Pen Attributes assigns pen style attributes for the currently defined window. Text written to the current window will have the
-                       attributes specified by the most recent Set Pen Attributes command written to the window.
-                    </p>
-                    <div class="graphic-caption">[ 708 Set Pen Attributes ] ( ccd708SetPenAttributes.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd708SetPenAttributes.png">
-                    <h3>Set Pen Color &nbsp;<span class="lite"></span></h3>
-                    <p>Set Pen Color assigns the pen color attributes for the current window. Text written to that window will have the color attributes
-                       specified by the most recent Set Pen Color command.
-                    </p>
-                    <div class="graphic-caption"> [ 708 Set Pen Color ] ( ccd708SetPenColor.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd708SetPenColor.png">
-                    <h3>Set Pen Location &nbsp;<span class="lite">(CEA-708)</span></h3>
-                    <p>Set Pen Location repositions the pen cursor for the current window, as specified by the current window ID.</p>
-                    <h2>Rules &nbsp;<span class="lite">(CEA-708)</span></h2>
-                    <p>When the window justification type is 'left' the next group of text written to the current window will start at the specified row and
-                       column, and justification will be ignored.
-                    </p>
-                    <p></p>
-                    When the window justification type is not left and the print direction is left-to-right or right-to-left, the column parameter shall be
-                    ignored.
-                </section>
-                <section class="docs-section" id="section-10-0">
-                    <h2 class="section-heading">Windows - CEA-708 </h2>
-                    <p>When the window justification type is not left and the print direction is top-to-bottom or bottom-to-top, the row parameter shall be
-                       ignored.
-                    </p>
-                    <p>When the window justification type is not left, text shall be formatted based upon the current window justification type.</p>
-                    <div class="graphic-caption">[ 708 Set Pen Location ] ( ccd708SetPenLocation.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd708SetPenLocation.png">
-                    <h3>Delay &nbsp;<span class="lite">(CEA-708)</span></h3>
-                    <p>Delay suspends interpretation of the command input buffer. Once the delay expires captioning resumes.</p>
-                    <div class="graphic-caption">[ 708 Delay ] ( ccd708Delay.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd708Delay.png">
-                    <h3>Delay Cancel&nbsp;<span class="lite">(CEA-708)</span></h3>
-                    <p>Delay Cancel terminates an active Delay command and captioning resumes.</p>
-                    <div class="graphic-caption">[708 Delay Cancel ] ( ccd708DelayCancel.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd708DelayCancel.png">
-                    <h3>Reset &nbsp;<span class="lite">(CEA-708)</span>
-                    </h3>
-                    <p>Reset command reinitializes the service for which it is received.</p>
-                    <div class="graphic-caption">[ 708 Reset ] ( ccd708Reset.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd708Reset.png">
-                    <h3> Reserved <span class="lite">(CEA-708)</span>
-                    </h3>
-                    <p>Reserved Codes are just that, Reserved Codes. They are not believed to be used.</p>
-                    <div class="graphic-caption">[ 708 Reserved ] ( ccd708Reserved.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd708Reserved.png">
+                    
                 </section>
                 <section class="docs-section" id="section-11-0">
-                    <h2 class="section-heading" title="Glossary">Glossary of Terms</h2>
-    
-                    
+                    <h2 class="section-heading" title="Glossary Terms">Glossary of Terms</h2>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading-0">
                                 <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-0" aria-expanded="false" aria-controls="collapse-1"> Demultiplex (DEMUX) </a> </h4>
@@ -1718,21 +1717,21 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                     </div>
                     
                 </section>
-                <section class="docs-section" id="section-12-0">
-                    <h2 class="section-heading" title="Resources">Resources</h2>
-                    <div class="lighthouse">
-                        <img class="icon_profile"
-                             data-toggle="lightbox" src="./assets/brand/ci-icon-stamp-blue.png" />
-                        
-                        <img class="icon_profile"
-                             data-toggle="lightbox" src="./assets/brand/ci-icon-stamp-green.png" />
-                        <img class="icon_profile"
-                             data-toggle="lightbox" src="./assets/brand/ci-icon-stamp-salmon.png" />
-    
-                        <img class="icon_profile" data-toggle="lightbox" src="./assets/brand/logo-duo.png" />
-                        
-                    </div>
-                </section>
+<!--                <section class="docs-section" id="section-12-0">-->
+<!--                    <h2 class="section-heading" title="Resources">Resources</h2>-->
+<!--                    <div class="lighthouse">-->
+<!--                        <img class="icon_profile"-->
+<!--                             data-toggle="lightbox" src="./assets/brand/ci-icon-stamp-blue.png" />-->
+<!--                        -->
+<!--                        <img class="icon_profile"-->
+<!--                             data-toggle="lightbox" src="./assets/brand/ci-icon-stamp-green.png" />-->
+<!--                        <img class="icon_profile"-->
+<!--                             data-toggle="lightbox" src="./assets/brand/ci-icon-stamp-salmon.png" />-->
+<!--    -->
+<!--                        <img class="icon_profile" data-toggle="lightbox" src="./assets/brand/logo-duo.png" />-->
+<!--                        -->
+<!--                    </div>-->
+<!--                </section>-->
                 <a class="btn to-top" href="./docs-page.html#section-1" title="Scroll to Top">TOP</a>
             </article>
         </div>

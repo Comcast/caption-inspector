@@ -289,8 +289,8 @@ body article.docs-article section.docs-section blockquote.blockquote-lite, body 
   background-color: #fbfcfc !important;
   border-top: 4px solid #b1b9bf !important;
   border-bottom: 4px solid #b1b9bf !important;
-  margin: 20px 0px !important;
-  padding: 20px 20px !important;
+  margin: 15px 0px !important;
+  padding: 10px 20px !important;
 }
 body article.docs-article section.docs-section blockquote h3, body article.docs-article section.docs-section .blockquote h3 {
   font-size: 35px !important;
