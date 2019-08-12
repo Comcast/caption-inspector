@@ -451,7 +451,7 @@ static uint16 countDataPackets( uint8* dataPtr, uint8 block_size ) {
                     (dataPtr[0] == DTVCC_C1_RSV95)   || (dataPtr[0] == DTVCC_C1_RSV96)) {
                     used = 1;
                 } else if( (dataPtr[index] == DTVCC_C1_CLW) || (dataPtr[index] == DTVCC_C1_DSW) || (dataPtr[index] == DTVCC_C1_HDW) ||
-                           (dataPtr[index] == DTVCC_C1_TGW) || (dataPtr[index] == DTVCC_C1_DLW) || (dataPtr[index] == DTVCC_C1_DLW) ) {
+                           (dataPtr[index] == DTVCC_C1_TGW) || (dataPtr[index] == DTVCC_C1_DLW) || (dataPtr[index] == DTVCC_C1_DLY) ) {
                     used = 2;
                 } else if( (dataPtr[index] == DTVCC_C1_SPA) || (dataPtr[index] == DTVCC_C1_SPL) ) {
                     used = 3;
