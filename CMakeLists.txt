@@ -37,6 +37,7 @@ add_executable(caption-inspector
         src/sink/line21_output.c
         src/sink/mcc_output.c
         src/source/mcc_file.c
+        src/source/mov_file.c
         src/source/mpeg_file.c
         src/source/scc_file.c
         src/utils/autodetect_file.c

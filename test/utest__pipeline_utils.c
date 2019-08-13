@@ -56,13 +56,16 @@ char* DtvccOutInitializeFileNameStr;
 char* CcDataOutInitializeFileNameStr;
 char* MccOutInitializeFileNameStr;
 char* MpegFileInitializeFileNameStr;
+char* MovFileInitializeFileNameStr;
 char* DetermineDropFrameInputFilename;
 char* DetermineDropFrameArtifactPath;
 boolean DetermineDropFrameSaveArtifacts;
 boolean DetermineDropFrame__isDropFrame;
 boolean MpegFileInitializeisDropframe;
+boolean MovFileInitializeisDropframe;
 boolean DetermineDropFrame__wasSuccessful;
 boolean MpegFileInitializeOverrideDf;
+boolean MovFileInitializeOverrideDf;
 
 void InitStubs( void ) {
     CcDataOutInitializeCalled = 0;
@@ -119,6 +122,9 @@ void InitStubs( void ) {
     MpegFileInitializeisDropframe = FALSE;
     DetermineDropFrame__wasSuccessful = FALSE;
     MpegFileInitializeOverrideDf = FALSE;
+    MovFileInitializeFileNameStr = NULL;
+    MovFileInitializeisDropframe = FALSE;
+    MovFileInitializeOverrideDf = FALSE;
 }
 
 boolean AnySpuriousFunctionsCalled( void ) {
@@ -318,6 +324,31 @@ LinkInfo MccOutInitialize( Context* ctxPtr, char* outputFileNameStr ) {
     MccOutInitializeFileNameStr = outputFileNameStr;
 
     return linkInfo;
+}
+
+boolean MovFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
+    boolean retval = TRUE;
+
+    MovFileAddSinkCalled++;
+
+    return retval;
+}
+
+boolean MovFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe ) {
+    boolean retval = TRUE;
+
+    MovFileInitializeCalled++;
+    MovFileInitializeFileNameStr = fileNameStr;
+    MovFileInitializeisDropframe = isDropframe;
+    MovFileInitializeOverrideDf = overrideDropframe;
+
+    return retval;
+}
+
+boolean MovFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
+    boolean retval = TRUE;
+
+    return retval;
 }
 
 boolean MpegFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
@@ -1609,6 +1640,292 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
 }  // utest__PlumbMpegPipeline()
 
 /*------------------------------------------------------------------------------
+ | FUNCTION UNDER TEST: PlumbMovPipeline()
+ |
+ | TEST CASES:
+ |    1) Successfully Plumb MOV DF Pipeline with Artifacts.
+ |    2) Successfully Plumb MOV NDF Pipeline with Artifacts.
+ |    3) Successfully Plumb MOV DF Pipeline without Artifacts.
+ |    4) Successfully Plumb MOV NDF Pipeline without Artifacts.
+ |    5) Successfully Plumb MOV Ambiguous Dropframe Pipeline without Artifacts.
+ |    6) Successfully Plumb MOV without Artifacts with a NULL Artifact Path.
+ |    7) Pass a NULL Input Filename.
+ |    8) Pass a NULL Output Filename.
+ |    9) Pass a NULL Artifact Path.
+ -------------------------------------------------------------------------------*/
+void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
+    TEST_INITIALIZE
+    char* inputFilename = "Who";
+    char* outputFilename = "Cares?";
+    char* artifactPath = "NotMe";
+    boolean retval;
+    Context ctx;
+
+    TEST_START("Test Case: PlumbMovPipeline() - Successfully Plumb MPEG DF Pipeline with Artifacts.");
+    InitStubs();
+    DetermineDropFrame__isDropFrame = TRUE;
+    DetermineDropFrame__wasSuccessful = TRUE;
+    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename, TRUE, artifactPath );
+    ASSERT_EQ(TRUE, retval);
+    ASSERT_EQ(1, DetermineDropFrameCalled);
+    ASSERT_EQ(1, MovFileInitializeCalled);
+    ASSERT_EQ(4, MovFileAddSinkCalled);
+    ASSERT_EQ(1, MccEncodeInitializeCalled);
+    ASSERT_EQ(1, MccEncodeAddSinkCalled);
+    ASSERT_EQ(1, DtvccDecodeInitializeCalled);
+    ASSERT_EQ(1, DtvccDecodeAddSinkCalled);
+    ASSERT_EQ(1, Line21DecodeInitializeCalled);
+    ASSERT_EQ(1, Line21DecodeAddSinkCalled);
+    ASSERT_EQ(1, DtvccOutInitializeCalled);
+    ASSERT_EQ(1, Line21OutInitializeCalled);
+    ASSERT_EQ(1, CcDataOutInitializeCalled);
+    ASSERT_EQ(1, MccOutInitializeCalled);
+    ASSERT_PTREQ(inputFilename, MovFileInitializeFileNameStr);
+    ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
+    ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
+    ASSERT_PTREQ(artifactPath, DtvccOutInitializeFileNameStr);
+    ASSERT_PTREQ(artifactPath, Line21OutInitializeFileNameStr);
+    ASSERT_PTREQ(artifactPath, CcDataOutInitializeFileNameStr);
+    ASSERT_PTREQ(artifactPath, DetermineDropFrameArtifactPath);
+    ASSERT_EQ(TRUE, DetermineDropFrameSaveArtifacts);
+    ASSERT_EQ(TRUE, MovFileInitializeisDropframe);
+    DetermineDropFrameCalled = 0;
+    MovFileInitializeCalled = 0;
+    MovFileAddSinkCalled = 0;
+    MccEncodeInitializeCalled = 0;
+    MccEncodeAddSinkCalled = 0;
+    DtvccDecodeInitializeCalled = 0;
+    DtvccDecodeAddSinkCalled = 0;
+    Line21DecodeInitializeCalled = 0;
+    Line21DecodeAddSinkCalled = 0;
+    DtvccOutInitializeCalled = 0;
+    Line21OutInitializeCalled = 0;
+    CcDataOutInitializeCalled = 0;
+    MccOutInitializeCalled = 0;
+    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
+    TEST_START("Test Case: PlumbMovPipeline() - Successfully Plumb MPEG NDF Pipeline with Artifacts.");
+    InitStubs();
+    DetermineDropFrame__isDropFrame = FALSE;
+    DetermineDropFrame__wasSuccessful = TRUE;
+    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename, TRUE, artifactPath );
+    ASSERT_EQ(TRUE, retval);
+    ASSERT_EQ(1, DetermineDropFrameCalled);
+    ASSERT_EQ(1, MovFileInitializeCalled);
+    ASSERT_EQ(4, MovFileAddSinkCalled);
+    ASSERT_EQ(1, MccEncodeInitializeCalled);
+    ASSERT_EQ(1, MccEncodeAddSinkCalled);
+    ASSERT_EQ(1, DtvccDecodeInitializeCalled);
+    ASSERT_EQ(1, DtvccDecodeAddSinkCalled);
+    ASSERT_EQ(1, Line21DecodeInitializeCalled);
+    ASSERT_EQ(1, Line21DecodeAddSinkCalled);
+    ASSERT_EQ(1, DtvccOutInitializeCalled);
+    ASSERT_EQ(1, Line21OutInitializeCalled);
+    ASSERT_EQ(1, CcDataOutInitializeCalled);
+    ASSERT_EQ(1, MccOutInitializeCalled);
+    ASSERT_PTREQ(inputFilename, MovFileInitializeFileNameStr);
+    ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
+    ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
+    ASSERT_PTREQ(artifactPath, DtvccOutInitializeFileNameStr);
+    ASSERT_PTREQ(artifactPath, Line21OutInitializeFileNameStr);
+    ASSERT_PTREQ(artifactPath, CcDataOutInitializeFileNameStr);
+    ASSERT_PTREQ(artifactPath, DetermineDropFrameArtifactPath);
+    ASSERT_EQ(TRUE, DetermineDropFrameSaveArtifacts);
+    ASSERT_EQ(FALSE, MovFileInitializeisDropframe);
+    ASSERT_EQ(TRUE, MovFileInitializeOverrideDf);
+    DetermineDropFrameCalled = 0;
+    MovFileInitializeCalled = 0;
+    MovFileAddSinkCalled = 0;
+    MccEncodeInitializeCalled = 0;
+    MccEncodeAddSinkCalled = 0;
+    DtvccDecodeInitializeCalled = 0;
+    DtvccDecodeAddSinkCalled = 0;
+    Line21DecodeInitializeCalled = 0;
+    Line21DecodeAddSinkCalled = 0;
+    DtvccOutInitializeCalled = 0;
+    Line21OutInitializeCalled = 0;
+    CcDataOutInitializeCalled = 0;
+    MccOutInitializeCalled = 0;
+    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
+    TEST_START("Test Case: PlumbMovPipeline() - Successfully Plumb MPEG DF Pipeline without Artifacts.");
+    InitStubs();
+    DetermineDropFrame__isDropFrame = TRUE;
+    DetermineDropFrame__wasSuccessful = TRUE;
+    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename, FALSE, artifactPath );
+    ASSERT_EQ(TRUE, retval);
+    ASSERT_EQ(1, DetermineDropFrameCalled);
+    ASSERT_EQ(1, MovFileInitializeCalled);
+    ASSERT_EQ(3, MovFileAddSinkCalled);
+    ASSERT_EQ(1, MccEncodeInitializeCalled);
+    ASSERT_EQ(1, MccEncodeAddSinkCalled);
+    ASSERT_EQ(1, DtvccDecodeInitializeCalled);
+    ASSERT_EQ(1, Line21DecodeInitializeCalled);
+    ASSERT_EQ(1, MccOutInitializeCalled);
+    ASSERT_PTREQ(inputFilename, MovFileInitializeFileNameStr);
+    ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
+    ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
+    ASSERT_PTREQ(NULL, DtvccOutInitializeFileNameStr);
+    ASSERT_PTREQ(NULL, Line21OutInitializeFileNameStr);
+    ASSERT_PTREQ(NULL, CcDataOutInitializeFileNameStr);
+    ASSERT_PTREQ(NULL, DetermineDropFrameArtifactPath);
+    ASSERT_EQ(FALSE, DetermineDropFrameSaveArtifacts);
+    ASSERT_EQ(TRUE, MovFileInitializeisDropframe);
+    ASSERT_EQ(TRUE, MovFileInitializeOverrideDf);
+    DetermineDropFrameCalled = 0;
+    MovFileInitializeCalled = 0;
+    MovFileAddSinkCalled = 0;
+    MccEncodeInitializeCalled = 0;
+    MccEncodeAddSinkCalled = 0;
+    DtvccDecodeInitializeCalled = 0;
+    Line21DecodeInitializeCalled = 0;
+    MccOutInitializeCalled = 0;
+    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
+    TEST_START("Test Case: PlumbMovPipeline() - Successfully Plumb MPEG Ambiguous Dropframe Pipeline without Artifacts.");
+    InitStubs();
+    DetermineDropFrame__isDropFrame = FALSE;
+    DetermineDropFrame__wasSuccessful = FALSE;
+    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename, FALSE, artifactPath );
+    ASSERT_EQ(TRUE, retval);
+    ASSERT_EQ(1, DetermineDropFrameCalled);
+    ASSERT_EQ(1, MovFileInitializeCalled);
+    ASSERT_EQ(3, MovFileAddSinkCalled);
+    ASSERT_EQ(1, MccEncodeInitializeCalled);
+    ASSERT_EQ(1, MccEncodeAddSinkCalled);
+    ASSERT_EQ(1, DtvccDecodeInitializeCalled);
+    ASSERT_EQ(1, Line21DecodeInitializeCalled);
+    ASSERT_EQ(1, MccOutInitializeCalled);
+    ASSERT_PTREQ(inputFilename, MovFileInitializeFileNameStr);
+    ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
+    ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
+    ASSERT_PTREQ(NULL, DtvccOutInitializeFileNameStr);
+    ASSERT_PTREQ(NULL, Line21OutInitializeFileNameStr);
+    ASSERT_PTREQ(NULL, CcDataOutInitializeFileNameStr);
+    ASSERT_PTREQ(NULL, DetermineDropFrameArtifactPath);
+    ASSERT_EQ(FALSE, DetermineDropFrameSaveArtifacts);
+    ASSERT_EQ(FALSE, MovFileInitializeisDropframe);
+    ASSERT_EQ(FALSE, MovFileInitializeOverrideDf);
+    DetermineDropFrameCalled = 0;
+    MovFileInitializeCalled = 0;
+    MovFileAddSinkCalled = 0;
+    MccEncodeInitializeCalled = 0;
+    MccEncodeAddSinkCalled = 0;
+    DtvccDecodeInitializeCalled = 0;
+    Line21DecodeInitializeCalled = 0;
+    MccOutInitializeCalled = 0;
+    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
+    TEST_START("Test Case: PlumbMovPipeline() - Successfully Plumb MOV without Artifacts with a NULL Artifact Path.");
+    InitStubs();
+    DetermineDropFrame__isDropFrame = FALSE;
+    DetermineDropFrame__wasSuccessful = FALSE;
+    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename, FALSE, NULL );
+    ASSERT_EQ(TRUE, retval);
+    ASSERT_EQ(1, DetermineDropFrameCalled);
+    ASSERT_EQ(1, MovFileInitializeCalled);
+    ASSERT_EQ(3, MovFileAddSinkCalled);
+    ASSERT_EQ(1, MccEncodeInitializeCalled);
+    ASSERT_EQ(1, MccEncodeAddSinkCalled);
+    ASSERT_EQ(1, DtvccDecodeInitializeCalled);
+    ASSERT_EQ(1, Line21DecodeInitializeCalled);
+    ASSERT_EQ(1, MccOutInitializeCalled);
+    ASSERT_PTREQ(inputFilename, MovFileInitializeFileNameStr);
+    ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
+    ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
+    ASSERT_PTREQ(NULL, DtvccOutInitializeFileNameStr);
+    ASSERT_PTREQ(NULL, Line21OutInitializeFileNameStr);
+    ASSERT_PTREQ(NULL, CcDataOutInitializeFileNameStr);
+    ASSERT_PTREQ(NULL, DetermineDropFrameArtifactPath);
+    ASSERT_EQ(FALSE, DetermineDropFrameSaveArtifacts);
+    ASSERT_EQ(FALSE, MovFileInitializeisDropframe);
+    ASSERT_EQ(FALSE, MovFileInitializeOverrideDf);
+    DetermineDropFrameCalled = 0;
+    MovFileInitializeCalled = 0;
+    MovFileAddSinkCalled = 0;
+    MccEncodeInitializeCalled = 0;
+    MccEncodeAddSinkCalled = 0;
+    DtvccDecodeInitializeCalled = 0;
+    Line21DecodeInitializeCalled = 0;
+    MccOutInitializeCalled = 0;
+    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
+    TEST_START("Test Case: PlumbMovPipeline() - Pass a NULL Input Filename.");
+    InitStubs();
+    DetermineDropFrame__isDropFrame = TRUE;
+    DetermineDropFrame__wasSuccessful = TRUE;
+    ERROR_EXPECTED
+    retval = PlumbMovPipeline( &ctx, NULL, outputFilename, TRUE, artifactPath );
+    ASSERT_EQ(FALSE, retval);
+    ASSERT_EQ(0, DetermineDropFrameCalled);
+    ASSERT_EQ(0, MovFileInitializeCalled);
+    ASSERT_EQ(0, MovFileAddSinkCalled);
+    ASSERT_EQ(0, MccEncodeInitializeCalled);
+    ASSERT_EQ(0, MccEncodeAddSinkCalled);
+    ASSERT_EQ(0, DtvccDecodeInitializeCalled);
+    ASSERT_EQ(0, DtvccDecodeAddSinkCalled);
+    ASSERT_EQ(0, Line21DecodeInitializeCalled);
+    ASSERT_EQ(0, Line21DecodeAddSinkCalled);
+    ASSERT_EQ(0, DtvccOutInitializeCalled);
+    ASSERT_EQ(0, Line21OutInitializeCalled);
+    ASSERT_EQ(0, CcDataOutInitializeCalled);
+    ASSERT_EQ(0, MccOutInitializeCalled);
+    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
+    TEST_START("Test Case: PlumbMovPipeline() - Pass a NULL Output Filename.");
+    InitStubs();
+    DetermineDropFrame__isDropFrame = TRUE;
+    DetermineDropFrame__wasSuccessful = TRUE;
+    ERROR_EXPECTED
+    retval = PlumbMovPipeline( &ctx, inputFilename, NULL, TRUE, artifactPath );
+    ASSERT_EQ(FALSE, retval);
+    ASSERT_EQ(0, DetermineDropFrameCalled);
+    ASSERT_EQ(0, MovFileInitializeCalled);
+    ASSERT_EQ(0, MovFileAddSinkCalled);
+    ASSERT_EQ(0, MccEncodeInitializeCalled);
+    ASSERT_EQ(0, MccEncodeAddSinkCalled);
+    ASSERT_EQ(0, DtvccDecodeInitializeCalled);
+    ASSERT_EQ(0, DtvccDecodeAddSinkCalled);
+    ASSERT_EQ(0, Line21DecodeInitializeCalled);
+    ASSERT_EQ(0, Line21DecodeAddSinkCalled);
+    ASSERT_EQ(0, DtvccOutInitializeCalled);
+    ASSERT_EQ(0, Line21OutInitializeCalled);
+    ASSERT_EQ(0, CcDataOutInitializeCalled);
+    ASSERT_EQ(0, MccOutInitializeCalled);
+    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
+    TEST_START("Test Case: PlumbMovPipeline() - Pass a NULL Artifact Directory.");
+    InitStubs();
+    DetermineDropFrame__isDropFrame = TRUE;
+    DetermineDropFrame__wasSuccessful = TRUE;
+    ERROR_EXPECTED
+    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename, TRUE, NULL );
+    ASSERT_EQ(FALSE, retval);
+    ASSERT_EQ(0, DetermineDropFrameCalled);
+    ASSERT_EQ(0, MovFileInitializeCalled);
+    ASSERT_EQ(0, MovFileAddSinkCalled);
+    ASSERT_EQ(0, MccEncodeInitializeCalled);
+    ASSERT_EQ(0, MccEncodeAddSinkCalled);
+    ASSERT_EQ(0, DtvccDecodeInitializeCalled);
+    ASSERT_EQ(0, DtvccDecodeAddSinkCalled);
+    ASSERT_EQ(0, Line21DecodeInitializeCalled);
+    ASSERT_EQ(0, Line21DecodeAddSinkCalled);
+    ASSERT_EQ(0, DtvccOutInitializeCalled);
+    ASSERT_EQ(0, Line21OutInitializeCalled);
+    ASSERT_EQ(0, CcDataOutInitializeCalled);
+    ASSERT_EQ(0, MccOutInitializeCalled);
+    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+}  // utest__PlumbMovPipeline()
+
+/*------------------------------------------------------------------------------
  | FUNCTION UNDER TEST: DrivePipeline()
  |
  | TEST CASES:
@@ -1661,6 +1978,7 @@ void utest__DrivePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
  |    pipeline_utils.c - PlumbSccPipeline()
  |    pipeline_utils.c - PlumbMccPipeline()
  |    pipeline_utils.c - PlumbMpegPipeline()
+ |    pipeline_utils.c - PlumbMovPipeline()
  |    pipeline_utils.c - DrivePipeline()
  |
  | UNTESTED FUNCTIONS:
@@ -1694,6 +2012,10 @@ int main( int argc, char* argv[] ) {
 
     TEST_SUITE_START("Test Suite: pipeline_utils.c -- PlumbMpegPipeline()");
     utest__PlumbMpegPipeline( TEST_SUITE_PASSED_ARGUMENTS );
+    TEST_SUITE_END
+
+    TEST_SUITE_START("Test Suite: pipeline_utils.c -- PlumbMovPipeline()");
+    utest__PlumbMovPipeline( TEST_SUITE_PASSED_ARGUMENTS );
     TEST_SUITE_END
 
     TEST_SUITE_START("Test Suite: pipeline_utils.c -- DrivePipeline()");

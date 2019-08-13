@@ -231,7 +231,8 @@ boolean DtvccDecodeShutdown( void* rootCtxPtr ) {
                 } else if( ctxPtr->isTickerCaptioning[loop] == TRUE ) {
                     LOG(DEBUG_LEVEL_INFO, DBG_708_DEC, "Found DTVCC TickerTape Captioning on Service %d", loop+1);
                 } else {
-                    ASSERT(0);
+                    LOG(DEBUG_LEVEL_WARN, DBG_708_DEC, "Unset DTVCC Captioning Type on Service %d: PopOn - %d; RollUp - %d; TickerTape - %d",
+                        loop+1, ctxPtr->isPopOnCaptioning[loop], ctxPtr->isRollUpCaptioning[loop], ctxPtr->isTickerCaptioning[loop] );
                 }
             } else {
                 LOG(DEBUG_LEVEL_INFO, DBG_708_DEC, "Ambiguous DTVCC Captioning Type on Service %d: PopOn - %d; RollUp - %d; TickerTape - %d",

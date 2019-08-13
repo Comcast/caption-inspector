@@ -81,6 +81,7 @@
 UNAME := $(shell uname)
 
 SRC_OBJS = mcc_file.o    \
+           mov_file.o    \
            mpeg_file.o   \
            scc_file.o
 SRC_OBJS_WITH_PATH = $(foreach SRC_OBJS, $(SRC_OBJS), ../src/source/$(SRC_OBJS))
@@ -113,13 +114,13 @@ OBJS_WITH_PATH = $(SRC_OBJS_WITH_PATH) $(XFORM_OBJS_WITH_PATH) $(SINK_OBJS_WITH_
 OBJS_IN_OBJ_DIR = $(foreach OBJS, $(OBJS), ../obj/$(OBJS))
 
 ifeq ($(UNAME), Linux)
-C_FLAGS = -Wpedantic -Wno-deprecated-declarations -Wall -fno-strict-aliasing -fPIC -DPIC
-SO_FLAGS = -shared -W -L/usr/local/lib -lavformat -lavcodec -lavutil -luuid
-LD_FLAGS = -L/usr/local/lib -lavformat -lavcodec -lavutil -luuid -lm
+C_FLAGS = -Wpedantic -Wno-deprecated-declarations -Wall -fno-strict-aliasing -fPIC -DPIC -DCOMPILE_GPAC
+SO_FLAGS = -shared -W -L/usr/local/lib -lavformat -lavcodec -lavutil -luuid -lgpac
+LD_FLAGS = -L/usr/local/lib -lavformat -lavcodec -lavutil -luuid -lm -lgpac
 else
-C_FLAGS = -Wpedantic -Wno-deprecated-declarations
-SO_FLAGS = -dynamiclib -undefined suppress -flat_namespace -L/usr/local/lib -lavformat -lavcodec -lavutil
-LD_FLAGS = -L/usr/local/lib -lavformat -lavcodec -lavutil -lz
+C_FLAGS = -Wpedantic -Wno-deprecated-declarations -DCOMPILE_GPAC
+SO_FLAGS = -dynamiclib -undefined suppress -flat_namespace -L/usr/local/lib -lavformat -lavcodec -lavutil -lgpac
+LD_FLAGS = -L/usr/local/lib -lavformat -lavcodec -lavutil -lz -lgpac
 endif
 
 -include ../obj/$(OBJS:.o=.d)
@@ -204,7 +205,7 @@ test:
 	cd ../; make clean
 	@echo "\n*** Building for Test ***"
 	make all
-	cd ../; make all
+	cd ../; make ci_with_gpac
 	@echo "\n*** Running Tests ***"
 	cd python; python3 test_engine.py
 

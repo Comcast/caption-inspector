@@ -71,6 +71,9 @@ caption-inspector:
 ci_without_ffmpeg:
 	cd src ; make ci_without_ffmpeg
 
+ci_with_gpac:
+	cd src ; make ci_with_gpac
+
 docker:
 	docker build -t caption-inspector .
 

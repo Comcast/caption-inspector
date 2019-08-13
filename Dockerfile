@@ -22,16 +22,21 @@ RUN apt-get install -y make curl gcc g++ nasm yasm && \
   make distclean && \
   rm -rf ${DIR}
 
-# install git in order to get version and build info
-RUN apt-get install -y git
+# install git, make, and gcc to build gpac
+RUN apt-get install -y git && apt-get install -y make && apt-get install -y gcc && apt-get install -y clang
 COPY .git/ /app/.git/
+
+# pull and build gpac
+RUN git clone https://github.com/robdt/gpac.git && \
+    cp -r /gpac/include/gpac /usr/local/include && \
+    cd gpac && make gpac && cp libgpac.so /usr/local/lib
 
 # build /app/caption-inspector executable
 COPY src/ /app/src/
 COPY include/ /app/include/
 COPY Makefile /app/Makefile
 WORKDIR /app
-RUN mkdir obj && mkdir python; make all
+RUN mkdir obj && mkdir python; cd src && make ci_with_gpac
 
 RUN ldd /usr/bin/mediainfo
 
@@ -49,6 +54,7 @@ COPY --from=base /usr/local/lib/libavcodec.so.* /usr/local/lib/
 COPY --from=base /usr/local/lib/libavutil.so.* /usr/local/lib/
 COPY --from=base /usr/local/lib/libswresample.so.* /usr/local/lib/
 COPY --from=base /usr/lib/x86_64-linux-gnu/libOpenCL.so.* /usr/local/lib/
+COPY --from=base /usr/local/lib/libgpac.so /usr/local/lib/
 
 # ensure all required libraries are installed
 RUN if ldd /usr/local/bin/caption-inspector | grep "not found"; then false; fi

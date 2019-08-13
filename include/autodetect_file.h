@@ -31,7 +31,8 @@ typedef enum {
     SCC_CAPTIONS_FILE     = 1,
     MCC_CAPTIONS_FILE     = 2,
     MPEG_BINARY_FILE      = 3,
-    MAX_FILE_TYPE         = 4
+    MOV_BINARY_FILE       = 4,
+    MAX_FILE_TYPE         = 5
 } FileType;
 
 /*----------------------------------------------------------------------------*/

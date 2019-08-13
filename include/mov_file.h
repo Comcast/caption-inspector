@@ -16,24 +16,21 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#ifndef external_adaptor_h
-#define external_adaptor_h
+#ifndef mov_file_h
+#define mov_file_h
 
-#include "line21_decode.h"
-#include "dtvcc_decode.h"
+#include <arpa/inet.h>
+
+#include "types.h"
 #include "pipeline_utils.h"
 
 /*----------------------------------------------------------------------------*/
 /*--                               Constants                                --*/
 /*----------------------------------------------------------------------------*/
 
-/*----------------------------------------------------------------------------*/
-/*--                                Types                                   --*/
-/*----------------------------------------------------------------------------*/
-
-typedef void (*EXTERNAL_608_FN_PTR)(CaptionTime, Line21Code);
-typedef void (*EXTERNAL_708_FN_PTR)(CaptionTime, DtvccData);
-typedef void (*EXTERNAL_END_FN_PTR)(void);
+#define CDP_SECTION_DATA              0x72
+#define CDP_SECTION_SVC_INFO          0x73
+#define CDP_SECTION_FOOTER            0x74
 
 /*----------------------------------------------------------------------------*/
 /*--                              Structures                                --*/
@@ -43,6 +40,8 @@ typedef void (*EXTERNAL_END_FN_PTR)(void);
 /*--                                Macros                                  --*/
 /*----------------------------------------------------------------------------*/
 
+#define RB32(x) (ntohl(*(unsigned int *)(x)))
+
 /*----------------------------------------------------------------------------*/
 /*--                          Exposed Variables                             --*/
 /*----------------------------------------------------------------------------*/
@@ -51,15 +50,8 @@ typedef void (*EXTERNAL_END_FN_PTR)(void);
 /*--                           Exposed Methods                              --*/
 /*----------------------------------------------------------------------------*/
 
-boolean ExtrnlAdptrInitialize( EXTERNAL_608_FN_PTR, EXTERNAL_708_FN_PTR, EXTERNAL_END_FN_PTR );
-boolean ExtrnlAdptr608OutProcNextBuffer( void*, Buffer* );
-boolean ExtrnlAdptr708OutProcNextBuffer( void*, Buffer* );
-boolean ExtrnlAdptrShutdown( void* );
-boolean ExtrnlAdptrPlumbFileDecodePipeline( char*, uint32 );
-boolean ExtrnlAdptrPlumbSccPipeline(char*, char*, uint32);
-boolean ExtrnlAdptrPlumbMccPipeline(char*, char*);
-boolean ExtrnlAdptrPlumbMpegPipeline(char*, char*, boolean, char*);
-boolean ExtrnlAdptrPlumbMovPipeline(char*, char*, boolean, char*);
-void ExtrnlAdptrDriveDecodePipeline( void );
+boolean MovFileInitialize( Context*, char*, boolean, boolean );
+boolean MovFileAddSink( Context*, LinkInfo linkInfo );
+boolean MovFileProcNextBuffer( Context*, boolean* );
 
-#endif /* external_adaptor_h */
+#endif /* mov_file_h */

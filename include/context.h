@@ -27,6 +27,10 @@
 #include <libavformat/avformat.h>
 #endif
 
+#ifdef COMPILE_GPAC
+#include "gpac/isomedia.h"
+#endif
+
 #include "types.h"
 #include "pipeline_structs.h"
 
@@ -81,14 +85,6 @@ typedef struct {
     boolean isDropFrame;
 } CcDataFileCtx;
 
-typedef struct {
-    Sinks sinks;
-    char captionFileName[MAX_FILE_NAME_LEN];
-    uint32 numCaptionsLinesRead;
-    FILE* captionsFilePtr;
-    uint32 frameRateTimesOneHundred;
-} MpCoreFileCtx;
-
 #ifndef DONT_COMPILE_FFMPEG
 typedef struct {
     Sinks sinks;
@@ -108,6 +104,26 @@ typedef struct {
     uint32 ccCountMismatchErrors;
 } MpegFileCtx;
 #endif
+
+typedef struct {
+    Sinks sinks;
+#ifdef COMPILE_GPAC
+    GF_ISOFile* movFile;
+#endif
+    uint32 trackCount;
+    uint32 currentTrack;
+    uint32 currentSample;
+    uint32 avcTrackCount;
+    uint32 ccTrackCount;
+    uint32 currentType;
+    uint32 currentSubtype;
+    uint32 numSamples;
+    uint32 processingStreamDescriptionIndex;
+    uint32 timescale;
+    boolean framerateOneshot;
+    boolean overrideDropframe;
+    boolean isDropframe;
+} MovFileCtx;
 
 /* Transforms */
 
@@ -208,6 +224,7 @@ typedef struct {
 #ifndef DONT_COMPILE_FFMPEG
     MpegFileCtx* mpegFileCtxPtr;
 #endif
+    MovFileCtx* movFileCtxPtr;
     Line21DecodeCtx* line21DecodeCtxPtr;
     DtvccDecodeCtx* dtvccDecodeCtxPtr;
     MccDecodeCtx* mccDecodeCtxPtr;

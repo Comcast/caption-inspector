@@ -94,6 +94,7 @@ boolean _ShutdownSinks(char*, int, Context*, Sinks*);
 boolean PlumbSccPipeline(Context*, char*, char*, uint32, boolean);
 boolean PlumbMccPipeline(Context*, char*, char*, boolean);
 boolean PlumbMpegPipeline(Context*, char*, char*, boolean, char*);
+boolean PlumbMovPipeline(Context*, char*, char*, boolean, char*);
 void DrivePipeline(FileType, Context*);
 
 #endif /* pipeline_utils_h */

@@ -26,9 +26,9 @@ CAPTION_CONVERTER_LIBRARY = './libcttp.1.0.0.dylib'
 # WARNING: This array needs to match the defines in debug.h
 levelDict = {0: 'UNKNOWN_DEBUG_LEVEL', 1: 'VERBOSE', 2: 'INFO', 3: 'WARN', 4: 'ERROR', 5: 'ASSERT', 6: 'FATAL'}
 sectionDict = {0: 'UNKNOWN_DEBUG_SECTION', 1: 'DBG_GENERAL', 2: 'DBG_PIPELINE', 3: 'DBG_BUFFER', 4: 'DBG_FILE_IN',
-               5: 'DBG_FILE_OUT', 6: 'DBG_FF_MPEG', 7: 'DBG_MPEG_FILE', 8: 'DBG_MCC_DEC', 9: 'DBG_MCC_ENC',
-               10: 'DBG_SCC_ENC', 11: 'DBG_608_DEC', 12: 'DBG_708_DEC', 13: 'DBG_608_OUT', 14: 'DBG_708_OUT',
-               15: 'DBG_CCD_OUT', 16: 'DBG_EXT_ADPT'}
+               5: 'DBG_FILE_OUT', 6: 'DBG_FF_MPEG', 7: 'DBG_MPEG_FILE', 8: 'DBG_GPAC_MP4', 9: 'DBG_MOV_FILE',
+               10: 'DBG_MCC_DEC', 11: 'DBG_MCC_ENC', 12: 'DBG_SCC_ENC', 13: 'DBG_608_DEC', 14: 'DBG_708_DEC',
+               15: 'DBG_608_OUT', 16: 'DBG_708_OUT', 17: 'DBG_CCD_OUT', 18: 'DBG_EXT_ADPT'}
 min_log_level = 2
 
 

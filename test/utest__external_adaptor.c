@@ -21,6 +21,7 @@ const char* captionFileTypeStr[MAX_FILE_TYPE] = {
         "SCC Caption File",         // SCC_CAPTIONS_FILE
         "MCC Caption File",         // MCC_CAPTIONS_FILE
         "Binary MPEG File",         // MPEG_BINARY_FILE
+        "Binary MOV File",          // MOV_BINARY_FILE
 };
 
 uint8 fakeCtx;
@@ -41,6 +42,8 @@ uint8 MccDecodeAddSinkCalled;
 uint8 MccDecodeInitializeCalled;
 uint8 MccFileAddSinkCalled;
 uint8 MccFileInitializeCalled;
+uint8 MovFileAddSinkCalled;
+uint8 MovFileInitializeCalled;
 uint8 MpegFileAddSinkCalled;
 uint8 MpegFileInitializeCalled;
 uint8 SccEncodeAddSinkCalled;
@@ -54,6 +57,7 @@ uint8 stubExternalEndDataCallbackCalled;
 uint8 PlumbMccPipelineCalled;
 uint8 PlumbSccPipelineCalled;
 uint8 PlumbMpgPipelineCalled;
+uint8 PlumbMovPipelineCalled;
 uint8 DrivePipelineCalled;
 uint8 DetermineFileTypeCalled;
 
@@ -62,24 +66,30 @@ char* SccFileInitializeFileNameStr;
 uint32 SccFileInitializeFramerate;
 char* MccFileInitializeFileNameStr;
 char* MpegFileInitializeFileNameStr;
+char* MovFileInitializeFileNameStr;
 char* DetermineDropFrameInputFilename;
 char* DetermineDropFrameArtifactPath;
 boolean DetermineDropFrameSaveArtifacts;
 boolean DetermineDropFrame__isDropFrame;
 boolean MpegFileInitializeisDropframe;
+boolean MovFileInitializeisDropframe;
 boolean DetermineDropFrame__wasSuccessful;
 boolean MpegFileInitializeOverrideDf;
+boolean MovFileInitializeOverrideDf;
 boolean fakeIsDebugInitializedVal;
 boolean fakeIsDebugExternallyRoutedVal;
 boolean PlumbMccPipelineReturn;
 boolean PlumbSccPipelineReturn;
 boolean PlumbMpgPipelineReturn;
+boolean PlumbMovPipelineReturn;
 FileType DetermineFileTypeReturn;
 boolean DtvccDecodeAddSinkReturn;
 boolean Line21DecodeAddSinkReturn;
 boolean MccDecodeAddSinkReturn;
 boolean MccFileAddSinkReturn;
 boolean MccFileInitializeReturn;
+boolean MovFileAddSinkReturn;
+boolean MovFileInitializeReturn;
 boolean MpegFileAddSinkReturn;
 boolean MpegFileInitializeReturn;
 boolean SccEncodeAddSinkReturn;
@@ -95,6 +105,8 @@ void InitStubs( void ) {
     MccDecodeInitializeCalled = 0;
     MccFileAddSinkCalled = 0;
     MccFileInitializeCalled = 0;
+    MovFileAddSinkCalled = 0;
+    MovFileInitializeCalled = 0;
     MpegFileAddSinkCalled = 0;
     MpegFileInitializeCalled = 0;
     SccEncodeAddSinkCalled = 0;
@@ -108,6 +120,7 @@ void InitStubs( void ) {
     PlumbMccPipelineCalled = 0;
     PlumbSccPipelineCalled = 0;
     PlumbMpgPipelineCalled = 0;
+    PlumbMovPipelineCalled = 0;
     DrivePipelineCalled = 0;
     DetermineFileTypeCalled = 0;
 
@@ -123,16 +136,22 @@ void InitStubs( void ) {
     MpegFileInitializeisDropframe = FALSE;
     DetermineDropFrame__wasSuccessful = FALSE;
     MpegFileInitializeOverrideDf = FALSE;
+    MovFileInitializeFileNameStr = NULL;
+    MovFileInitializeisDropframe = FALSE;
+    MovFileInitializeOverrideDf = FALSE;
     fakeIsDebugInitializedVal = TRUE;
     fakeIsDebugExternallyRoutedVal = TRUE;
     PlumbMccPipelineReturn = TRUE;
     PlumbSccPipelineReturn = TRUE;
     PlumbMpgPipelineReturn = TRUE;
+    PlumbMovPipelineReturn = TRUE;
     DtvccDecodeAddSinkReturn = TRUE;
     Line21DecodeAddSinkReturn = TRUE;
     MccDecodeAddSinkReturn = TRUE;
     MccFileAddSinkReturn = TRUE;
     MccFileInitializeReturn = TRUE;
+    MovFileAddSinkReturn = TRUE;
+    MovFileInitializeReturn = TRUE;
     MpegFileAddSinkReturn = TRUE;
     MpegFileInitializeReturn = TRUE;
     SccEncodeAddSinkReturn = TRUE;
@@ -167,6 +186,8 @@ boolean AnySpuriousFunctionsCalled( void ) {
         (MccDecodeInitializeCalled != 0) ||
         (MccFileAddSinkCalled != 0) ||
         (MccFileInitializeCalled != 0) ||
+        (MovFileAddSinkCalled != 0) ||
+        (MovFileInitializeCalled != 0) ||
         (MpegFileAddSinkCalled != 0) ||
         (MpegFileInitializeCalled != 0) ||
         (SccEncodeAddSinkCalled != 0) ||
@@ -179,6 +200,7 @@ boolean AnySpuriousFunctionsCalled( void ) {
         (PlumbMccPipelineCalled != 0) ||
         (PlumbSccPipelineCalled != 0) ||
         (PlumbMpgPipelineCalled != 0) ||
+        (PlumbMovPipelineCalled != 0) ||
         (DrivePipelineCalled != 0) ||
         (DetermineFileTypeCalled != 0) ||
         (AddReaderCalled != 0) ) {
@@ -251,6 +273,21 @@ boolean MccFileInitialize( Context* rootCtxPtr, char* fileNameStr ) {
     MccFileInitializeFileNameStr = fileNameStr;
 
     return MccFileInitializeReturn;
+}
+
+boolean MovFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
+    MovFileAddSinkCalled++;
+
+    return MovFileAddSinkReturn;
+}
+
+boolean MovFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe ) {
+    MovFileInitializeCalled++;
+    MovFileInitializeFileNameStr = fileNameStr;
+    MovFileInitializeisDropframe = isDropframe;
+    MovFileInitializeOverrideDf = overrideDropframe;
+
+    return MovFileInitializeReturn;
 }
 
 boolean MpegFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
@@ -337,6 +374,11 @@ boolean PlumbSccPipeline( Context* ctxPtr, char* inputFilename, char* outputFile
 boolean PlumbMpegPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath ) {
     PlumbMpgPipelineCalled++;
     return PlumbMpgPipelineReturn;
+}
+
+boolean PlumbMovPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath ) {
+    PlumbMovPipelineCalled++;
+    return PlumbMovPipelineReturn;
 }
 
 void stubExternal608Callback( CaptionTime captionTime, Line21Code line21Code ) {
@@ -775,6 +817,76 @@ void utest__ExtrnlAdptrPlumbMpgPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
 }  // utest__ExtrnlAdptrPlumbMpgPipeline()
 
 /*------------------------------------------------------------------------------
+ | FUNCTION UNDER TEST: ExtrnlAdptrPlumbMovPipeline()
+ |
+ | TEST CASES:
+ |    1) Plumb Pipeline Successfully.
+ |    2) Plumb Pipeline UnSuccessfully.
+ |    3) Pass a NULL Input Filename.
+ |    4) Pass a NULL Output Filename.
+ |    5) Pass a NULL Artifact Path.
+ -------------------------------------------------------------------------------*/
+void utest__ExtrnlAdptrPlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
+    TEST_INITIALIZE
+    boolean retval;
+
+    TEST_START("Test Case: utest__ExtrnlAdptrPlumbMovPipeline() - Plumb Pipeline Successfully.")
+    InitStubs();
+    PlumbMovPipelineReturn = TRUE;
+    retval = ExtrnlAdptrPlumbMovPipeline( "input", "output", TRUE, "artifact" );
+    ASSERT_EQ(TRUE, retval);
+    ASSERT_EQ(MOV_BINARY_FILE, fileType);
+    ASSERT_EQ(1, PlumbMovPipelineCalled);
+    PlumbMovPipelineCalled = 0;
+    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
+    TEST_START("Test Case: utest__ExtrnlAdptrPlumbMovPipeline() - Plumb Pipeline UnSuccessfully.")
+    InitStubs();
+    PlumbMovPipelineReturn = FALSE;
+    retval = ExtrnlAdptrPlumbMovPipeline( "input", "output", TRUE, "artifact" );
+    ASSERT_EQ(FALSE, retval);
+    ASSERT_EQ(MOV_BINARY_FILE, fileType);
+    ASSERT_EQ(1, PlumbMovPipelineCalled);
+    PlumbMovPipelineCalled = 0;
+    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
+    TEST_START("Test Case: utest__ExtrnlAdptrPlumbMovPipeline() - Pass a NULL Input Filename.")
+    InitStubs();
+    PlumbMovPipelineReturn = TRUE;
+    retval = ExtrnlAdptrPlumbMovPipeline( NULL, "output", TRUE, "artifact" );
+    ASSERT_EQ(TRUE, retval);
+    ASSERT_EQ(MOV_BINARY_FILE, fileType);
+    ASSERT_EQ(1, PlumbMovPipelineCalled);
+    PlumbMovPipelineCalled = 0;
+    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
+    TEST_START("Test Case: utest__ExtrnlAdptrPlumbMovPipeline() - Pass a NULL Output Filename.")
+    InitStubs();
+    PlumbMovPipelineReturn = TRUE;
+    retval = ExtrnlAdptrPlumbMovPipeline( "input", NULL, TRUE, "artifact" );
+    ASSERT_EQ(TRUE, retval);
+    ASSERT_EQ(MOV_BINARY_FILE, fileType);
+    ASSERT_EQ(1, PlumbMovPipelineCalled);
+    PlumbMovPipelineCalled = 0;
+    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
+    TEST_START("Test Case: utest__ExtrnlAdptrPlumbMovPipeline() - Pass a NULL Artifact Path.")
+    InitStubs();
+    PlumbMovPipelineReturn = TRUE;
+    retval = ExtrnlAdptrPlumbMovPipeline( "input", "output", TRUE, NULL );
+    ASSERT_EQ(TRUE, retval);
+    ASSERT_EQ(MOV_BINARY_FILE, fileType);
+    ASSERT_EQ(1, PlumbMovPipelineCalled);
+    PlumbMovPipelineCalled = 0;
+    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+}  // utest__ExtrnlAdptrPlumbMovPipeline()
+
+/*------------------------------------------------------------------------------
  | FUNCTION UNDER TEST: ExtrnlAdptrDriveDecodePipeline()
  |
  | TEST CASES:
@@ -808,27 +920,31 @@ void utest__ExtrnlAdptrDriveDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
  |
  | TEST CASES:
  |     1) Successfully Plumb a Decode Pipeline for an MPEG File.
- |     2) Successfully Plumb a Decode Pipeline for an SCC File.
- |     3) Successfully Plumb a Decode Pipeline for an MCC File.
- |     4) Fail Plumbing because Debug is not Initialized.
- |     5) Fail Plumbing because Debug is not Routed Externally.
- |     6) Fail Plumbing because No External 608 Data Callback.
- |     7) Fail Plumbing because No External 708 Data Callback.
- |     8) Fail Plumbing because No External End Data Callback.
- |     9) Fail Plumbing because No Input File.
- |    10) Fail Plumbing because of Indeterminate File Type.
- |    11) Fail Plumbing because of Invalid File Type.
- |    12) Fail Plumbing because of Failed Mpeg File Initialize.
- |    13) Fail Plumbing because of Failed Mpeg Sink Addition.
- |    14) Fail Plumbing because of Failed Dtvcc Sink Addition. (MPEG)
- |    15) Fail Plumbing because of Failed Scc File Initialize.
- |    16) Fail Plumbing because of Failed Scc Sink Addition.
- |    17) Fail Plumbing because of Failed Line21 Sink Addition.
- |    18) Fail Plumbing because of Invalid Framerate.
- |    19) Fail Plumbing because of Failed Mcc File Initialize.
- |    20) Fail Plumbing because of Failed Mcc Sink Addition.
+ |     2) Successfully Plumb a Decode Pipeline for an MOV File.
+ |     3) Successfully Plumb a Decode Pipeline for an SCC File.
+ |     4) Successfully Plumb a Decode Pipeline for an MCC File.
+ |     5) Fail Plumbing because Debug is not Initialized.
+ |     6) Fail Plumbing because Debug is not Routed Externally.
+ |     7) Fail Plumbing because No External 608 Data Callback.
+ |     8) Fail Plumbing because No External 708 Data Callback.
+ |     9) Fail Plumbing because No External End Data Callback.
+ |    10) Fail Plumbing because No Input File.
+ |    11) Fail Plumbing because of Indeterminate File Type.
+ |    12) Fail Plumbing because of Invalid File Type.
+ |    13) Fail Plumbing because of Failed Mpeg File Initialize.
+ |    14) Fail Plumbing because of Failed Mpeg Sink Addition.
+ |    15) Fail Plumbing because of Failed Mov File Initialize.
+ |    16) Fail Plumbing because of Failed Mov Sink Addition.
+ |    17) Fail Plumbing because of Failed Line21 Sink Addition. (MOV)
+ |    18) Fail Plumbing because of Failed Dtvcc Sink Addition. (MPEG)
+ |    19) Fail Plumbing because of Failed Scc File Initialize.
+ |    20) Fail Plumbing because of Failed Scc Sink Addition.
  |    21) Fail Plumbing because of Failed Line21 Sink Addition.
- |    22) Fail Plumbing because of Failed Dtvcc Sink Addition.
+ |    22) Fail Plumbing because of Invalid Framerate.
+ |    23) Fail Plumbing because of Failed Mcc File Initialize.
+ |    24) Fail Plumbing because of Failed Mcc Sink Addition.
+ |    25) Fail Plumbing because of Failed Line21 Sink Addition.
+ |    26) Fail Plumbing because of Failed Dtvcc Sink Addition.
  -------------------------------------------------------------------------------*/
 void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_INITIALIZE
@@ -856,6 +972,35 @@ void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) 
         DetermineDropFrameCalled = 0;
         MpegFileInitializeCalled = 0;
         MpegFileAddSinkCalled = 0;
+        Line21DecodeInitializeCalled = 0;
+        Line21DecodeAddSinkCalled = 0;
+        DtvccDecodeInitializeCalled = 0;
+        DtvccDecodeAddSinkCalled = 0;
+        ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
+    TEST_START("Test Case: utest__ExtrnlAdptrPlumbFileDecodePipeline() - Successfully Plumb a Decode Pipeline for an MOV File.")
+        InitStubs();
+        retval = ExtrnlAdptrInitialize( stubExternal608Callback, stubExternal708Callback, stubExternalEndDataCallback );
+        ASSERT_EQ(TRUE, retval);
+        DetermineFileTypeReturn = MOV_BINARY_FILE;
+        retval = ExtrnlAdptrPlumbFileDecodePipeline("mov filename", 2600);
+        ASSERT_EQ(TRUE, retval);
+        ASSERT_EQ(TRUE, pipelineEstablished);
+        ASSERT_EQ(0, numberOfShutdowns);
+        ASSERT_EQ(1, DetermineFileTypeCalled);
+        ASSERT_EQ(1, DetermineDropFrameCalled);
+        ASSERT_EQ(1, MovFileInitializeCalled);
+        ASSERT_EQ(2, MovFileAddSinkCalled);
+        ASSERT_EQ(1, Line21DecodeInitializeCalled);
+        ASSERT_EQ(1, Line21DecodeAddSinkCalled);
+        ASSERT_EQ(1, DtvccDecodeInitializeCalled);
+        ASSERT_EQ(1, DtvccDecodeAddSinkCalled);
+        BufferPoolInitCalled = 0;
+        DetermineFileTypeCalled = 0;
+        DetermineDropFrameCalled = 0;
+        MovFileInitializeCalled = 0;
+        MovFileAddSinkCalled = 0;
         Line21DecodeInitializeCalled = 0;
         Line21DecodeAddSinkCalled = 0;
         DtvccDecodeInitializeCalled = 0;
@@ -1068,6 +1213,81 @@ void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) 
         MpegFileInitializeCalled = 0;
         MpegFileAddSinkCalled = 0;
         Line21DecodeInitializeCalled = 0;
+        ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
+    TEST_START("Test Case: utest__ExtrnlAdptrPlumbFileDecodePipeline() - Fail Plumbing because of Failed Mov File Initialize.")
+        InitStubs();
+        retval = ExtrnlAdptrInitialize( stubExternal608Callback, stubExternal708Callback, stubExternalEndDataCallback );
+        ASSERT_EQ(TRUE, retval);
+        DetermineFileTypeReturn = MOV_BINARY_FILE;
+        MovFileInitializeReturn = FALSE;
+        ERROR_EXPECTED
+        retval = ExtrnlAdptrPlumbFileDecodePipeline("mov filename", 2600);
+        ASSERT_EQ(FALSE, retval);
+        ASSERT_EQ(FALSE, pipelineEstablished);
+        ASSERT_EQ(0, numberOfShutdowns);
+        ASSERT_EQ(1, DetermineFileTypeCalled);
+        ASSERT_EQ(1, DetermineDropFrameCalled);
+        ASSERT_EQ(1, MovFileInitializeCalled);
+        BufferPoolInitCalled = 0;
+        DetermineFileTypeCalled = 0;
+        DetermineDropFrameCalled = 0;
+        MovFileInitializeCalled = 0;
+        ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
+    TEST_START("Test Case: utest__ExtrnlAdptrPlumbFileDecodePipeline() - Fail Plumbing because of Failed Mov Sink Addition.")
+        InitStubs();
+        retval = ExtrnlAdptrInitialize( stubExternal608Callback, stubExternal708Callback, stubExternalEndDataCallback );
+        ASSERT_EQ(TRUE, retval);
+        DetermineFileTypeReturn = MOV_BINARY_FILE;
+        MovFileAddSinkReturn = FALSE;
+        ERROR_EXPECTED
+        retval = ExtrnlAdptrPlumbFileDecodePipeline("mov filename", 2600);
+        ASSERT_EQ(FALSE, retval);
+        ASSERT_EQ(FALSE, pipelineEstablished);
+        ASSERT_EQ(0, numberOfShutdowns);
+        ASSERT_EQ(1, DetermineFileTypeCalled);
+        ASSERT_EQ(1, DetermineDropFrameCalled);
+        ASSERT_EQ(1, MovFileInitializeCalled);
+        ASSERT_EQ(1, MovFileAddSinkCalled);
+        ASSERT_EQ(1, Line21DecodeInitializeCalled);
+        BufferPoolInitCalled = 0;
+        DetermineFileTypeCalled = 0;
+        DetermineDropFrameCalled = 0;
+        MovFileInitializeCalled = 0;
+        MovFileAddSinkCalled = 0;
+        Line21DecodeInitializeCalled = 0;
+        ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
+    TEST_END
+
+    TEST_START("Test Case: utest__ExtrnlAdptrPlumbFileDecodePipeline() - Fail Plumbing because of Failed Line21 Sink Addition. (MOV)")
+        InitStubs();
+        retval = ExtrnlAdptrInitialize( stubExternal608Callback, stubExternal708Callback, stubExternalEndDataCallback );
+        ASSERT_EQ(TRUE, retval);
+        DetermineFileTypeReturn = MOV_BINARY_FILE;
+        Line21DecodeAddSinkReturn = FALSE;
+        ERROR_EXPECTED
+        retval = ExtrnlAdptrPlumbFileDecodePipeline("mov filename", 2600);
+        ASSERT_EQ(FALSE, retval);
+        ASSERT_EQ(FALSE, pipelineEstablished);
+        ASSERT_EQ(0, numberOfShutdowns);
+        ASSERT_EQ(1, DetermineFileTypeCalled);
+        ASSERT_EQ(1, DetermineDropFrameCalled);
+        ASSERT_EQ(1, MovFileInitializeCalled);
+        ASSERT_EQ(2, MovFileAddSinkCalled);
+        ASSERT_EQ(1, Line21DecodeInitializeCalled);
+        ASSERT_EQ(1, Line21DecodeAddSinkCalled);
+        ASSERT_EQ(1, DtvccDecodeInitializeCalled);
+        BufferPoolInitCalled = 0;
+        DetermineFileTypeCalled = 0;
+        DetermineDropFrameCalled = 0;
+        MovFileInitializeCalled = 0;
+        MovFileAddSinkCalled = 0;
+        Line21DecodeInitializeCalled = 0;
+        Line21DecodeAddSinkCalled = 0;
+        DtvccDecodeInitializeCalled = 0;
         ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
     TEST_END
 
@@ -1305,6 +1525,7 @@ void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) 
  |    ExtrnlAdptrPlumbSccPipeline()
  |    ExtrnlAdptrPlumbMccPipeline()
  |    ExtrnlAdptrPlumbMpegPipeline()
+ |    ExtrnlAdptrPlumbMovPipeline()
  |    ExtrnlAdptrDriveDecodePipeline()
  |    ExtrnlAdptrPlumbFileDecodePipeline()
  -------------------------------------------------------------------------------*/
@@ -1337,6 +1558,10 @@ int main( int argc, char* argv[] ) {
 
     TEST_SUITE_START("Test Suite: external_adaptor.c -- ExtrnlAdptrPlumbMpgPipeline()");
     utest__ExtrnlAdptrPlumbMpgPipeline( TEST_SUITE_PASSED_ARGUMENTS );
+    TEST_SUITE_END
+
+    TEST_SUITE_START("Test Suite: external_adaptor.c -- ExtrnlAdptrPlumbMovPipeline()");
+    utest__ExtrnlAdptrPlumbMovPipeline( TEST_SUITE_PASSED_ARGUMENTS );
     TEST_SUITE_END
 
     TEST_SUITE_START("Test Suite: external_adaptor.c -- ExtrnlAdptrDriveDecodePipeline()");

@@ -25,6 +25,7 @@
 #include "buffer_utils.h"
 #include "autodetect_file.h"
 #include "mpeg_file.h"
+#include "mov_file.h"
 #include "scc_encode.h"
 #include "version.h"
 
@@ -241,13 +242,13 @@ boolean ExtrnlAdptrShutdown( void* rootCtxPtr ) {
  |    file, or process a SCC or MCC file, decoding the Caption Data and passing
  |    it to an external adaptor.
  |
- | PIPELINE:                 +----------------+      +------------------+
- |                     +---> | Line 21 Decode | ---> | External Adaptor |
- |    +-----------+    |     +----------------+      +------------------+
- |    | MPEG File | ---|
- |    +-----------+    |      +--------------+       +------------------+
- |                     +----> | DTVCC Decode | ----> | External Adaptor |
- |                            +--------------+       +------------------+
+ | PIPELINE:                     +----------------+      +------------------+
+ |                         +---> | Line 21 Decode | ---> | External Adaptor |
+ |    +---------------+    |     +----------------+      +------------------+
+ |    | MPEG/MOV File | ---|
+ |    +---------------+    |      +--------------+       +------------------+
+ |                         +----> | DTVCC Decode | ----> | External Adaptor |
+ |                                +--------------+       +------------------+
  |
  |    +----------+      +------------+      +----------------+      +------------------+
  |    | SCC File | ---> | SCC Encode | ---> | Line 21 Decode | ---> | External Adaptor |
@@ -262,9 +263,7 @@ boolean ExtrnlAdptrShutdown( void* rootCtxPtr ) {
  |                                               +--------------+       +------------------+
  -------------------------------------------------------------------------------*/
 boolean ExtrnlAdptrPlumbFileDecodePipeline( char* inputFilename, uint32 framerate ) {
-#ifndef DONT_COMPILE_FFMPEG
     boolean isDropframe;
-#endif
     boolean retval;
 
     pipelineEstablished = FALSE;
@@ -293,7 +292,7 @@ boolean ExtrnlAdptrPlumbFileDecodePipeline( char* inputFilename, uint32 framerat
 
     fileType = DetermineFileType( inputFilename );
 
-    if( (fileType != MPEG_BINARY_FILE) && (fileType != SCC_CAPTIONS_FILE) && (fileType != MCC_CAPTIONS_FILE) ) {
+    if( (fileType != MPEG_BINARY_FILE) && (fileType != MOV_BINARY_FILE) && (fileType != SCC_CAPTIONS_FILE) && (fileType != MCC_CAPTIONS_FILE) ) {
         if( fileType < MAX_FILE_TYPE ) {
             LOG(DEBUG_LEVEL_ERROR, DBG_EXT_ADPT, "Attempt to plumb stack with an unsupported File Type: %s", DECODE_CAPTION_FILE_TYPE(fileType));
         } else {
@@ -304,27 +303,48 @@ boolean ExtrnlAdptrPlumbFileDecodePipeline( char* inputFilename, uint32 framerat
 
     memset(&rootContext, 0, sizeof(Context));
 
-    if( fileType == MPEG_BINARY_FILE ) {
-#ifdef DONT_COMPILE_FFMPEG
-        LOG(DEBUG_LEVEL_FATAL, DBG_EXT_ADPT, "Executable was compiled without FFMPEG, unable to process Binary MPEG File");
-#else
+    if( (fileType == MPEG_BINARY_FILE) || (fileType == MOV_BINARY_FILE) ) {
         boolean wasSuccessful = DetermineDropFrame(inputFilename, FALSE, NULL, &isDropframe);
-        retval = MpegFileInitialize(&rootContext, inputFilename, wasSuccessful, isDropframe);
-        if( retval == FALSE ) {
-            LOG(DEBUG_LEVEL_ERROR, DBG_EXT_ADPT, "Problem Establishing Pipeline, bailing.");
-            return FALSE;
-        }
+        if (fileType == MPEG_BINARY_FILE) {
+#ifdef DONT_COMPILE_FFMPEG
+            LOG(DEBUG_LEVEL_FATAL, DBG_EXT_ADPT, "Executable was compiled without FFMPEG, unable to process Binary MPEG File");
+#else
+            retval = MpegFileInitialize(&rootContext, inputFilename, wasSuccessful, isDropframe);
+            if( retval == FALSE ) {
+                LOG(DEBUG_LEVEL_ERROR, DBG_EXT_ADPT, "Problem Establishing Pipeline, bailing.");
+                return FALSE;
+            }
 
-        retval = MpegFileAddSink(&rootContext, Line21DecodeInitialize(&rootContext, FALSE));
-        if( retval == FALSE ) {
-            LOG(DEBUG_LEVEL_ERROR, DBG_EXT_ADPT, "Problem Establishing Pipeline, bailing.");
-            return FALSE;
-        }
+            retval = MpegFileAddSink(&rootContext, Line21DecodeInitialize(&rootContext, FALSE));
+            if( retval == FALSE ) {
+                LOG(DEBUG_LEVEL_ERROR, DBG_EXT_ADPT, "Problem Establishing Pipeline, bailing.");
+                return FALSE;
+            }
 
-        retval = MpegFileAddSink(&rootContext, DtvccDecodeInitialize(&rootContext, FALSE));
-        if( retval == FALSE ) {
-            LOG(DEBUG_LEVEL_ERROR, DBG_EXT_ADPT, "Problem Establishing Pipeline, bailing.");
-            return FALSE;
+            retval = MpegFileAddSink(&rootContext, DtvccDecodeInitialize(&rootContext, FALSE));
+            if( retval == FALSE ) {
+                LOG(DEBUG_LEVEL_ERROR, DBG_EXT_ADPT, "Problem Establishing Pipeline, bailing.");
+                return FALSE;
+            }
+#endif
+        } else {
+            retval = MovFileInitialize(&rootContext, inputFilename, wasSuccessful, isDropframe);
+            if( retval == FALSE ) {
+                LOG(DEBUG_LEVEL_ERROR, DBG_EXT_ADPT, "Problem Establishing Pipeline, bailing.");
+                return FALSE;
+            }
+
+            retval = MovFileAddSink(&rootContext, Line21DecodeInitialize(&rootContext, FALSE));
+            if( retval == FALSE ) {
+                LOG(DEBUG_LEVEL_ERROR, DBG_EXT_ADPT, "Problem Establishing Pipeline, bailing.");
+                return FALSE;
+            }
+
+            retval = MovFileAddSink(&rootContext, DtvccDecodeInitialize(&rootContext, FALSE));
+            if( retval == FALSE ) {
+                LOG(DEBUG_LEVEL_ERROR, DBG_EXT_ADPT, "Problem Establishing Pipeline, bailing.");
+                return FALSE;
+            }
         }
         retval = Line21DecodeAddSink(&rootContext, linkInfo608);
         if( retval == FALSE ) {
@@ -337,7 +357,6 @@ boolean ExtrnlAdptrPlumbFileDecodePipeline( char* inputFilename, uint32 framerat
             LOG(DEBUG_LEVEL_ERROR, DBG_EXT_ADPT, "Problem Establishing Pipeline, bailing.");
             return FALSE;
         }
-#endif
     } else if( fileType == SCC_CAPTIONS_FILE ) {
         if( isFramerateValid(framerate) == TRUE ) {
             retval = SccFileInitialize(&rootContext, inputFilename, framerate);
@@ -474,6 +493,30 @@ boolean ExtrnlAdptrPlumbMpegPipeline( char* inputFilename, char* outputFilename,
     fileType = MPEG_BINARY_FILE;
     return pipelineEstablished;
 } // ExtrnlAdptrPlumbMpegPipeline()
+
+/*------------------------------------------------------------------------------
+ | NAME:
+ |    ExtrnlAdptrPlumbMovPipeline()
+ |
+ | INPUT PARAMETERS:
+ |    inputFilename - Name of the input file (and root of the output filename).
+ |    outputFilename - Name of the output file
+ |    artifacts - Whether or not to save artifacts along with the MCC File.
+ |    artifactPath - Path to save the artifacts (if configured).
+ |
+ | RETURN VALUES:
+ |    boolean - Successful Call - TRUE; Failure - FALSE
+ |
+ | DESCRIPTION:
+ |    This method plumbs the pipeline to strip CC Data from an MOV File and
+ |    convert it to an MCC File on behalf of an external entity.
+ -------------------------------------------------------------------------------*/
+boolean ExtrnlAdptrPlumbMovPipeline( char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath ) {
+    memset(&rootContext, 0, sizeof(Context));
+    pipelineEstablished = PlumbMovPipeline( &rootContext, inputFilename, outputFilename, artifacts, artifactPath );
+    fileType = MOV_BINARY_FILE;
+    return pipelineEstablished;
+} // ExtrnlAdptrPlumbMovPipeline()
 
 /*------------------------------------------------------------------------------
  | NAME:

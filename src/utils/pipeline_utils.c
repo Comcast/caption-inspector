@@ -23,6 +23,7 @@
 #include "cc_utils.h"
 #include "captions_file.h"
 #include "mpeg_file.h"
+#include "mov_file.h"
 #include "dtvcc_decode.h"
 #include "line21_decode.h"
 #include "mcc_decode.h"
@@ -514,6 +515,118 @@ boolean PlumbMpegPipeline( Context* ctxPtr, char* inputFilename, char* outputFil
 
 /*------------------------------------------------------------------------------
  | NAME:
+ |    PlumbMovPipeline()
+ |
+ | INPUT PARAMETERS:
+ |    inputFilename - Name of the input file (and root of the output filename).
+ |    outputFilename - Name of the output file
+ |    artifacts - Whether or not to save artifacts along with the MCC File.
+ |    artifactPath - Path to save the artifacts (if configured).
+ |
+ | RETURN VALUES:
+ |    Context - Context of this Pipeline
+ |
+ | DESCRIPTION:
+ |    This method plumbs the pipeline to strip CC Data from an MOV File and
+ |    convert it to an MCC File. Additionally, if specified, it will decode
+ |    the CC Data that is found in the asset and leave the decoded text in
+ |    files that are <inputFilename>.608, <inputFilename>.708, and
+ |    <inputFilename>.ccd. The output goes into the file <inputFilename>.mcc.
+ |
+ | PIPELINE:                 +------------+          +------------+
+ |                     +---> | MCC Encode | -------> | MCC Output |
+ |                     |     +------------+          +------------+
+ |                     |
+ |                     |     +----------------+      +----------------+
+ |                     |---> | Line 21 Decode | -?-> | Line 21 Output |
+ |     +-----------+   |     +----------------+      +----------------+
+ |     | MPEG File | --|
+ |     +-----------+   |     +--------------+        +--------------+
+ |                     |---> | DTVCC Decode | --?--> | DTVCC Output |
+ |                     |     +--------------+        +--------------+
+ |                     |
+ |                     |     +----------------+
+ |                     +-?-> | CC Data Output |
+ |                           +----------------+
+ -------------------------------------------------------------------------------*/
+boolean PlumbMovPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath ) {
+    ASSERT(ctxPtr);
+    memset(ctxPtr, 0, sizeof(Context));
+    boolean retval;
+
+    if( inputFilename == NULL ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "NULL Input Filename, unable to establish pipeline.");
+        return FALSE;
+    }
+
+    if( outputFilename == NULL ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "NULL Output Filename, unable to establish pipeline.");
+        return FALSE;
+    }
+
+    if( (artifacts == TRUE) && (artifactPath == NULL) ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "NULL Artifact Path, unable to establish pipeline.");
+        return FALSE;
+    }
+
+    boolean isDropframe;
+    boolean wasSuccessful = DetermineDropFrame(inputFilename, artifacts, artifactPath, &isDropframe);
+
+    retval = MovFileInitialize(ctxPtr, inputFilename, wasSuccessful, isDropframe);
+    if( retval == FALSE ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+        return FALSE;
+    }
+
+    retval = MovFileAddSink(ctxPtr, MccEncodeInitialize(ctxPtr));
+    if( retval == FALSE ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+        return FALSE;
+    }
+
+    retval = MovFileAddSink(ctxPtr, DtvccDecodeInitialize(ctxPtr, (artifacts == FALSE)));
+    if( retval == FALSE ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+        return FALSE;
+    }
+
+    retval = MovFileAddSink(ctxPtr, Line21DecodeInitialize(ctxPtr, (artifacts == FALSE)));
+    if( retval == FALSE ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+        return FALSE;
+    }
+
+    retval = MccEncodeAddSink(ctxPtr, MccOutInitialize(ctxPtr, outputFilename));
+    if( retval == FALSE ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+        return FALSE;
+    }
+
+    if( artifacts == TRUE ) {
+        retval = DtvccDecodeAddSink(ctxPtr, DtvccOutInitialize(ctxPtr, artifactPath, TRUE, TRUE));
+        if( retval == FALSE ) {
+            LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+            return FALSE;
+        }
+
+        retval = Line21DecodeAddSink(ctxPtr, Line21OutInitialize(ctxPtr, artifactPath));
+        if( retval == FALSE ) {
+            LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+            return FALSE;
+        }
+
+        retval = MovFileAddSink(ctxPtr, CcDataOutInitialize(ctxPtr, artifactPath));
+        if( retval == FALSE ) {
+            LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+} // PlumbMovPipeline()
+
+/*------------------------------------------------------------------------------
+ | NAME:
  |    DrivePipeline()
  |
  | INPUT PARAMETERS:
@@ -539,6 +652,9 @@ void DrivePipeline( FileType sourceType, Context* ctxPtr ) {
                 break;
             case MCC_CAPTIONS_FILE:
                 wasSuccessful = MccFileProcNextBuffer(ctxPtr, &areWeDone);
+                break;
+            case MOV_BINARY_FILE:
+                wasSuccessful = MovFileProcNextBuffer(ctxPtr, &areWeDone);
                 break;
             case MPEG_BINARY_FILE:
                 wasSuccessful = MpegFileProcNextBuffer(ctxPtr, &areWeDone);

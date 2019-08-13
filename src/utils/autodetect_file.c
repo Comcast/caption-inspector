@@ -27,6 +27,9 @@
 #include "autodetect_file.h"
 #include "cc_utils.h"
 #include "buffer_utils.h"
+#ifdef COMPILE_GPAC
+#include "gpac/isomedia.h"
+#endif
 #include "output_utils.h"
 
 /*----------------------------------------------------------------------------*/
@@ -39,6 +42,7 @@ const char* captionFileTypeStr[MAX_FILE_TYPE] = {
         "SCC Caption File",         // SCC_CAPTIONS_FILE
         "MCC Caption File",         // MCC_CAPTIONS_FILE
         "Binary MPEG File",         // MPEG_BINARY_FILE
+        "Binary MOV File",          // MOV_BINARY_FILE
 };
 
 /*----------------------------------------------------------------------------*/
@@ -53,6 +57,10 @@ char* dropframeTagStr = "Time code of first frame";
 /*----------------------------------------------------------------------------*/
 /*--                     Private Member Declarations                        --*/
 /*----------------------------------------------------------------------------*/
+
+#ifdef COMPILE_GPAC
+static void gpacLoggingSink( void*, GF_LOG_Level, GF_LOG_Tool, const char*, va_list );
+#endif
 
 /*----------------------------------------------------------------------------*/
 /*--                       Public Member Functions                          --*/
@@ -211,8 +219,21 @@ FileType DetermineFileType( char* fileNameStr ) {
              (buffer[loop] != 0) && (buffer[loop] != 9) &&
              (buffer[loop] != 10) && (buffer[loop] != 13) ) {
             fclose(filePtr);
+#ifdef COMPILE_GPAC
+            gf_log_set_callback(NULL, gpacLoggingSink);
+            GF_ISOFile* movFilePtr = gf_isom_open(fileNameStr, GF_ISOM_OPEN_READ, NULL);
+            if( movFilePtr != NULL ) {
+                gf_isom_close(movFilePtr);
+                LOG(DEBUG_LEVEL_INFO, DBG_FILE_IN, "Determined %s is an MOV File", fileNameStr);
+                return MOV_BINARY_FILE;
+            } else {
+                LOG(DEBUG_LEVEL_INFO, DBG_FILE_IN, "Determined %s is an MPEG File", fileNameStr);
+                return MPEG_BINARY_FILE;
+            }
+#else
             LOG(DEBUG_LEVEL_INFO, DBG_FILE_IN, "Determined %s is an MPEG File", fileNameStr);
             return MPEG_BINARY_FILE;
+#endif
         }
     }
 
@@ -280,3 +301,14 @@ FileType DetermineFileType( char* fileNameStr ) {
 /*----------------------------------------------------------------------------*/
 /*--                       Private Member Functions                         --*/
 /*----------------------------------------------------------------------------*/
+
+#ifdef COMPILE_GPAC
+/*------------------------------------------------------------------------------
+ | NAME:
+ |    gpacLoggingSink()
+ |
+ | DESCRIPTION:
+ |    This function merely suppresses logging from the GPAC MP4 Code.
+ -------------------------------------------------------------------------------*/
+static void gpacLoggingSink( void *cbck, GF_LOG_Level log_level, GF_LOG_Tool log_tool, const char* fmt, va_list vlist ) { }
+#endif

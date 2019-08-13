@@ -548,7 +548,7 @@ boolean ElementFiveProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
     TEST_ASSERT(inBuffer);
     TEST_ASSERT(inBuffer->dataPtr);
     TEST_ASSERT(rootCtxPtr);
-    TEST_ASSERT(((Context*)rootCtxPtr)->mccEncodeCtxPtr);
+    TEST_ASSERT(((Context*)rootCtxPtr)->movFileCtxPtr);
 
     FreeBuffer(inBuffer);
 
@@ -583,8 +583,8 @@ boolean ElementFiveProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
 
 boolean ElementFiveShutdown( void* rootCtxPtr ) {
     TEST_ASSERT(rootCtxPtr);
-    TEST_ASSERT(((Context*)rootCtxPtr)->mccEncodeCtxPtr);
-    MccEncodeCtx* ctxPtr = ((Context*)rootCtxPtr)->mccEncodeCtxPtr;
+    TEST_ASSERT(((Context*)rootCtxPtr)->movFileCtxPtr);
+    MovFileCtx* ctxPtr = ((Context*)rootCtxPtr)->movFileCtxPtr;
     Sinks sinks = ctxPtr->sinks;
 
     switch( whichTest ) {
@@ -598,24 +598,24 @@ boolean ElementFiveShutdown( void* rootCtxPtr ) {
         case TEST_SEVENTEEN:
             numEndpointsHit++;
             free(ctxPtr);
-            ((Context*)rootCtxPtr)->mccEncodeCtxPtr = NULL;
+            ((Context*)rootCtxPtr)->movFileCtxPtr = NULL;
             return TRUE;
         default:
             break;
     }
 
     free(ctxPtr);
-    ((Context*)rootCtxPtr)->mccEncodeCtxPtr = NULL;
+    ((Context*)rootCtxPtr)->movFileCtxPtr = NULL;
 
     return ShutdownSinks(rootCtxPtr, &sinks);
 }  // ElementFiveShutdown()
 
 LinkInfo ElementFiveInit( Context* rootCtxPtr ) {
     TEST_ASSERT(rootCtxPtr);
-    TEST_ASSERT(!rootCtxPtr->mccEncodeCtxPtr);
+    TEST_ASSERT(!rootCtxPtr->movFileCtxPtr);
 
-    rootCtxPtr->mccEncodeCtxPtr = malloc(sizeof(MccEncodeCtx));
-    MccEncodeCtx* ctxPtr = rootCtxPtr->mccEncodeCtxPtr;
+    rootCtxPtr->movFileCtxPtr = malloc(sizeof(MovFileCtx));
+    MovFileCtx* ctxPtr = rootCtxPtr->movFileCtxPtr;
 
     InitSinks(&ctxPtr->sinks, CC_DATA___DTVCC_DATA);
 
@@ -631,7 +631,7 @@ LinkInfo ElementFiveInit( Context* rootCtxPtr ) {
 boolean ElementFiveAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
     TEST_ASSERT(rootCtxPtr);
 
-    return AddSink(&rootCtxPtr->mccEncodeCtxPtr->sinks, &linkInfo);
+    return AddSink(&rootCtxPtr->movFileCtxPtr->sinks, &linkInfo);
 }  // ElementFiveAddSink()
 
 //************************//
@@ -1248,6 +1248,9 @@ LinkInfo MccOutInitialize( Context* ctxPtr, char* outputFileNameStr ) {
 /*----------------------------------------------------------------------------*/
 
 boolean DetermineDropFrame( char* fileNameStr, boolean saveMediaInfo, char* artifactPath, boolean* isDropFramePtr ) { return TRUE; }
+boolean MovFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) { return TRUE; }
+boolean MovFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe ) { return TRUE; }
+boolean MovFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) { return TRUE; }
 boolean SccEncodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) { return TRUE; }
 LinkInfo SccEncodeInitialize( Context* rootCtxPtr ) { LinkInfo linkInfo; linkInfo.sourceType = 1; return linkInfo; }
 boolean SccFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) { return TRUE; }

@@ -43,16 +43,18 @@
 #define DBG_FILE_OUT                5
 #define DBG_FF_MPEG                 6
 #define DBG_MPEG_FILE               7
-#define DBG_MCC_DEC                 8
-#define DBG_MCC_ENC                 9
-#define DBG_SCC_ENC                 10
-#define DBG_608_DEC                 11
-#define DBG_708_DEC                 12
-#define DBG_608_OUT                 13
-#define DBG_708_OUT                 14
-#define DBG_CCD_OUT                 15
-#define DBG_EXT_ADPT                16
-#define MAX_DEBUG_SECTION           17
+#define DBG_GPAC_MP4                8
+#define DBG_MOV_FILE                9
+#define DBG_MCC_DEC                 10
+#define DBG_MCC_ENC                 11
+#define DBG_SCC_ENC                 12
+#define DBG_608_DEC                 13
+#define DBG_708_DEC                 14
+#define DBG_608_OUT                 15
+#define DBG_708_OUT                 16
+#define DBG_CCD_OUT                 17
+#define DBG_EXT_ADPT                18
+#define MAX_DEBUG_SECTION           19
 
 /*----------------------------------------------------------------------------*/
 /*--                              Structures                                --*/

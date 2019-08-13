@@ -56,6 +56,8 @@ const char* DebugSectionText[MAX_DEBUG_SECTION] = {
         "DBG_FILE_OUT",
         "DBG_FF_MPEG",
         "DBG_MPEG_FILE",
+        "DBG_GPAC_MP4",
+        "DBG_MOV_FILE",
         "DBG_MCC_DEC",
         "DBG_MCC_ENC",
         "DBG_SCC_ENC",
@@ -85,6 +87,8 @@ static uint8 dbgFileWriteLevel[MAX_DEBUG_SECTION] = {
     DEBUG_LEVEL_INFO,   // DBG_FILE_OUT
     DEBUG_LEVEL_INFO,   // DBG_FF_MPEG
     DEBUG_LEVEL_INFO,   // DBG_MPEG_FILE
+    DEBUG_LEVEL_INFO,   // DBG_GPAC_MP4
+    DEBUG_LEVEL_INFO,   // DBG_MOV_FILE
     DEBUG_LEVEL_INFO,   // DBG_MCC_DEC
     DEBUG_LEVEL_INFO,   // DBG_MCC_ENC
     DEBUG_LEVEL_INFO,   // DBG_SCC_ENC
@@ -104,6 +108,8 @@ static uint8 dbgStdoutWriteLevel[MAX_DEBUG_SECTION] = {
     DEBUG_LEVEL_INFO,   // DBG_FILE_OUT
     DEBUG_LEVEL_INFO,   // DBG_FF_MPEG
     DEBUG_LEVEL_INFO,   // DBG_MPEG_FILE
+    DEBUG_LEVEL_INFO,   // DBG_GPAC_MP4
+    DEBUG_LEVEL_INFO,   // DBG_MOV_FILE
     DEBUG_LEVEL_INFO,   // DBG_MCC_DEC
     DEBUG_LEVEL_INFO,   // DBG_MCC_ENC
     DEBUG_LEVEL_INFO,   // DBG_SCC_ENC

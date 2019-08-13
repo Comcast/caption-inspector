@@ -24,6 +24,7 @@
 #include "debug.h"
 #include "autodetect_file.h"
 #include "mpeg_file.h"
+#include "mov_file.h"
 #include "output_utils.h"
 #include "getopt.h"
 #include "version.h"
@@ -176,6 +177,9 @@ int main( int argc, char* argv[] ) {
 #else
             retval = PlumbMpegPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.artifacts, tempOutputPath);
 #endif
+            break;
+        case MOV_BINARY_FILE:
+            retval = PlumbMovPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, TRUE, tempOutputPath);
             break;
         default:
             LOG(DEBUG_LEVEL_ERROR, DBG_GENERAL, "Impossible Branch - %d", sourceType);

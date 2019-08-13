@@ -11,6 +11,7 @@ UNK_CAPTIONS_FILE = 0
 SCC_CAPTIONS_FILE = 1
 MCC_CAPTIONS_FILE = 2
 MPEG_BINARY_FILE = 3
+MOV_BINARY_FILE = 4
 
 
 class TestClass(object):
@@ -33,6 +34,11 @@ class TestClass(object):
         clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
         file_type = clib.DetermineFileType("../media/BigBuckBunny_256x144-24fps.ts".encode('utf-8'))
         assert file_type is MPEG_BINARY_FILE
+
+    def test__Determine_MOV_File(self):
+        clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
+        file_type = clib.DetermineFileType("../media/BigBuckBunny_160x90-24fps.mov".encode('utf-8'))
+        assert file_type is MOV_BINARY_FILE
 
     def test__Determine_UNK_File(self):
         clib = ctypes.CDLL(CAPTION_INSPECTOR_LIBRARY)
@@ -87,6 +93,7 @@ if __name__ == "__main__":
     TestClass().test__Determine_MCC_File()
     TestClass().test__Determine_MPG_File()
     TestClass().test__Determine_TS_File()
+    TestClass().test__Determine_MOV_File()
     TestClass().test__Determine_UNK_File()
     TestClass().test__Determine_DF_NDF()
     TestClass().test__Determine_DF_IDF()
