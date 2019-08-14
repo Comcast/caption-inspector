@@ -186,6 +186,12 @@ typedef struct {
     uint32 sccFrameRate;
 } SccEncodeCtx;
 
+typedef struct {
+    Sinks sinks;
+// TODO - Add any static data that needs to be persisted for this
+//        element of the pipeline.
+} SmpteEncodeCtx;
+
 /* Sinks */
 
 typedef struct {
@@ -227,6 +233,13 @@ typedef struct {
 } MccOutputCtx;
 
 typedef struct {
+    FILE* fp;
+// TODO - Add any static data that needs to be persisted for this
+//        element of the pipeline.
+    char smpteFileName[MAX_FILE_NAME_LEN];
+} SmpteOutputCtx;
+
+typedef struct {
     SccFileCtx* sccFileCtxPtr;
     MccFileCtx* mccFileCtxPtr;
     CcDataFileCtx* ccDataFileCtxPtr;
@@ -239,11 +252,13 @@ typedef struct {
     MccDecodeCtx* mccDecodeCtxPtr;
     MccEncodeCtx* mccEncodeCtxPtr;
     SccEncodeCtx* sccEncodeCtxPtr;
+    SmpteEncodeCtx* smpteEncodeCtxPtr;
     ExtrnlAdptrCtx* extrnlAdptrCtxPtr;
     CcDataOutputCtx* ccDataOutputCtxPtr;
     Line21OutputCtx* line21OutputCtxPtr;
     DtvccOutputCtx* dtvccOutputCtxPtr;
     MccOutputCtx* mccOutputCtxPtr;
+    SmpteOutputCtx* smpteOutputCtxPtr;
 } Context;
 
 /*----------------------------------------------------------------------------*/

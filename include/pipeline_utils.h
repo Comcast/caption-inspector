@@ -38,13 +38,15 @@
 #define DATA_TYPE_SEI_DATA                              4
 #define DATA_TYPE_DECODED_608                           5
 #define DATA_TYPE_DECODED_708                           6
-#define DATA_TYPE_CC_DATA_TXT_FILE                      7
-#define DATA_TYPE_SEI_DATA_TXT_FILE                     8
-#define DATA_TYPE_608_TXT_FILE                          9
-#define DATA_TYPE_708_TXT_FILE                         10
-#define DATA_TYPE_MCC_DATA_TXT_FILE                    11
-#define DATA_TYPE_EXTERNAL_ADAPTOR                     12
-#define MAX_DATA_TYPE                                  13
+#define DATA_TYPE_SMPTE_TT                              7
+#define DATA_TYPE_CC_DATA_TXT_FILE                      8
+#define DATA_TYPE_SEI_DATA_TXT_FILE                     9
+#define DATA_TYPE_608_TXT_FILE                         10
+#define DATA_TYPE_708_TXT_FILE                         11
+#define DATA_TYPE_MCC_DATA_TXT_FILE                    12
+#define DATA_TYPE_SMPTE_TT_TXT_FILE                    13
+#define DATA_TYPE_EXTERNAL_ADAPTOR                     14
+#define MAX_DATA_TYPE                                  15
 
 // WARNING: These defines need to match the text in pipeline_utils.c
 
@@ -60,17 +62,19 @@
 #define CC_DATA___MCC_DATA                              6
 #define CC_DATA___LINE21_DATA                           7
 #define CC_DATA___DTVCC_DATA                            8
+#define LINE21_DATA___SMPTE_TT_DATA                     9
 
 // Sinks:
-#define SEI_DATA___TEXT_FILE                            9
-#define CC_DATA___TEXT_FILE                            10
-#define MCC_DATA___TEXT_FILE                           11
-#define LINE21_DATA___TEXT_FILE                        12
-#define DTVCC_DATA___TEXT_FILE                         13
-#define LINE21_DATA___EXTRNL_ADPTR                     14
-#define DTVCC_DATA___EXTRNL_ADPTR                      15
+#define SEI_DATA___TEXT_FILE                           10
+#define CC_DATA___TEXT_FILE                            11
+#define MCC_DATA___TEXT_FILE                           12
+#define LINE21_DATA___TEXT_FILE                        13
+#define DTVCC_DATA___TEXT_FILE                         14
+#define SMPTE_TT_DATA___TEXT_FILE                      15
+#define LINE21_DATA___EXTRNL_ADPTR                     16
+#define DTVCC_DATA___EXTRNL_ADPTR                      17
 
-#define MAX_LINK_TYPE                                  16
+#define MAX_LINK_TYPE                                  18
 
 /*----------------------------------------------------------------------------*/
 /*--                              Structures                                --*/
@@ -97,8 +101,10 @@ uint8 _PassToSinks(char*, int, Context*, Buffer*, Sinks*);
 uint8 _ShutdownSinks(char*, int, Context*, Sinks*);
 boolean PlumbSccPipeline(Context*, char*, char*, uint32, boolean);
 boolean PlumbMccPipeline(Context*, char*, char*, boolean);
+boolean PlumbMccSmptePipeline( Context*, char*, char*, boolean );
 boolean PlumbMpegPipeline(Context*, char*, char*, boolean, char*, boolean);
 boolean PlumbMovPipeline(Context*, char*, char*, boolean, char*, boolean);
+boolean PlumbMovSmptePipeline( Context*, char*, char*, boolean );
 void DrivePipeline(FileType, Context*);
 
 #endif /* pipeline_utils_h */

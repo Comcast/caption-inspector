@@ -92,13 +92,15 @@ XFORM_OBJS = dtvcc_decode.o   \
              mcc_decode.o     \
              mcc_encode.o     \
              line21_decode.o  \
-             scc_encode.o
+             scc_encode.o     \
+             smpte_encode.o
 XFORM_OBJS_WITH_PATH = $(foreach XFORM_OBJS, $(XFORM_OBJS), xform/$(XFORM_OBJS))
 
 SINK_OBJS = cc_data_output.o  \
             dtvcc_output.o    \
             line21_output.o   \
-            mcc_output.o
+            mcc_output.o      \
+            smpte_output.o
 SINK_OBJS_WITH_PATH = $(foreach SINK_OBJS, $(SINK_OBJS), sink/$(SINK_OBJS))
 
 UTIL_OBJS = autodetect_file.o \

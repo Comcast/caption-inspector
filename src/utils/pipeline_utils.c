@@ -33,6 +33,8 @@
 #include "dtvcc_output.h"
 #include "line21_output.h"
 #include "cc_data_output.h"
+#include "smpte_encode.h"
+#include "smpte_output.h"
 
 /*----------------------------------------------------------------------------*/
 /*--                       Public Member Variables                          --*/
@@ -54,10 +56,12 @@ static const char* LinkTypeText[MAX_LINK_TYPE] = {
     "CC_DATA___MCC_DATA",
     "CC_DATA___LINE21_DATA",
     "CC_DATA___DTVCC_DATA",
+    "LINE21_DATA___SMPTE_TT_DATA",
     "CC_DATA___TEXT_FILE",
     "MCC_DATA___TEXT_FILE",
     "LINE21_DATA___TEXT_FILE",
     "DTVCC_DATA___TEXT_FILE",
+    "SMPTE_TT_DATA___TEXT_FILE",
     "LINE21_DATA___EXTRNL_ADPTR",
     "DTVCC_DATA___EXTRNL_ADPTR"
 };
@@ -405,6 +409,88 @@ boolean PlumbMccPipeline( Context* ctxPtr, char* inputFilename, char* outputFile
 
 /*------------------------------------------------------------------------------
  | NAME:
+ |    PlumbMccSmptePipeline()
+ |
+ | INPUT PARAMETERS:
+ |    inputFilename - Name of the input file (and root of the output filename).
+ |    outputFilename - Name of the output file
+ |
+ | RETURN VALUES:
+ |    Context - Context of this Pipeline
+ |
+ | DESCRIPTION:
+ |    This method plumbs the pipeline to decode a MCC file, transform its
+ |    Line 21 Data into SMPTE-TT 2052 Preserve Mode, outputting the SMPTE-TT
+ |    data in a file <inputFilename>.smt and optionally outputting the decoded
+ |    text in a file <inputFilename>.608.
+ |
+ | PIPELINE:
+ |    +--------------+      +------------+      +----------------+        +-----------------+
+ |    | Caption File | ---> | MCC Decode | ---> | Line 21 Decode | --+--> | SMPTE-TT Output |
+ |    +--------------+      +------------+      +----------------+   |    +-----------------+
+ |                                                                   |
+ |                                                                   |     +----------------+
+ |                                                                   +-?-> | Line 21 Output |
+ |                                                                         +----------------+
+ -------------------------------------------------------------------------------*/
+boolean PlumbMccSmptePipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts ) {
+    ASSERT(ctxPtr);
+    memset(ctxPtr, 0, sizeof(Context));
+    boolean retval;
+
+    if( inputFilename == NULL ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "NULL Input Filename, unable to establish pipeline.");
+        return FALSE;
+    }
+
+    if( outputFilename == NULL ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "NULL Output Filename, unable to establish pipeline.");
+        return FALSE;
+    }
+
+    retval = MccFileInitialize(ctxPtr, inputFilename);
+    if( retval == FALSE ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+        return FALSE;
+    }
+
+    retval = MccFileAddSink(ctxPtr, MccDecodeInitialize(ctxPtr));
+    if( retval == FALSE ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+        return FALSE;
+    }
+
+    retval = MccDecodeAddSink(ctxPtr, Line21DecodeInitialize(ctxPtr, FALSE));
+    if (retval == FALSE) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+        return FALSE;
+    }
+
+    retval = Line21DecodeAddSink(ctxPtr, SmpteEncodeInitialize(ctxPtr));
+    if (retval == FALSE) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+        return FALSE;
+    }
+
+    retval = SmpteEncodeAddSink(ctxPtr, SmpteOutInitialize(ctxPtr, outputFilename));
+    if (retval == FALSE) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+        return FALSE;
+    }
+
+    if( artifacts == TRUE ) {
+        retval = Line21DecodeAddSink(ctxPtr, Line21OutInitialize(ctxPtr, outputFilename));
+        if (retval == FALSE) {
+            LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+} // PlumbMccSmptePipeline()
+
+/*------------------------------------------------------------------------------
+ | NAME:
  |    PlumbMpegPipeline()
  |
  | INPUT PARAMETERS:
@@ -628,6 +714,87 @@ boolean PlumbMovPipeline( Context* ctxPtr, char* inputFilename, char* outputFile
 
     return TRUE;
 } // PlumbMovPipeline()
+
+/*------------------------------------------------------------------------------
+ | NAME:
+ |    PlumbMovSmptePipeline()
+ |
+ | INPUT PARAMETERS:
+ |    inputFilename - Name of the input file (and root of the output filename).
+ |    outputFilename - Name of the output file
+ |    artifacts - Whether or not to save artifacts along with the MCC File.
+ |
+ | RETURN VALUES:
+ |    Context - Context of this Pipeline
+ |
+ | DESCRIPTION:
+ |    This method plumbs the pipeline to strip CC Data from an MOV File and
+ |    convert it to an MCC File. Additionally, if specified, it will decode
+ |    the CC Data that is found in the asset and leave the decoded text in
+ |    files that are <inputFilename>.608, <inputFilename>.708, and
+ |    <inputFilename>.ccd. The output goes into the file <inputFilename>.mcc.
+ |
+ | PIPELINE:
+ |    +----------+      +----------------+        +-----------------+
+ |    | Mov File | ---> | Line 21 Decode | --+--> | SMPTE-TT Output |
+ |    +----------+      +----------------+   |    +-----------------+
+ |                                           |
+ |                                           |     +----------------+
+ |                                           +-?-> | Line 21 Output |
+ |                                                 +----------------+
+ -------------------------------------------------------------------------------*/
+boolean PlumbMovSmptePipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts ) {
+    ASSERT(ctxPtr);
+    memset(ctxPtr, 0, sizeof(Context));
+    boolean retval;
+
+    if( inputFilename == NULL ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "NULL Input Filename, unable to establish pipeline.");
+        return FALSE;
+    }
+
+    if( outputFilename == NULL ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "NULL Output Filename, unable to establish pipeline.");
+        return FALSE;
+    }
+
+    boolean isDropframe;
+    boolean wasSuccessful = DetermineDropFrame(inputFilename, FALSE, NULL, &isDropframe);
+
+    retval = MovFileInitialize(ctxPtr, inputFilename, wasSuccessful, isDropframe, FALSE);
+    if( retval == FALSE ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+        return FALSE;
+    }
+
+    retval = MovFileAddSink(ctxPtr, Line21DecodeInitialize(ctxPtr, (artifacts == FALSE)));
+    if( retval == FALSE ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+        return FALSE;
+    }
+
+    retval = Line21DecodeAddSink(ctxPtr, SmpteEncodeInitialize(ctxPtr));
+    if (retval == FALSE) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+        return FALSE;
+    }
+
+    retval = SmpteEncodeAddSink(ctxPtr, SmpteOutInitialize(ctxPtr, outputFilename));
+    if (retval == FALSE) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+        return FALSE;
+    }
+
+    if( artifacts == TRUE ) {
+        retval = Line21DecodeAddSink(ctxPtr, Line21OutInitialize(ctxPtr, outputFilename));
+        if( retval == FALSE ) {
+            LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+} // PlumbMovSmptePipeline()
 
 /*------------------------------------------------------------------------------
  | NAME:

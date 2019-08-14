@@ -31,11 +31,14 @@ add_executable(caption-inspector
         include/pipeline_utils.h
         include/external_adaptor.h
         include/scc_encode.h
+        include/smpte_encode.h
+        include/smpte_output.h
         include/types.h
         src/sink/cc_data_output.c
         src/sink/dtvcc_output.c
         src/sink/line21_output.c
         src/sink/mcc_output.c
+        src/sink/smpte_output.c
         src/source/mcc_file.c
         src/source/mov_file.c
         src/source/mpeg_file.c
@@ -53,6 +56,7 @@ add_executable(caption-inspector
         src/xform/mcc_decode.c
         src/xform/mcc_encode.c
         src/xform/scc_encode.c
+        src/xform/smpte_encode.c
         src/main.c)
 
 add_executable(utest__buffer_utils_c

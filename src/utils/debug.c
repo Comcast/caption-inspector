@@ -61,11 +61,13 @@ const char* DebugSectionText[MAX_DEBUG_SECTION] = {
         "DBG_MCC_DEC",
         "DBG_MCC_ENC",
         "DBG_SCC_ENC",
+        "DBG_SMPTE_TT_ENC",
         "DBG_608_DEC",
         "DBG_708_DEC",
         "DBG_608_OUT",
         "DBG_708_OUT",
         "DBG_CCD_OUT",
+        "DBG_SMPTE_TT_OUT",
         "DBG_EXT_ADPT"
 };
 
@@ -92,11 +94,13 @@ static uint8 dbgFileWriteLevel[MAX_DEBUG_SECTION] = {
     DEBUG_LEVEL_INFO,   // DBG_MCC_DEC
     DEBUG_LEVEL_INFO,   // DBG_MCC_ENC
     DEBUG_LEVEL_INFO,   // DBG_SCC_ENC
+    DEBUG_LEVEL_INFO,   // DBG_SMPTE_TT_ENC
     DEBUG_LEVEL_INFO,   // DBG_608_DEC
     DEBUG_LEVEL_INFO,   // DBG_708_DEC
     DEBUG_LEVEL_INFO,   // DBG_608_OUT
     DEBUG_LEVEL_INFO,   // DBG_708_OUT
     DEBUG_LEVEL_INFO,   // DBG_CCD_OUT
+    DEBUG_LEVEL_INFO,   // DBG_SMPTE_TT_OUT
     DEBUG_LEVEL_INFO    // DBG_EXTERNL_ADAPT
 };
 static uint8 dbgStdoutWriteLevel[MAX_DEBUG_SECTION] = {
@@ -113,11 +117,13 @@ static uint8 dbgStdoutWriteLevel[MAX_DEBUG_SECTION] = {
     DEBUG_LEVEL_INFO,   // DBG_MCC_DEC
     DEBUG_LEVEL_INFO,   // DBG_MCC_ENC
     DEBUG_LEVEL_INFO,   // DBG_SCC_ENC
+    DEBUG_LEVEL_INFO,   // DBG_SMPTE_TT_ENC
     DEBUG_LEVEL_INFO,   // DBG_608_DEC
     DEBUG_LEVEL_INFO,   // DBG_708_DEC
     DEBUG_LEVEL_INFO,   // DBG_608_OUT
     DEBUG_LEVEL_INFO,   // DBG_708_OUT
     DEBUG_LEVEL_INFO,   // DBG_CCD_OUT
+    DEBUG_LEVEL_INFO,   // DBG_SMPTE_TT_OUT
     DEBUG_LEVEL_INFO    // DBG_EXTERNL_ADAPT
 };
 static uint16 numWarnings = 0;

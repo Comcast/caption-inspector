@@ -54,12 +54,13 @@ struct globalArgs_t {
     char outputDirectory[MAX_FILE_NAME_LEN];    // -o option
     uint32 passedInFramerate;                   // -f option
     boolean bailNoCaptions;                     // -b --bail_no_captions
+    boolean smpteEncode;                        // -s --smpte_encode
     boolean debugFile;                          // --no-debug option
     boolean artifacts;                          // --no-artifacts option
     char* inputFilename;                        // input file
 } globalArgs;
  
-static const char *optString = "o:f:hvb?";
+static const char *optString = "o:f:hvbs?";
 
 static struct option longOpts[] = {
     { "output",           required_argument, NULL, 'o' },
@@ -69,6 +70,7 @@ static struct option longOpts[] = {
     { "help",             no_argument,       NULL, 'h' },
     { "version",          no_argument,       NULL, 'v' },
     { "bail_no_captions", no_argument,       NULL, 'b' },
+    { "smpte_encode",     no_argument,       NULL, 's' },
     { 0, no_argument, NULL, 0 }
 };
 
@@ -102,6 +104,7 @@ int main( int argc, char* argv[] ) {
     globalArgs.debugFile = TRUE;
     globalArgs.artifacts = TRUE;
     globalArgs.bailNoCaptions = FALSE;
+    globalArgs.smpteEncode = FALSE;
 
     if( argv[1] == NULL ) {
         printHelp(globalArgs.cmd);
@@ -140,6 +143,9 @@ int main( int argc, char* argv[] ) {
             case 'b' :
                  globalArgs.bailNoCaptions = TRUE;
                  break;
+            case 's' :
+                globalArgs.smpteEncode = TRUE;
+                break;
             default:
                  printHelp(globalArgs.cmd);
                  exit(EXIT_FAILURE);
@@ -189,7 +195,11 @@ int main( int argc, char* argv[] ) {
             retval = PlumbSccPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.passedInFramerate, globalArgs.artifacts);
             break;
         case MCC_CAPTIONS_FILE:
-            retval = PlumbMccPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.artifacts);
+            if( globalArgs.smpteEncode == TRUE ) {
+                retval = PlumbMccSmptePipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.artifacts);
+            } else {
+                retval = PlumbMccPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.artifacts);
+            }
             break;
         case MPEG_BINARY_FILE:
 #ifdef DONT_COMPILE_FFMPEG
@@ -199,7 +209,11 @@ int main( int argc, char* argv[] ) {
 #endif
             break;
         case MOV_BINARY_FILE:
-            retval = PlumbMovPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, TRUE, tempOutputPath, globalArgs.bailNoCaptions);
+            if( globalArgs.smpteEncode == TRUE ) {
+                retval = PlumbMovSmptePipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.artifacts);
+            } else {
+                retval = PlumbMovPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, TRUE, tempOutputPath, globalArgs.bailNoCaptions);
+            }
             break;
         default:
             LOG(DEBUG_LEVEL_ERROR, DBG_GENERAL, "Impossible Branch - %d", sourceType);
@@ -297,6 +311,7 @@ static void printHelp( char* nameAndPath ) {
     printf("    -o|--output <dir>        : Directory to save output files. If this is not set files are saved in the directory of the input file.\n");
     printf("    -f|--framerate <num>     : Framerate * 100 (e.g. 3000, 2997). This is a requirement for SCC Files.\n");
     printf("    -b|--bail_no_captions    : Bail if no captions are found 20 minutes into the asset.\n");
+    printf("    -s|--smpte_encode        : Encode CEA-608 into SMPTE-TT 2052 Preserved Mode.\n");
     printf("    --no-debug               : Don't create a debug file.\n");
     printf("    --no-artifacts           : Don't create artifact files.\n");
 }  // printHelp()

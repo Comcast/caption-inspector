@@ -48,13 +48,15 @@
 #define DBG_MCC_DEC                 10
 #define DBG_MCC_ENC                 11
 #define DBG_SCC_ENC                 12
-#define DBG_608_DEC                 13
-#define DBG_708_DEC                 14
-#define DBG_608_OUT                 15
-#define DBG_708_OUT                 16
-#define DBG_CCD_OUT                 17
-#define DBG_EXT_ADPT                18
-#define MAX_DEBUG_SECTION           19
+#define DBG_SMPTE_TT_ENC            13
+#define DBG_608_DEC                 14
+#define DBG_708_DEC                 15
+#define DBG_608_OUT                 16
+#define DBG_708_OUT                 17
+#define DBG_CCD_OUT                 18
+#define DBG_SMPTE_TT_OUT            19
+#define DBG_EXT_ADPT                20
+#define MAX_DEBUG_SECTION           21
 
 /*----------------------------------------------------------------------------*/
 /*--                              Structures                                --*/
