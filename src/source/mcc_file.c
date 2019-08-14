@@ -190,12 +190,13 @@ boolean MccFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
  |
  | RETURN VALUES:
  |    isDonePtr - Whether or not the file has been completely read.
- |    boolean - TRUE is Successful and FALSE is a Failure
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method creates the next buffer of data and passes it down the pipeline.
  -------------------------------------------------------------------------------*/
-boolean MccFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
+uint8 MccFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
     char* line = NULL;
     size_t len = 0;
     ssize_t read = 0;

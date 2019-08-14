@@ -192,13 +192,14 @@ LinkInfo DtvccOutInitialize( Context* rootCtxPtr, char* outputFileNameStr, boole
  |    bufferPtr - Pointer to the buffer to process.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method processes an incoming buffer, writing the contents into an
  |    ASCII file.
  -------------------------------------------------------------------------------*/
-boolean DtvccOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
+uint8 DtvccOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
     ASSERT(buffPtr);
     ASSERT(rootCtxPtr);
     ASSERT(((Context*)rootCtxPtr)->dtvccOutputCtxPtr);
@@ -224,7 +225,7 @@ boolean DtvccOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
     }
     
     FreeBuffer(buffPtr);
-    return TRUE;
+    return PIPELINE_SUCCESS;
 } // DtvccOutProcNextBuffer()
 
 /*------------------------------------------------------------------------------
@@ -235,7 +236,8 @@ boolean DtvccOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
  |    rootCtxPtr - Context Pointer.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method is called when the previous element in the pipeline determines
@@ -243,7 +245,7 @@ boolean DtvccOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
  |    perform any necessary actions as a result and pass this call down the
  |    pipeline.
  -------------------------------------------------------------------------------*/
-boolean DtvccOutShutdown( void* rootCtxPtr ) {
+uint8 DtvccOutShutdown( void* rootCtxPtr ) {
     ASSERT(rootCtxPtr);
     ASSERT(((Context*)rootCtxPtr)->dtvccOutputCtxPtr);
     boolean anyFiles = FALSE;
@@ -261,7 +263,7 @@ boolean DtvccOutShutdown( void* rootCtxPtr ) {
 
     free(((Context*)rootCtxPtr)->dtvccOutputCtxPtr);
     ((Context*)rootCtxPtr)->dtvccOutputCtxPtr = NULL;
-    return TRUE;
+    return PIPELINE_SUCCESS;
 } // DtvcceOutShutdown()
 
 

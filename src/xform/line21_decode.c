@@ -72,6 +72,7 @@ LinkInfo Line21DecodeInitialize( Context* rootCtxPtr, boolean processOnly ) {
     Line21DecodeCtx* ctxPtr = rootCtxPtr->line21DecodeCtxPtr;
 
     ctxPtr->processOnly = processOnly;
+    ctxPtr->foundText = NO_TEXT_FOUND;
     ctxPtr->currentChannel[CEA608E_LINE21_FIELD_1_CC] = LINE21_CHANNEL_UNKONWN;
     ctxPtr->currentChannel[CEA608E_LINE21_FIELD_2_CC] = LINE21_CHANNEL_UNKONWN;
     for( int loop = 0; loop <= LINE21_MAX_NUM_CHANNELS; loop++ ) {
@@ -134,13 +135,14 @@ boolean Line21DecodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
  |    inBuffer - Pointer to the buffer to process.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method processes an incoming buffer, decoding  the byte pair from
  |    field 1 or field 2 of the Line 21 Data for CEA-608.
  -------------------------------------------------------------------------------*/
-boolean Line21DecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
+uint8 Line21DecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
     ASSERT(inBuffer);
     ASSERT(inBuffer->dataPtr);
     ASSERT(inBuffer->numElements);
@@ -162,7 +164,7 @@ boolean Line21DecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
 
     if( numOutputElements == 0) {
         FreeBuffer(inBuffer);
-        return TRUE;
+        return PIPELINE_SUCCESS;
     }
 
     Buffer* outBuffer = NewBuffer(BUFFER_TYPE_LINE_21, numOutputElements);
@@ -201,9 +203,23 @@ boolean Line21DecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
     FreeBuffer(inBuffer);
     if( ((Context*)rootCtxPtr)->line21DecodeCtxPtr->processOnly == TRUE ) {
         FreeBuffer(outBuffer);
-        return TRUE;
+        if( ctxPtr->foundText == TEXT_FOUND ) {
+            ctxPtr->foundText = TEXT_REPORTED;
+            return FIRST_TEXT_FOUND;
+        } else {
+            return PIPELINE_SUCCESS;
+        }
     } else {
-        return PassToSinks(rootCtxPtr, outBuffer, &ctxPtr->sinks);
+        if( ctxPtr->foundText == TEXT_FOUND ) {
+            ctxPtr->foundText = TEXT_REPORTED;
+            uint8 retval = PassToSinks(rootCtxPtr, outBuffer, &ctxPtr->sinks);
+            if( retval != PIPELINE_SUCCESS ) {
+                LOG(DEBUG_LEVEL_ERROR, DBG_608_DEC, "First Text Found eclipsed non Success Response: %d", retval);
+            }
+            return FIRST_TEXT_FOUND;
+        } else {
+            return PassToSinks(rootCtxPtr, outBuffer, &ctxPtr->sinks);
+        }
     }
 }  // Line21DecodeProcNextBuffer()
 
@@ -215,7 +231,8 @@ boolean Line21DecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
  |    rootCtxPtr - Pointer to all Pipeline Elements Contexts, including this one.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method is called when the previous element in the pipeline determines
@@ -223,7 +240,7 @@ boolean Line21DecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
  |    perform any necessary actions as a result and pass this call down the
  |    pipeline.
  -------------------------------------------------------------------------------*/
-boolean Line21DecodeShutdown( void* rootCtxPtr ) {
+uint8 Line21DecodeShutdown( void* rootCtxPtr ) {
     ASSERT(rootCtxPtr);
     ASSERT(((Context*)rootCtxPtr)->line21DecodeCtxPtr);
     Line21DecodeCtx* ctxPtr = ((Context*)rootCtxPtr)->line21DecodeCtxPtr;
@@ -253,7 +270,7 @@ boolean Line21DecodeShutdown( void* rootCtxPtr ) {
     ((Context*)rootCtxPtr)->line21DecodeCtxPtr = NULL;
 
     if( processOnly ) {
-        return TRUE;
+        return PIPELINE_SUCCESS;
     } else {
         return ShutdownSinks(rootCtxPtr, &sinks);
     }
@@ -676,6 +693,11 @@ static boolean decodeBasicChars( Line21DecodeCtx* ctxPtr, uint8 ccData1, uint8 c
         codePtr->code.basicChars.charTwo = ccData2;
 
         codePtr->channelNum = ctxPtr->currentChannel[codePtr->fieldNum];
+
+        if( ctxPtr->foundText == NO_TEXT_FOUND ) {
+            ctxPtr->foundText = TEXT_FOUND;
+        }
+
         return TRUE;
     }
     return FALSE;
@@ -729,6 +751,10 @@ static boolean decodeSpecialChar( Line21DecodeCtx* ctxPtr, uint8 ccData1, uint8 
     }
     
     codePtr->code.specialChar.spChar = ccData2 & SPCL_NA_CHAR_MASK;
+
+    if( ctxPtr->foundText == NO_TEXT_FOUND ) {
+        ctxPtr->foundText = TEXT_FOUND;
+    }
     
     return TRUE;
 }  // decodeSpecialChar()
@@ -785,6 +811,10 @@ static boolean decodeExtendedChar( Line21DecodeCtx* ctxPtr, uint8 ccData1, uint8
             codePtr->code.extendedChar.chan = LINE21_CHANNEL_UNKONWN;
             LOG(DEBUG_LEVEL_ERROR, DBG_608_DEC, "Impossible Code Branch: 0x%02X", ccData1);
             break;
+    }
+
+    if( ctxPtr->foundText == NO_TEXT_FOUND ) {
+        ctxPtr->foundText = TEXT_FOUND;
     }
     
     return TRUE;

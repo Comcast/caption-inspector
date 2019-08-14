@@ -84,8 +84,8 @@ extern const char* predefWinStyle[8];
 /*----------------------------------------------------------------------------*/
 
 LinkInfo DtvccOutInitialize( Context*, char*, boolean, boolean );
-boolean DtvccOutProcNextBuffer( void*, Buffer* );
-boolean DtvccOutShutdown( void* );
+uint8 DtvccOutProcNextBuffer( void*, Buffer* );
+uint8 DtvccOutShutdown( void* );
 
 const char* DtvccDecodeG0CharSet( uint8 );
 const char* DtvccDecodeG1CharSet( uint8 );

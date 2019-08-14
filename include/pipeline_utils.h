@@ -27,6 +27,10 @@
 /*--                               Constants                                --*/
 /*----------------------------------------------------------------------------*/
 
+#define PIPELINE_FAILURE                                FALSE
+#define PIPELINE_SUCCESS                                TRUE
+#define FIRST_TEXT_FOUND                                2
+
 #define DATA_TYPE_UNKNOWN                               0
 #define DATA_TYPE_SCC_DATA                              1
 #define DATA_TYPE_MCC_DATA                              2
@@ -89,11 +93,11 @@
 
 void InitSinks(Sinks*, uint8);
 boolean AddSink(Sinks*, LinkInfo*);
-boolean _PassToSinks(char*, int, Context*, Buffer*, Sinks*);
-boolean _ShutdownSinks(char*, int, Context*, Sinks*);
+uint8 _PassToSinks(char*, int, Context*, Buffer*, Sinks*);
+uint8 _ShutdownSinks(char*, int, Context*, Sinks*);
 boolean PlumbSccPipeline(Context*, char*, char*, uint32, boolean);
 boolean PlumbMccPipeline(Context*, char*, char*, boolean);
-boolean PlumbMpegPipeline(Context*, char*, char*, boolean, char*);
+boolean PlumbMpegPipeline(Context*, char*, char*, boolean, char*, boolean);
 void DrivePipeline(FileType, Context*);
 
 #endif /* pipeline_utils_h */

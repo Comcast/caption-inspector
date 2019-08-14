@@ -40,8 +40,6 @@
 /*--                               Constants                                --*/
 /*----------------------------------------------------------------------------*/
 
-#define CAPTION_TIME_TIMEOUT_TIME_IN_MINS          20
-
 /*----------------------------------------------------------------------------*/
 /*--                              Structures                                --*/
 /*----------------------------------------------------------------------------*/
@@ -58,8 +56,8 @@
 /*--                           Exposed Methods                              --*/
 /*----------------------------------------------------------------------------*/
 
-boolean MpegFileInitialize( Context*, char*, boolean, boolean );
-boolean MpegFileAddSink( Context*, LinkInfo );
-boolean MpegFileProcNextBuffer( Context*, boolean* );
+boolean MpegFileInitialize( Context*, char*, boolean, boolean, boolean );
+uint8 MpegFileAddSink( Context*, LinkInfo );
+uint8 MpegFileProcNextBuffer( Context*, boolean* );
 
 #endif /* mpeg_file_h */

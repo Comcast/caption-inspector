@@ -76,6 +76,7 @@ LinkInfo DtvccDecodeInitialize( Context* rootCtxPtr, boolean processOnly ) {
     ctxPtr->processOnly = processOnly;
     ctxPtr->processedFine = TRUE;
     ctxPtr->firstPacket = TRUE;
+    ctxPtr->foundText = NO_TEXT_FOUND;
     ctxPtr->numP16Cmds = 0;
     ctxPtr->pktLenMismatches = 0;
     ctxPtr->dtvccPacketLength = 0;
@@ -138,13 +139,14 @@ boolean DtvccDecodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
  |    inBuffer - Pointer to the buffer to process.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method processes an incoming buffer, decoding the CC Data per the
  |    CEA-708D Specification.
  -------------------------------------------------------------------------------*/
-boolean DtvccDecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
+uint8 DtvccDecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
     ASSERT(inBuffer);
     ASSERT(inBuffer->dataPtr);
     ASSERT(inBuffer->numElements);
@@ -185,8 +187,16 @@ boolean DtvccDecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
     }
     
     FreeBuffer(inBuffer);
-    
-    return ctxPtr->processedFine;
+
+    if( ctxPtr->foundText == TEXT_FOUND ) {
+        ctxPtr->foundText = TEXT_REPORTED;
+        if( ctxPtr->processedFine != PIPELINE_SUCCESS ) {
+            LOG(DEBUG_LEVEL_ERROR, DBG_708_DEC, "First Text Found eclipsed non Success Response: %d", ctxPtr->processedFine);
+        }
+        return FIRST_TEXT_FOUND;
+    } else {
+        return ctxPtr->processedFine;
+    }
 }  // DtvccDecodeProcNextBuffer()
 
 /*------------------------------------------------------------------------------
@@ -197,7 +207,8 @@ boolean DtvccDecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
  |    rootCtxPtr - Pointer to all Pipeline Elements Contexts, including this one.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method is called when the previous element in the pipeline determines
@@ -205,7 +216,7 @@ boolean DtvccDecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
  |    perform any necessary actions as a result and pass this call down the
  |    pipeline.
  -------------------------------------------------------------------------------*/
-boolean DtvccDecodeShutdown( void* rootCtxPtr ) {
+uint8 DtvccDecodeShutdown( void* rootCtxPtr ) {
     ASSERT(rootCtxPtr);
     ASSERT(((Context*)rootCtxPtr)->dtvccDecodeCtxPtr);
     DtvccDecodeCtx* ctxPtr = ((Context*)rootCtxPtr)->dtvccDecodeCtxPtr;
@@ -231,7 +242,8 @@ boolean DtvccDecodeShutdown( void* rootCtxPtr ) {
                 } else if( ctxPtr->isTickerCaptioning[loop] == TRUE ) {
                     LOG(DEBUG_LEVEL_INFO, DBG_708_DEC, "Found DTVCC TickerTape Captioning on Service %d", loop+1);
                 } else {
-                    ASSERT(0);
+                    LOG(DEBUG_LEVEL_WARN, DBG_708_DEC, "Unset DTVCC Captioning Type on Service %d: PopOn - %d; RollUp - %d; TickerTape - %d",
+                        loop+1, ctxPtr->isPopOnCaptioning[loop], ctxPtr->isRollUpCaptioning[loop], ctxPtr->isTickerCaptioning[loop] );
                 }
             } else {
                 LOG(DEBUG_LEVEL_INFO, DBG_708_DEC, "Ambiguous DTVCC Captioning Type on Service %d: PopOn - %d; RollUp - %d; TickerTape - %d",
@@ -245,7 +257,7 @@ boolean DtvccDecodeShutdown( void* rootCtxPtr ) {
     ((Context*)rootCtxPtr)->dtvccDecodeCtxPtr = NULL;
 
     if( processOnly ) {
-        return TRUE;
+        return PIPELINE_SUCCESS;
     } else {
         return ShutdownSinks(rootCtxPtr, &sinks);
     }
@@ -451,7 +463,7 @@ static uint16 countDataPackets( uint8* dataPtr, uint8 block_size ) {
                     (dataPtr[0] == DTVCC_C1_RSV95)   || (dataPtr[0] == DTVCC_C1_RSV96)) {
                     used = 1;
                 } else if( (dataPtr[index] == DTVCC_C1_CLW) || (dataPtr[index] == DTVCC_C1_DSW) || (dataPtr[index] == DTVCC_C1_HDW) ||
-                           (dataPtr[index] == DTVCC_C1_TGW) || (dataPtr[index] == DTVCC_C1_DLW) || (dataPtr[index] == DTVCC_C1_DLY) ) {
+                           (dataPtr[index] == DTVCC_C1_TGW) || (dataPtr[index] == DTVCC_C1_DLW) || (dataPtr[index] == DTVCC_C1_DLW) ) {
                     used = 2;
                 } else if( (dataPtr[index] == DTVCC_C1_SPA) || (dataPtr[index] == DTVCC_C1_SPL) ) {
                     used = 3;
@@ -561,6 +573,9 @@ static void processServiceBlock( DtvccDecodeCtx* ctxPtr, uint8* dataPtr, uint8 b
                 dtvccDataPtr->data.g1char = dataPtr[index];
                 LOG( DEBUG_LEVEL_VERBOSE, DBG_708_DEC, "G1: [%02X] '%s'", dataPtr[index], DtvccDecodeG1CharSet(dtvccDataPtr->data.g0char) );
                 used = 1;
+                if( ctxPtr->foundText == NO_TEXT_FOUND ) {
+                    ctxPtr->foundText = TEXT_FOUND;
+                }
             }
             if( used == LENGTH_UNKNOWN ) {
                 LOG( DEBUG_LEVEL_ERROR, DBG_708_DEC, "There was a problem handling the data. Reseting service decoder" );
@@ -590,6 +605,9 @@ static void processServiceBlock( DtvccDecodeCtx* ctxPtr, uint8* dataPtr, uint8 b
                     ((dataPtr[index+2] >= 0x76) && (dataPtr[index+2] <= 0x7F)) ) {
                     dtvccDataPtr->data.g2char = dataPtr[index+2];
                     LOG( DEBUG_LEVEL_VERBOSE, DBG_708_DEC, "G2: '%s'", DtvccDecodeG2CharSet(dtvccDataPtr->data.g2char) );
+                    if( ctxPtr->foundText == NO_TEXT_FOUND ) {
+                        ctxPtr->foundText = TEXT_FOUND;
+                    }
                 } else {
                     LOG( DEBUG_LEVEL_WARN, DBG_708_DEC, "Skipping Unknown G2 Char: 0x%02X", dataPtr[index+2] );
                     dtvccDataPtr->data.g2char = DTVCC_UNKNOWN_G2_CHAR;
@@ -614,6 +632,9 @@ static void processServiceBlock( DtvccDecodeCtx* ctxPtr, uint8* dataPtr, uint8 b
                 if( dataPtr[index+2] != DTVCC_G3_CC_ICON ) {
                     dtvccDataPtr->data.g3char = dataPtr[index+2];
                     LOG( DEBUG_LEVEL_VERBOSE, DBG_708_DEC, "G3: '%s'", DtvccDecodeG2CharSet(dtvccDataPtr->data.g3char) );
+                    if( ctxPtr->foundText == NO_TEXT_FOUND ) {
+                        ctxPtr->foundText = TEXT_FOUND;
+                    }
                 } else {
                     LOG( DEBUG_LEVEL_WARN, DBG_708_DEC, "Skipping Unknown G3 Char: 0x%02X", dataPtr[index+2] );
                     dtvccDataPtr->data.g3char = DTVCC_UNKNOWN_G3_CHAR;

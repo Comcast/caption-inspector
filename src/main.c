@@ -52,20 +52,22 @@ struct globalArgs_t {
     char* cmd;
     char outputDirectory[MAX_FILE_NAME_LEN];    // -o option
     uint32 passedInFramerate;                   // -f option
+    boolean bailNoCaptions;                     // -b --bail_no_captions
     boolean debugFile;                          // --no-debug option
     boolean artifacts;                          // --no-artifacts option
     char* inputFilename;                        // input file
 } globalArgs;
  
-static const char *optString = "o:f:hv?";
+static const char *optString = "o:f:hvb?";
 
 static struct option longOpts[] = {
-    { "output",       required_argument, NULL, 'o' },
-    { "framerate",    required_argument, NULL, 'f' },
-    { "no-debug",     no_argument,       NULL, 0 },
-    { "no-artifacts", no_argument,       NULL, 0 },
-    { "help",         no_argument,       NULL, 'h' },
-    { "version",      no_argument,       NULL, 'v' },
+    { "output",           required_argument, NULL, 'o' },
+    { "framerate",        required_argument, NULL, 'f' },
+    { "no-debug",         no_argument,       NULL, 0 },
+    { "no-artifacts",     no_argument,       NULL, 0 },
+    { "help",             no_argument,       NULL, 'h' },
+    { "version",          no_argument,       NULL, 'v' },
+    { "bail_no_captions", no_argument,       NULL, 'b' },
     { 0, no_argument, NULL, 0 }
 };
 
@@ -95,8 +97,10 @@ int main( int argc, char* argv[] ) {
     int longIndex = 0;
 
     globalArgs.cmd = argv[0];
+    globalArgs.passedInFramerate = 0;
     globalArgs.debugFile = TRUE;
     globalArgs.artifacts = TRUE;
+    globalArgs.bailNoCaptions = FALSE;
 
     if( argv[1] == NULL ) {
         printHelp(globalArgs.cmd);
@@ -132,7 +136,10 @@ int main( int argc, char* argv[] ) {
              case 'v' :
                  printVersion();
                  exit(EXIT_SUCCESS);
-             default:
+            case 'b' :
+                 globalArgs.bailNoCaptions = TRUE;
+                 break;
+            default:
                  printHelp(globalArgs.cmd);
                  exit(EXIT_FAILURE);
         }
@@ -154,11 +161,24 @@ int main( int argc, char* argv[] ) {
     BufferPoolInit();
     LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Version: %s (%s)", VERSION, BUILD);
 
+    if( globalArgs.passedInFramerate != 0 ) {
+        LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Passed in Framerate: %d", globalArgs.passedInFramerate);
+    }
+
+    if( globalArgs.bailNoCaptions == TRUE ) {
+        LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Bail if no Captions before 20 mins of Asset");
+    }
+
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &startTime);
 
     FileType sourceType = DetermineFileType(globalArgs.inputFilename);
 
     LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Processing input file %s of type %s", globalArgs.inputFilename, DECODE_CAPTION_FILE_TYPE(sourceType));
+    LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Writing Output To: %s.???", tempOutputPath);
+
+    if( globalArgs.artifacts == TRUE ) {
+        LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Writing all Artifacts.");
+    }
 
     Context ctx;
     boolean retval = FALSE;
@@ -174,7 +194,7 @@ int main( int argc, char* argv[] ) {
 #ifdef DONT_COMPILE_FFMPEG
             LOG(DEBUG_LEVEL_FATAL, DBG_GENERAL, "Executable was compiled without FFMPEG, unable to process Binary MPEG File");
 #else
-            retval = PlumbMpegPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.artifacts, tempOutputPath);
+            retval = PlumbMpegPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.artifacts, tempOutputPath, globalArgs.bailNoCaptions);
 #endif
             break;
         default:
@@ -272,6 +292,7 @@ static void printHelp( char* nameAndPath ) {
     printf("    -v|--version             : Display version and build information.\n");
     printf("    -o|--output <dir>        : Directory to save output files. If this is not set files are saved in the directory of the input file.\n");
     printf("    -f|--framerate <num>     : Framerate * 100 (e.g. 3000, 2997). This is a requirement for SCC Files.\n");
+    printf("    -b|--bail_no_captions    : Bail if no captions are found 20 minutes into the asset.\n");
     printf("    --no-debug               : Don't create a debug file.\n");
     printf("    --no-artifacts           : Don't create artifact files.\n");
 }  // printHelp()

@@ -115,13 +115,14 @@ LinkInfo CcDataOutInitialize( Context* rootCtxPtr, char* outputFileNameStr ) {
  |    buffPtr - Pointer to the buffer to process.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method processes an incoming buffer, writing the contents into an
  |    ASCII file.
  -------------------------------------------------------------------------------*/
-boolean CcDataOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
+uint8 CcDataOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
     ASSERT(buffPtr);
     ASSERT(rootCtxPtr);
     ASSERT(((Context*)rootCtxPtr)->ccDataOutputCtxPtr);
@@ -312,7 +313,7 @@ boolean CcDataOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
     writeToFile(ctxPtr->fp, "\n\n");
 
     FreeBuffer(buffPtr);
-    return TRUE;
+    return PIPELINE_SUCCESS;
 } // CcDataOutProcNextBuffer()
 
 /*------------------------------------------------------------------------------
@@ -323,7 +324,8 @@ boolean CcDataOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
  |    rootCtxPtr - Context Pointer.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method is called when the previous element in the pipeline determines
@@ -331,7 +333,7 @@ boolean CcDataOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
  |    perform any necessary actions as a result and pass this call down the
  |    pipeline.
  -------------------------------------------------------------------------------*/
-boolean CcDataOutShutdown( void* rootCtxPtr ) {
+uint8 CcDataOutShutdown( void* rootCtxPtr ) {
     ASSERT(rootCtxPtr);
     ASSERT(((Context*)rootCtxPtr)->ccDataOutputCtxPtr);
 
@@ -339,7 +341,7 @@ boolean CcDataOutShutdown( void* rootCtxPtr ) {
 
     free(((Context*)rootCtxPtr)->ccDataOutputCtxPtr);
     ((Context*)rootCtxPtr)->ccDataOutputCtxPtr = NULL;
-    return TRUE;
+    return PIPELINE_SUCCESS;
 } // CcDataOutShutdown()
 
 /*----------------------------------------------------------------------------*/

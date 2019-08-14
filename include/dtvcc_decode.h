@@ -579,7 +579,7 @@ typedef struct {
 
 LinkInfo DtvccDecodeInitialize( Context*, boolean );
 boolean DtvccDecodeAddSink( Context*, LinkInfo );
-boolean DtvccDecodeProcNextBuffer( void*, Buffer* );
-boolean DtvccDecodeShutdown( void* );
+uint8 DtvccDecodeProcNextBuffer( void*, Buffer* );
+uint8 DtvccDecodeShutdown( void* );
 
 #endif /* dtvcc_decode_h */

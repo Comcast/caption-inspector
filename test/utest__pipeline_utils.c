@@ -328,7 +328,7 @@ boolean MpegFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
     return retval;
 }
 
-boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe ) {
+boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe, boolean bailAtTwenty ) {
     boolean retval = TRUE;
 
     MpegFileInitializeCalled++;
@@ -1348,7 +1348,7 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = TRUE;
     DetermineDropFrame__wasSuccessful = TRUE;
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, TRUE, artifactPath );
+    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, TRUE, artifactPath, FALSE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MpegFileInitializeCalled);
@@ -1392,7 +1392,7 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = FALSE;
     DetermineDropFrame__wasSuccessful = TRUE;
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, TRUE, artifactPath );
+    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, TRUE, artifactPath, FALSE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MpegFileInitializeCalled);
@@ -1437,7 +1437,7 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = TRUE;
     DetermineDropFrame__wasSuccessful = TRUE;
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, FALSE, artifactPath );
+    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, FALSE, artifactPath, FALSE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MpegFileInitializeCalled);
@@ -1472,7 +1472,7 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = FALSE;
     DetermineDropFrame__wasSuccessful = FALSE;
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, FALSE, artifactPath );
+    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, FALSE, artifactPath, FALSE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MpegFileInitializeCalled);
@@ -1507,7 +1507,7 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = FALSE;
     DetermineDropFrame__wasSuccessful = FALSE;
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, FALSE, NULL );
+    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, FALSE, NULL, FALSE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MpegFileInitializeCalled);
@@ -1543,7 +1543,7 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__isDropFrame = TRUE;
     DetermineDropFrame__wasSuccessful = TRUE;
     ERROR_EXPECTED
-    retval = PlumbMpegPipeline( &ctx, NULL, outputFilename, TRUE, artifactPath );
+    retval = PlumbMpegPipeline( &ctx, NULL, outputFilename, TRUE, artifactPath, FALSE );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, DetermineDropFrameCalled);
     ASSERT_EQ(0, MpegFileInitializeCalled);
@@ -1566,7 +1566,7 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__isDropFrame = TRUE;
     DetermineDropFrame__wasSuccessful = TRUE;
     ERROR_EXPECTED
-    retval = PlumbMpegPipeline( &ctx, inputFilename, NULL, TRUE, artifactPath );
+    retval = PlumbMpegPipeline( &ctx, inputFilename, NULL, TRUE, artifactPath, FALSE );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, DetermineDropFrameCalled);
     ASSERT_EQ(0, MpegFileInitializeCalled);
@@ -1589,7 +1589,7 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__isDropFrame = TRUE;
     DetermineDropFrame__wasSuccessful = TRUE;
     ERROR_EXPECTED
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, TRUE, NULL );
+    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, TRUE, NULL, FALSE );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, DetermineDropFrameCalled);
     ASSERT_EQ(0, MpegFileInitializeCalled);

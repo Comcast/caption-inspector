@@ -127,13 +127,14 @@ boolean MccEncodeAddSink( Context* ctxPtr, LinkInfo linkInfo ) {
  |    inBuffer - Pointer to the buffer to process.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method processes an incoming buffer, encoding line 21 byte pairs
  |    into CC Data.
  -------------------------------------------------------------------------------*/
-boolean MccEncodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
+uint8 MccEncodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
     ASSERT(inBuffer);
     ASSERT(inBuffer->dataPtr);
     ASSERT(inBuffer->numElements);
@@ -198,7 +199,8 @@ boolean MccEncodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
  |    rootCtxPtr - Pointer to all Pipeline Elements Contexts, including this one.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method is called when the previous element in the pipeline determines
@@ -206,7 +208,7 @@ boolean MccEncodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
  |    perform any necessary actions as a result and pass this call down the
  |    pipeline.
  -------------------------------------------------------------------------------*/
-boolean MccEncodeShutdown( void* rootCtxPtr ) {
+uint8 MccEncodeShutdown( void* rootCtxPtr ) {
     ASSERT(rootCtxPtr);
     ASSERT(((Context*)rootCtxPtr)->mccEncodeCtxPtr);
     Sinks sinks = ((Context*)rootCtxPtr)->mccEncodeCtxPtr->sinks;

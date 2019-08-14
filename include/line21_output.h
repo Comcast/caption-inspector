@@ -43,8 +43,8 @@
 /*--                           Exposed Methods                              --*/
 /*----------------------------------------------------------------------------*/
 LinkInfo Line21OutInitialize( Context*, char* );
-boolean Line21OutProcNextBuffer( void*, Buffer* );
-boolean Line21OutShutdown( void* );
+uint8 Line21OutProcNextBuffer( void*, Buffer* );
+uint8 Line21OutShutdown( void* );
 
 char* Line21DecodeExtendedCharacter( uint8, uint8 );
 char* Line21DecodeBasicNACharacter( uint8 );

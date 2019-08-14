@@ -93,7 +93,7 @@ LinkInfo SccEncodeInitialize( Context* rootCtxPtr ) {
  |    This method binds the next element to this element, after validating that
  |    the data it receives is compatible with the data tht this element sends.
  -------------------------------------------------------------------------------*/
-boolean SccEncodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
+uint8 SccEncodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
     ASSERT(rootCtxPtr);
     ASSERT(rootCtxPtr->sccEncodeCtxPtr);
 
@@ -114,13 +114,14 @@ boolean SccEncodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
  |    inBuffer - Pointer to the buffer to process.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method processes an incoming buffer, encoding line 21 byte pairs
  |    into CC Data.
  -------------------------------------------------------------------------------*/
-boolean SccEncodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
+uint8 SccEncodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
     ASSERT(inBuffer);
     ASSERT(inBuffer->dataPtr);
     ASSERT(inBuffer->numElements);
@@ -198,7 +199,8 @@ boolean SccEncodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
  |    rootCtxPtr - Pointer to all Pipeline Elements Contexts, including this one.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method is called when the previous element in the pipeline determines

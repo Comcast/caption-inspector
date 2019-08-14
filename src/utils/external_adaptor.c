@@ -309,7 +309,7 @@ boolean ExtrnlAdptrPlumbFileDecodePipeline( char* inputFilename, uint32 framerat
         LOG(DEBUG_LEVEL_FATAL, DBG_EXT_ADPT, "Executable was compiled without FFMPEG, unable to process Binary MPEG File");
 #else
         boolean wasSuccessful = DetermineDropFrame(inputFilename, FALSE, NULL, &isDropframe);
-        retval = MpegFileInitialize(&rootContext, inputFilename, wasSuccessful, isDropframe);
+        retval = MpegFileInitialize(&rootContext, inputFilename, wasSuccessful, isDropframe, FALSE);
         if( retval == FALSE ) {
             LOG(DEBUG_LEVEL_ERROR, DBG_EXT_ADPT, "Problem Establishing Pipeline, bailing.");
             return FALSE;
@@ -470,7 +470,7 @@ boolean ExtrnlAdptrPlumbMccPipeline( char* inputFilename, char* outputFilename )
  -------------------------------------------------------------------------------*/
 boolean ExtrnlAdptrPlumbMpegPipeline( char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath ) {
     memset(&rootContext, 0, sizeof(Context));
-    pipelineEstablished = PlumbMpegPipeline( &rootContext, inputFilename, outputFilename, artifacts, artifactPath );
+    pipelineEstablished = PlumbMpegPipeline( &rootContext, inputFilename, outputFilename, artifacts, artifactPath, FALSE );
     fileType = MPEG_BINARY_FILE;
     return pipelineEstablished;
 } // ExtrnlAdptrPlumbMpegPipeline()

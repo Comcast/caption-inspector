@@ -105,7 +105,7 @@ typedef struct {
 /*----------------------------------------------------------------------------*/
 
 LinkInfo CcDataOutInitialize( Context*, char* );
-boolean CcDataOutProcNextBuffer( void*, Buffer* );
-boolean CcDataOutShutdown( void* );
+uint8 CcDataOutProcNextBuffer( void*, Buffer* );
+uint8 CcDataOutShutdown( void* );
 
 #endif /* cc_data_output_h */
