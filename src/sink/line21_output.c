@@ -144,7 +144,8 @@ LinkInfo Line21OutInitialize( Context* ctxPtr, char* outputFileNameStr ) {
  |    inBuffer - Pointer to the buffer to process.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method processes an incoming buffer, writing the contents into an
@@ -153,7 +154,7 @@ LinkInfo Line21OutInitialize( Context* ctxPtr, char* outputFileNameStr ) {
  |    Or writing as SEI, which has the format:
  |    <Frame Number> - <Decoded Field 1 - Line 21 - Byte Pair>
  -------------------------------------------------------------------------------*/
-boolean Line21OutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
+uint8 Line21OutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
     ASSERT(buffPtr);
     ASSERT(rootCtxPtr);
     ASSERT(((Context*)rootCtxPtr)->line21OutputCtxPtr);
@@ -184,7 +185,7 @@ boolean Line21OutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
     }
     
     FreeBuffer(buffPtr);
-    return TRUE;
+    return PIPELINE_SUCCESS;
 } // Line21OutProcNextBuffer()
 
 /*------------------------------------------------------------------------------
@@ -195,7 +196,8 @@ boolean Line21OutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
  |    rootCtxPtr - Context Pointer.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.E
  |
  | DESCRIPTION:
  |    This method is called when the previous element in the pipeline determines
@@ -203,7 +205,7 @@ boolean Line21OutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
  |    perform any necessary actions as a result and pass this call down the
  |    pipeline.
  -------------------------------------------------------------------------------*/
-boolean Line21OutShutdown( void* rootCtxPtr ) {
+uint8 Line21OutShutdown( void* rootCtxPtr ) {
     ASSERT(rootCtxPtr);
     ASSERT(((Context*)rootCtxPtr)->line21OutputCtxPtr);
     Line21OutputCtx* ctxPtr = ((Context*)rootCtxPtr)->line21OutputCtxPtr;
@@ -222,7 +224,7 @@ boolean Line21OutShutdown( void* rootCtxPtr ) {
 
     free(ctxPtr);
     ((Context*)rootCtxPtr)->line21OutputCtxPtr = NULL;
-    return TRUE;
+    return PIPELINE_SUCCESS;
 } // Line21OutShutdown()
 
 /*------------------------------------------------------------------------------

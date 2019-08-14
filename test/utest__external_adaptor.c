@@ -281,7 +281,7 @@ boolean MovFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
     return MovFileAddSinkReturn;
 }
 
-boolean MovFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe ) {
+boolean MovFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe, boolean bailAtTwenty ) {
     MovFileInitializeCalled++;
     MovFileInitializeFileNameStr = fileNameStr;
     MovFileInitializeisDropframe = isDropframe;
@@ -296,7 +296,7 @@ boolean MpegFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
     return MpegFileAddSinkReturn;
 }
 
-boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe ) {
+boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe, boolean bailAtTwenty ) {
     MpegFileInitializeCalled++;
     MpegFileInitializeFileNameStr = fileNameStr;
     MpegFileInitializeisDropframe = isDropframe;
@@ -371,12 +371,12 @@ boolean PlumbSccPipeline( Context* ctxPtr, char* inputFilename, char* outputFile
     return PlumbSccPipelineReturn;
 }
 
-boolean PlumbMpegPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath ) {
+boolean PlumbMpegPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath, boolean bailAtTwenty ) {
     PlumbMpgPipelineCalled++;
     return PlumbMpgPipelineReturn;
 }
 
-boolean PlumbMovPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath ) {
+boolean PlumbMovPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath, boolean bailAtTwenty ) {
     PlumbMovPipelineCalled++;
     return PlumbMovPipelineReturn;
 }

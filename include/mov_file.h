@@ -50,8 +50,8 @@
 /*--                           Exposed Methods                              --*/
 /*----------------------------------------------------------------------------*/
 
-boolean MovFileInitialize( Context*, char*, boolean, boolean );
-boolean MovFileAddSink( Context*, LinkInfo linkInfo );
-boolean MovFileProcNextBuffer( Context*, boolean* );
+boolean MovFileInitialize( Context*, char*, boolean, boolean, boolean );
+uint8 MovFileAddSink( Context*, LinkInfo linkInfo );
+uint8 MovFileProcNextBuffer( Context*, boolean* );
 
 #endif /* mov_file_h */

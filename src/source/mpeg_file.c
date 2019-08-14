@@ -57,13 +57,14 @@ static void loggingCallback( void*, int, const char*, va_list );
  |    fileNameStr - The name of the source file.
  |    overrideDropframe - Use passed in dropframe value rather than calculated.
  |    isDropframe - Passed in dropframe value.
+ |    bailAtTwenty - Whether or not to stop processing at 20 mins if no text found.
  |
  | RETURN VALUES:
  |    boolean - Was this call successful.
  |
  | DESCRIPTION:
  -------------------------------------------------------------------------------*/
-boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe ) {
+boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe, boolean bailAtTwenty ) {
 #ifndef DONT_COMPILE_FFMPEG
     ASSERT(fileNameStr);
     ASSERT(rootCtxPtr);
@@ -81,10 +82,10 @@ boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean over
 
     ctxPtr->fileSize = 0;
     ctxPtr->isFileOpen = FALSE;
-    ctxPtr->sawCaptionBlock = FALSE;
 
     ctxPtr->overrideDropframe = overrideDropframe;
     ctxPtr->isDropframe = isDropframe;
+    ctxPtr->bailNoCaptions = bailAtTwenty;
 
     int fdesc = open(fileNameStr, O_RDONLY);
 
@@ -260,12 +261,13 @@ boolean MpegFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
  |
  | RETURN VALUES:
  |    isDonePtr - Whether or not the file has been completely read.
- |    boolean - TRUE is Successful and FALSE is a Failure
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method creates the next buffer of data and passes it down the pipeline.
  -------------------------------------------------------------------------------*/
-boolean MpegFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
+uint8 MpegFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
 #ifndef DONT_COMPILE_FFMPEG
     ASSERT(rootCtxPtr);
     ASSERT(rootCtxPtr->mpegFileCtxPtr);
@@ -281,7 +283,7 @@ boolean MpegFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
         int retval = 0;
         int got_frame;
         AVPacket packet;
-        int64 pts;
+        int64 pts = 0;
 
         ctxPtr->len = 0;
         
@@ -328,24 +330,22 @@ boolean MpegFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
                 }
             }
         }
-        
-        if( ctxPtr->len == 0 ) {
-            if( ctxPtr->sawCaptionBlock == FALSE ) {
-                CaptionTime captionTime;
-                CaptionTimeFromPts(&captionTime, pts);
-                if (captionTime.minute >= CAPTION_TIME_TIMEOUT_TIME_IN_MINS) {
-                    LOG(DEBUG_LEVEL_WARN, DBG_MPEG_FILE, "Unable to find Captions after %d mins. Abandoning.", captionTime.minute);
-                    *isDonePtr = TRUE;
-                    Sinks sinks = ctxPtr->sinks;
-                    free(ctxPtr);
-                    rootCtxPtr->mpegFileCtxPtr = NULL;
-                    return ShutdownSinks(rootCtxPtr, &sinks);
-                }
+
+        if( ctxPtr->bailNoCaptions == TRUE ) {
+            CaptionTime captionTime;
+            CaptionTimeFromPts(&captionTime, pts);
+            if (captionTime.minute >= CAPTION_TIME_TIMEOUT_TIME_IN_MINS) {
+                LOG(DEBUG_LEVEL_WARN, DBG_MPEG_FILE, "Unable to find Captions after %d mins. Abandoning.", captionTime.minute);
+                *isDonePtr = TRUE;
+                Sinks sinks = ctxPtr->sinks;
+                free(ctxPtr);
+                rootCtxPtr->mpegFileCtxPtr = NULL;
+                return ShutdownSinks(rootCtxPtr, &sinks);
             }
-            continue;
-        } else {
+        }
+
+        if( ctxPtr->len != 0 ) {
             ASSERT(!(ctxPtr->len % 3));
-            ctxPtr->sawCaptionBlock = TRUE;
             uint8 ccCount = numCcConstructsFromFramerate(ctxPtr->frameRatePerSecTimesOneHundred);
             if( ccCount != (ctxPtr->len / 3) ) {
                 ctxPtr->ccCountMismatchErrors++;
@@ -362,8 +362,13 @@ boolean MpegFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
             CaptionTimeFromPts(&outputBuffer->captionTime, pts);
             outputBuffer->numElements = outputBuffer->maxNumElements;
             memcpy(outputBuffer->dataPtr, ctxPtr->buffer, ctxPtr->len);
-            
-            return PassToSinks(rootCtxPtr, outputBuffer, &ctxPtr->sinks);
+
+            uint8 returnval = PassToSinks(rootCtxPtr, outputBuffer, &ctxPtr->sinks);
+            if( (ctxPtr->bailNoCaptions == TRUE) && (returnval == FIRST_TEXT_FOUND) ) {
+                ctxPtr->bailNoCaptions = FALSE;
+                returnval = PIPELINE_SUCCESS;
+            }
+            return returnval;
         }
     }
 #else

@@ -136,14 +136,15 @@ boolean AddSink( Sinks* sinks, LinkInfo* linkInfoPtr ) {
  |    sinks - Pointer to the sink structure of the caller.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method moves a buffer from one element to its sinks. It also adds
  |    references to the buffer, so that it won't be freed until all of the
  |    sinks are done with it.
  -------------------------------------------------------------------------------*/
-boolean _PassToSinks( char* fileNameStr, int lineNum, Context* ctxPtr, Buffer* buffPtr, Sinks* sinks ) {
+uint8 _PassToSinks( char* fileNameStr, int lineNum, Context* ctxPtr, Buffer* buffPtr, Sinks* sinks ) {
     ASSERT(ctxPtr);
     ASSERT(buffPtr);
     ASSERT(sinks);
@@ -185,12 +186,13 @@ boolean _PassToSinks( char* fileNameStr, int lineNum, Context* ctxPtr, Buffer* b
  |    sinks - Pointer to the sink structure of the caller.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method tells the sinks that there is no more data in the pipeline.
  -------------------------------------------------------------------------------*/
-boolean _ShutdownSinks( char* fileNameStr, int lineNum, Context* ctxPtr, Sinks* sinks ) {
+uint8 _ShutdownSinks( char* fileNameStr, int lineNum, Context* ctxPtr, Sinks* sinks ) {
     ASSERT(sinks);
     ASSERT(ctxPtr);
     ASSERT(sinks->numSinks <= MAX_NUMBER_OF_SINKS);
@@ -410,6 +412,7 @@ boolean PlumbMccPipeline( Context* ctxPtr, char* inputFilename, char* outputFile
  |    outputFilename - Name of the output file
  |    artifacts - Whether or not to save artifacts along with the MCC File.
  |    artifactPath - Path to save the artifacts (if configured).
+ |    bailAtTwenty - Whether or not to stop processing at 20 mins if no text found.
  |
  | RETURN VALUES:
  |    Context - Context of this Pipeline
@@ -437,7 +440,7 @@ boolean PlumbMccPipeline( Context* ctxPtr, char* inputFilename, char* outputFile
  |                     +-?-> | CC Data Output |
  |                           +----------------+
  -------------------------------------------------------------------------------*/
-boolean PlumbMpegPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath ) {
+boolean PlumbMpegPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath, boolean bailAtTwenty ) {
     ASSERT(ctxPtr);
     memset(ctxPtr, 0, sizeof(Context));
     boolean retval;
@@ -460,7 +463,7 @@ boolean PlumbMpegPipeline( Context* ctxPtr, char* inputFilename, char* outputFil
     boolean isDropframe;
     boolean wasSuccessful = DetermineDropFrame(inputFilename, artifacts, artifactPath, &isDropframe);
 
-    retval = MpegFileInitialize(ctxPtr, inputFilename, wasSuccessful, isDropframe);
+    retval = MpegFileInitialize(ctxPtr, inputFilename, wasSuccessful, isDropframe, bailAtTwenty);
     if( retval == FALSE ) {
         LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
         return FALSE;
@@ -522,6 +525,7 @@ boolean PlumbMpegPipeline( Context* ctxPtr, char* inputFilename, char* outputFil
  |    outputFilename - Name of the output file
  |    artifacts - Whether or not to save artifacts along with the MCC File.
  |    artifactPath - Path to save the artifacts (if configured).
+ |    bailAtTwenty - Whether or not to stop processing at 20 mins if no text found.
  |
  | RETURN VALUES:
  |    Context - Context of this Pipeline
@@ -549,7 +553,7 @@ boolean PlumbMpegPipeline( Context* ctxPtr, char* inputFilename, char* outputFil
  |                     +-?-> | CC Data Output |
  |                           +----------------+
  -------------------------------------------------------------------------------*/
-boolean PlumbMovPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath ) {
+boolean PlumbMovPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath, boolean bailAtTwenty ) {
     ASSERT(ctxPtr);
     memset(ctxPtr, 0, sizeof(Context));
     boolean retval;
@@ -572,7 +576,7 @@ boolean PlumbMovPipeline( Context* ctxPtr, char* inputFilename, char* outputFile
     boolean isDropframe;
     boolean wasSuccessful = DetermineDropFrame(inputFilename, artifacts, artifactPath, &isDropframe);
 
-    retval = MovFileInitialize(ctxPtr, inputFilename, wasSuccessful, isDropframe);
+    retval = MovFileInitialize(ctxPtr, inputFilename, wasSuccessful, isDropframe, bailAtTwenty);
     if( retval == FALSE ) {
         LOG(DEBUG_LEVEL_ERROR, DBG_PIPELINE, "Problem Establishing Pipeline, bailing.");
         return FALSE;
@@ -664,7 +668,7 @@ void DrivePipeline( FileType sourceType, Context* ctxPtr ) {
                 return;
         }
 
-        if( wasSuccessful == FALSE ) {
+        if( wasSuccessful == PIPELINE_FAILURE ) {
             LOG(DEBUG_LEVEL_ERROR, DBG_GENERAL, "Error in Pipeline!");
         }
     }

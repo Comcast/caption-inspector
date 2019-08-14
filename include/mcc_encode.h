@@ -46,7 +46,7 @@ extern const char* DayOfWeekStr[7];
 
 LinkInfo MccEncodeInitialize( Context* );
 boolean MccEncodeAddSink( Context*, LinkInfo );
-boolean MccEncodeProcNextBuffer( void*, Buffer* );
-boolean MccEncodeShutdown( void* );
+uint8 MccEncodeProcNextBuffer( void*, Buffer* );
+uint8 MccEncodeShutdown( void* );
 
 #endif /* mcc_encode_h */

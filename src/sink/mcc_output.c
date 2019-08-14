@@ -88,13 +88,14 @@ LinkInfo MccOutInitialize( Context* ctxPtr, char* outputFileNameStr ) {
  |    inBuffer - Pointer to the buffer to process.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method processes an incoming buffer, writing the contents into an
  |    ASCII file.
  -------------------------------------------------------------------------------*/
-boolean MccOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
+uint8 MccOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
     ASSERT(buffPtr);
     ASSERT(rootCtxPtr);
     ASSERT(((Context*)rootCtxPtr)->mccOutputCtxPtr);
@@ -106,7 +107,7 @@ boolean MccOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
 
     writeToFile(((Context*)rootCtxPtr)->mccOutputCtxPtr->fp, "%s\n", buffPtr->dataPtr);
     FreeBuffer(buffPtr);
-    return TRUE;
+    return PIPELINE_SUCCESS;
 } // MccOutProcNextBuffer()
 
 /*------------------------------------------------------------------------------
@@ -117,7 +118,8 @@ boolean MccOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
  |    rootCtxPtr - Context Pointer.
  |
  | RETURN VALUES:
- |    boolean - Success is TRUE and Failure is FALSE
+ |    uint8 - Success is TRUE / PIPELINE_SUCCESS, Failure is FALSE / PIPELINE_FAILURE
+ |            All other codes specified in header.
  |
  | DESCRIPTION:
  |    This method is called when the previous element in the pipeline determines
@@ -125,7 +127,7 @@ boolean MccOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
  |    perform any necessary actions as a result and pass this call down the
  |    pipeline.
  -------------------------------------------------------------------------------*/
-boolean MccOutShutdown( void* rootCtxPtr ) {
+uint8 MccOutShutdown( void* rootCtxPtr ) {
     ASSERT(rootCtxPtr);
     ASSERT(((Context*)rootCtxPtr)->mccOutputCtxPtr);
 
@@ -137,7 +139,7 @@ boolean MccOutShutdown( void* rootCtxPtr ) {
 
     free(((Context*)rootCtxPtr)->mccOutputCtxPtr);
     ((Context*)rootCtxPtr)->mccOutputCtxPtr = NULL;
-    return TRUE;
+    return PIPELINE_SUCCESS;
 } // MccOutShutdown()
 
 /*----------------------------------------------------------------------------*/

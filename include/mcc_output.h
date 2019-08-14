@@ -43,7 +43,7 @@
 /*----------------------------------------------------------------------------*/
 
 LinkInfo MccOutInitialize( Context*, char* );
-boolean MccOutProcNextBuffer( void*, Buffer* );
-boolean MccOutShutdown( void* );
+uint8 MccOutProcNextBuffer( void*, Buffer* );
+uint8 MccOutShutdown( void* );
 
 #endif /* mcc_output_h */

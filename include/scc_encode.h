@@ -44,7 +44,7 @@
 
 LinkInfo SccEncodeInitialize( Context* );
 boolean SccEncodeAddSink( Context*, LinkInfo );
-boolean SccEncodeProcNextBuffer( void*, Buffer* );
-boolean SccEncodeShutdown( void* );
+uint8 SccEncodeProcNextBuffer( void*, Buffer* );
+uint8 SccEncodeShutdown( void* );
 
 #endif /* scc_encode_h */

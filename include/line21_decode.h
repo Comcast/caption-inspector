@@ -619,8 +619,8 @@ typedef struct {
 
 LinkInfo Line21DecodeInitialize( Context*, boolean );
 boolean Line21DecodeAddSink( Context*, LinkInfo );
-boolean Line21DecodeProcNextBuffer( void*, Buffer* );
-boolean Line21DecodeShutdown( void* );
+uint8 Line21DecodeProcNextBuffer( void*, Buffer* );
+uint8 Line21DecodeShutdown( void* );
 uint8 Line21PacDecodeRow( uint8, uint8 );
 
 #endif /* line21_decode_h */

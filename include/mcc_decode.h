@@ -156,7 +156,7 @@ typedef struct {
 
 LinkInfo MccDecodeInitialize( Context* );
 boolean MccDecodeAddSink( Context*, LinkInfo );
-boolean MccDecodeProcNextBuffer( void*, Buffer* );
-boolean MccDecodeShutdown( void* );
+uint8 MccDecodeProcNextBuffer( void*, Buffer* );
+uint8 MccDecodeShutdown( void* );
 
 #endif /* mcc_decode_h */
