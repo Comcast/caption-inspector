@@ -423,6 +423,26 @@ boolean SccFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
     return retval;
 }
 
+boolean SmpteEncodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
+    boolean retval = TRUE;
+
+    return retval;
+}
+
+LinkInfo SmpteEncodeInitialize( Context* rootCtxPtr ) {
+    LinkInfo linkInfo;
+    linkInfo.sourceType = 1;
+
+    return linkInfo;
+}
+
+LinkInfo SmpteOutInitialize( Context* rootCtxPtr, char* fileNameStr ) {
+    LinkInfo linkInfo;
+    linkInfo.sourceType = 1;
+
+    return linkInfo;
+}
+
 boolean isFramerateValid( uint32 frameRatePerSecTimesOneHundred ) {
     if( frameRatePerSecTimesOneHundred == 2400 ) return TRUE;
     else return FALSE;

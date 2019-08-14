@@ -1256,6 +1256,10 @@ LinkInfo SccEncodeInitialize( Context* rootCtxPtr ) { LinkInfo linkInfo; linkInf
 boolean SccFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) { return TRUE; }
 boolean SccFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) { return TRUE; }
 boolean SccFileInitialize( Context* rootCtxPtr, char* fileNameStr, uint32 frTimesOneHundred ) { return TRUE; }
+boolean SmpteEncodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) { return TRUE; }
+LinkInfo SmpteEncodeInitialize( Context* rootCtxPtr ) { LinkInfo linkInfo; linkInfo.sourceType = 1; return linkInfo; }
+LinkInfo SmpteOutInitialize( Context* rootCtxPtr, char* fileNameStr ) { LinkInfo linkInfo; linkInfo.sourceType = 1; return linkInfo; }
+
 
 /*----------------------------------------------------------------------------*/
 /*--                             Test Cases                                 --*/
