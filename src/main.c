@@ -284,12 +284,8 @@ static void printHelp( char* nameAndPath ) {
     printf(" 888   888   888  o.  )88b  888   888 888    .o 888   .o8   888 . 888   888  888\n");
     printf("o888o o888o o888o 8\"\"888P'  888bod8P' `Y8bod8P' `Y8bod8P'   \"888\" `Y8bod8P' d888b\n");
     printf("                            888\n");
-    printf("                           o888o\n");
-#ifdef DONT_COMPILE_FFMPEG
-    printf("\nVersion: %s (%s) - No FFMPEG\n", VERSION, BUILD);
-#else
-    printf("\nVersion: %s (%s)\n", VERSION, BUILD);
-#endif
+    printf("                            o888o\n");
+    printVersion();
     printf("\nUsage: %s [options] <input-file>\n", programName);
     printf("\nOptions:\n");
     printf("    -h|--help                : Display this help message.\n");
@@ -315,9 +311,16 @@ static void printHelp( char* nameAndPath ) {
  |    See the include/version.h target in ../Makefile for details
  -------------------------------------------------------------------------------*/
 static void printVersion( void ) {
+    printf("\nVersion: %s (%s) ", VERSION, BUILD);
 #ifdef DONT_COMPILE_FFMPEG
-    printf("Version: %s (%s) - No FFMPEG\n", VERSION, BUILD);
+    printf("No FFMPEG ");
 #else
-    printf("Version: %s (%s)\n", VERSION, BUILD);
+    printf("+FFMPEG ");
 #endif
+#ifdef COMPILE_GPAC
+    printf("+GPAC ");
+#else
+    printf("No GPAC ");
+#endif
+    printf("\n");
 }
