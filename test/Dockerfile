@@ -22,9 +22,10 @@ RUN apt-get install -y make curl gcc g++ nasm yasm && \
 RUN apt-get install -y git git && apt-get install -y make && apt-get install -y clang && pip install pytest && apt-get install -y mediainfo && cp /usr/bin/mediainfo /usr/local/bin/mediainfo && apt-get install -y npm && npm i -g xunit-viewer
 
 # pull and build gpac
-RUN git clone https://github.com/robdt/gpac.git && \
-    cp -r gpac/include /usr/local/include && \
-    cd gpac && make gpac && cp libgpac.so /usr/local/lib
+RUN git clone https://github.com/Comcast/gpac-caption-extractor.git && \
+    cp -r /gpac-caption-extractor/include/gpac /usr/local/include && \
+    cd gpac-caption-extractor && make gpac && cp libgpac.so /usr/local/lib
+
 
 # add directory /app/caption-inspector
 WORKDIR /app

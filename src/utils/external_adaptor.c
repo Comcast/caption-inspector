@@ -75,7 +75,17 @@ boolean pipelineEstablished = FALSE;
  |    This method returns a pointer to ASCII containing the version number.
  -------------------------------------------------------------------------------*/
 char* ExtrnlAdptrGetVersion( void ) {
-    sprintf(versionStr, "Version: %s (%s)", VERSION, BUILD);
+    sprintf(versionStr, "Version: %s (%s) ", VERSION, BUILD);
+#ifdef DONT_COMPILE_FFMPEG
+    strcat(versionStr, "No FFMPEG ");
+#else
+    strcat(versionStr, "+FFMPEG ");
+#endif
+#ifdef COMPILE_GPAC
+    strcat(versionStr, "+GPAC ");
+#else
+    strcat(versionStr, "No GPAC ");
+#endif
     return versionStr;
 }  // ExtrnlAdptrGetVersion()
 

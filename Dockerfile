@@ -27,9 +27,9 @@ RUN apt-get install -y git && apt-get install -y make && apt-get install -y gcc 
 COPY .git/ /app/.git/
 
 # pull and build gpac
-RUN git clone https://github.com/robdt/gpac.git && \
-    cp -r /gpac/include/gpac /usr/local/include && \
-    cd gpac && make gpac && cp libgpac.so /usr/local/lib
+RUN git clone https://github.com/Comcast/gpac-caption-extractor.git && \
+    cp -r /gpac-caption-extractor/include/gpac /usr/local/include && \
+    cd gpac-caption-extractor && make gpac && cp libgpac.so /usr/local/lib
 
 # build /app/caption-inspector executable
 COPY src/ /app/src/

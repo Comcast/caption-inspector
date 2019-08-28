@@ -52,12 +52,12 @@ Building the Caption Inspector Executable Locally with MOV Support
 ------------------------------------------------------------------
 
 Caption Inspector requires the inclusion of the [GPAC][https://gpac.wp.imt.fr/] Library. Specifically a modified library of GPAC which
-gets linked as a shared object is required. This library is located [here][https://github.com/Comcast/gpac] and must be pulled and built.
+gets linked as a shared object is required. This library is located [here][https://github.com/Comcast/gpac-caption-extractor] and must be pulled and built.
 Once the GPAC library has been built the same instructions are used as above.
 
 ```
-git clone https://github.com/Comcast/gpac.git
-cd gpac
+git clone https://github.com/Comcast/gpac-caption-extractor.git
+cd gpac-caption-extractor
 make install
 cd ../caption-inspector
 make ci_with_gpac
