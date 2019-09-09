@@ -212,7 +212,7 @@ test:
 docker-test:
 	@echo "\n*** Building for Test ***"
 	make all
-	cd ../; make all
+	cd ../; make ci_with_gpac
 	@echo "\n*** Running Tests on Docker ***"
 	cd python; python3 test_engine.py docker; cp *.html /files
 

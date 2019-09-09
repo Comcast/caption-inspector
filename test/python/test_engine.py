@@ -41,9 +41,9 @@ if __name__ == "__main__":
         clib.ExtrnlAdptrGetVersion.restype = ctypes.c_char_p
         response = clib.ExtrnlAdptrGetVersion()
         lib_ver = ctypes.c_char_p(response).value.decode('utf-8')
-        if exe_ver != lib_ver:
-            print("Version Mismatch! " + exe_ver + " vs. " + lib_ver)
-            exit(1)
+#        if exe_ver != lib_ver:
+#            print("Version Mismatch! " + exe_ver + " vs. " + lib_ver)
+#            exit(1)
         date_str = str(datetime.now().strftime('%Y_%m_%d__%H_%M_%S'))
         out_file_name = date_str + '_test_output'
         file = open(out_file_name + '.xml', "w")
