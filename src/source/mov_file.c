@@ -90,14 +90,14 @@ static void loggingCallback( void*, GF_LOG_Level, GF_LOG_Tool, const char*, va_l
  |    fileNameStr - The name of the source file.
  |    overrideDropframe - Use passed in dropframe value rather than calculated.
  |    isDropframe - Passed in dropframe value.
- |    bailAtTwenty - Whether or not to stop processing at 20 mins if no text found.
+ |    bailAfterMins - Whether or not to stop processing at x mins if no text found.
  |
  | RETURN VALUES:
  |    boolean - Was this call successful.
  |
  | DESCRIPTION:
  -------------------------------------------------------------------------------*/
-boolean MovFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe, boolean bailAtTwenty ) {
+boolean MovFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe, uint8 bailAfterMins ) {
 #ifdef COMPILE_GPAC
     ASSERT(fileNameStr);
     ASSERT(rootCtxPtr);
@@ -128,7 +128,7 @@ boolean MovFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overr
     ctxPtr->framerateOneshot = FALSE;
     ctxPtr->overrideDropframe = overrideDropframe;
     ctxPtr->isDropframe = isDropframe;
-    ctxPtr->bailNoCaptions = bailAtTwenty;
+    ctxPtr->bailNoCaptions = bailAfterMins;
 
     for(int loop = 0; loop < ctxPtr->trackCount; loop++) {
         const u32 type = gf_isom_get_media_type(ctxPtr->movFile, loop + 1);
@@ -324,8 +324,7 @@ uint8 MovFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
                             outputBuffer->numElements = outputBuffer->numElements + 3;
                             ASSERT(outputBuffer->numElements <= outputBuffer->maxNumElements);
 
-                            if( ccData[0] == CDP_SECTION_SVC_INFO || ccData[0] == CDP_SECTION_FOOTER)
-                            {
+                            if( ccData[0] == CDP_SECTION_SVC_INFO || ccData[0] == CDP_SECTION_FOOTER ) {
                                 LOG(DEBUG_LEVEL_ERROR, DBG_MOV_FILE, "Premature End");
                                 break;
                             }
@@ -333,8 +332,10 @@ uint8 MovFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
                         ASSERT(outputBuffer->numElements == outputBuffer->maxNumElements);
                         retval = PassToSinks(rootCtxPtr, outputBuffer, &ctxPtr->sinks);
                         atomStart = sample->dataLength;
-                        if( (ctxPtr->bailNoCaptions == TRUE) && (retval == FIRST_TEXT_FOUND) ) {
-                            ctxPtr->bailNoCaptions = FALSE;
+                        if( retval == FIRST_TEXT_FOUND ) {
+                            if( ctxPtr->bailNoCaptions != 0 ) {
+                               ctxPtr->bailNoCaptions = 0;
+                            }
                             retval = PIPELINE_SUCCESS;
                         }
                     } else {
@@ -355,10 +356,10 @@ uint8 MovFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
             free(sample->data);
             free(sample);
 
-            if( ctxPtr->bailNoCaptions == TRUE ) {
+            if( ctxPtr->bailNoCaptions != 0 ) {
                 CaptionTime captionTime;
                 CaptionTimeFromPts(&captionTime, pts);
-                if (captionTime.minute >= CAPTION_TIME_TIMEOUT_TIME_IN_MINS) {
+                if (captionTime.minute >= ctxPtr->bailNoCaptions) {
                     LOG(DEBUG_LEVEL_WARN, DBG_MOV_FILE, "Unable to find Captions after %d mins. Abandoning.", captionTime.minute);
                     *isDonePtr = TRUE;
                     closeMovFile(ctxPtr);

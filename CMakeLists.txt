@@ -116,5 +116,5 @@ add_executable(itest__pipeline_utils
         test/test_engine.h
         test/itest__pipeline.c)
 
-set(CMAKE_EXE_LINKER_FLAGS "-L/usr/local/lib -lavformat -lavcodec -lavutil -lz")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DGPAC_CONFIG_DARWIN -D_FILE_OFFSET_BITS=64")
+set(CMAKE_EXE_LINKER_FLAGS "-L/usr/local/lib -lavformat -lavcodec -lavutil -lz -lgpac")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DCOMPILE_GPAC")

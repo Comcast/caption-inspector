@@ -53,13 +53,13 @@ struct globalArgs_t {
     char* cmd;
     char outputDirectory[MAX_FILE_NAME_LEN];    // -o option
     uint32 passedInFramerate;                   // -f option
-    boolean bailNoCaptions;                     // -b --bail_no_captions
+    uint8 bailNoCaptions;                       // -b --bail_no_captions
     boolean debugFile;                          // --no-debug option
     boolean artifacts;                          // --no-artifacts option
     char* inputFilename;                        // input file
 } globalArgs;
  
-static const char *optString = "o:f:hvb?";
+static const char *optString = "o:f:b:hv?";
 
 static struct option longOpts[] = {
     { "output",           required_argument, NULL, 'o' },
@@ -68,7 +68,7 @@ static struct option longOpts[] = {
     { "no-artifacts",     no_argument,       NULL, 0 },
     { "help",             no_argument,       NULL, 'h' },
     { "version",          no_argument,       NULL, 'v' },
-    { "bail_no_captions", no_argument,       NULL, 'b' },
+    { "bail_no_captions", required_argument, NULL, 'b' },
     { 0, no_argument, NULL, 0 }
 };
 
@@ -101,7 +101,7 @@ int main( int argc, char* argv[] ) {
     globalArgs.passedInFramerate = 0;
     globalArgs.debugFile = TRUE;
     globalArgs.artifacts = TRUE;
-    globalArgs.bailNoCaptions = FALSE;
+    globalArgs.bailNoCaptions = 0;
 
     if( argv[1] == NULL ) {
         printHelp(globalArgs.cmd);
@@ -138,7 +138,7 @@ int main( int argc, char* argv[] ) {
                  printVersion();
                  exit(EXIT_SUCCESS);
             case 'b' :
-                 globalArgs.bailNoCaptions = TRUE;
+                 globalArgs.bailNoCaptions = (uint8)strtol(optarg, NULL, 10);
                  break;
             default:
                  printHelp(globalArgs.cmd);
@@ -166,8 +166,8 @@ int main( int argc, char* argv[] ) {
         LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Passed in Framerate: %d", globalArgs.passedInFramerate);
     }
 
-    if( globalArgs.bailNoCaptions == TRUE ) {
-        LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Bail if no Captions before 20 mins of Asset");
+    if( globalArgs.bailNoCaptions != 0 ) {
+        LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Bail if no Captions before %d mins of Asset", globalArgs.bailNoCaptions);
     }
 
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &startTime);
@@ -288,13 +288,13 @@ static void printHelp( char* nameAndPath ) {
     printVersion();
     printf("\nUsage: %s [options] <input-file>\n", programName);
     printf("\nOptions:\n");
-    printf("    -h|--help                : Display this help message.\n");
-    printf("    -v|--version             : Display version and build information.\n");
-    printf("    -o|--output <dir>        : Directory to save output files. If this is not set files are saved in the directory of the input file.\n");
-    printf("    -f|--framerate <num>     : Framerate * 100 (e.g. 3000, 2997). This is a requirement for SCC Files.\n");
-    printf("    -b|--bail_no_captions    : Bail if no captions are found 20 minutes into the asset.\n");
-    printf("    --no-debug               : Don't create a debug file.\n");
-    printf("    --no-artifacts           : Don't create artifact files.\n");
+    printf("    -h|--help                    : Display this help message.\n");
+    printf("    -v|--version                 : Display version and build information.\n");
+    printf("    -o|--output <dir>            : Directory to save output files. If this is not set files are saved in the directory of the input file.\n");
+    printf("    -f|--framerate <num>         : Framerate * 100 (e.g. 3000, 2997). This is a requirement for SCC Files.\n");
+    printf("    -b|--bail_no_captions <mins> : Bail if no captions are found x minutes into the asset.\n");
+    printf("    --no-debug                   : Don't create a debug file.\n");
+    printf("    --no-artifacts               : Don't create artifact files.\n");
 }  // printHelp()
 
 /*------------------------------------------------------------------------------

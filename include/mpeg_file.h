@@ -56,7 +56,7 @@
 /*--                           Exposed Methods                              --*/
 /*----------------------------------------------------------------------------*/
 
-boolean MpegFileInitialize( Context*, char*, boolean, boolean, boolean );
+boolean MpegFileInitialize( Context*, char*, boolean, boolean, uint8 );
 uint8 MpegFileAddSink( Context*, LinkInfo );
 uint8 MpegFileProcNextBuffer( Context*, boolean* );
 

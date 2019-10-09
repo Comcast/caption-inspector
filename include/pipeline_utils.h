@@ -97,8 +97,8 @@ uint8 _PassToSinks(char*, int, Context*, Buffer*, Sinks*);
 uint8 _ShutdownSinks(char*, int, Context*, Sinks*);
 boolean PlumbSccPipeline(Context*, char*, char*, uint32, boolean);
 boolean PlumbMccPipeline(Context*, char*, char*, boolean);
-boolean PlumbMpegPipeline(Context*, char*, char*, boolean, char*, boolean);
-boolean PlumbMovPipeline(Context*, char*, char*, boolean, char*, boolean);
+boolean PlumbMpegPipeline(Context*, char*, char*, boolean, char*, uint8);
+boolean PlumbMovPipeline(Context*, char*, char*, boolean, char*, uint8);
 void DrivePipeline(FileType, Context*);
 
 #endif /* pipeline_utils_h */
