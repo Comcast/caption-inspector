@@ -306,8 +306,8 @@ uint8 MovFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
                             outputBuffer->captionTime.frameRatePerSecTimesOneHundred = ctxPtr->timescale;
                         }
                         if( ctxPtr->overrideDropframe == FALSE ) {
-                            if ((outputBuffer->captionTime.frameRatePerSecTimesOneHundred / 10 == 29) ||
-                                (outputBuffer->captionTime.frameRatePerSecTimesOneHundred / 10 == 59)) {
+                            if ((outputBuffer->captionTime.frameRatePerSecTimesOneHundred / 100 == 29) ||
+                                (outputBuffer->captionTime.frameRatePerSecTimesOneHundred / 100 == 59)) {
                                 outputBuffer->captionTime.dropframe = TRUE;
                             } else {
                                 outputBuffer->captionTime.dropframe = FALSE;
