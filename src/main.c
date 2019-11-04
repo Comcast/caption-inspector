@@ -29,8 +29,9 @@
 #include "getopt.h"
 #include "version.h"
 
-#define EXIT_SUCCESS 0
-#define EXIT_FAILURE 1
+#define EXIT_SUCCESS              0
+#define EXIT_FAILURE              1
+#define EXIT_NO_CAPTIONS_FOUND   10
 
 /*----------------------------------------------------------------------------*/
 /*--                       Public Member Variables                          --*/
@@ -98,6 +99,9 @@ int main( int argc, char* argv[] ) {
     ctx.config.debugFile = TRUE;
     ctx.config.artifacts = TRUE;
     ctx.config.bailAfterMins = 0;
+
+    ctx.stats.captionText608Found = FALSE;
+    ctx.stats.captionText708Found = FALSE;
 
     if( argv[1] == NULL ) {
         printHelp();
@@ -205,7 +209,13 @@ int main( int argc, char* argv[] ) {
     } else {
         LOG(DEBUG_LEVEL_FATAL, DBG_GENERAL, "Unable to establish pipeline. Unable to proceed.");
     }
-    Shutdown();
+    if( Shutdown() == TRUE ) {
+        return EXIT_FAILURE;
+    }
+
+    if( (ctx.stats.captionText608Found == FALSE) && (ctx.stats.captionText708Found == FALSE) ) {
+        return EXIT_NO_CAPTIONS_FOUND;
+    }
 
     return EXIT_SUCCESS;
 }  // main()
@@ -218,13 +228,13 @@ int main( int argc, char* argv[] ) {
  |    None.
  |
  | RETURN VALUES:
- |    None.
+ |    boolean - True: Fatal Error(s) found; False: No Fatal Errors.
  |
  | DESCRIPTION:
  |    This method cleans up any loose ends in preparation for stopping the
  |    program. (e.g. Closing Files.)
  -------------------------------------------------------------------------------*/
-void Shutdown( void ) {
+boolean Shutdown( void ) {
     struct timespec endTime;
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &endTime);
 
@@ -243,7 +253,7 @@ void Shutdown( void ) {
     
     ASSERT(areAnyFilesOpen() == FALSE);
     ASSERT(NumAllocatedBuffers() == 0);
-    DebugShutdown();
+    return DebugShutdown();
 }  // Shutdown()
 
 /*----------------------------------------------------------------------------*/

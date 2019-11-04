@@ -71,7 +71,8 @@ typedef struct {
 
 /* Caption Inspector Statistics */
 typedef struct {
-    uint8 foo;          // TODO - Placeholder.
+    boolean captionText608Found;                // Found Line-21 Captions
+    boolean captionText708Found;                // Found DTVCC Captions
 } CaptionInspectorStats;
 
 /* Sources */

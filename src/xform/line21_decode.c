@@ -205,12 +205,14 @@ uint8 Line21DecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
         FreeBuffer(outBuffer);
         if( ctxPtr->foundText == TEXT_FOUND ) {
             ctxPtr->foundText = TEXT_REPORTED;
+            ((Context*)rootCtxPtr)->stats.captionText608Found = TRUE;
             return FIRST_TEXT_FOUND;
         }
         return PIPELINE_SUCCESS;
     } else {
         if( ctxPtr->foundText == TEXT_FOUND ) {
             ctxPtr->foundText = TEXT_REPORTED;
+            ((Context*)rootCtxPtr)->stats.captionText608Found = TRUE;
             uint8 retval = PassToSinks(rootCtxPtr, outBuffer, &ctxPtr->sinks);
             if( retval != PIPELINE_SUCCESS ) {
                 LOG(DEBUG_LEVEL_ERROR, DBG_608_DEC, "First Text Found eclipsed non Success Response: %d", retval);

@@ -193,6 +193,7 @@ uint8 DtvccDecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
         if( ctxPtr->processedFine != PIPELINE_SUCCESS ) {
             LOG(DEBUG_LEVEL_ERROR, DBG_708_DEC, "First Text Found eclipsed non Success Response: %d", ctxPtr->processedFine);
         }
+        ((Context*)rootCtxPtr)->stats.captionText708Found = TRUE;
         return FIRST_TEXT_FOUND;
     } else {
         return ctxPtr->processedFine;
