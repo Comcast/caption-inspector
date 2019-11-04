@@ -1905,7 +1905,8 @@ void itest__MockMccPipelineTests( TEST_SUITE_RECEIVED_ARGUMENTS ) {
 
     TEST_START("Test Case: Mock MCC Pipeline - Establish the Pipeline.")
     BufferPoolInit();
-    retval = PlumbMccPipeline(&ctx, "Test", "MCC", TRUE );
+    ctx.config.artifacts = TRUE;
+    retval = PlumbMccPipeline(&ctx, "Test", "MCC" );
     ASSERT_EQ(TRUE, retval);
     ASSERT_STREQ("Test", ctx.mccFileCtxPtr->captionFileName);
     ASSERT_STREQ("MCC", ctx.line21OutputCtxPtr->baseFileName);
@@ -1955,7 +1956,9 @@ void itest__MockMccPipelineTests( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     isDone = FALSE;
     dtvccDecodePassSuccessfully = TRUE;
     resetMetrics();
-    retval = PlumbMccPipeline( &ctx, "Test", "MCC", TRUE );
+    memset(&ctx, 0, sizeof(Context));
+    ctx.config.artifacts = TRUE;
+    retval = PlumbMccPipeline( &ctx, "Test", "MCC" );
     ASSERT_EQ(TRUE, retval);
     retval = MccFileProcNextBuffer( &ctx, &isDone );
     ASSERT_EQ(TRUE, retval);
@@ -2042,13 +2045,15 @@ void itest__MockMpegPipelineTests( TEST_SUITE_RECEIVED_ARGUMENTS ) {
 
     TEST_START("Test Case: Mock MPEG Pipeline - Establish the Pipeline with Artifacts.")
     BufferPoolInit();
-    retval = PlumbMpegPipeline( &ctx, "Test", "MPEG", TRUE, "Pipeline", FALSE );
+    ctx.config.artifacts = TRUE;
+    ctx.config.bailAfterMins = 0;
+    retval = PlumbMpegPipeline( &ctx, "Test", "MPEG" );
     ASSERT_EQ(TRUE, retval);
     ASSERT_STREQ("Test", (char*)ctx.mpegFileCtxPtr->buffer);
     ASSERT_STREQ("MPEG", ctx.mccOutputCtxPtr->mccFileName);
-    ASSERT_STREQ("Pipeline", ctx.line21OutputCtxPtr->baseFileName);
-    ASSERT_STREQ("Pipeline", ctx.dtvccOutputCtxPtr->baseFileName);
-    ASSERT_STREQ("Pipeline", ctx.ccDataOutputCtxPtr->ccdFileName);
+    ASSERT_STREQ("MPEG", ctx.line21OutputCtxPtr->baseFileName);
+    ASSERT_STREQ("MPEG", ctx.dtvccOutputCtxPtr->baseFileName);
+    ASSERT_STREQ("MPEG", ctx.ccDataOutputCtxPtr->ccdFileName);
     TEST_END
 
     TEST_START("Test Case: Mock MPEG Pipeline - Pass two Buffers Successfully to Pipeline with Artifacts.")
@@ -2097,7 +2102,10 @@ void itest__MockMpegPipelineTests( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     isDone = FALSE;
     dtvccDecodePassSuccessfully = TRUE;
     resetMetrics();
-    retval = PlumbMpegPipeline(&ctx, "Test", "MPEG", TRUE, "Pipeline", FALSE );
+    memset(&ctx, 0, sizeof(Context));
+    ctx.config.artifacts = TRUE;
+    ctx.config.bailAfterMins = 0;
+    retval = PlumbMpegPipeline(&ctx, "Test", "MPEG" );
     ASSERT_EQ(TRUE, retval);
     retval = MpegFileProcNextBuffer( &ctx, &isDone );
     ASSERT_EQ(TRUE, retval);
@@ -2150,7 +2158,10 @@ void itest__MockMpegPipelineTests( TEST_SUITE_RECEIVED_ARGUMENTS ) {
 
     TEST_START("Test Case: Mock MPEG Pipeline - Establish the Pipeline without Artifacts.")
     BufferPoolInit();
-    retval = PlumbMpegPipeline( &ctx, "Test", "MPEG", FALSE, "Pipeline", FALSE );
+    memset(&ctx, 0, sizeof(Context));
+    ctx.config.artifacts = FALSE;
+    ctx.config.bailAfterMins = 0;
+    retval = PlumbMpegPipeline( &ctx, "Test", "MPEG" );
     ASSERT_EQ(TRUE, retval);
     ASSERT_STREQ("Test", (char*)ctx.mpegFileCtxPtr->buffer);
     ASSERT_STREQ("MPEG", ctx.mccOutputCtxPtr->mccFileName);
@@ -2198,42 +2209,45 @@ void itest__MockMpegPipelineTests( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_END
 
     TEST_START("Test Case: Mock MPEG Pipeline - Pass two Buffers Successfully and one Buffer UnSuccessfully (wo/Artifacts).")
-        isDone = FALSE;
-        dtvccDecodePassSuccessfully = TRUE;
-        resetMetrics();
-        retval = PlumbMpegPipeline( &ctx, "Test", "MPEG", FALSE, "Pipeline", FALSE );
-        ASSERT_EQ(TRUE, retval);
-        retval = MpegFileProcNextBuffer( &ctx, &isDone );
-        ASSERT_EQ(TRUE, retval);
-        ASSERT_EQ(1, mccEncodeBufferReceived);
-        ASSERT_EQ(1, mccOutBufferReceived);
-        ASSERT_EQ(1, line21DecodeBufferReceived);
-        ASSERT_EQ(1, dtvccDecodeBufferReceived);
-        ASSERT_EQ(0, ccDataOutBufferReceived);
-        ASSERT_EQ(0, line21OutBufferReceived);
-        ASSERT_EQ(0, dtvccOutBufferReceived);
-        ASSERT_EQ(0, NumAllocatedBuffers());
-        retval = MpegFileProcNextBuffer( &ctx, &isDone );
-        ASSERT_EQ(TRUE, retval);
-        ASSERT_EQ(2, mccEncodeBufferReceived);
-        ASSERT_EQ(2, mccOutBufferReceived);
-        ASSERT_EQ(2, line21DecodeBufferReceived);
-        ASSERT_EQ(2, dtvccDecodeBufferReceived);
-        ASSERT_EQ(0, ccDataOutBufferReceived);
-        ASSERT_EQ(0, line21OutBufferReceived);
-        ASSERT_EQ(0, dtvccOutBufferReceived);
-        ASSERT_EQ(0, NumAllocatedBuffers());
-        dtvccDecodePassSuccessfully = FALSE;
-        retval = MpegFileProcNextBuffer( &ctx, &isDone );
-        ASSERT_EQ(FALSE, retval);
-        ASSERT_EQ(3, mccEncodeBufferReceived);
-        ASSERT_EQ(3, mccOutBufferReceived);
-        ASSERT_EQ(3, line21DecodeBufferReceived);
-        ASSERT_EQ(3, dtvccDecodeBufferReceived);
-        ASSERT_EQ(0, ccDataOutBufferReceived);
-        ASSERT_EQ(0, line21OutBufferReceived);
-        ASSERT_EQ(0, dtvccOutBufferReceived);
-        ASSERT_EQ(0, NumAllocatedBuffers());
+    isDone = FALSE;
+    dtvccDecodePassSuccessfully = TRUE;
+    resetMetrics();
+    memset(&ctx, 0, sizeof(Context));
+    ctx.config.artifacts = FALSE;
+    ctx.config.bailAfterMins = 0;
+    retval = PlumbMpegPipeline( &ctx, "Test", "MPEG" );
+    ASSERT_EQ(TRUE, retval);
+    retval = MpegFileProcNextBuffer( &ctx, &isDone );
+    ASSERT_EQ(TRUE, retval);
+    ASSERT_EQ(1, mccEncodeBufferReceived);
+    ASSERT_EQ(1, mccOutBufferReceived);
+    ASSERT_EQ(1, line21DecodeBufferReceived);
+    ASSERT_EQ(1, dtvccDecodeBufferReceived);
+    ASSERT_EQ(0, ccDataOutBufferReceived);
+    ASSERT_EQ(0, line21OutBufferReceived);
+    ASSERT_EQ(0, dtvccOutBufferReceived);
+    ASSERT_EQ(0, NumAllocatedBuffers());
+    retval = MpegFileProcNextBuffer( &ctx, &isDone );
+    ASSERT_EQ(TRUE, retval);
+    ASSERT_EQ(2, mccEncodeBufferReceived);
+    ASSERT_EQ(2, mccOutBufferReceived);
+    ASSERT_EQ(2, line21DecodeBufferReceived);
+    ASSERT_EQ(2, dtvccDecodeBufferReceived);
+    ASSERT_EQ(0, ccDataOutBufferReceived);
+    ASSERT_EQ(0, line21OutBufferReceived);
+    ASSERT_EQ(0, dtvccOutBufferReceived);
+    ASSERT_EQ(0, NumAllocatedBuffers());
+    dtvccDecodePassSuccessfully = FALSE;
+    retval = MpegFileProcNextBuffer( &ctx, &isDone );
+    ASSERT_EQ(FALSE, retval);
+    ASSERT_EQ(3, mccEncodeBufferReceived);
+    ASSERT_EQ(3, mccOutBufferReceived);
+    ASSERT_EQ(3, line21DecodeBufferReceived);
+    ASSERT_EQ(3, dtvccDecodeBufferReceived);
+    ASSERT_EQ(0, ccDataOutBufferReceived);
+    ASSERT_EQ(0, line21OutBufferReceived);
+    ASSERT_EQ(0, dtvccOutBufferReceived);
+    ASSERT_EQ(0, NumAllocatedBuffers());
     TEST_END
 
     TEST_START("Test Case: Mock MPEG Pipeline - UnSuccessfully Shut down the Pipeline without Artifacts.")

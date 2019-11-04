@@ -59,6 +59,21 @@
 /*--                              Structures                                --*/
 /*----------------------------------------------------------------------------*/
 
+/* Caption Inspector Configuration */
+typedef struct {
+    char outputDirectory[MAX_FILE_NAME_LEN];    // -o option
+    uint32 passedInFramerate;                   // -f option
+    uint8 bailAfterMins;                        // -b --bail_no_captions
+    boolean debugFile;                          // --no-debug option
+    boolean artifacts;                          // --no-artifacts option
+    char* inputFilename;                        // input file
+} CaptionInspectorConfig;
+
+/* Caption Inspector Statistics */
+typedef struct {
+    uint8 foo;          // TODO - Placeholder.
+} CaptionInspectorStats;
+
 /* Sources */
 
 typedef struct {
@@ -225,6 +240,8 @@ typedef struct {
 } MccOutputCtx;
 
 typedef struct {
+    CaptionInspectorConfig config;
+    CaptionInspectorStats stats;
     SccFileCtx* sccFileCtxPtr;
     MccFileCtx* mccFileCtxPtr;
     CcDataFileCtx* ccDataFileCtxPtr;

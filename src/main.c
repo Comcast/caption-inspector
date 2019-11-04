@@ -46,18 +46,10 @@ static struct timespec startTime;
 /*--                     Private Member Declarations                        --*/
 /*----------------------------------------------------------------------------*/
 
-static void printHelp( char* );
+static void printHelp( void );
 static void printVersion();
 
-struct globalArgs_t {
-    char* cmd;
-    char outputDirectory[MAX_FILE_NAME_LEN];    // -o option
-    uint32 passedInFramerate;                   // -f option
-    uint8 bailNoCaptions;                       // -b --bail_no_captions
-    boolean debugFile;                          // --no-debug option
-    boolean artifacts;                          // --no-artifacts option
-    char* inputFilename;                        // input file
-} globalArgs;
+static char* executibleName;
  
 static const char *optString = "o:f:b:hv?";
 
@@ -93,113 +85,116 @@ static struct option longOpts[] = {
  |    writes the results to the destination file.
  -------------------------------------------------------------------------------*/
 int main( int argc, char* argv[] ) {
+    Context ctx;
     char tempOutputPath[MAX_FILE_NAME_LEN];
     int opt;
     int longIndex = 0;
 
-    globalArgs.cmd = argv[0];
-    globalArgs.passedInFramerate = 0;
-    globalArgs.debugFile = TRUE;
-    globalArgs.artifacts = TRUE;
-    globalArgs.bailNoCaptions = 0;
+    executibleName = strrchr(argv[0], '/');
+    executibleName = executibleName ? executibleName+1 : argv[0];
+
+    memset(&ctx, 0, sizeof(Context));
+    ctx.config.passedInFramerate = 0;
+    ctx.config.debugFile = TRUE;
+    ctx.config.artifacts = TRUE;
+    ctx.config.bailAfterMins = 0;
 
     if( argv[1] == NULL ) {
-        printHelp(globalArgs.cmd);
+        printHelp();
         exit(EXIT_FAILURE);
     }
-    
-    globalArgs.outputDirectory[0] = '\0';
+
+    ctx.config.outputDirectory[0] = '\0';
 
     while ((opt = getopt_long(argc, argv, optString, longOpts, &longIndex )) != -1) {
         switch (opt) {
              case 'o' :
-                 strncpy(globalArgs.outputDirectory, optarg, MAX_FILE_NAME_LEN);
-                 if( globalArgs.outputDirectory[strlen(globalArgs.outputDirectory)-1] != '/' ) {
-                     strncat(globalArgs.outputDirectory, "/", (MAX_FILE_NAME_LEN - strlen(globalArgs.outputDirectory)));
+                 strncpy(ctx.config.outputDirectory, optarg, MAX_FILE_NAME_LEN);
+                 if( ctx.config.outputDirectory[strlen(ctx.config.outputDirectory)-1] != '/' ) {
+                     strncat(ctx.config.outputDirectory, "/", (MAX_FILE_NAME_LEN - strlen(ctx.config.outputDirectory)));
                  }
                  break;
              case 'f' :
-                 globalArgs.passedInFramerate = (uint16)strtol(optarg, NULL, 10);
+                 ctx.config.passedInFramerate = (uint16)strtol(optarg, NULL, 10);
                  break;
             case 0:
                 if( strcmp( "no-debug", longOpts[longIndex].name ) == 0 ) {
-                    globalArgs.debugFile = FALSE;
+                    ctx.config.debugFile = FALSE;
                 } else if( strcmp( "no-artifacts", longOpts[longIndex].name ) == 0 ) {
-                    globalArgs.artifacts = FALSE;
+                    ctx.config.artifacts = FALSE;
                 } else {
-                    printHelp(globalArgs.cmd);
+                    printHelp();
                     exit(EXIT_FAILURE);
                 }
                 break;
              case 'h' :
-                 printHelp(globalArgs.cmd);
+                 printHelp();
                  exit(EXIT_SUCCESS);
              case 'v' :
                  printVersion();
                  exit(EXIT_SUCCESS);
             case 'b' :
-                 globalArgs.bailNoCaptions = (uint8)strtol(optarg, NULL, 10);
+                 ctx.config.bailAfterMins = (uint8)strtol(optarg, NULL, 10);
                  break;
             default:
-                 printHelp(globalArgs.cmd);
+                 printHelp();
                  exit(EXIT_FAILURE);
         }
     }
 
     if( (argc - optind) >= 1 ) {
-        globalArgs.inputFilename = argv[optind];
+        ctx.config.inputFilename = argv[optind];
     }
 
-    if( globalArgs.inputFilename == NULL ) {
+    if( ctx.config.inputFilename == NULL ) {
         printf("ERROR: Please supply an input file name!\n");
-        printHelp(globalArgs.cmd);
+        printHelp();
         exit(EXIT_FAILURE);
     }
 
-    buildOutputPath( globalArgs.inputFilename, globalArgs.outputDirectory, tempOutputPath );
+    buildOutputPath( ctx.config.inputFilename, ctx.config.outputDirectory, tempOutputPath );
 
-    DebugInit(globalArgs.debugFile, ((tempOutputPath[0] == '\0')?NULL:tempOutputPath),  NULL);
+    DebugInit(ctx.config.debugFile, ((tempOutputPath[0] == '\0')?NULL:tempOutputPath),  NULL);
     BufferPoolInit();
     LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Version: %s (%s)", VERSION, BUILD);
 
-    if( globalArgs.passedInFramerate != 0 ) {
-        LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Passed in Framerate: %d", globalArgs.passedInFramerate);
+    if( ctx.config.passedInFramerate != 0 ) {
+        LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Passed in Framerate: %d", ctx.config.passedInFramerate);
     }
 
-    if( globalArgs.bailNoCaptions != 0 ) {
-        LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Bail if no Captions before %d mins of Asset", globalArgs.bailNoCaptions);
+    if( ctx.config.bailAfterMins != 0 ) {
+        LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Bail if no Captions before %d mins of Asset", ctx.config.bailAfterMins);
     }
 
     clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &startTime);
 
-    FileType sourceType = DetermineFileType(globalArgs.inputFilename);
+    FileType sourceType = DetermineFileType(ctx.config.inputFilename);
 
-    LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Processing input file %s of type %s", globalArgs.inputFilename, DECODE_CAPTION_FILE_TYPE(sourceType));
+    LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Processing input file %s of type %s", ctx.config.inputFilename, DECODE_CAPTION_FILE_TYPE(sourceType));
     LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Writing Output To: %s.???", tempOutputPath);
 
-    if( globalArgs.artifacts == TRUE ) {
+    if( ctx.config.artifacts == TRUE ) {
         LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Writing all Artifacts.");
     }
 
-    Context ctx;
     boolean retval = FALSE;
 
     switch(sourceType) {
         case SCC_CAPTIONS_FILE:
-            retval = PlumbSccPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.passedInFramerate, globalArgs.artifacts);
+            retval = PlumbSccPipeline(&ctx, ctx.config.inputFilename, ((tempOutputPath[0] == '\0') ? NULL : tempOutputPath) );
             break;
         case MCC_CAPTIONS_FILE:
-            retval = PlumbMccPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.artifacts);
+            retval = PlumbMccPipeline(&ctx, ctx.config.inputFilename, ((tempOutputPath[0] == '\0') ? NULL : tempOutputPath));
             break;
         case MPEG_BINARY_FILE:
 #ifdef DONT_COMPILE_FFMPEG
             LOG(DEBUG_LEVEL_FATAL, DBG_GENERAL, "Executable was compiled without FFMPEG, unable to process Binary MPEG File");
 #else
-            retval = PlumbMpegPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, globalArgs.artifacts, tempOutputPath, globalArgs.bailNoCaptions);
+            retval = PlumbMpegPipeline(&ctx, ctx.config.inputFilename, ((tempOutputPath[0] == '\0') ? NULL : tempOutputPath));
 #endif
             break;
         case MOV_BINARY_FILE:
-            retval = PlumbMovPipeline(&ctx, globalArgs.inputFilename, tempOutputPath, TRUE, tempOutputPath, globalArgs.bailNoCaptions);
+            retval = PlumbMovPipeline(&ctx, ctx.config.inputFilename, ((tempOutputPath[0] == '\0') ? NULL : tempOutputPath));
             break;
         default:
             LOG(DEBUG_LEVEL_ERROR, DBG_GENERAL, "Impossible Branch - %d", sourceType);
@@ -262,12 +257,7 @@ void Shutdown( void ) {
  | DESCRIPTION:
  |    This help message with command line options for this program.
  -------------------------------------------------------------------------------*/
-static void printHelp( char* nameAndPath ) {
-    
-    char* programName;
-    programName = strrchr(nameAndPath, '/');
-    programName = programName ? programName+1 : nameAndPath;
-
+static void printHelp( void ) {
     printf("\n         .oooooo.                            .    o8o\n");
     printf("        d8P'  `Y8b                         .o8    `\"'\n");
     printf("       888           .oooo.   oo.ooooo.  .o888oo oooo   .ooooo.  ooo. .oo.\n");
@@ -286,7 +276,7 @@ static void printHelp( char* nameAndPath ) {
     printf("                            888\n");
     printf("                            o888o\n");
     printVersion();
-    printf("\nUsage: %s [options] <input-file>\n", programName);
+    printf("\nUsage: %s [options] <input-file>\n", executibleName);
     printf("\nOptions:\n");
     printf("    -h|--help                    : Display this help message.\n");
     printf("    -v|--version                 : Display version and build information.\n");

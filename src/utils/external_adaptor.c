@@ -453,7 +453,9 @@ boolean ExtrnlAdptrPlumbFileDecodePipeline( char* inputFilename, uint32 framerat
  -------------------------------------------------------------------------------*/
 boolean ExtrnlAdptrPlumbSccPipeline( char* inputFilename, char* outputFilename, uint32 framerate ) {
     memset(&rootContext, 0, sizeof(Context));
-    pipelineEstablished = PlumbSccPipeline( &rootContext, inputFilename, outputFilename, framerate, TRUE );
+    rootContext.config.passedInFramerate = framerate;
+    rootContext.config.artifacts = TRUE;
+    pipelineEstablished = PlumbSccPipeline( &rootContext, inputFilename, outputFilename );
     fileType = SCC_CAPTIONS_FILE;
     return pipelineEstablished;
 } // ExtrnlAdptrPlumbSccPipeline()
@@ -475,7 +477,8 @@ boolean ExtrnlAdptrPlumbSccPipeline( char* inputFilename, char* outputFilename, 
  -------------------------------------------------------------------------------*/
 boolean ExtrnlAdptrPlumbMccPipeline( char* inputFilename, char* outputFilename ) {
     memset(&rootContext, 0, sizeof(Context));
-    pipelineEstablished = PlumbMccPipeline( &rootContext, inputFilename, outputFilename, TRUE );
+    rootContext.config.artifacts = TRUE;
+    pipelineEstablished = PlumbMccPipeline( &rootContext, inputFilename, outputFilename );
     fileType = MCC_CAPTIONS_FILE;
     return pipelineEstablished;
 } // ExtrnlAdptrPlumbMccPipeline()
@@ -488,7 +491,6 @@ boolean ExtrnlAdptrPlumbMccPipeline( char* inputFilename, char* outputFilename )
  |    inputFilename - Name of the input file (and root of the output filename).
  |    outputFilename - Name of the output file
  |    artifacts - Whether or not to save artifacts along with the MCC File.
- |    artifactPath - Path to save the artifacts (if configured).
  |
  | RETURN VALUES:
  |    boolean - Successful Call - TRUE; Failure - FALSE
@@ -497,9 +499,10 @@ boolean ExtrnlAdptrPlumbMccPipeline( char* inputFilename, char* outputFilename )
  |    This method plumbs the pipeline to strip CC Data from an MPEG File and
  |    convert it to an MCC File on behalf of an external entity.
  -------------------------------------------------------------------------------*/
-boolean ExtrnlAdptrPlumbMpegPipeline( char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath ) {
+boolean ExtrnlAdptrPlumbMpegPipeline( char* inputFilename, char* outputFilename, boolean artifacts ) {
     memset(&rootContext, 0, sizeof(Context));
-    pipelineEstablished = PlumbMpegPipeline( &rootContext, inputFilename, outputFilename, artifacts, artifactPath, FALSE );
+    rootContext.config.artifacts = artifacts;
+    pipelineEstablished = PlumbMpegPipeline( &rootContext, inputFilename, outputFilename );
     fileType = MPEG_BINARY_FILE;
     return pipelineEstablished;
 } // ExtrnlAdptrPlumbMpegPipeline()
@@ -512,7 +515,6 @@ boolean ExtrnlAdptrPlumbMpegPipeline( char* inputFilename, char* outputFilename,
  |    inputFilename - Name of the input file (and root of the output filename).
  |    outputFilename - Name of the output file
  |    artifacts - Whether or not to save artifacts along with the MCC File.
- |    artifactPath - Path to save the artifacts (if configured).
  |
  | RETURN VALUES:
  |    boolean - Successful Call - TRUE; Failure - FALSE
@@ -521,9 +523,10 @@ boolean ExtrnlAdptrPlumbMpegPipeline( char* inputFilename, char* outputFilename,
  |    This method plumbs the pipeline to strip CC Data from an MOV File and
  |    convert it to an MCC File on behalf of an external entity.
  -------------------------------------------------------------------------------*/
-boolean ExtrnlAdptrPlumbMovPipeline( char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath ) {
+boolean ExtrnlAdptrPlumbMovPipeline( char* inputFilename, char* outputFilename, boolean artifacts ) {
     memset(&rootContext, 0, sizeof(Context));
-    pipelineEstablished = PlumbMovPipeline( &rootContext, inputFilename, outputFilename, artifacts, artifactPath, FALSE );
+    rootContext.config.artifacts = artifacts;
+    pipelineEstablished = PlumbMovPipeline( &rootContext, inputFilename, outputFilename );
     fileType = MOV_BINARY_FILE;
     return pipelineEstablished;
 } // ExtrnlAdptrPlumbMovPipeline()

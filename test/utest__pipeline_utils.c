@@ -1146,7 +1146,9 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
 
     TEST_START("Test Case: PlumbSccPipeline() - Successfully Plumb SCC Pipeline with Artifacts.")
     InitStubs();
-    retval = PlumbSccPipeline(&ctx, inputFilename, outputFilename, 2400, TRUE);
+    ctx.config.passedInFramerate = 2400;
+    ctx.config.artifacts = TRUE;
+    retval = PlumbSccPipeline(&ctx, inputFilename, outputFilename);
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, SccFileInitializeCalled);
     ASSERT_EQ(1, SccFileAddSinkCalled);
@@ -1178,7 +1180,9 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
 
     TEST_START("Test Case: PlumbSccPipeline() - Successfully Plumb SCC Pipeline without Artifacts.")
     InitStubs();
-    retval = PlumbSccPipeline(&ctx, inputFilename, outputFilename, 2400, FALSE);
+    ctx.config.passedInFramerate = 2400;
+    ctx.config.artifacts = FALSE;
+    retval = PlumbSccPipeline(&ctx, inputFilename, outputFilename);
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, SccFileInitializeCalled);
     ASSERT_EQ(1, SccFileAddSinkCalled);
@@ -1199,7 +1203,9 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: PlumbSccPipeline() - Pass a NULL Input Filename.")
     ERROR_EXPECTED
     InitStubs();
-    retval = PlumbSccPipeline(&ctx, NULL, outputFilename, 2400, FALSE);
+    ctx.config.passedInFramerate = 2400;
+    ctx.config.artifacts = FALSE;
+    retval = PlumbSccPipeline(&ctx, NULL, outputFilename);
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, SccFileInitializeCalled);
     ASSERT_EQ(0, SccFileAddSinkCalled);
@@ -1214,7 +1220,9 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: PlumbSccPipeline() - Pass a NULL Output Filename.")
     ERROR_EXPECTED
     InitStubs();
-    retval = PlumbSccPipeline(&ctx, inputFilename, NULL, 2400, FALSE);
+    ctx.config.passedInFramerate = 2400;
+    ctx.config.artifacts = FALSE;
+    retval = PlumbSccPipeline(&ctx, inputFilename, NULL);
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, SccFileInitializeCalled);
     ASSERT_EQ(0, SccFileAddSinkCalled);
@@ -1229,7 +1237,9 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: PlumbSccPipeline() - Pass an Invalid Framerate.")
     FATAL_ERROR_EXPECTED
     InitStubs();
-    retval = PlumbSccPipeline(&ctx, inputFilename, outputFilename, 2600, FALSE);
+    ctx.config.passedInFramerate = 2600;
+    ctx.config.artifacts = FALSE;
+    retval = PlumbSccPipeline(&ctx, inputFilename, outputFilename);
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, SccFileInitializeCalled);
     ASSERT_EQ(0, SccFileAddSinkCalled);
@@ -1260,7 +1270,8 @@ void utest__PlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
 
     TEST_START("Test Case: PlumbMccPipeline() - Successfully Plumb MCC Pipeline with Artifacts.");
     InitStubs();
-    retval = PlumbMccPipeline( &ctx, inputFilename, outputFilename, TRUE );
+    ctx.config.artifacts = TRUE;
+    retval = PlumbMccPipeline( &ctx, inputFilename, outputFilename );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, MccFileInitializeCalled);
     ASSERT_EQ(1, MccFileAddSinkCalled);
@@ -1293,7 +1304,8 @@ void utest__PlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
 
     TEST_START("Test Case: PlumbMccPipeline() - Successfully Plumb MCC Pipeline with Artifacts.");
     InitStubs();
-    retval = PlumbMccPipeline( &ctx, inputFilename, outputFilename, FALSE );
+    ctx.config.artifacts = FALSE;
+    retval = PlumbMccPipeline( &ctx, inputFilename, outputFilename );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, MccFileInitializeCalled);
     ASSERT_EQ(1, MccFileAddSinkCalled);
@@ -1317,7 +1329,8 @@ void utest__PlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: PlumbMccPipeline() - Pass a NULL Input Filename.");
     ERROR_EXPECTED
     InitStubs();
-    retval = PlumbMccPipeline( &ctx, NULL, outputFilename, FALSE );
+    ctx.config.artifacts = FALSE;
+    retval = PlumbMccPipeline( &ctx, NULL, outputFilename );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, MccFileInitializeCalled);
     ASSERT_EQ(0, MccFileAddSinkCalled);
@@ -1336,7 +1349,8 @@ void utest__PlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: PlumbMccPipeline() - Pass a NULL Output Filename.");
     ERROR_EXPECTED
     InitStubs();
-    retval = PlumbMccPipeline( &ctx, inputFilename, NULL, FALSE );
+    ctx.config.artifacts = FALSE;
+    retval = PlumbMccPipeline( &ctx, inputFilename, NULL );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, MccFileInitializeCalled);
     ASSERT_EQ(0, MccFileAddSinkCalled);
@@ -1362,16 +1376,14 @@ void utest__PlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
  |    3) Successfully Plumb MPEG DF Pipeline without Artifacts.
  |    4) Successfully Plumb MPEG NDF Pipeline without Artifacts.
  |    5) Successfully Plumb MPEG Ambiguous Dropframe Pipeline without Artifacts.
- |    6) Successfully Plumb MPEG without Artifacts with a NULL Artifact Path.
- |    7) Pass a NULL Input Filename.
- |    8) Pass a NULL Output Filename.
- |    9) Pass a NULL Artifact Path.
+ |    6) Pass a NULL Input Filename.
+ |    7) Pass a NULL Output Filename.
+ |    8) Pass a NULL Artifact Path.
  -------------------------------------------------------------------------------*/
 void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_INITIALIZE
     char* inputFilename = "Who";
     char* outputFilename = "Cares?";
-    char* artifactPath = "NotMe";
     boolean retval;
     Context ctx;
 
@@ -1379,7 +1391,9 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = TRUE;
     DetermineDropFrame__wasSuccessful = TRUE;
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, TRUE, artifactPath, FALSE );
+    ctx.config.artifacts = TRUE;
+    ctx.config.bailAfterMins = 0;
+    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MpegFileInitializeCalled);
@@ -1397,10 +1411,6 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_PTREQ(inputFilename, MpegFileInitializeFileNameStr);
     ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
     ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, DtvccOutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, Line21OutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, CcDataOutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, DetermineDropFrameArtifactPath);
     ASSERT_EQ(TRUE, DetermineDropFrameSaveArtifacts);
     ASSERT_EQ(TRUE, MpegFileInitializeisDropframe);
     DetermineDropFrameCalled = 0;
@@ -1423,7 +1433,9 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = FALSE;
     DetermineDropFrame__wasSuccessful = TRUE;
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, TRUE, artifactPath, FALSE );
+    ctx.config.artifacts = TRUE;
+    ctx.config.bailAfterMins = 0;
+    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MpegFileInitializeCalled);
@@ -1441,10 +1453,6 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_PTREQ(inputFilename, MpegFileInitializeFileNameStr);
     ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
     ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, DtvccOutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, Line21OutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, CcDataOutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, DetermineDropFrameArtifactPath);
     ASSERT_EQ(TRUE, DetermineDropFrameSaveArtifacts);
     ASSERT_EQ(FALSE, MpegFileInitializeisDropframe);
     ASSERT_EQ(TRUE, MpegFileInitializeOverrideDf);
@@ -1468,7 +1476,9 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = TRUE;
     DetermineDropFrame__wasSuccessful = TRUE;
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, FALSE, artifactPath, FALSE );
+    ctx.config.artifacts = FALSE;
+    ctx.config.bailAfterMins = 0;
+    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MpegFileInitializeCalled);
@@ -1503,42 +1513,9 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = FALSE;
     DetermineDropFrame__wasSuccessful = FALSE;
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, FALSE, artifactPath, FALSE );
-    ASSERT_EQ(TRUE, retval);
-    ASSERT_EQ(1, DetermineDropFrameCalled);
-    ASSERT_EQ(1, MpegFileInitializeCalled);
-    ASSERT_EQ(3, MpegFileAddSinkCalled);
-    ASSERT_EQ(1, MccEncodeInitializeCalled);
-    ASSERT_EQ(1, MccEncodeAddSinkCalled);
-    ASSERT_EQ(1, DtvccDecodeInitializeCalled);
-    ASSERT_EQ(1, Line21DecodeInitializeCalled);
-    ASSERT_EQ(1, MccOutInitializeCalled);
-    ASSERT_PTREQ(inputFilename, MpegFileInitializeFileNameStr);
-    ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
-    ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
-    ASSERT_PTREQ(NULL, DtvccOutInitializeFileNameStr);
-    ASSERT_PTREQ(NULL, Line21OutInitializeFileNameStr);
-    ASSERT_PTREQ(NULL, CcDataOutInitializeFileNameStr);
-    ASSERT_PTREQ(NULL, DetermineDropFrameArtifactPath);
-    ASSERT_EQ(FALSE, DetermineDropFrameSaveArtifacts);
-    ASSERT_EQ(FALSE, MpegFileInitializeisDropframe);
-    ASSERT_EQ(FALSE, MpegFileInitializeOverrideDf);
-    DetermineDropFrameCalled = 0;
-    MpegFileInitializeCalled = 0;
-    MpegFileAddSinkCalled = 0;
-    MccEncodeInitializeCalled = 0;
-    MccEncodeAddSinkCalled = 0;
-    DtvccDecodeInitializeCalled = 0;
-    Line21DecodeInitializeCalled = 0;
-    MccOutInitializeCalled = 0;
-    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
-    TEST_END
-
-    TEST_START("Test Case: PlumbMpegPipeline() - Successfully Plumb MPEG without Artifacts with a NULL Artifact Path.");
-    InitStubs();
-    DetermineDropFrame__isDropFrame = FALSE;
-    DetermineDropFrame__wasSuccessful = FALSE;
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, FALSE, NULL, FALSE );
+    ctx.config.artifacts = FALSE;
+    ctx.config.bailAfterMins = 0;
+    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MpegFileInitializeCalled);
@@ -1573,8 +1550,10 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = TRUE;
     DetermineDropFrame__wasSuccessful = TRUE;
+    ctx.config.artifacts = TRUE;
+    ctx.config.bailAfterMins = 0;
     ERROR_EXPECTED
-    retval = PlumbMpegPipeline( &ctx, NULL, outputFilename, TRUE, artifactPath, FALSE );
+    retval = PlumbMpegPipeline( &ctx, NULL, outputFilename );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, DetermineDropFrameCalled);
     ASSERT_EQ(0, MpegFileInitializeCalled);
@@ -1596,8 +1575,10 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = TRUE;
     DetermineDropFrame__wasSuccessful = TRUE;
+    ctx.config.artifacts = TRUE;
+    ctx.config.bailAfterMins = 0;
     ERROR_EXPECTED
-    retval = PlumbMpegPipeline( &ctx, inputFilename, NULL, TRUE, artifactPath, FALSE );
+    retval = PlumbMpegPipeline( &ctx, inputFilename, NULL );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, DetermineDropFrameCalled);
     ASSERT_EQ(0, MpegFileInitializeCalled);
@@ -1619,8 +1600,10 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = TRUE;
     DetermineDropFrame__wasSuccessful = TRUE;
+    ctx.config.artifacts = TRUE;
+    ctx.config.bailAfterMins = 0;
     ERROR_EXPECTED
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename, TRUE, NULL, FALSE );
+    retval = PlumbMpegPipeline( &ctx, inputFilename, NULL );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, DetermineDropFrameCalled);
     ASSERT_EQ(0, MpegFileInitializeCalled);
@@ -1648,16 +1631,14 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
  |    3) Successfully Plumb MOV DF Pipeline without Artifacts.
  |    4) Successfully Plumb MOV NDF Pipeline without Artifacts.
  |    5) Successfully Plumb MOV Ambiguous Dropframe Pipeline without Artifacts.
- |    6) Successfully Plumb MOV without Artifacts with a NULL Artifact Path.
- |    7) Pass a NULL Input Filename.
- |    8) Pass a NULL Output Filename.
- |    9) Pass a NULL Artifact Path.
+ |    6) Pass a NULL Input Filename.
+ |    7) Pass a NULL Output Filename.
+ |    8) Pass a NULL Artifact Path.
  -------------------------------------------------------------------------------*/
 void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_INITIALIZE
     char* inputFilename = "Who";
     char* outputFilename = "Cares?";
-    char* artifactPath = "NotMe";
     boolean retval;
     Context ctx;
 
@@ -1665,7 +1646,9 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = TRUE;
     DetermineDropFrame__wasSuccessful = TRUE;
-    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename, TRUE, artifactPath, FALSE );
+    ctx.config.artifacts = TRUE;
+    ctx.config.bailAfterMins = 0;
+    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MovFileInitializeCalled);
@@ -1683,10 +1666,6 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_PTREQ(inputFilename, MovFileInitializeFileNameStr);
     ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
     ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, DtvccOutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, Line21OutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, CcDataOutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, DetermineDropFrameArtifactPath);
     ASSERT_EQ(TRUE, DetermineDropFrameSaveArtifacts);
     ASSERT_EQ(TRUE, MovFileInitializeisDropframe);
     DetermineDropFrameCalled = 0;
@@ -1709,7 +1688,9 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = FALSE;
     DetermineDropFrame__wasSuccessful = TRUE;
-    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename, TRUE, artifactPath, FALSE );
+    ctx.config.artifacts = TRUE;
+    ctx.config.bailAfterMins = 0;
+    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MovFileInitializeCalled);
@@ -1727,10 +1708,6 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_PTREQ(inputFilename, MovFileInitializeFileNameStr);
     ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
     ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, DtvccOutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, Line21OutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, CcDataOutInitializeFileNameStr);
-    ASSERT_PTREQ(artifactPath, DetermineDropFrameArtifactPath);
     ASSERT_EQ(TRUE, DetermineDropFrameSaveArtifacts);
     ASSERT_EQ(FALSE, MovFileInitializeisDropframe);
     ASSERT_EQ(TRUE, MovFileInitializeOverrideDf);
@@ -1754,7 +1731,9 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = TRUE;
     DetermineDropFrame__wasSuccessful = TRUE;
-    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename, FALSE, artifactPath, FALSE );
+    ctx.config.artifacts = FALSE;
+    ctx.config.bailAfterMins = 0;
+    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MovFileInitializeCalled);
@@ -1789,42 +1768,9 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = FALSE;
     DetermineDropFrame__wasSuccessful = FALSE;
-    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename, FALSE, artifactPath, FALSE );
-    ASSERT_EQ(TRUE, retval);
-    ASSERT_EQ(1, DetermineDropFrameCalled);
-    ASSERT_EQ(1, MovFileInitializeCalled);
-    ASSERT_EQ(3, MovFileAddSinkCalled);
-    ASSERT_EQ(1, MccEncodeInitializeCalled);
-    ASSERT_EQ(1, MccEncodeAddSinkCalled);
-    ASSERT_EQ(1, DtvccDecodeInitializeCalled);
-    ASSERT_EQ(1, Line21DecodeInitializeCalled);
-    ASSERT_EQ(1, MccOutInitializeCalled);
-    ASSERT_PTREQ(inputFilename, MovFileInitializeFileNameStr);
-    ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
-    ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
-    ASSERT_PTREQ(NULL, DtvccOutInitializeFileNameStr);
-    ASSERT_PTREQ(NULL, Line21OutInitializeFileNameStr);
-    ASSERT_PTREQ(NULL, CcDataOutInitializeFileNameStr);
-    ASSERT_PTREQ(NULL, DetermineDropFrameArtifactPath);
-    ASSERT_EQ(FALSE, DetermineDropFrameSaveArtifacts);
-    ASSERT_EQ(FALSE, MovFileInitializeisDropframe);
-    ASSERT_EQ(FALSE, MovFileInitializeOverrideDf);
-    DetermineDropFrameCalled = 0;
-    MovFileInitializeCalled = 0;
-    MovFileAddSinkCalled = 0;
-    MccEncodeInitializeCalled = 0;
-    MccEncodeAddSinkCalled = 0;
-    DtvccDecodeInitializeCalled = 0;
-    Line21DecodeInitializeCalled = 0;
-    MccOutInitializeCalled = 0;
-    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
-    TEST_END
-
-    TEST_START("Test Case: PlumbMovPipeline() - Successfully Plumb MOV without Artifacts with a NULL Artifact Path.");
-    InitStubs();
-    DetermineDropFrame__isDropFrame = FALSE;
-    DetermineDropFrame__wasSuccessful = FALSE;
-    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename, FALSE, NULL, FALSE );
+    ctx.config.artifacts = FALSE;
+    ctx.config.bailAfterMins = 0;
+    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MovFileInitializeCalled);
@@ -1859,8 +1805,10 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = TRUE;
     DetermineDropFrame__wasSuccessful = TRUE;
+    ctx.config.artifacts = TRUE;
+    ctx.config.bailAfterMins = 0;
     ERROR_EXPECTED
-    retval = PlumbMovPipeline( &ctx, NULL, outputFilename, TRUE, artifactPath, FALSE );
+    retval = PlumbMovPipeline( &ctx, NULL, outputFilename );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, DetermineDropFrameCalled);
     ASSERT_EQ(0, MovFileInitializeCalled);
@@ -1882,8 +1830,10 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = TRUE;
     DetermineDropFrame__wasSuccessful = TRUE;
+    ctx.config.artifacts = TRUE;
+    ctx.config.bailAfterMins = 0;
     ERROR_EXPECTED
-    retval = PlumbMovPipeline( &ctx, inputFilename, NULL, TRUE, artifactPath, FALSE );
+    retval = PlumbMovPipeline( &ctx, inputFilename, NULL );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, DetermineDropFrameCalled);
     ASSERT_EQ(0, MovFileInitializeCalled);
@@ -1905,8 +1855,10 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     DetermineDropFrame__isDropFrame = TRUE;
     DetermineDropFrame__wasSuccessful = TRUE;
+    ctx.config.artifacts = TRUE;
+    ctx.config.bailAfterMins = 0;
     ERROR_EXPECTED
-    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename, TRUE, NULL, FALSE );
+    retval = PlumbMovPipeline( &ctx, inputFilename, NULL );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, DetermineDropFrameCalled);
     ASSERT_EQ(0, MovFileInitializeCalled);
