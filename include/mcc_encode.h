@@ -49,4 +49,10 @@ boolean MccEncodeAddSink( Context*, LinkInfo );
 uint8 MccEncodeProcNextBuffer( void*, Buffer* );
 uint8 MccEncodeShutdown( void* );
 
+/* Exposed for use as a shared library */
+boolean generateMccHeader( Context*, CaptionTime* );
+boolean sendMccText( Context*, char*, CaptionTime* );
+uint16 countChars( uint8*, uint16 );
+void compressData( uint8*, uint16, Buffer* );
+
 #endif /* mcc_encode_h */

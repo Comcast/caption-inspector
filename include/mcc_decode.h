@@ -159,4 +159,6 @@ boolean MccDecodeAddSink( Context*, LinkInfo );
 uint8 MccDecodeProcNextBuffer( void*, Buffer* );
 uint8 MccDecodeShutdown( void* );
 
+Buffer* decodeMccLine( MccDecodeCtx*, Buffer* );
+
 #endif /* mcc_decode_h */
