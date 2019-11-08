@@ -212,13 +212,16 @@ int main( int argc, char* argv[] ) {
         LOG(DEBUG_LEVEL_FATAL, DBG_GENERAL, "Unable to establish pipeline. Unable to proceed.");
     }
     if( Shutdown() == TRUE ) {
+        printf("%s Completed with Errors.\n", executibleName);
         return EXIT_FAILURE;
     }
 
     if( (ctx.stats.valid608CaptionsFound == FALSE) && (ctx.stats.valid708CaptionsFound == FALSE) ) {
+        printf("%s Completed with No Captions Found.\n", executibleName);
         return EXIT_NO_CAPTIONS_FOUND;
     }
 
+    printf("%s Completed Successfully.\n", executibleName);
     return EXIT_SUCCESS;
 }  // main()
 
