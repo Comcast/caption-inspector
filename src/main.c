@@ -102,6 +102,8 @@ int main( int argc, char* argv[] ) {
 
     ctx.stats.captionText608Found = FALSE;
     ctx.stats.captionText708Found = FALSE;
+    ctx.stats.valid608CaptionsFound = FALSE;
+    ctx.stats.valid708CaptionsFound = FALSE;
 
     if( argv[1] == NULL ) {
         printHelp();
@@ -213,7 +215,7 @@ int main( int argc, char* argv[] ) {
         return EXIT_FAILURE;
     }
 
-    if( (ctx.stats.captionText608Found == FALSE) && (ctx.stats.captionText708Found == FALSE) ) {
+    if( (ctx.stats.valid608CaptionsFound == FALSE) && (ctx.stats.valid708CaptionsFound == FALSE) ) {
         return EXIT_NO_CAPTIONS_FOUND;
     }
 

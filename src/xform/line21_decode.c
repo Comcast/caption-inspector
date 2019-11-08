@@ -250,6 +250,9 @@ uint8 Line21DecodeShutdown( void* rootCtxPtr ) {
 
     for( int loop = 1; loop <= LINE21_MAX_NUM_CHANNELS; loop++ ) {
         if( ctxPtr->dataFound[loop] == TRUE ) {
+            if( ((Context*)rootCtxPtr)->stats.captionText608Found == TRUE ) {
+                ((Context*)rootCtxPtr)->stats.valid608CaptionsFound = TRUE;
+            }
             if( ctxPtr->captioningChange[loop] == FALSE ) {
                 if( ctxPtr->isPopOnCaptioning[loop] == TRUE ) {
                     LOG(DEBUG_LEVEL_INFO, DBG_608_DEC, "Found Line 21 PopOn Captioning on Channel %d", loop);

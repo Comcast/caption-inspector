@@ -235,6 +235,9 @@ uint8 DtvccDecodeShutdown( void* rootCtxPtr ) {
     uint64 compareBit = 1;
     for( int loop = 0; loop < 64; loop++ ) {
         if( (ctxPtr->activeServices & compareBit) == compareBit ) {
+            if( ((Context*)rootCtxPtr)->stats.captionText708Found == TRUE ) {
+                ((Context*)rootCtxPtr)->stats.valid708CaptionsFound = TRUE;
+            }
             if( ctxPtr->captioningChange[loop] == FALSE ) {
                 if( ctxPtr->isPopOnCaptioning[loop] == TRUE ) {
                     LOG(DEBUG_LEVEL_INFO, DBG_708_DEC, "Found DTVCC PopOn Captioning Data on Service %d", loop+1);

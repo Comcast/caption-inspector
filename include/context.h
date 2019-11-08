@@ -73,6 +73,8 @@ typedef struct {
 typedef struct {
     boolean captionText608Found;                // Found Line-21 Captions
     boolean captionText708Found;                // Found DTVCC Captions
+    boolean valid608CaptionsFound;              // Line-21 has text and commands to render it
+    boolean valid708CaptionsFound;              // DTVCC has text and commands to render it
 } CaptionInspectorStats;
 
 /* Sources */
