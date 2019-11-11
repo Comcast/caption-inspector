@@ -492,16 +492,16 @@ static Buffer* addBoilerplate( MccEncodeCtx* ctxPtr, Buffer* inBufferPtr ) {
     ASSERT(inBufferPtr->maxNumElements == inBufferPtr->numElements);
     ASSERT(!(inBufferPtr->maxNumElements % 3));
     uint8 ccCount = inBufferPtr->maxNumElements / 3;
-    Buffer* outBufferPtr = NewBuffer(BUFFER_TYPE_BYTES, (inBufferPtr->numElements + 16));
-    outBufferPtr->numElements = inBufferPtr->numElements + 16;
+    Buffer* outBufferPtr = NewBuffer(BUFFER_TYPE_BYTES, (inBufferPtr->numElements + 17));
+    outBufferPtr->numElements = inBufferPtr->numElements + 17;
     uint8* dataPtr = outBufferPtr->dataPtr;
     
     dataPtr[0] = ANC_DID_CLOSED_CAPTIONING;
     dataPtr[1] = ANC_SDID_CEA_708;
-    dataPtr[2] = inBufferPtr->numElements + 12;
+    dataPtr[2] = inBufferPtr->numElements + 13;
     dataPtr[3] = CDP_IDENTIFIER_VALUE_HIGH;
     dataPtr[4] = CDP_IDENTIFIER_VALUE_LOW;
-    dataPtr[5] = inBufferPtr->numElements + 12;
+    dataPtr[5] = inBufferPtr->numElements + 13;
     dataPtr[6] = ((cdpFramerateFromFramerate(inBufferPtr->captionTime.frameRatePerSecTimesOneHundred) << 4) | 0x0F);
     dataPtr[7] = 0x43;  // Timecode not Present; Service Info not Present; Captions Present
     dataPtr[8] = (uint8)((ctxPtr->cdpHeaderSequence & 0xF0) >> 8);
@@ -513,10 +513,18 @@ static Buffer* addBoilerplate( MccEncodeCtx* ctxPtr, Buffer* inBufferPtr ) {
     dataPtr[0] = CDP_FOOTER_ID;
     dataPtr[1] = (uint8)((ctxPtr->cdpHeaderSequence & 0xF0) >> 8);
     dataPtr[2] = (uint8)(ctxPtr->cdpHeaderSequence & 0x0F);
-    dataPtr[3] = 0;
-    
-    for( int loop = 0; loop < (inBufferPtr->numElements + 15); loop++ ) {
+    dataPtr[3] = 0; // cdp checksum
+    dataPtr[4] = 0; // vanc checksum
+
+    //the arithmetic sum of the entire packet (first byte of cdp_identifier to packet_checksum, inclusive) modulo 256 equal zero.
+    for( int loop = 3; loop < (inBufferPtr->numElements + 15); loop++ ) {
         dataPtr[3] = dataPtr[3] + outBufferPtr->dataPtr[loop];
+    }
+
+    dataPtr[3] = (~dataPtr[3]) + 1;  //Two's complement value is the checksum
+
+    for( int loop = 0; loop < 3; loop++ ) {
+        dataPtr[4] = dataPtr[4] + outBufferPtr->dataPtr[loop];
     }
     
     FreeBuffer( inBufferPtr );
