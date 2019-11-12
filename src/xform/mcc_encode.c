@@ -44,7 +44,8 @@ const char* DayOfWeekStr[7] = { "Sunday", "Monday", "Tuesday", "Wednesday",
 /*--                     Private Member Declarations                        --*/
 /*----------------------------------------------------------------------------*/
 
-static CaptionTime convertCaptionTime( MccEncodeCtx*, CaptionTime* );
+static void addFillPacket( Context*, CaptionTime* );
+static CaptionTime convertCaptionTime( Context*, CaptionTime* );
 static Buffer* addBoilerplate( MccEncodeCtx*, Buffer* );
 
 /*----------------------------------------------------------------------------*/
@@ -164,7 +165,7 @@ uint8 MccEncodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
         inBuffer->captionTime.second, inBuffer->captionTime.frame);
     Buffer* withBoilerPlateBuffer = addBoilerplate(ctxPtr, inBuffer);
     if( inBuffer->captionTime.source == CAPTION_TIME_PTS_NUMBERING ) {
-        withBoilerPlateBuffer->captionTime = convertCaptionTime(ctxPtr, &inBuffer->captionTime);
+        withBoilerPlateBuffer->captionTime = convertCaptionTime(rootCtxPtr, &inBuffer->captionTime);
     } else {
         withBoilerPlateBuffer->captionTime = inBuffer->captionTime;
     }
@@ -321,62 +322,127 @@ boolean generateMccHeader( Context* ctxPtr, CaptionTime* captionTimePtr ) {
 
 /*------------------------------------------------------------------------------
  | NAME:
+ |    addFillPacket()
+ |
+ | DESCRIPTION:
+ |    This function will generate a packet of fill and send it to the next
+ |    stage in the pipeline. This is needed when the PTS timestamp from the
+ |    asset trails the Frame Timestamp in the MCC file.
+ ------------------------------------------------------------------------------*/
+static void addFillPacket( Context* rootCtxPtr, CaptionTime* captionTimePtr ) {
+    MccEncodeCtx* ctxPtr = rootCtxPtr->mccEncodeCtxPtr;
+    uint8 ccCount = numCcConstructsFromFramerate(captionTimePtr->frameRatePerSecTimesOneHundred);
+
+    Buffer* fillBuffer = NewBuffer(BUFFER_TYPE_BYTES, (ccCount * 3));
+    fillBuffer->numElements = fillBuffer->maxNumElements;
+    fillBuffer->captionTime = *captionTimePtr;
+
+    fillBuffer->dataPtr[0] = VALID_CEA608E_LINE21_FIELD_1_CC;
+    fillBuffer->dataPtr[1] = CEA608_ZERO_WITH_ODD_PARITY;
+    fillBuffer->dataPtr[2] = CEA608_ZERO_WITH_ODD_PARITY;
+    fillBuffer->dataPtr[3] = VALID_CEA608E_LINE21_FIELD_2_CC;
+    fillBuffer->dataPtr[4] = CEA608_ZERO_WITH_ODD_PARITY;
+    fillBuffer->dataPtr[5] = CEA608_ZERO_WITH_ODD_PARITY;
+    uint8* tmpPtr = &fillBuffer->dataPtr[6];
+    for( int loop = 2; loop < ccCount; loop++ ) {
+        tmpPtr[0] = INVALID_DTVCCC_CHANNEL_PACKET_DATA;
+        tmpPtr[1] = EMPTY_DTVCC_CHANNEL_PACKET_DATA;
+        tmpPtr[2] = EMPTY_DTVCC_CHANNEL_PACKET_DATA;
+        tmpPtr = &tmpPtr[3];
+    }
+
+    Buffer* withBoilerPlateBuffer = addBoilerplate(ctxPtr, fillBuffer);
+    withBoilerPlateBuffer->captionTime = *captionTimePtr;
+    uint16 numCharsNeeded = countChars( withBoilerPlateBuffer->dataPtr, withBoilerPlateBuffer->numElements );
+    LOG(DEBUG_LEVEL_VERBOSE, DBG_MCC_ENC, "FILL: With CDP Boiler Plate %d byte packet at time: %02d:%02d:%02d;%02d requires %d bytes compressed",
+        withBoilerPlateBuffer->numElements, withBoilerPlateBuffer->captionTime.hour, withBoilerPlateBuffer->captionTime.minute,
+        withBoilerPlateBuffer->captionTime.second, withBoilerPlateBuffer->captionTime.frame, numCharsNeeded);
+    Buffer* outputBuffer = NewBuffer(BUFFER_TYPE_BYTES, (numCharsNeeded + 13));
+    outputBuffer->captionTime = withBoilerPlateBuffer->captionTime;
+    sprintf((char*)outputBuffer->dataPtr, "%02d:%02d:%02d:%02d\t", withBoilerPlateBuffer->captionTime.hour,
+            withBoilerPlateBuffer->captionTime.minute, withBoilerPlateBuffer->captionTime.second,
+            withBoilerPlateBuffer->captionTime.frame);
+    outputBuffer->numElements = 13;
+    compressData( withBoilerPlateBuffer->dataPtr, withBoilerPlateBuffer->numElements, outputBuffer );
+    FreeBuffer(withBoilerPlateBuffer);
+    LOG(DEBUG_LEVEL_VERBOSE, DBG_MCC_ENC, "Sending Compressed %d byte FILL packet at time: %02d:%02d:%02d;%02d",
+        outputBuffer->numElements, outputBuffer->captionTime.hour, outputBuffer->captionTime.minute,
+        outputBuffer->captionTime.second, outputBuffer->captionTime.frame);
+
+    if( PassToSinks(rootCtxPtr, outputBuffer, &ctxPtr->sinks) != PIPELINE_SUCCESS ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_MCC_ENC, "Attempt to add Fill Frame Failed. Error was suppressed.");
+    }
+
+} // addFillPacket()
+
+/*------------------------------------------------------------------------------
+ | NAME:
  |    convertCaptionTime()
  |
  | DESCRIPTION:
  |    This function will convert the time derived from PTS (in Milliseconds)
  |    to frame number, which matches the time specified in SCC or MCC.
  ------------------------------------------------------------------------------*/
-static CaptionTime convertCaptionTime( MccEncodeCtx* ctxPtr, CaptionTime* inCaptionTimePtr ) {
-    CaptionTime captionTime = *inCaptionTimePtr;
-
-    captionTime.hour = ctxPtr->nextCaptionTime.hour;
-    captionTime.minute = ctxPtr->nextCaptionTime.minute;
-    captionTime.second = ctxPtr->nextCaptionTime.second;
-    captionTime.frame = ctxPtr->nextCaptionTime.frame;
-    captionTime.millisecond = 0;
-    captionTime.source = CAPTION_TIME_FRAME_NUMBERING;
-
-    ctxPtr->nextCaptionTime.frame = ctxPtr->nextCaptionTime.frame + 1;
-
-    uint8 frameRollOver = captionTime.frameRatePerSecTimesOneHundred / 100;
-    if ((captionTime.frameRatePerSecTimesOneHundred % 100) > 75) frameRollOver++;
-
-    if (ctxPtr->nextCaptionTime.frame >= frameRollOver) {
-        ctxPtr->nextCaptionTime.frame = 0;
-        ctxPtr->nextCaptionTime.second = ctxPtr->nextCaptionTime.second + 1;
-    }
-
-    if( (captionTime.dropframe == TRUE) && (ctxPtr->nextCaptionTime.second == 0) &&
-        (ctxPtr->nextCaptionTime.frame == 0) && ((ctxPtr->nextCaptionTime.minute % 10) != 0) ){
-        ctxPtr->nextCaptionTime.frame = 2;
-    }
-
-    if (ctxPtr->nextCaptionTime.second >= 60) {
-        ctxPtr->nextCaptionTime.second = 0;
-        ctxPtr->nextCaptionTime.minute = ctxPtr->nextCaptionTime.minute + 1;
-    }
-
-    if (ctxPtr->nextCaptionTime.minute >= 60) {
-        ctxPtr->nextCaptionTime.minute = 0;
-        ctxPtr->nextCaptionTime.hour = ctxPtr->nextCaptionTime.hour + 1;
-    }
-
-    int64 actualTimeInMs = ((captionTime.hour * 3600) + (captionTime.minute * 60) + (captionTime.second)) * 1000;
-    int64 frameTimeInMs = actualTimeInMs + ((captionTime.frame * 100000) / captionTime.frameRatePerSecTimesOneHundred);
-    actualTimeInMs = actualTimeInMs + inCaptionTimePtr->millisecond;
-
+static CaptionTime convertCaptionTime( Context* rootCtxPtr, CaptionTime* inCaptionTimePtr ) {
+    MccEncodeCtx* ctxPtr = rootCtxPtr->mccEncodeCtxPtr;
+    CaptionTime captionTime;
+    boolean timeSynch = FALSE;
+    int64 actualTimeInMs;
+    int64 frameTimeInMs;
     int64 deltaInMs;
+    int64 frameSizeMs = (100000 / inCaptionTimePtr->frameRatePerSecTimesOneHundred) + 1;
 
-    if( actualTimeInMs > frameTimeInMs ) {
+    while( timeSynch == FALSE ) {
+        captionTime.frameRatePerSecTimesOneHundred = inCaptionTimePtr->frameRatePerSecTimesOneHundred;
+        captionTime.dropframe = inCaptionTimePtr->dropframe;
+
+        captionTime.hour = ctxPtr->nextCaptionTime.hour;
+        captionTime.minute = ctxPtr->nextCaptionTime.minute;
+        captionTime.second = ctxPtr->nextCaptionTime.second;
+        captionTime.frame = ctxPtr->nextCaptionTime.frame;
+        captionTime.millisecond = 0;
+        captionTime.source = CAPTION_TIME_FRAME_NUMBERING;
+
+        ctxPtr->nextCaptionTime.frame = ctxPtr->nextCaptionTime.frame + 1;
+
+        uint8 frameRollOver = captionTime.frameRatePerSecTimesOneHundred / 100;
+        if ((captionTime.frameRatePerSecTimesOneHundred % 100) > 75) frameRollOver++;
+
+        if (ctxPtr->nextCaptionTime.frame >= frameRollOver) {
+            ctxPtr->nextCaptionTime.frame = 0;
+            ctxPtr->nextCaptionTime.second = ctxPtr->nextCaptionTime.second + 1;
+        }
+
+        if (ctxPtr->nextCaptionTime.second >= 60) {
+            ctxPtr->nextCaptionTime.second = 0;
+            ctxPtr->nextCaptionTime.minute = ctxPtr->nextCaptionTime.minute + 1;
+        }
+
+        if (ctxPtr->nextCaptionTime.minute >= 60) {
+            ctxPtr->nextCaptionTime.minute = 0;
+            ctxPtr->nextCaptionTime.hour = ctxPtr->nextCaptionTime.hour + 1;
+        }
+
+        if( (captionTime.dropframe == TRUE) && (ctxPtr->nextCaptionTime.second == 0) &&
+            (ctxPtr->nextCaptionTime.frame == 0) && ((ctxPtr->nextCaptionTime.minute % 10) == 0) ){
+            ctxPtr->nextCaptionTime.frame = 2;
+        }
+
+        actualTimeInMs = (((inCaptionTimePtr->hour * 3600) + (inCaptionTimePtr->minute * 60) +
+                           (inCaptionTimePtr->second)) * 1000) + inCaptionTimePtr->millisecond;
+        frameTimeInMs = (((captionTime.hour * 3600) + (captionTime.minute * 60) + (captionTime.second)) * 1000) +
+                        ((captionTime.frame * 100000) / captionTime.frameRatePerSecTimesOneHundred);
+
         deltaInMs = actualTimeInMs - frameTimeInMs;
-    } else {
-        deltaInMs = frameTimeInMs - actualTimeInMs;
-    }
 
-    if( deltaInMs > 1000 ) {
-        LOG(DEBUG_LEVEL_ERROR, DBG_MCC_ENC, "Larger than expected delta in Caption Time Conversion: %lld, DF%d, %dfps",
-            deltaInMs, captionTime.dropframe, captionTime.frameRatePerSecTimesOneHundred);
+        if( deltaInMs > frameSizeMs ) {
+            addFillPacket(rootCtxPtr, &captionTime);
+        } else if( deltaInMs < -frameSizeMs ) {
+            LOG(DEBUG_LEVEL_ERROR, DBG_MCC_ENC, "Code Missing to remove Fill Frame! Time will be skewed: %lld", deltaInMs);
+            timeSynch = TRUE;
+        } else {
+            timeSynch = TRUE;
+        }
     }
 
     LOG(DEBUG_LEVEL_VERBOSE, DBG_MCC_ENC, "Converting Caption Time: %02d:%02d:%02d,%03d - %02d:%02d:%02d:%02d",
