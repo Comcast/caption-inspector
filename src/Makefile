@@ -117,7 +117,7 @@ OBJS_WITH_PATH = $(SRC_OBJS_WITH_PATH) $(XFORM_OBJS_WITH_PATH) $(SINK_OBJS_WITH_
 OBJS_IN_OBJ_DIR = $(foreach OBJS, $(OBJS), ../obj/$(OBJS))
 
 ifeq ($(UNAME), Linux)
-C_FLAGS = -g -Wpedantic -Wno-deprecated-declarations -Wall -fno-strict-aliasing -fPIC -DPIC -fpermissive -Wwrite-strings -Wdiscarded-qualifiers
+C_FLAGS = -Wpedantic -Wno-deprecated-declarations -Wall -fno-strict-aliasing -fPIC -DPIC
 SO_FLAGS = -shared -W -L/usr/local/lib -lavformat -lavcodec -lavutil -luuid
 LD_FLAGS = -L/usr/local/lib -luuid -lm -lz
 LD_FLAGS_FFMPEG = -lavformat -lavcodec -lavutil
@@ -137,22 +137,22 @@ all: ${CI_EXECUTABLE} ${CI_SHARED_LIB}
 
 ${CI_EXECUTABLE}: $(OBJS_WITH_PATH) main.o
 	@echo "\n*** Compiling Caption Inpsector Executible. ***"
-	gcc -o ${CI_EXECUTABLE} ../obj/main.o $(OBJS_IN_OBJ_DIR) $(LD_FLAGS) $(LD_FLAGS_FFMPEG)
+	clang -o ${CI_EXECUTABLE} ../obj/main.o $(OBJS_IN_OBJ_DIR) $(LD_FLAGS) $(LD_FLAGS_FFMPEG)
 
 no_ffmpeg: $(OBJS_WITH_PATH) main.o
 	@echo "\n*** Compiling Caption Inpsector Executible without FFMPEG. ***"
-	gcc -o ${CI_EXECUTABLE} ../obj/main.o $(OBJS_IN_OBJ_DIR) $(LD_FLAGS)
+	clang -o ${CI_EXECUTABLE} ../obj/main.o $(OBJS_IN_OBJ_DIR) $(LD_FLAGS)
 
 /usr/local/lib/libgpac.so:
 	@echo "Building MOV Support requires GPAC - $@"
-	@echo "To build GPAC for consumption by Caption Inspector you need the following repo: https://github.com/Comcast/gpac"
+	@echo "To build GPAC for consumption by Caption Inspector you need the following repo: https://github.com/Comcast/gpac-caption-extractor"
 	@echo "Build that repo with `make install`, which will add the shared library to /usr/local/lib and add the"
 	@echo "appropriate headers to /usr/local/include. Once that is done you can build Caption Inspector with MOV Support"
 	@exit 1
 
 with_gpac: /usr/local/lib/libgpac.so $(OBJS_WITH_PATH) main.o
 	@echo "\n*** Compiling Caption Inpsector Executible with GPAC. ***"
-	gcc -o ${CI_EXECUTABLE} ../obj/main.o $(OBJS_IN_OBJ_DIR) $(LD_FLAGS) $(LD_FLAGS_FFMPEG) -lgpac
+	clang -o ${CI_EXECUTABLE} ../obj/main.o $(OBJS_IN_OBJ_DIR) $(LD_FLAGS) $(LD_FLAGS_FFMPEG) -lgpac
 
 ci_without_ffmpeg: C_FLAGS:=$(C_FLAGS) -DDONT_COMPILE_FFMPEG
 ci_without_ffmpeg: no_ffmpeg
@@ -162,12 +162,12 @@ ci_with_gpac: with_gpac
 
 ${CI_SHARED_LIB}: $(OBJS_WITH_PATH)
 	@echo "\n*** Compiling Caption Inspector Dynamic Library to interface with Python. ***"
-	gcc $(SO_FLAGS) -o ${CI_SHARED_LIB} $(OBJS_IN_OBJ_DIR)
+	clang $(SO_FLAGS) -o ${CI_SHARED_LIB} $(OBJS_IN_OBJ_DIR)
 	cd ../lib; ln -s ${CI_SHARED_LIB} libci.so
 
 clean:
 	@echo "*** Cleaning Target Files. ***"
-	rm -f ${CI_EXECUTABLE} ${CI_SHARED_LIB}
+	rm -f ${CI_EXECUTABLE} ${CI_SHARED_LIB} ../lib/libci.so
 	@echo "\n*** Cleaning Object Files. ***"
 	for i in $(OBJS) ; do ( rm -f ../obj/$$i ) ; done
 	rm -f ../obj/main.o
@@ -177,5 +177,5 @@ clean:
 
 %.o: %.c
 	@if ! [ -d "../obj" ]; then mkdir ../obj; fi
-	gcc -c $(C_FLAGS) -I ../include $*.c -o ../obj/$(notdir $*.o)
-	gcc -MM $(C_FLAGS) -I ../include $*.c > ../obj/$(notdir $*.d)
+	clang -c $(C_FLAGS) -I ../include $*.c -o ../obj/$(notdir $*.o)
+	clang -MM $(C_FLAGS) -I ../include $*.c > ../obj/$(notdir $*.d)

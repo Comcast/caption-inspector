@@ -321,61 +321,6 @@ boolean generateMccHeader( Context* ctxPtr, CaptionTime* captionTimePtr ) {
 
 /*------------------------------------------------------------------------------
  | NAME:
- |    addFillPacket()
- |
- | DESCRIPTION:
- |    This function will generate a packet of fill and send it to the next
- |    stage in the pipeline. This is needed when the PTS timestamp from the
- |    asset trails the Frame Timestamp in the MCC file.
- ------------------------------------------------------------------------------*/
-static void addFillPacket(Context* rootCtxPtr, CaptionTime* captionTimePtr) {
-    MccEncodeCtx* ctxPtr = rootCtxPtr->mccEncodeCtxPtr;
-    uint8 ccCount = numCcConstructsFromFramerate(captionTimePtr->frameRatePerSecTimesOneHundred);
-
-    Buffer* fillBuffer = NewBuffer(BUFFER_TYPE_BYTES, (ccCount * 3));
-    fillBuffer->numElements = fillBuffer->maxNumElements;
-    fillBuffer->captionTime = *captionTimePtr;
-
-    fillBuffer->dataPtr[0] = VALID_CEA608E_LINE21_FIELD_1_CC;
-    fillBuffer->dataPtr[1] = CEA608_ZERO_WITH_ODD_PARITY;
-    fillBuffer->dataPtr[2] = CEA608_ZERO_WITH_ODD_PARITY;
-    fillBuffer->dataPtr[3] = VALID_CEA608E_LINE21_FIELD_2_CC;
-    fillBuffer->dataPtr[4] = CEA608_ZERO_WITH_ODD_PARITY;
-    fillBuffer->dataPtr[5] = CEA608_ZERO_WITH_ODD_PARITY;
-    uint8* tmpPtr = &fillBuffer->dataPtr[6];
-    for (int loop = 2; loop < ccCount; loop++) {
-        tmpPtr[0] = INVALID_DTVCCC_CHANNEL_PACKET_DATA;
-        tmpPtr[1] = EMPTY_DTVCC_CHANNEL_PACKET_DATA;
-        tmpPtr[2] = EMPTY_DTVCC_CHANNEL_PACKET_DATA;
-        tmpPtr = &tmpPtr[3];
-    }
-
-    Buffer* withBoilerPlateBuffer = addBoilerplate(ctxPtr, fillBuffer);
-    withBoilerPlateBuffer->captionTime = *captionTimePtr;
-    uint16 numCharsNeeded = countChars(withBoilerPlateBuffer->dataPtr, withBoilerPlateBuffer->numElements);
-    LOG(DEBUG_LEVEL_VERBOSE, DBG_MCC_ENC, "FILL: With CDP Boiler Plate %d byte packet at time: %02d:%02d:%02d;%02d requires %d bytes compressed",
-            withBoilerPlateBuffer->numElements, withBoilerPlateBuffer->captionTime.hour, withBoilerPlateBuffer->captionTime.minute,
-            withBoilerPlateBuffer->captionTime.second, withBoilerPlateBuffer->captionTime.frame, numCharsNeeded);
-    Buffer* outputBuffer = NewBuffer(BUFFER_TYPE_BYTES, (numCharsNeeded + 13));
-    outputBuffer->captionTime = withBoilerPlateBuffer->captionTime;
-    sprintf((char*) outputBuffer->dataPtr, "%02d:%02d:%02d:%02d\t", withBoilerPlateBuffer->captionTime.hour,
-            withBoilerPlateBuffer->captionTime.minute, withBoilerPlateBuffer->captionTime.second,
-            withBoilerPlateBuffer->captionTime.frame);
-    outputBuffer->numElements = 13;
-    compressData(withBoilerPlateBuffer->dataPtr, withBoilerPlateBuffer->numElements, outputBuffer);
-    FreeBuffer(withBoilerPlateBuffer);
-    LOG(DEBUG_LEVEL_VERBOSE, DBG_MCC_ENC, "Sending Compressed %d byte FILL packet at time: %02d:%02d:%02d;%02d",
-            outputBuffer->numElements, outputBuffer->captionTime.hour, outputBuffer->captionTime.minute,
-            outputBuffer->captionTime.second, outputBuffer->captionTime.frame);
-
-    if (PassToSinks(rootCtxPtr, outputBuffer, &ctxPtr->sinks) != PIPELINE_SUCCESS) {
-        LOG(DEBUG_LEVEL_ERROR, DBG_MCC_ENC, "Attempt to add Fill Frame Failed. Error was suppressed.");
-    }
-
-} // addFillPacket()
-
-/*------------------------------------------------------------------------------
- | NAME:
  |    convertCaptionTime()
  |
  | DESCRIPTION:
