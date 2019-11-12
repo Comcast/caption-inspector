@@ -81,7 +81,7 @@ docker-test:
 	cd test ; make docker
 
 clean:
-	rm lib/libci.so; cd src ; make clean
+	cd src ; make clean
 
 VERSION_CLEANUP=make version-cleanup || { make version-cleanup; exit 1; }
 
