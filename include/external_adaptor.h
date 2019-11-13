@@ -58,8 +58,8 @@ boolean ExtrnlAdptrShutdown( void* );
 boolean ExtrnlAdptrPlumbFileDecodePipeline( char*, uint32 );
 boolean ExtrnlAdptrPlumbSccPipeline(char*, char*, uint32);
 boolean ExtrnlAdptrPlumbMccPipeline(char*, char*);
-boolean ExtrnlAdptrPlumbMpegPipeline(char*, char*, boolean, char*);
-boolean ExtrnlAdptrPlumbMovPipeline(char*, char*, boolean, char*);
+boolean ExtrnlAdptrPlumbMpegPipeline(char*, char*, boolean);
+boolean ExtrnlAdptrPlumbMovPipeline(char*, char*, boolean);
 void ExtrnlAdptrDriveDecodePipeline( void );
 
 #endif /* external_adaptor_h */

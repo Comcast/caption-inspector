@@ -56,6 +56,6 @@ typedef long long int64;
 /*--                           Exposed Methods                              --*/
 /*----------------------------------------------------------------------------*/
 
-void Shutdown( void );
+boolean Shutdown( void );
 
 #endif /* types_h */

@@ -361,22 +361,22 @@ void FreeBuffer( Buffer* bufferToFreePtr ) {
     TEST_ASSERT(bufferToFreePtr == &buffer);
 }
 
-boolean PlumbMccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts ) {
+boolean PlumbMccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename ) {
     PlumbMccPipelineCalled++;
     return PlumbMccPipelineReturn;
 }
 
-boolean PlumbSccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, uint32 framerate, boolean artifacts ) {
+boolean PlumbSccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename ) {
     PlumbSccPipelineCalled++;
     return PlumbSccPipelineReturn;
 }
 
-boolean PlumbMpegPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath, boolean bailAtTwenty ) {
+boolean PlumbMpegPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename ) {
     PlumbMpgPipelineCalled++;
     return PlumbMpgPipelineReturn;
 }
 
-boolean PlumbMovPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename, boolean artifacts, char* artifactPath, boolean bailAtTwenty ) {
+boolean PlumbMovPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename ) {
     PlumbMovPipelineCalled++;
     return PlumbMovPipelineReturn;
 }
@@ -763,7 +763,7 @@ void utest__ExtrnlAdptrPlumbMpgPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMpgPipeline() - Plumb Pipeline Successfully.")
     InitStubs();
     PlumbMpgPipelineReturn = TRUE;
-    retval = ExtrnlAdptrPlumbMpegPipeline( "input", "output", TRUE, "artifact" );
+    retval = ExtrnlAdptrPlumbMpegPipeline( "input", "output", TRUE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(MPEG_BINARY_FILE, fileType);
     ASSERT_EQ(1, PlumbMpgPipelineCalled);
@@ -774,7 +774,7 @@ void utest__ExtrnlAdptrPlumbMpgPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMpgPipeline() - Plumb Pipeline UnSuccessfully.")
     InitStubs();
     PlumbMpgPipelineReturn = FALSE;
-    retval = ExtrnlAdptrPlumbMpegPipeline( "input", "output", TRUE, "artifact" );
+    retval = ExtrnlAdptrPlumbMpegPipeline( "input", "output", TRUE );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(MPEG_BINARY_FILE, fileType);
     ASSERT_EQ(1, PlumbMpgPipelineCalled);
@@ -785,7 +785,7 @@ void utest__ExtrnlAdptrPlumbMpgPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMpgPipeline() - Pass a NULL Input Filename.")
     InitStubs();
     PlumbMpgPipelineReturn = TRUE;
-    retval = ExtrnlAdptrPlumbMpegPipeline( NULL, "output", TRUE, "artifact" );
+    retval = ExtrnlAdptrPlumbMpegPipeline( NULL, "output", TRUE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(MPEG_BINARY_FILE, fileType);
     ASSERT_EQ(1, PlumbMpgPipelineCalled);
@@ -796,7 +796,7 @@ void utest__ExtrnlAdptrPlumbMpgPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMpgPipeline() - Pass a NULL Output Filename.")
     InitStubs();
     PlumbMpgPipelineReturn = TRUE;
-    retval = ExtrnlAdptrPlumbMpegPipeline( "input", NULL, TRUE, "artifact" );
+    retval = ExtrnlAdptrPlumbMpegPipeline( "input", NULL, TRUE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(MPEG_BINARY_FILE, fileType);
     ASSERT_EQ(1, PlumbMpgPipelineCalled);
@@ -807,7 +807,7 @@ void utest__ExtrnlAdptrPlumbMpgPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMpgPipeline() - Pass a NULL Artifact Path.")
     InitStubs();
     PlumbMpgPipelineReturn = TRUE;
-    retval = ExtrnlAdptrPlumbMpegPipeline( "input", "output", TRUE, NULL );
+    retval = ExtrnlAdptrPlumbMpegPipeline( "input", NULL, TRUE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(MPEG_BINARY_FILE, fileType);
     ASSERT_EQ(1, PlumbMpgPipelineCalled);
@@ -833,7 +833,7 @@ void utest__ExtrnlAdptrPlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMovPipeline() - Plumb Pipeline Successfully.")
     InitStubs();
     PlumbMovPipelineReturn = TRUE;
-    retval = ExtrnlAdptrPlumbMovPipeline( "input", "output", TRUE, "artifact" );
+    retval = ExtrnlAdptrPlumbMovPipeline( "input", "output", TRUE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(MOV_BINARY_FILE, fileType);
     ASSERT_EQ(1, PlumbMovPipelineCalled);
@@ -844,7 +844,7 @@ void utest__ExtrnlAdptrPlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMovPipeline() - Plumb Pipeline UnSuccessfully.")
     InitStubs();
     PlumbMovPipelineReturn = FALSE;
-    retval = ExtrnlAdptrPlumbMovPipeline( "input", "output", TRUE, "artifact" );
+    retval = ExtrnlAdptrPlumbMovPipeline( "input", "output", TRUE );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(MOV_BINARY_FILE, fileType);
     ASSERT_EQ(1, PlumbMovPipelineCalled);
@@ -855,7 +855,7 @@ void utest__ExtrnlAdptrPlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMovPipeline() - Pass a NULL Input Filename.")
     InitStubs();
     PlumbMovPipelineReturn = TRUE;
-    retval = ExtrnlAdptrPlumbMovPipeline( NULL, "output", TRUE, "artifact" );
+    retval = ExtrnlAdptrPlumbMovPipeline( NULL, "output", TRUE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(MOV_BINARY_FILE, fileType);
     ASSERT_EQ(1, PlumbMovPipelineCalled);
@@ -866,7 +866,7 @@ void utest__ExtrnlAdptrPlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMovPipeline() - Pass a NULL Output Filename.")
     InitStubs();
     PlumbMovPipelineReturn = TRUE;
-    retval = ExtrnlAdptrPlumbMovPipeline( "input", NULL, TRUE, "artifact" );
+    retval = ExtrnlAdptrPlumbMovPipeline( "input", NULL, TRUE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(MOV_BINARY_FILE, fileType);
     ASSERT_EQ(1, PlumbMovPipelineCalled);
@@ -877,7 +877,7 @@ void utest__ExtrnlAdptrPlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMovPipeline() - Pass a NULL Artifact Path.")
     InitStubs();
     PlumbMovPipelineReturn = TRUE;
-    retval = ExtrnlAdptrPlumbMovPipeline( "input", "output", TRUE, NULL );
+    retval = ExtrnlAdptrPlumbMovPipeline( "input", NULL, TRUE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(MOV_BINARY_FILE, fileType);
     ASSERT_EQ(1, PlumbMovPipelineCalled);

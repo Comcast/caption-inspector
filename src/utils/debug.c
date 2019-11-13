@@ -365,17 +365,19 @@ boolean IsDebugExternallyRouted( void ) {
  |    None.
  |
  | RETURN VALUES:
- |    None.
+ |    boolean - True: Fatal Error(s) found; False: No Fatal Errors.
  |
  | DESCRIPTION:
  |    This method terminates the debugging module in the code. It closes the
  |    logging file which has been created.
  -------------------------------------------------------------------------------*/
-void DebugShutdown( void ) {
+boolean DebugShutdown( void ) {
+    boolean anyFatalErrors = FALSE;
     
     if( DebugExternal == NULL ) {
         if( numFatalErrors > 0 ) {
             printf("\n%d FATAL ERROR(s) Detected! Outputs are very suspect.\n", numFatalErrors);
+            anyFatalErrors = TRUE;
         }
 
         printf("\nApplication finished with: %d Warnings and %d Errors\n", numWarnings,
@@ -390,6 +392,7 @@ void DebugShutdown( void ) {
             fclose(fpLog);
         }
     }
+    return anyFatalErrors;
 }  // DebugShutdown()
 
 /*----------------------------------------------------------------------------*/

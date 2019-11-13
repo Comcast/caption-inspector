@@ -6,7 +6,7 @@
 FFMPEG_VERSION=4.0.2
 #export LD_LIBRARY_PATH=/usr/local/lib
 apt-get update
-apt-get install -y make curl gcc g++ nasm yasm
+apt-get install -y make curl gcc g++ nasm yasm git clang
 apt-get install -y ocl-icd-opencl-dev libass-dev libavformat-dev libavutil-dev libavfilter-dev uuid-dev zlib1g-dev && \
   DIR=$(mktemp -d) && cd ${DIR} && \
   curl -s http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.gz | tar zxvf - -C . && \
@@ -16,3 +16,5 @@ apt-get install -y ocl-icd-opencl-dev libass-dev libavformat-dev libavutil-dev l
     --disable-lzma --enable-opencl --enable-pthreads
 make
 make install
+git clone https://github.com/Comcast/gpac-caption-extractor.git
+cd gpac-caption-extractor && make install

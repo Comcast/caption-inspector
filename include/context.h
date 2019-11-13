@@ -55,11 +55,28 @@
 
 #define DTVCC_MAX_PACKET_LENGTH                            128
 
-#define CAPTION_TIME_TIMEOUT_TIME_IN_MINS                   20
-
 /*----------------------------------------------------------------------------*/
 /*--                              Structures                                --*/
 /*----------------------------------------------------------------------------*/
+
+/* Caption Inspector Configuration */
+typedef struct {
+    char outputDirectory[MAX_FILE_NAME_LEN];    // -o option
+    uint32 passedInFramerate;                   // -f option
+    uint8 bailAfterMins;                        // -b --bail_no_captions
+    boolean debugFile;                          // --no-debug option
+    boolean artifacts;                          // --no-artifacts option
+    char* inputFilename;                        // input file
+    boelean smpteEncode;                        // -s option
+} CaptionInspectorConfig;
+
+/* Caption Inspector Statistics */
+typedef struct {
+    boolean captionText608Found;                // Found Line-21 Captions
+    boolean captionText708Found;                // Found DTVCC Captions
+    boolean valid608CaptionsFound;              // Line-21 has text and commands to render it
+    boolean valid708CaptionsFound;              // DTVCC has text and commands to render it
+} CaptionInspectorStats;
 
 /* Sources */
 
@@ -240,6 +257,8 @@ typedef struct {
 } SmpteOutputCtx;
 
 typedef struct {
+    CaptionInspectorConfig config;
+    CaptionInspectorStats stats;
     SccFileCtx* sccFileCtxPtr;
     MccFileCtx* mccFileCtxPtr;
     CcDataFileCtx* ccDataFileCtxPtr;

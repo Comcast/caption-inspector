@@ -57,14 +57,14 @@ static void loggingCallback( void*, int, const char*, va_list );
  |    fileNameStr - The name of the source file.
  |    overrideDropframe - Use passed in dropframe value rather than calculated.
  |    isDropframe - Passed in dropframe value.
- |    bailAtTwenty - Whether or not to stop processing at 20 mins if no text found.
+ |    bailAfterMins - Whether or not to stop processing at x mins if no text found.
  |
  | RETURN VALUES:
  |    boolean - Was this call successful.
  |
  | DESCRIPTION:
  -------------------------------------------------------------------------------*/
-boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe, boolean bailAtTwenty ) {
+boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe, uint8 bailAfterMins ) {
 #ifndef DONT_COMPILE_FFMPEG
     ASSERT(fileNameStr);
     ASSERT(rootCtxPtr);
@@ -85,7 +85,7 @@ boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean over
 
     ctxPtr->overrideDropframe = overrideDropframe;
     ctxPtr->isDropframe = isDropframe;
-    ctxPtr->bailNoCaptions = bailAtTwenty;
+    ctxPtr->bailNoCaptions = bailAfterMins;
 
     int fdesc = open(fileNameStr, O_RDONLY);
 
@@ -331,10 +331,10 @@ uint8 MpegFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
             }
         }
 
-        if( ctxPtr->bailNoCaptions == TRUE ) {
+        if( ctxPtr->bailNoCaptions != 0 ) {
             CaptionTime captionTime;
             CaptionTimeFromPts(&captionTime, pts);
-            if (captionTime.minute >= CAPTION_TIME_TIMEOUT_TIME_IN_MINS) {
+            if (captionTime.minute >= ctxPtr->bailNoCaptions) {
                 LOG(DEBUG_LEVEL_WARN, DBG_MPEG_FILE, "Unable to find Captions after %d mins. Abandoning.", captionTime.minute);
                 *isDonePtr = TRUE;
                 Sinks sinks = ctxPtr->sinks;
@@ -364,8 +364,10 @@ uint8 MpegFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
             memcpy(outputBuffer->dataPtr, ctxPtr->buffer, ctxPtr->len);
 
             uint8 returnval = PassToSinks(rootCtxPtr, outputBuffer, &ctxPtr->sinks);
-            if( (ctxPtr->bailNoCaptions == TRUE) && (returnval == FIRST_TEXT_FOUND) ) {
-                ctxPtr->bailNoCaptions = FALSE;
+            if( returnval == FIRST_TEXT_FOUND ) {
+                if( ctxPtr->bailNoCaptions != 0 ) {
+                    ctxPtr->bailNoCaptions = 0;
+                }
                 returnval = PIPELINE_SUCCESS;
             }
             return returnval;

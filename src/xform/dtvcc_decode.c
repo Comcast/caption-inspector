@@ -193,6 +193,7 @@ uint8 DtvccDecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
         if( ctxPtr->processedFine != PIPELINE_SUCCESS ) {
             LOG(DEBUG_LEVEL_ERROR, DBG_708_DEC, "First Text Found eclipsed non Success Response: %d", ctxPtr->processedFine);
         }
+        ((Context*)rootCtxPtr)->stats.captionText708Found = TRUE;
         return FIRST_TEXT_FOUND;
     } else {
         return ctxPtr->processedFine;
@@ -234,6 +235,9 @@ uint8 DtvccDecodeShutdown( void* rootCtxPtr ) {
     uint64 compareBit = 1;
     for( int loop = 0; loop < 64; loop++ ) {
         if( (ctxPtr->activeServices & compareBit) == compareBit ) {
+            if( ((Context*)rootCtxPtr)->stats.captionText708Found == TRUE ) {
+                ((Context*)rootCtxPtr)->stats.valid708CaptionsFound = TRUE;
+            }
             if( ctxPtr->captioningChange[loop] == FALSE ) {
                 if( ctxPtr->isPopOnCaptioning[loop] == TRUE ) {
                     LOG(DEBUG_LEVEL_INFO, DBG_708_DEC, "Found DTVCC PopOn Captioning Data on Service %d", loop+1);
@@ -565,6 +569,12 @@ static void processServiceBlock( DtvccDecodeCtx* ctxPtr, uint8* dataPtr, uint8 b
                 dtvccDataPtr->data.g0char = dataPtr[index];
                 LOG( DEBUG_LEVEL_VERBOSE, DBG_708_DEC, "G0: [%02X] '%s'", dataPtr[index], DtvccDecodeG0CharSet(dtvccDataPtr->data.g0char) );
                 used = 1;
+                if( ctxPtr->foundText == NO_TEXT_FOUND ) {
+                    ctxPtr->foundText = TEXT_FOUND;
+                    char captionTimeStr[CAPTION_TIME_SCRATCH_BUFFER_SIZE];
+                    encodeTimeCode(&outBuffer->captionTime, captionTimeStr);
+                    LOG(DEBUG_LEVEL_INFO, DBG_708_DEC, "DTVCC First Character of text found on Service %d at %s", srvcNum, captionTimeStr);
+                }
             } else if( (dataPtr[index] >= DTVCC_MIN_C1_CODE) && (dataPtr[index] <= DTVCC_MAX_C1_CODE) ) {
                 dtvccDataPtr->dtvccType = DTVCC_C1_CMD;
                 used = parseC1CmdCode( ctxPtr, &dataPtr[index], (block_size - index), dtvccDataPtr, dtvccDataPtr->serviceNumber, &outBuffer->captionTime );
@@ -575,6 +585,9 @@ static void processServiceBlock( DtvccDecodeCtx* ctxPtr, uint8* dataPtr, uint8 b
                 used = 1;
                 if( ctxPtr->foundText == NO_TEXT_FOUND ) {
                     ctxPtr->foundText = TEXT_FOUND;
+                    char captionTimeStr[CAPTION_TIME_SCRATCH_BUFFER_SIZE];
+                    encodeTimeCode(&outBuffer->captionTime, captionTimeStr);
+                    LOG(DEBUG_LEVEL_INFO, DBG_708_DEC, "DTVCC First Character of text found on Service %d at %s", srvcNum, captionTimeStr);
                 }
             }
             if( used == LENGTH_UNKNOWN ) {
@@ -607,6 +620,9 @@ static void processServiceBlock( DtvccDecodeCtx* ctxPtr, uint8* dataPtr, uint8 b
                     LOG( DEBUG_LEVEL_VERBOSE, DBG_708_DEC, "G2: '%s'", DtvccDecodeG2CharSet(dtvccDataPtr->data.g2char) );
                     if( ctxPtr->foundText == NO_TEXT_FOUND ) {
                         ctxPtr->foundText = TEXT_FOUND;
+                        char captionTimeStr[CAPTION_TIME_SCRATCH_BUFFER_SIZE];
+                        encodeTimeCode(&outBuffer->captionTime, captionTimeStr);
+                        LOG(DEBUG_LEVEL_INFO, DBG_708_DEC, "DTVCC First Character of text found on Service %d at %s", srvcNum, captionTimeStr);
                     }
                 } else {
                     LOG( DEBUG_LEVEL_WARN, DBG_708_DEC, "Skipping Unknown G2 Char: 0x%02X", dataPtr[index+2] );
@@ -634,6 +650,9 @@ static void processServiceBlock( DtvccDecodeCtx* ctxPtr, uint8* dataPtr, uint8 b
                     LOG( DEBUG_LEVEL_VERBOSE, DBG_708_DEC, "G3: '%s'", DtvccDecodeG2CharSet(dtvccDataPtr->data.g3char) );
                     if( ctxPtr->foundText == NO_TEXT_FOUND ) {
                         ctxPtr->foundText = TEXT_FOUND;
+                        char captionTimeStr[CAPTION_TIME_SCRATCH_BUFFER_SIZE];
+                        encodeTimeCode(&outBuffer->captionTime, captionTimeStr);
+                        LOG(DEBUG_LEVEL_INFO, DBG_708_DEC, "DTVCC First Character of text found on Service %d at %s", srvcNum, captionTimeStr);
                     }
                 } else {
                     LOG( DEBUG_LEVEL_WARN, DBG_708_DEC, "Skipping Unknown G3 Char: 0x%02X", dataPtr[index+2] );
@@ -745,7 +764,7 @@ static int8 parseC1CmdCode( DtvccDecodeCtx* ctxPtr, uint8* dataPtr, uint8 blockS
         if( (((dataPtr[0] == DTVCC_C1_TGW) || (dataPtr[0] == DTVCC_C1_DSW)) && (dataPtr[1] != 0)) && (ctxPtr->captioningStart[service] == FALSE) ) {
             ctxPtr->captioningStart[service] = TRUE;
             encodeTimeCode(captionTimePtr, captionTimeStr);
-            LOG(DEBUG_LEVEL_INFO, DBG_608_DEC, "DTVCC Captioning on Service %d started at %s", service, captionTimeStr);
+            LOG(DEBUG_LEVEL_INFO, DBG_708_DEC, "DTVCC Captioning on Service %d started at %s", service, captionTimeStr);
         }
         c1CmdPtr->c1CmdCode = dataPtr[0];
         c1CmdPtr->cmdData.windowBitmap = dataPtr[1];

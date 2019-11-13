@@ -92,7 +92,7 @@ void SetMinDebugLevel( uint8 );
 uint8 GetMinDebugLevel( uint8 );
 boolean IsDebugInitialized( void );
 boolean IsDebugExternallyRouted( void );
-void DebugShutdown( void );
+boolean DebugShutdown( void );
 
 void DebugLog( uint8, uint8, char*, int, ... );
 

@@ -39,9 +39,9 @@ static boolean decodeGlobalCmd( Line21DecodeCtx*, uint8, uint8, Line21Code*, Cap
 static boolean decodeMidRowCode( Line21DecodeCtx*, uint8, uint8, Line21Code* );
 static boolean decodeTabCtrl( Line21DecodeCtx*, uint8, uint8, Line21Code* );
 static boolean decodePAC( Line21DecodeCtx*, uint8, uint8, Line21Code* );
-static boolean decodeBasicChars( Line21DecodeCtx*, uint8, uint8, Line21Code* );
-static boolean decodeSpecialChar( Line21DecodeCtx*, uint8, uint8, Line21Code* );
-static boolean decodeExtendedChar( Line21DecodeCtx*, uint8, uint8, Line21Code* );
+static boolean decodeBasicChars( Line21DecodeCtx*, uint8, uint8, Line21Code*, CaptionTime* );
+static boolean decodeSpecialChar( Line21DecodeCtx*, uint8, uint8, Line21Code*, CaptionTime* );
+static boolean decodeExtendedChar( Line21DecodeCtx*, uint8, uint8, Line21Code*, CaptionTime* );
 static uint8 decodeColumn( uint8 );
 
 /*----------------------------------------------------------------------------*/
@@ -205,13 +205,14 @@ uint8 Line21DecodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
         FreeBuffer(outBuffer);
         if( ctxPtr->foundText == TEXT_FOUND ) {
             ctxPtr->foundText = TEXT_REPORTED;
+            ((Context*)rootCtxPtr)->stats.captionText608Found = TRUE;
             return FIRST_TEXT_FOUND;
-        } else {
-            return PIPELINE_SUCCESS;
         }
+        return PIPELINE_SUCCESS;
     } else {
         if( ctxPtr->foundText == TEXT_FOUND ) {
             ctxPtr->foundText = TEXT_REPORTED;
+            ((Context*)rootCtxPtr)->stats.captionText608Found = TRUE;
             uint8 retval = PassToSinks(rootCtxPtr, outBuffer, &ctxPtr->sinks);
             if( retval != PIPELINE_SUCCESS ) {
                 LOG(DEBUG_LEVEL_ERROR, DBG_608_DEC, "First Text Found eclipsed non Success Response: %d", retval);
@@ -249,6 +250,9 @@ uint8 Line21DecodeShutdown( void* rootCtxPtr ) {
 
     for( int loop = 1; loop <= LINE21_MAX_NUM_CHANNELS; loop++ ) {
         if( ctxPtr->dataFound[loop] == TRUE ) {
+            if( ((Context*)rootCtxPtr)->stats.captionText608Found == TRUE ) {
+                ((Context*)rootCtxPtr)->stats.valid608CaptionsFound = TRUE;
+            }
             if( ctxPtr->captioningChange[loop] == FALSE ) {
                 if( ctxPtr->isPopOnCaptioning[loop] == TRUE ) {
                     LOG(DEBUG_LEVEL_INFO, DBG_608_DEC, "Found Line 21 PopOn Captioning on Channel %d", loop);
@@ -370,9 +374,9 @@ static boolean decodeCaptionData( Line21DecodeCtx* ctxPtr, uint8 firstByte, uint
     if (wasDecoded == FALSE) wasDecoded = decodeMidRowCode(ctxPtr, firstByte, secondByte, codePtr);
     if (wasDecoded == FALSE) wasDecoded = decodeTabCtrl(ctxPtr, firstByte, secondByte, codePtr);
     if (wasDecoded == FALSE) wasDecoded = decodePAC(ctxPtr, firstByte, secondByte, codePtr);
-    if (wasDecoded == FALSE) wasDecoded = decodeSpecialChar(ctxPtr, firstByte, secondByte, codePtr);
-    if (wasDecoded == FALSE) wasDecoded = decodeExtendedChar(ctxPtr, firstByte, secondByte, codePtr);
-    if (wasDecoded == FALSE) wasDecoded = decodeBasicChars(ctxPtr, firstByte, secondByte, codePtr);
+    if (wasDecoded == FALSE) wasDecoded = decodeSpecialChar(ctxPtr, firstByte, secondByte, codePtr, captionTimePtr);
+    if (wasDecoded == FALSE) wasDecoded = decodeExtendedChar(ctxPtr, firstByte, secondByte, codePtr, captionTimePtr);
+    if (wasDecoded == FALSE) wasDecoded = decodeBasicChars(ctxPtr, firstByte, secondByte, codePtr, captionTimePtr);
 
     return wasDecoded;
 }  // decodeCaptionData()
@@ -676,7 +680,7 @@ static boolean decodePAC( Line21DecodeCtx* ctxPtr, uint8 ccData1, uint8 ccData2,
  | DESCRIPTION:
  |    This function decodes Basic Characters in Line 21 Data per the CEA-608 Spec.
  -------------------------------------------------------------------------------*/
-static boolean decodeBasicChars( Line21DecodeCtx* ctxPtr, uint8 ccData1, uint8 ccData2, Line21Code* codePtr ) {
+static boolean decodeBasicChars( Line21DecodeCtx* ctxPtr, uint8 ccData1, uint8 ccData2, Line21Code* codePtr, CaptionTime* captionTimePtr ) {
     ASSERT(codePtr);
 
     if( (ctxPtr->currentChannel[codePtr->fieldNum] < 1) || (ctxPtr->currentChannel[codePtr->fieldNum] > 4) ) {
@@ -696,6 +700,9 @@ static boolean decodeBasicChars( Line21DecodeCtx* ctxPtr, uint8 ccData1, uint8 c
 
         if( ctxPtr->foundText == NO_TEXT_FOUND ) {
             ctxPtr->foundText = TEXT_FOUND;
+            char captionTimeStr[CAPTION_TIME_SCRATCH_BUFFER_SIZE];
+            encodeTimeCode(captionTimePtr, captionTimeStr);
+            LOG(DEBUG_LEVEL_INFO, DBG_608_DEC, "Line 21 First Character of text found on Channel %d at %s", codePtr->channelNum, captionTimeStr);
         }
 
         return TRUE;
@@ -710,7 +717,7 @@ static boolean decodeBasicChars( Line21DecodeCtx* ctxPtr, uint8 ccData1, uint8 c
  | DESCRIPTION:
  |    This function decodes a Special Character in Line 21 Data per the CEA-608 Spec.
  -------------------------------------------------------------------------------*/
-static boolean decodeSpecialChar( Line21DecodeCtx* ctxPtr, uint8 ccData1, uint8 ccData2, Line21Code* codePtr ) {
+static boolean decodeSpecialChar( Line21DecodeCtx* ctxPtr, uint8 ccData1, uint8 ccData2, Line21Code* codePtr, CaptionTime* captionTimePtr ) {
     
     if( (ccData1 != SPCL_NA_CHAR_SET_CH_1_3) && (ccData1 != SPCL_NA_CHAR_SET_CH_2_4) ) {
         return FALSE;
@@ -754,6 +761,9 @@ static boolean decodeSpecialChar( Line21DecodeCtx* ctxPtr, uint8 ccData1, uint8 
 
     if( ctxPtr->foundText == NO_TEXT_FOUND ) {
         ctxPtr->foundText = TEXT_FOUND;
+        char captionTimeStr[CAPTION_TIME_SCRATCH_BUFFER_SIZE];
+        encodeTimeCode(captionTimePtr, captionTimeStr);
+        LOG(DEBUG_LEVEL_INFO, DBG_608_DEC, "Line 21 First Character of text found on Channel %d at %s", codePtr->channelNum, captionTimeStr);
     }
     
     return TRUE;
@@ -766,7 +776,7 @@ static boolean decodeSpecialChar( Line21DecodeCtx* ctxPtr, uint8 ccData1, uint8 
  | DESCRIPTION:
  |    This function decodes a Extended Character in Line 21 Data per the CEA-608 Spec.
  -------------------------------------------------------------------------------*/
-static boolean decodeExtendedChar( Line21DecodeCtx* ctxPtr, uint8 ccData1, uint8 ccData2, Line21Code* codePtr ) {
+static boolean decodeExtendedChar( Line21DecodeCtx* ctxPtr, uint8 ccData1, uint8 ccData2, Line21Code* codePtr, CaptionTime* captionTimePtr ) {
     
     if( (ccData1 != EXT_W_EURO_CHAR_SET_CH_1_3_SF) && (ccData1 != EXT_W_EURO_CHAR_SET_CH_1_3_FG) &&
        (ccData1 != EXT_W_EURO_CHAR_SET_CH_2_4_SF) && (ccData1 != EXT_W_EURO_CHAR_SET_CH_2_4_FG) ) {
@@ -815,6 +825,9 @@ static boolean decodeExtendedChar( Line21DecodeCtx* ctxPtr, uint8 ccData1, uint8
 
     if( ctxPtr->foundText == NO_TEXT_FOUND ) {
         ctxPtr->foundText = TEXT_FOUND;
+        char captionTimeStr[CAPTION_TIME_SCRATCH_BUFFER_SIZE];
+        encodeTimeCode(captionTimePtr, captionTimeStr);
+        LOG(DEBUG_LEVEL_INFO, DBG_608_DEC, "Line 21 First Character of text found on Channel %d at %s", codePtr->channelNum, captionTimeStr);
     }
     
     return TRUE;
