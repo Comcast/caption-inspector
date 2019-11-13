@@ -67,7 +67,7 @@ typedef struct {
     boolean debugFile;                          // --no-debug option
     boolean artifacts;                          // --no-artifacts option
     char* inputFilename;                        // input file
-    boelean smpteEncode;                        // -s option
+    boolean smpteEncode;                        // -s option
 } CaptionInspectorConfig;
 
 /* Caption Inspector Statistics */

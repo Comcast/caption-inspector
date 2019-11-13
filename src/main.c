@@ -145,7 +145,7 @@ int main( int argc, char* argv[] ) {
                  ctx.config.bailAfterMins = (uint8)strtol(optarg, NULL, 10);
                  break;
             case 's' :
-                globalArgs.smpteEncode = TRUE;
+                ctx.config.smpteEncode = TRUE;
                 break;
             default:
                  printHelp();
