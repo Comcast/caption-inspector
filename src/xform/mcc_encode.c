@@ -25,6 +25,8 @@
 #include "mcc_encode.h"
 #include "cc_utils.h"
 
+//#define DEBUG_CAPTION_TIMING
+
 /*----------------------------------------------------------------------------*/
 /*--                       Public Member Variables                          --*/
 /*----------------------------------------------------------------------------*/
@@ -78,8 +80,12 @@ LinkInfo MccEncodeInitialize( Context* rootCtxPtr ) {
     rootCtxPtr->mccEncodeCtxPtr = malloc(sizeof(MccEncodeCtx));
     MccEncodeCtx* ctxPtr = rootCtxPtr->mccEncodeCtxPtr;
 
+    ctxPtr->matchPtsTime = rootCtxPtr->config.matchPtsTime;
     ctxPtr->headerPrinted = FALSE;
     ctxPtr->cdpHeaderSequence = 0;
+    ctxPtr->numFillFrames = 0;
+    ctxPtr->maxPositiveDelta = 0;
+    ctxPtr->maxNegativeDelta = 0;
 
     InitSinks(&ctxPtr->sinks, CC_DATA___MCC_DATA);
 
@@ -215,6 +221,10 @@ uint8 MccEncodeShutdown( void* rootCtxPtr ) {
     Sinks sinks = ((Context*)rootCtxPtr)->mccEncodeCtxPtr->sinks;
 
     LOG(DEBUG_LEVEL_VERBOSE, DBG_MCC_ENC, "Shutting down MCC Encode pipeline element.");
+
+    LOG(DEBUG_LEVEL_INFO, DBG_MCC_ENC, "Added %ld Fill Frames", ((Context*)rootCtxPtr)->mccEncodeCtxPtr->numFillFrames);
+    LOG(DEBUG_LEVEL_INFO, DBG_MCC_ENC, "Frame Time Ahead High Water Mark - %lld ms", ((Context*)rootCtxPtr)->mccEncodeCtxPtr->maxPositiveDelta);
+    LOG(DEBUG_LEVEL_INFO, DBG_MCC_ENC, "Frame Time Behind High Water Mark - %lld ms", ((Context*)rootCtxPtr)->mccEncodeCtxPtr->maxNegativeDelta);
 
     free(((Context*)rootCtxPtr)->mccEncodeCtxPtr);
     ((Context*)rootCtxPtr)->mccEncodeCtxPtr = NULL;
@@ -391,8 +401,8 @@ static CaptionTime convertCaptionTime( Context* rootCtxPtr, CaptionTime* inCapti
     MccEncodeCtx* ctxPtr = rootCtxPtr->mccEncodeCtxPtr;
     CaptionTime captionTime;
     boolean timeSynch = FALSE;
-    int64 actualTimeInMs;
-    int64 frameTimeInMs;
+    int64 actualTimeInMs = 0;
+    int64 frameTimeInMs = 0;
     int64 deltaInMs;
     int64 frameSizeMs = (100000 / inCaptionTimePtr->frameRatePerSecTimesOneHundred) + 1;
 
@@ -437,15 +447,47 @@ static CaptionTime convertCaptionTime( Context* rootCtxPtr, CaptionTime* inCapti
         frameTimeInMs = (((captionTime.hour * 3600) + (captionTime.minute * 60) + (captionTime.second)) * 1000) +
                         ((captionTime.frame * 100000) / captionTime.frameRatePerSecTimesOneHundred);
 
-        deltaInMs = actualTimeInMs - frameTimeInMs;
+#ifdef DEBUG_CAPTION_TIMING
+        if( actualTimeInMs > frameSizeMs ) {
+            deltaInMs = actualTimeInMs - frameTimeInMs;
+            printf("%02d:%02d:%02d:%03d, %02d:%02d:%02d:%02d, %lld, %ld\n", inCaptionTimePtr->hour, inCaptionTimePtr->minute,
+                   inCaptionTimePtr->second, inCaptionTimePtr->millisecond, captionTime.hour, captionTime.minute,
+                   captionTime.second, captionTime.frame, deltaInMs, ctxPtr->numFillFrames);
+        } else if( actualTimeInMs < frameSizeMs ) {
+            deltaInMs = frameTimeInMs - actualTimeInMs;
+            printf("%02d:%02d:%02d:%03d, %02d:%02d:%02d:%02d, -%lld, %ld\n", inCaptionTimePtr->hour, inCaptionTimePtr->minute,
+                   inCaptionTimePtr->second, inCaptionTimePtr->millisecond, captionTime.hour, captionTime.minute,
+                   captionTime.second, captionTime.frame, deltaInMs, ctxPtr->numFillFrames);
+        }
+#endif
 
-        if( deltaInMs > frameSizeMs ) {
-            addFillPacket(rootCtxPtr, &captionTime);
-        } else if( deltaInMs < -frameSizeMs ) {
-            LOG(DEBUG_LEVEL_ERROR, DBG_MCC_ENC, "Code Missing to remove Fill Frame! Time will be skewed: %lld", deltaInMs);
-            timeSynch = TRUE;
+        if( ctxPtr->matchPtsTime == TRUE ) {
+            deltaInMs = actualTimeInMs - frameTimeInMs;
+
+            if (deltaInMs > frameSizeMs) {
+                addFillPacket(rootCtxPtr, &captionTime);
+                ctxPtr->numFillFrames = ctxPtr->numFillFrames + 1;
+            } else if (deltaInMs < -frameSizeMs) {
+                LOG(DEBUG_LEVEL_ERROR, DBG_MCC_ENC, "Code Missing to remove Fill Frame! Time will be skewed: %lld",
+                    deltaInMs);
+                timeSynch = TRUE;
+            } else {
+                timeSynch = TRUE;
+            }
         } else {
             timeSynch = TRUE;
+        }
+    }
+
+    if( actualTimeInMs > frameSizeMs ) {
+        deltaInMs = actualTimeInMs - frameTimeInMs;
+        if( ctxPtr->maxPositiveDelta < deltaInMs ) {
+            ctxPtr->maxPositiveDelta = deltaInMs;
+        }
+    } else if( actualTimeInMs < frameSizeMs ) {
+        deltaInMs = frameTimeInMs - actualTimeInMs;
+        if( ctxPtr->maxNegativeDelta < deltaInMs ) {
+            ctxPtr->maxNegativeDelta = deltaInMs;
         }
     }
 

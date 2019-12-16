@@ -61,6 +61,7 @@ static struct option longOpts[] = {
     { "no-artifacts",     no_argument,       NULL, 0 },
     { "help",             no_argument,       NULL, 'h' },
     { "version",          no_argument,       NULL, 'v' },
+    { "match-pts",        no_argument,       NULL, 'p' },
     { "bail_no_captions", required_argument, NULL, 'b' },
     { 0, no_argument, NULL, 0 }
 };
@@ -98,6 +99,7 @@ int main( int argc, char* argv[] ) {
     ctx.config.passedInFramerate = 0;
     ctx.config.debugFile = TRUE;
     ctx.config.artifacts = TRUE;
+    ctx.config.matchPtsTime = FALSE;
     ctx.config.bailAfterMins = 0;
 
     ctx.stats.captionText608Found = FALSE;
@@ -114,13 +116,13 @@ int main( int argc, char* argv[] ) {
 
     while ((opt = getopt_long(argc, argv, optString, longOpts, &longIndex )) != -1) {
         switch (opt) {
-             case 'o' :
+            case 'o' :
                  strncpy(ctx.config.outputDirectory, optarg, MAX_FILE_NAME_LEN);
                  if( ctx.config.outputDirectory[strlen(ctx.config.outputDirectory)-1] != '/' ) {
                      strncat(ctx.config.outputDirectory, "/", (MAX_FILE_NAME_LEN - strlen(ctx.config.outputDirectory)));
                  }
                  break;
-             case 'f' :
+            case 'f' :
                  ctx.config.passedInFramerate = (uint16)strtol(optarg, NULL, 10);
                  break;
             case 0:
@@ -133,12 +135,15 @@ int main( int argc, char* argv[] ) {
                     exit(EXIT_FAILURE);
                 }
                 break;
-             case 'h' :
+            case 'h' :
                  printHelp();
                  exit(EXIT_SUCCESS);
-             case 'v' :
+            case 'v' :
                  printVersion();
                  exit(EXIT_SUCCESS);
+            case 'p' :
+                ctx.config.matchPtsTime = TRUE;
+                break;
             case 'b' :
                  ctx.config.bailAfterMins = (uint8)strtol(optarg, NULL, 10);
                  break;
@@ -295,6 +300,7 @@ static void printHelp( void ) {
     printf("\nOptions:\n");
     printf("    -h|--help                    : Display this help message.\n");
     printf("    -v|--version                 : Display version and build information.\n");
+    printf("    -p|--match_pts_time          : When encoding an MCC file, match the PTS time found in the asset.\n");
     printf("    -o|--output <dir>            : Directory to save output files. If this is not set files are saved in the directory of the input file.\n");
     printf("    -f|--framerate <num>         : Framerate * 100 (e.g. 3000, 2997). This is a requirement for SCC Files.\n");
     printf("    -b|--bail_no_captions <mins> : Bail if no captions are found x minutes into the asset.\n");

@@ -66,6 +66,7 @@ typedef struct {
     uint8 bailAfterMins;                        // -b --bail_no_captions
     boolean debugFile;                          // --no-debug option
     boolean artifacts;                          // --no-artifacts option
+    boolean matchPtsTime;                       // -p --match_pts_time
     char* inputFilename;                        // input file
 } CaptionInspectorConfig;
 
@@ -190,9 +191,13 @@ typedef struct {
 
 typedef struct {
     Sinks sinks;
+    boolean matchPtsTime;
     boolean headerPrinted;
     uint16 cdpHeaderSequence;
     CaptionTime nextCaptionTime;
+    uint32 numFillFrames;
+    int64 maxPositiveDelta;
+    int64 maxNegativeDelta;
 } MccEncodeCtx;
 
 typedef struct {
