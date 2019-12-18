@@ -68,6 +68,8 @@ typedef struct {
     boolean artifacts;                          // --no-artifacts option
     boolean matchPtsTime;                       // -p --match_pts_time
     char* inputFilename;                        // input file
+    boolean forceDropframe;                     // -d --dropframe (used)
+    boolean forcedDropframe;                    // -d --dropframe (value)
 } CaptionInspectorConfig;
 
 /* Caption Inspector Statistics */

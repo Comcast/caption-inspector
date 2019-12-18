@@ -83,8 +83,8 @@ boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean over
     ctxPtr->fileSize = 0;
     ctxPtr->isFileOpen = FALSE;
 
-    ctxPtr->overrideDropframe = overrideDropframe;
-    ctxPtr->isDropframe = isDropframe;
+    ctxPtr->overrideDropframe = rootCtxPtr->config.forceDropframe;
+    ctxPtr->isDropframe = rootCtxPtr->config.forcedDropframe;
     ctxPtr->bailNoCaptions = bailAfterMins;
 
     int fdesc = open(fileNameStr, O_RDONLY);

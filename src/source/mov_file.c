@@ -126,8 +126,8 @@ boolean MovFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overr
     ctxPtr->avcTrackCount = 0;
     ctxPtr->ccTrackCount = 0;
     ctxPtr->framerateOneshot = FALSE;
-    ctxPtr->overrideDropframe = overrideDropframe;
-    ctxPtr->isDropframe = isDropframe;
+    ctxPtr->overrideDropframe = rootCtxPtr->config.forceDropframe;
+    ctxPtr->isDropframe = rootCtxPtr->config.forcedDropframe;
     ctxPtr->bailNoCaptions = bailAfterMins;
 
     for(int loop = 0; loop < ctxPtr->trackCount; loop++) {

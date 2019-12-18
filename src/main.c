@@ -52,7 +52,7 @@ static void printVersion();
 
 static char* executibleName;
  
-static const char *optString = "o:f:b:hv?";
+static const char *optString = "o:f:b:d:hv?";
 
 static struct option longOpts[] = {
     { "output",           required_argument, NULL, 'o' },
@@ -63,6 +63,7 @@ static struct option longOpts[] = {
     { "version",          no_argument,       NULL, 'v' },
     { "match-pts",        no_argument,       NULL, 'p' },
     { "bail_no_captions", required_argument, NULL, 'b' },
+    { "dropframe",        required_argument, NULL, 'd' },
     { 0, no_argument, NULL, 0 }
 };
 
@@ -101,6 +102,7 @@ int main( int argc, char* argv[] ) {
     ctx.config.artifacts = TRUE;
     ctx.config.matchPtsTime = FALSE;
     ctx.config.bailAfterMins = 0;
+    ctx.config.forceDropframe = FALSE;
 
     ctx.stats.captionText608Found = FALSE;
     ctx.stats.captionText708Found = FALSE;
@@ -130,6 +132,18 @@ int main( int argc, char* argv[] ) {
                     ctx.config.debugFile = FALSE;
                 } else if( strcmp( "no-artifacts", longOpts[longIndex].name ) == 0 ) {
                     ctx.config.artifacts = FALSE;
+                } else {
+                    printHelp();
+                    exit(EXIT_FAILURE);
+                }
+                break;
+            case 'd' :
+                if( strcmp( "true", longOpts[longIndex].name ) == 0 ) {
+                    ctx.config.forceDropframe = TRUE;
+                    ctx.config.forcedDropframe = TRUE;
+                } else if( strcmp( "false", longOpts[longIndex].name ) == 0 ) {
+                    ctx.config.forceDropframe = TRUE;
+                    ctx.config.forcedDropframe = FALSE;
                 } else {
                     printHelp();
                     exit(EXIT_FAILURE);
@@ -304,6 +318,7 @@ static void printHelp( void ) {
     printf("    -o|--output <dir>            : Directory to save output files. If this is not set files are saved in the directory of the input file.\n");
     printf("    -f|--framerate <num>         : Framerate * 100 (e.g. 3000, 2997). This is a requirement for SCC Files.\n");
     printf("    -b|--bail_no_captions <mins> : Bail if no captions are found x minutes into the asset.\n");
+    printf("    -d|--dropframe <true/false>  : Force asset to be either dropframe or no dropframe.\n");
     printf("    --no-debug                   : Don't create a debug file.\n");
     printf("    --no-artifacts               : Don't create artifact files.\n");
 }  // printHelp()
