@@ -138,10 +138,10 @@ int main( int argc, char* argv[] ) {
                 }
                 break;
             case 'd' :
-                if( strcmp( "true", longOpts[longIndex].name ) == 0 ) {
+                if( strcmp( "true", optarg ) == 0 ) {
                     ctx.config.forceDropframe = TRUE;
                     ctx.config.forcedDropframe = TRUE;
-                } else if( strcmp( "false", longOpts[longIndex].name ) == 0 ) {
+                } else if( strcmp( "false", optarg ) == 0 ) {
                     ctx.config.forceDropframe = TRUE;
                     ctx.config.forcedDropframe = FALSE;
                 } else {
