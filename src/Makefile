@@ -79,6 +79,7 @@
 ################################################################################
 
 DYLIB_NAME = libci.1.0.0.dylib
+SO_NAME = libci.so
 
 UNAME := $(shell uname)
 
@@ -162,10 +163,11 @@ ci_with_gpac: with_gpac
 ${CI_SHARED_LIB}: $(OBJS_WITH_PATH)
 	@echo "\n*** Compiling Caption Inspector Dynamic Library to interface with Python. ***"
 	clang $(SO_FLAGS) -o ${CI_SHARED_LIB} $(OBJS_IN_OBJ_DIR)
+	cd ../lib; ln -s ${CI_SHARED_LIB} libci.so
 
 clean:
 	@echo "*** Cleaning Target Files. ***"
-	rm -f ${CI_EXECUTABLE} ${CI_SHARED_LIB}
+	rm -f ${CI_EXECUTABLE} ${CI_SHARED_LIB} ../lib/libci.so
 	@echo "\n*** Cleaning Object Files. ***"
 	for i in $(OBJS) ; do ( rm -f ../obj/$$i ) ; done
 	rm -f ../obj/main.o

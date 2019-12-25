@@ -46,13 +46,9 @@ const char* DayOfWeekStr[7] = { "Sunday", "Monday", "Tuesday", "Wednesday",
 /*--                     Private Member Declarations                        --*/
 /*----------------------------------------------------------------------------*/
 
-static boolean generateMccHeader( Context*, CaptionTime* );
 static void addFillPacket( Context*, CaptionTime* );
 static CaptionTime convertCaptionTime( Context*, CaptionTime* );
-static boolean sendMccText( Context*, char*, CaptionTime* );
 static Buffer* addBoilerplate( MccEncodeCtx*, Buffer* );
-static uint16 countChars( uint8*, uint16 );
-static void compressData( uint8*, uint16, Buffer* );
 
 /*----------------------------------------------------------------------------*/
 /*--                       Public Member Functions                          --*/
@@ -244,7 +240,7 @@ uint8 MccEncodeShutdown( void* rootCtxPtr ) {
  |    This function will build the standard MCC Header and send it line by line
  |    to the next component in the pipeline.
  -------------------------------------------------------------------------------*/
-static boolean generateMccHeader( Context* ctxPtr, CaptionTime* captionTimePtr ) {
+boolean generateMccHeader( Context* ctxPtr, CaptionTime* captionTimePtr ) {
     uuid_t binuuid;
     char uuidStr[50];
     char dateStr[50];
@@ -505,7 +501,7 @@ static CaptionTime convertCaptionTime( Context* rootCtxPtr, CaptionTime* inCapti
  | DESCRIPTION:
  |    This function sends a line of text to the next component in the pipeline.
  -------------------------------------------------------------------------------*/
-static boolean sendMccText( Context* ctxPtr, char* textStr, CaptionTime* captionTimePtr ) {
+boolean sendMccText( Context* ctxPtr, char* textStr, CaptionTime* captionTimePtr ) {
     Buffer* outputBuffer = NewBuffer(BUFFER_TYPE_BYTES, (strlen(textStr)+1));
     strcpy((char*)outputBuffer->dataPtr, textStr);
 
@@ -603,7 +599,7 @@ static Buffer* addBoilerplate( MccEncodeCtx* ctxPtr, Buffer* inBufferPtr ) {
  |      U  E1h 00h 00h 00h
  |      Z  00h
  -------------------------------------------------------------------------------*/
-static uint16 countChars( uint8* dataPtr, uint16 numElements ) {
+uint16 countChars( uint8* dataPtr, uint16 numElements ) {
     uint16 numChars = 1;
     
     while( numElements > 0 ) {
@@ -713,7 +709,7 @@ static uint16 countChars( uint8* dataPtr, uint16 numElements ) {
  |      U  E1h 00h 00h 00h
  |      Z  00h
  -------------------------------------------------------------------------------*/
-static void compressData( uint8* dataPtr, uint16 numElements, Buffer* outBufPtr ) {
+void compressData( uint8* dataPtr, uint16 numElements, Buffer* outBufPtr ) {
     uint8* outDataPtr = &outBufPtr->dataPtr[12];
     
     while( numElements > 0 ) {

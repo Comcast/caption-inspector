@@ -38,7 +38,6 @@
 /*----------------------------------------------------------------------------*/
 
 static Buffer* expandMccLine( Buffer* );
-static Buffer* decodeMccLine( MccDecodeCtx*, Buffer* );
 static uint8 mccCharCount( char );
 static void addMultipleFaZeroZero( uint8, uint8*, uint16* );
 static void expandMccCode( uint8, uint8*, uint16* );
@@ -281,7 +280,7 @@ static Buffer* expandMccLine( Buffer* buffPtr ) {
  |                     (Specifically: SMPTE ST 334-2:2015 - Revision of SMPTE 334-2-2007)
  |    CEA-708-D - CEA Standard - Digital Television (DTV) Closed Captioning - August 2008
  -------------------------------------------------------------------------------*/
-static Buffer* decodeMccLine( MccDecodeCtx* ctxPtr, Buffer* buffPtr ) {
+Buffer* decodeMccLine( MccDecodeCtx* ctxPtr, Buffer* buffPtr ) {
     ASSERT(buffPtr);
     ASSERT(buffPtr->dataPtr);
     ASSERT(buffPtr->numElements);
