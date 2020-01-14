@@ -95,10 +95,10 @@ void InitSinks(Sinks*, uint8);
 boolean AddSink(Sinks*, LinkInfo*);
 uint8 _PassToSinks(char*, int, Context*, Buffer*, Sinks*);
 uint8 _ShutdownSinks(char*, int, Context*, Sinks*);
-boolean PlumbSccPipeline(Context*, char*, char*);
-boolean PlumbMccPipeline(Context*, char*, char*);
-boolean PlumbMpegPipeline(Context*, char*, char*);
-boolean PlumbMovPipeline(Context*, char*, char*);
+boolean PlumbSccPipeline(Context*);
+boolean PlumbMccPipeline(Context*);
+boolean PlumbMpegPipeline(Context*);
+boolean PlumbMovPipeline(Context*);
 void DrivePipeline(FileType, Context*);
 
 #endif /* pipeline_utils_h */

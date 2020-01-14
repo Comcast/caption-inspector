@@ -53,6 +53,6 @@ void closeFile( FILE* );
 void closeAllFiles( void );
 boolean areAnyFilesOpen( void );
 const char* uint8toBitArray( uint8 );
-void buildOutputPath( char*, char*, char* );
-    
+void buildOutputPath(char*, char*, char*, char* );
+
 #endif /* output_utils_h */

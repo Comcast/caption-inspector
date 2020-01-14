@@ -61,13 +61,13 @@
 
 /* Caption Inspector Configuration */
 typedef struct {
+    char* inputFilename;                        // input file
     char outputDirectory[MAX_FILE_NAME_LEN];    // -o option
     uint32 passedInFramerate;                   // -f option
     uint8 bailAfterMins;                        // -b --bail_no_captions
     boolean debugFile;                          // --no-debug option
     boolean artifacts;                          // --no-artifacts option
     boolean matchPtsTime;                       // -p --match_pts_time
-    char* inputFilename;                        // input file
     boolean forceDropframe;                     // -d --dropframe (used)
     boolean forcedDropframe;                    // -d --dropframe (value)
 } CaptionInspectorConfig;
@@ -119,7 +119,6 @@ typedef struct {
     int streamIndex;
     boolean isFileOpen;
     uint32 frameRatePerSecTimesOneHundred;
-    boolean overrideDropframe;
     boolean isDropframe;
     boolean bailNoCaptions;
     int64 fileSize;
@@ -146,7 +145,6 @@ typedef struct {
     uint32 processingStreamDescriptionIndex;
     uint32 timescale;
     boolean framerateOneshot;
-    boolean overrideDropframe;
     boolean isDropframe;
     boolean bailNoCaptions;
 } MovFileCtx;
@@ -231,7 +229,7 @@ typedef struct {
     FILE* fp[LINE21_MAX_NUM_CHANNELS];
     boolean textStream[LINE21_MAX_NUM_CHANNELS];
     uint8 outputWhichChannel;
-    char baseFileName[MAX_FILE_NAME_LEN];
+    char outputFileName[MAX_FILE_NAME_LEN];
 } Line21OutputCtx;
 
 typedef struct {
@@ -241,7 +239,7 @@ typedef struct {
     boolean suppressNull;
     boolean printMsNotFrame;
     uint8 outputWhichService;
-    char baseFileName[MAX_FILE_NAME_LEN];
+    char outputFileName[MAX_FILE_NAME_LEN];
 } DtvccOutputCtx;
 
 typedef struct {

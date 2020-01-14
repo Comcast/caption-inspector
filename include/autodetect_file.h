@@ -35,6 +35,15 @@ typedef enum {
     MAX_FILE_TYPE         = 5
 } FileType;
 
+typedef enum {
+    DROP_FRAME_UNKNOWN    = 0,
+    NO_DROP_FRAME_ASSET   = 1,
+    DROP_FRAME_ASSET      = 2,
+    MAX_DROP_FRAME_FLAG   = 3
+} DropFrameFlag;
+
+#define TIME_NOT_ASSIGNED           0x7F
+
 /*----------------------------------------------------------------------------*/
 /*--                              Structures                                --*/
 /*----------------------------------------------------------------------------*/
@@ -55,6 +64,6 @@ extern const char* captionFileTypeStr[MAX_FILE_TYPE];
 /*--                           Exposed Methods                              --*/
 /*----------------------------------------------------------------------------*/
 FileType DetermineFileType( char* );
-boolean DetermineDropFrame( char*, boolean, char*, boolean* );
+boolean DetermineDropFrame( char*, boolean, char* );
 
 #endif /* autodetect_file_h */

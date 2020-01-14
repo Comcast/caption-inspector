@@ -42,7 +42,7 @@
 /*----------------------------------------------------------------------------*/
 /*--                           Exposed Methods                              --*/
 /*----------------------------------------------------------------------------*/
-LinkInfo Line21OutInitialize( Context*, char* );
+LinkInfo Line21OutInitialize( Context* );
 uint8 Line21OutProcNextBuffer( void*, Buffer* );
 uint8 Line21OutShutdown( void* );
 

@@ -83,7 +83,7 @@ extern const char* predefWinStyle[8];
 /*--                           Exposed Methods                              --*/
 /*----------------------------------------------------------------------------*/
 
-LinkInfo DtvccOutInitialize( Context*, char*, boolean, boolean );
+LinkInfo DtvccOutInitialize( Context*, boolean, boolean );
 uint8 DtvccOutProcNextBuffer( void*, Buffer* );
 uint8 DtvccOutShutdown( void* );
 

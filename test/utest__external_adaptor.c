@@ -281,11 +281,11 @@ boolean MovFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
     return MovFileAddSinkReturn;
 }
 
-boolean MovFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe, boolean bailAtTwenty ) {
+boolean MovFileInitialize( Context* rootCtxPtr, boolean bailAtTwenty ) {
     MovFileInitializeCalled++;
-    MovFileInitializeFileNameStr = fileNameStr;
-    MovFileInitializeisDropframe = isDropframe;
-    MovFileInitializeOverrideDf = overrideDropframe;
+    MovFileInitializeFileNameStr = rootCtxPtr->config.inputFilename;
+    MovFileInitializeisDropframe = rootCtxPtr->config.forcedDropframe;
+    MovFileInitializeOverrideDf = rootCtxPtr->config.forceDropframe;
 
     return MovFileInitializeReturn;
 }
@@ -296,11 +296,11 @@ boolean MpegFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
     return MpegFileAddSinkReturn;
 }
 
-boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe, boolean bailAtTwenty ) {
+boolean MpegFileInitialize( Context* rootCtxPtr, boolean bailAtTwenty ) {
     MpegFileInitializeCalled++;
-    MpegFileInitializeFileNameStr = fileNameStr;
-    MpegFileInitializeisDropframe = isDropframe;
-    MpegFileInitializeOverrideDf = overrideDropframe;
+    MpegFileInitializeFileNameStr = rootCtxPtr->config.inputFilename;
+    MpegFileInitializeisDropframe = rootCtxPtr->config.forcedDropframe;
+    MpegFileInitializeOverrideDf = rootCtxPtr->config.forceDropframe;
 
     return MpegFileInitializeReturn;
 }
@@ -325,7 +325,7 @@ void AddReader( Buffer* buffPtr ) {
     AddReaderBuffPtr = buffPtr;
 }
 
-boolean DetermineDropFrame( char* fileNameStr, boolean saveMediaInfo, char* artifactPath, boolean* isDropFramePtr ) {
+boolean DetermineDropFrame( char* fileNameStr, boolean saveMediaInfo, char* artifactPath ) {
 
     DetermineDropFrameCalled++;
     DetermineDropFrameInputFilename = fileNameStr;
@@ -333,9 +333,8 @@ boolean DetermineDropFrame( char* fileNameStr, boolean saveMediaInfo, char* arti
         DetermineDropFrameArtifactPath = artifactPath;
     }
     DetermineDropFrameSaveArtifacts = saveMediaInfo;
-    *isDropFramePtr = DetermineDropFrame__isDropFrame;
 
-    return DetermineDropFrame__wasSuccessful;
+    return DetermineDropFrame__isDropFrame;
 }
 
 boolean isFramerateValid( uint32 frameRatePerSecTimesOneHundred ) {
@@ -361,22 +360,22 @@ void FreeBuffer( Buffer* bufferToFreePtr ) {
     TEST_ASSERT(bufferToFreePtr == &buffer);
 }
 
-boolean PlumbMccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename ) {
+boolean PlumbMccPipeline( Context* ctxPtr ) {
     PlumbMccPipelineCalled++;
     return PlumbMccPipelineReturn;
 }
 
-boolean PlumbSccPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename ) {
+boolean PlumbSccPipeline( Context* ctxPtr ) {
     PlumbSccPipelineCalled++;
     return PlumbSccPipelineReturn;
 }
 
-boolean PlumbMpegPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename ) {
+boolean PlumbMpegPipeline( Context* ctxPt ) {
     PlumbMpgPipelineCalled++;
     return PlumbMpgPipelineReturn;
 }
 
-boolean PlumbMovPipeline( Context* ctxPtr, char* inputFilename, char* outputFilename ) {
+boolean PlumbMovPipeline( Context* ctxPtr ) {
     PlumbMovPipelineCalled++;
     return PlumbMovPipelineReturn;
 }
@@ -668,6 +667,8 @@ void utest__ExtrnlAdptrPlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbSccPipeline() - Pass a NULL Input Filename.")
     InitStubs();
     PlumbSccPipelineReturn = TRUE;
+    ERROR_EXPECTED
+    FATAL_ERROR_EXPECTED
     retval = ExtrnlAdptrPlumbSccPipeline( NULL, "output", 2400 );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(SCC_CAPTIONS_FILE, fileType);
@@ -679,6 +680,8 @@ void utest__ExtrnlAdptrPlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbSccPipeline() - Pass a NULL Output Filename.")
     InitStubs();
     PlumbSccPipelineReturn = TRUE;
+    ERROR_EXPECTED
+    FATAL_ERROR_EXPECTED
     retval = ExtrnlAdptrPlumbSccPipeline( "input", NULL, 2400 );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(SCC_CAPTIONS_FILE, fileType);
@@ -726,6 +729,8 @@ void utest__ExtrnlAdptrPlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMccPipeline() - Pass a NULL Input Filename.")
     InitStubs();
     PlumbMccPipelineReturn = TRUE;
+    ERROR_EXPECTED
+    FATAL_ERROR_EXPECTED
     retval = ExtrnlAdptrPlumbMccPipeline( NULL, "output" );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(MCC_CAPTIONS_FILE, fileType);
@@ -737,6 +742,8 @@ void utest__ExtrnlAdptrPlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMccPipeline() - Pass a NULL Output Filename.")
     InitStubs();
     PlumbMccPipelineReturn = TRUE;
+    ERROR_EXPECTED
+    FATAL_ERROR_EXPECTED
     retval = ExtrnlAdptrPlumbMccPipeline( "input", NULL );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(MCC_CAPTIONS_FILE, fileType);
@@ -754,7 +761,6 @@ void utest__ExtrnlAdptrPlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
  |    2) Plumb Pipeline UnSuccessfully.
  |    3) Pass a NULL Input Filename.
  |    4) Pass a NULL Output Filename.
- |    5) Pass a NULL Artifact Path.
  -------------------------------------------------------------------------------*/
 void utest__ExtrnlAdptrPlumbMpgPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_INITIALIZE
@@ -785,6 +791,8 @@ void utest__ExtrnlAdptrPlumbMpgPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMpgPipeline() - Pass a NULL Input Filename.")
     InitStubs();
     PlumbMpgPipelineReturn = TRUE;
+    ERROR_EXPECTED
+    FATAL_ERROR_EXPECTED
     retval = ExtrnlAdptrPlumbMpegPipeline( NULL, "output", TRUE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(MPEG_BINARY_FILE, fileType);
@@ -796,17 +804,8 @@ void utest__ExtrnlAdptrPlumbMpgPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMpgPipeline() - Pass a NULL Output Filename.")
     InitStubs();
     PlumbMpgPipelineReturn = TRUE;
-    retval = ExtrnlAdptrPlumbMpegPipeline( "input", NULL, TRUE );
-    ASSERT_EQ(TRUE, retval);
-    ASSERT_EQ(MPEG_BINARY_FILE, fileType);
-    ASSERT_EQ(1, PlumbMpgPipelineCalled);
-    PlumbMpgPipelineCalled = 0;
-    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
-    TEST_END
-
-    TEST_START("Test Case: utest__ExtrnlAdptrPlumbMpgPipeline() - Pass a NULL Artifact Path.")
-    InitStubs();
-    PlumbMpgPipelineReturn = TRUE;
+    ERROR_EXPECTED
+    FATAL_ERROR_EXPECTED
     retval = ExtrnlAdptrPlumbMpegPipeline( "input", NULL, TRUE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(MPEG_BINARY_FILE, fileType);
@@ -824,7 +823,6 @@ void utest__ExtrnlAdptrPlumbMpgPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
  |    2) Plumb Pipeline UnSuccessfully.
  |    3) Pass a NULL Input Filename.
  |    4) Pass a NULL Output Filename.
- |    5) Pass a NULL Artifact Path.
  -------------------------------------------------------------------------------*/
 void utest__ExtrnlAdptrPlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_INITIALIZE
@@ -855,6 +853,8 @@ void utest__ExtrnlAdptrPlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMovPipeline() - Pass a NULL Input Filename.")
     InitStubs();
     PlumbMovPipelineReturn = TRUE;
+    ERROR_EXPECTED
+    FATAL_ERROR_EXPECTED
     retval = ExtrnlAdptrPlumbMovPipeline( NULL, "output", TRUE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(MOV_BINARY_FILE, fileType);
@@ -866,17 +866,8 @@ void utest__ExtrnlAdptrPlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: utest__ExtrnlAdptrPlumbMovPipeline() - Pass a NULL Output Filename.")
     InitStubs();
     PlumbMovPipelineReturn = TRUE;
-    retval = ExtrnlAdptrPlumbMovPipeline( "input", NULL, TRUE );
-    ASSERT_EQ(TRUE, retval);
-    ASSERT_EQ(MOV_BINARY_FILE, fileType);
-    ASSERT_EQ(1, PlumbMovPipelineCalled);
-    PlumbMovPipelineCalled = 0;
-    ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
-    TEST_END
-
-    TEST_START("Test Case: utest__ExtrnlAdptrPlumbMovPipeline() - Pass a NULL Artifact Path.")
-    InitStubs();
-    PlumbMovPipelineReturn = TRUE;
+    ERROR_EXPECTED
+    FATAL_ERROR_EXPECTED
     retval = ExtrnlAdptrPlumbMovPipeline( "input", NULL, TRUE );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(MOV_BINARY_FILE, fileType);
@@ -960,7 +951,6 @@ void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) 
         ASSERT_EQ(TRUE, pipelineEstablished);
         ASSERT_EQ(0, numberOfShutdowns);
         ASSERT_EQ(1, DetermineFileTypeCalled);
-        ASSERT_EQ(1, DetermineDropFrameCalled);
         ASSERT_EQ(1, MpegFileInitializeCalled);
         ASSERT_EQ(2, MpegFileAddSinkCalled);
         ASSERT_EQ(1, Line21DecodeInitializeCalled);
@@ -969,7 +959,6 @@ void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) 
         ASSERT_EQ(1, DtvccDecodeAddSinkCalled);
         BufferPoolInitCalled = 0;
         DetermineFileTypeCalled = 0;
-        DetermineDropFrameCalled = 0;
         MpegFileInitializeCalled = 0;
         MpegFileAddSinkCalled = 0;
         Line21DecodeInitializeCalled = 0;
@@ -989,7 +978,6 @@ void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) 
         ASSERT_EQ(TRUE, pipelineEstablished);
         ASSERT_EQ(0, numberOfShutdowns);
         ASSERT_EQ(1, DetermineFileTypeCalled);
-        ASSERT_EQ(1, DetermineDropFrameCalled);
         ASSERT_EQ(1, MovFileInitializeCalled);
         ASSERT_EQ(2, MovFileAddSinkCalled);
         ASSERT_EQ(1, Line21DecodeInitializeCalled);
@@ -998,7 +986,6 @@ void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) 
         ASSERT_EQ(1, DtvccDecodeAddSinkCalled);
         BufferPoolInitCalled = 0;
         DetermineFileTypeCalled = 0;
-        DetermineDropFrameCalled = 0;
         MovFileInitializeCalled = 0;
         MovFileAddSinkCalled = 0;
         Line21DecodeInitializeCalled = 0;
@@ -1182,11 +1169,9 @@ void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) 
         ASSERT_EQ(FALSE, pipelineEstablished);
         ASSERT_EQ(0, numberOfShutdowns);
         ASSERT_EQ(1, DetermineFileTypeCalled);
-        ASSERT_EQ(1, DetermineDropFrameCalled);
         ASSERT_EQ(1, MpegFileInitializeCalled);
         BufferPoolInitCalled = 0;
         DetermineFileTypeCalled = 0;
-        DetermineDropFrameCalled = 0;
         MpegFileInitializeCalled = 0;
         ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
     TEST_END
@@ -1203,13 +1188,11 @@ void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) 
         ASSERT_EQ(FALSE, pipelineEstablished);
         ASSERT_EQ(0, numberOfShutdowns);
         ASSERT_EQ(1, DetermineFileTypeCalled);
-        ASSERT_EQ(1, DetermineDropFrameCalled);
         ASSERT_EQ(1, MpegFileInitializeCalled);
         ASSERT_EQ(1, MpegFileAddSinkCalled);
         ASSERT_EQ(1, Line21DecodeInitializeCalled);
         BufferPoolInitCalled = 0;
         DetermineFileTypeCalled = 0;
-        DetermineDropFrameCalled = 0;
         MpegFileInitializeCalled = 0;
         MpegFileAddSinkCalled = 0;
         Line21DecodeInitializeCalled = 0;
@@ -1228,11 +1211,9 @@ void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) 
         ASSERT_EQ(FALSE, pipelineEstablished);
         ASSERT_EQ(0, numberOfShutdowns);
         ASSERT_EQ(1, DetermineFileTypeCalled);
-        ASSERT_EQ(1, DetermineDropFrameCalled);
         ASSERT_EQ(1, MovFileInitializeCalled);
         BufferPoolInitCalled = 0;
         DetermineFileTypeCalled = 0;
-        DetermineDropFrameCalled = 0;
         MovFileInitializeCalled = 0;
         ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
     TEST_END
@@ -1249,13 +1230,11 @@ void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) 
         ASSERT_EQ(FALSE, pipelineEstablished);
         ASSERT_EQ(0, numberOfShutdowns);
         ASSERT_EQ(1, DetermineFileTypeCalled);
-        ASSERT_EQ(1, DetermineDropFrameCalled);
         ASSERT_EQ(1, MovFileInitializeCalled);
         ASSERT_EQ(1, MovFileAddSinkCalled);
         ASSERT_EQ(1, Line21DecodeInitializeCalled);
         BufferPoolInitCalled = 0;
         DetermineFileTypeCalled = 0;
-        DetermineDropFrameCalled = 0;
         MovFileInitializeCalled = 0;
         MovFileAddSinkCalled = 0;
         Line21DecodeInitializeCalled = 0;
@@ -1274,7 +1253,6 @@ void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) 
         ASSERT_EQ(FALSE, pipelineEstablished);
         ASSERT_EQ(0, numberOfShutdowns);
         ASSERT_EQ(1, DetermineFileTypeCalled);
-        ASSERT_EQ(1, DetermineDropFrameCalled);
         ASSERT_EQ(1, MovFileInitializeCalled);
         ASSERT_EQ(2, MovFileAddSinkCalled);
         ASSERT_EQ(1, Line21DecodeInitializeCalled);
@@ -1282,7 +1260,6 @@ void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) 
         ASSERT_EQ(1, DtvccDecodeInitializeCalled);
         BufferPoolInitCalled = 0;
         DetermineFileTypeCalled = 0;
-        DetermineDropFrameCalled = 0;
         MovFileInitializeCalled = 0;
         MovFileAddSinkCalled = 0;
         Line21DecodeInitializeCalled = 0;
@@ -1303,7 +1280,6 @@ void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) 
         ASSERT_EQ(FALSE, pipelineEstablished);
         ASSERT_EQ(0, numberOfShutdowns);
         ASSERT_EQ(1, DetermineFileTypeCalled);
-        ASSERT_EQ(1, DetermineDropFrameCalled);
         ASSERT_EQ(1, MpegFileInitializeCalled);
         ASSERT_EQ(2, MpegFileAddSinkCalled);
         ASSERT_EQ(1, Line21DecodeInitializeCalled);
@@ -1312,7 +1288,6 @@ void utest__ExtrnlAdptrPlumbFileDecodePipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) 
         ASSERT_EQ(1, DtvccDecodeAddSinkCalled);
         BufferPoolInitCalled = 0;
         DetermineFileTypeCalled = 0;
-        DetermineDropFrameCalled = 0;
         MpegFileInitializeCalled = 0;
         MpegFileAddSinkCalled = 0;
         Line21DecodeInitializeCalled = 0;

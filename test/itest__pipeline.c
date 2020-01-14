@@ -781,15 +781,14 @@ boolean MccFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
 //**--  MPEG File In  --**//
 //************************//
 
-boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe ) {
-    TEST_ASSERT(fileNameStr);
+boolean MpegFileInitialize( Context* rootCtxPtr, boolean overrideDropframe, boolean isDropframe ) {
     TEST_ASSERT(rootCtxPtr);
     TEST_ASSERT(!rootCtxPtr->mpegFileCtxPtr);
 
     rootCtxPtr->mpegFileCtxPtr = malloc(sizeof(MpegFileCtx));
     MpegFileCtx* ctxPtr = rootCtxPtr->mpegFileCtxPtr;
 
-    strcpy((char*)ctxPtr->buffer, fileNameStr);
+    strcpy((char*)ctxPtr->buffer, rootCtxPtr->config.inputFilename);
 
     InitSinks(&ctxPtr->sinks, MPG_FILE___CC_DATA);
 
@@ -1096,14 +1095,12 @@ boolean CcDataOutShutdown( void* rootCtxPtr ) {
     return TRUE;
 } // CcDataOutShutdown()
 
-LinkInfo CcDataOutInitialize( Context* rootCtxPtr, char* outputFileNameStr ) {
+LinkInfo CcDataOutInitialize( Context* rootCtxPtr ) {
     TEST_ASSERT(rootCtxPtr);
     TEST_ASSERT(!rootCtxPtr->ccDataOutputCtxPtr);
 
     rootCtxPtr->ccDataOutputCtxPtr = malloc(sizeof(CcDataOutputCtx));
     CcDataOutputCtx* ctxPtr = rootCtxPtr->ccDataOutputCtxPtr;
-
-    strcpy(ctxPtr->ccdFileName, outputFileNameStr);
 
     LinkInfo linkInfo;
     linkInfo.linkType = CC_DATA___TEXT_FILE;
@@ -1147,8 +1144,6 @@ LinkInfo DtvccOutInitialize( Context* rootCtxPtr, char* outputFileNameStr, boole
     rootCtxPtr->dtvccOutputCtxPtr = malloc(sizeof(DtvccOutputCtx));
     DtvccOutputCtx* ctxPtr = rootCtxPtr->dtvccOutputCtxPtr;
 
-    strcpy(ctxPtr->baseFileName, outputFileNameStr);
-
     LinkInfo linkInfo;
     linkInfo.linkType = DTVCC_DATA___TEXT_FILE;
     linkInfo.sourceType = DATA_TYPE_DECODED_708;
@@ -1190,7 +1185,6 @@ LinkInfo Line21OutInitialize( Context* ctxPtr, char* outputFileNameStr ) {
     TEST_ASSERT(!ctxPtr->line21OutputCtxPtr);
 
     ctxPtr->line21OutputCtxPtr = malloc(sizeof(Line21OutputCtx));
-    strcpy(ctxPtr->line21OutputCtxPtr->baseFileName, outputFileNameStr);
 
     LinkInfo linkInfo;
     linkInfo.linkType = LINE21_DATA___TEXT_FILE;
@@ -1227,12 +1221,11 @@ boolean MccOutShutdown( void* rootCtxPtr ) {
     return mccOutputShutdownSuccessfully;
 } // MccOutShutdown()
 
-LinkInfo MccOutInitialize( Context* ctxPtr, char* outputFileNameStr ) {
+LinkInfo MccOutInitialize( Context* ctxPtr ) {
     ASSERT(ctxPtr);
     ASSERT(!ctxPtr->mccOutputCtxPtr);
 
     ctxPtr->mccOutputCtxPtr = malloc(sizeof(MccOutputCtx));
-    strcpy(ctxPtr->mccOutputCtxPtr->mccFileName, outputFileNameStr);
 
     LinkInfo linkInfo;
     linkInfo.linkType = MCC_DATA___TEXT_FILE;
@@ -1247,9 +1240,9 @@ LinkInfo MccOutInitialize( Context* ctxPtr, char* outputFileNameStr ) {
 /*--                        Passive Stub Functions                          --*/
 /*----------------------------------------------------------------------------*/
 
-boolean DetermineDropFrame( char* fileNameStr, boolean saveMediaInfo, char* artifactPath, boolean* isDropFramePtr ) { return TRUE; }
+boolean DetermineDropFrame( char* fileNameStr, boolean saveMediaInfo, char* artifactPath ) { return TRUE; }
+boolean MovFileInitialize( Context* rootCtxPtr, uint8 bailAfterMins ) { return TRUE; }
 boolean MovFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) { return TRUE; }
-boolean MovFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe ) { return TRUE; }
 boolean MovFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) { return TRUE; }
 boolean SccEncodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) { return TRUE; }
 LinkInfo SccEncodeInitialize( Context* rootCtxPtr ) { LinkInfo linkInfo; linkInfo.sourceType = 1; return linkInfo; }
@@ -1906,12 +1899,11 @@ void itest__MockMccPipelineTests( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: Mock MCC Pipeline - Establish the Pipeline.")
     BufferPoolInit();
     ctx.config.artifacts = TRUE;
-    retval = PlumbMccPipeline(&ctx, "Test", "MCC" );
+    ctx.config.inputFilename = "Test";
+    sprintf(ctx.config.outputDirectory, "MCC");
+    retval = PlumbMccPipeline(&ctx);
     ASSERT_EQ(TRUE, retval);
     ASSERT_STREQ("Test", ctx.mccFileCtxPtr->captionFileName);
-    ASSERT_STREQ("MCC", ctx.line21OutputCtxPtr->baseFileName);
-    ASSERT_STREQ("MCC", ctx.dtvccOutputCtxPtr->baseFileName);
-    ASSERT_STREQ("MCC", ctx.ccDataOutputCtxPtr->ccdFileName);
     TEST_END
 
     TEST_START("Test Case: Mock MCC Pipeline - Pass two Buffers Successfully.")
@@ -1958,7 +1950,9 @@ void itest__MockMccPipelineTests( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     resetMetrics();
     memset(&ctx, 0, sizeof(Context));
     ctx.config.artifacts = TRUE;
-    retval = PlumbMccPipeline( &ctx, "Test", "MCC" );
+    ctx.config.inputFilename = "Test";
+    sprintf(ctx.config.outputDirectory, "MCC");
+    retval = PlumbMccPipeline( &ctx );
     ASSERT_EQ(TRUE, retval);
     retval = MccFileProcNextBuffer( &ctx, &isDone );
     ASSERT_EQ(TRUE, retval);
@@ -2047,13 +2041,11 @@ void itest__MockMpegPipelineTests( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     BufferPoolInit();
     ctx.config.artifacts = TRUE;
     ctx.config.bailAfterMins = 0;
-    retval = PlumbMpegPipeline( &ctx, "Test", "MPEG" );
+    ctx.config.inputFilename = "Test";
+    sprintf(ctx.config.outputDirectory, "MCC");
+    retval = PlumbMpegPipeline( &ctx );
     ASSERT_EQ(TRUE, retval);
     ASSERT_STREQ("Test", (char*)ctx.mpegFileCtxPtr->buffer);
-    ASSERT_STREQ("MPEG", ctx.mccOutputCtxPtr->mccFileName);
-    ASSERT_STREQ("MPEG", ctx.line21OutputCtxPtr->baseFileName);
-    ASSERT_STREQ("MPEG", ctx.dtvccOutputCtxPtr->baseFileName);
-    ASSERT_STREQ("MPEG", ctx.ccDataOutputCtxPtr->ccdFileName);
     TEST_END
 
     TEST_START("Test Case: Mock MPEG Pipeline - Pass two Buffers Successfully to Pipeline with Artifacts.")
@@ -2105,7 +2097,9 @@ void itest__MockMpegPipelineTests( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     memset(&ctx, 0, sizeof(Context));
     ctx.config.artifacts = TRUE;
     ctx.config.bailAfterMins = 0;
-    retval = PlumbMpegPipeline(&ctx, "Test", "MPEG" );
+    ctx.config.inputFilename = "Test";
+    sprintf(ctx.config.outputDirectory, "MCC");
+    retval = PlumbMpegPipeline(&ctx);
     ASSERT_EQ(TRUE, retval);
     retval = MpegFileProcNextBuffer( &ctx, &isDone );
     ASSERT_EQ(TRUE, retval);
@@ -2161,10 +2155,11 @@ void itest__MockMpegPipelineTests( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     memset(&ctx, 0, sizeof(Context));
     ctx.config.artifacts = FALSE;
     ctx.config.bailAfterMins = 0;
-    retval = PlumbMpegPipeline( &ctx, "Test", "MPEG" );
+    ctx.config.inputFilename = "Test";
+    sprintf(ctx.config.outputDirectory, "MPEG");
+    retval = PlumbMpegPipeline( &ctx );
     ASSERT_EQ(TRUE, retval);
     ASSERT_STREQ("Test", (char*)ctx.mpegFileCtxPtr->buffer);
-    ASSERT_STREQ("MPEG", ctx.mccOutputCtxPtr->mccFileName);
     TEST_END
 
     TEST_START("Test Case: Mock MPEG Pipeline - Pass two Buffers Successfully to Pipeline without Artifacts.")
@@ -2215,7 +2210,9 @@ void itest__MockMpegPipelineTests( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     memset(&ctx, 0, sizeof(Context));
     ctx.config.artifacts = FALSE;
     ctx.config.bailAfterMins = 0;
-    retval = PlumbMpegPipeline( &ctx, "Test", "MPEG" );
+    ctx.config.inputFilename = "Test";
+    sprintf(ctx.config.outputDirectory, "MPEG");
+    retval = PlumbMpegPipeline( &ctx );
     ASSERT_EQ(TRUE, retval);
     retval = MpegFileProcNextBuffer( &ctx, &isDone );
     ASSERT_EQ(TRUE, retval);
@@ -2251,18 +2248,18 @@ void itest__MockMpegPipelineTests( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_END
 
     TEST_START("Test Case: Mock MPEG Pipeline - UnSuccessfully Shut down the Pipeline without Artifacts.")
-        isDone = TRUE;
-        mccOutputShutdownSuccessfully = FALSE;
-        retval = MpegFileProcNextBuffer( &ctx, &isDone );
-        ASSERT_EQ(FALSE, retval);
-        ASSERT_EQ(TRUE, mccEncodeShutdownReceived);
-        ASSERT_EQ(TRUE, mccOutShutdownReceived);
-        ASSERT_EQ(TRUE, line21DecodeShutdownReceived);
-        ASSERT_EQ(TRUE, dtvccDecodeShutdownReceived);
-        ASSERT_EQ(FALSE, ccDataOutShutdownReceived);
-        ASSERT_EQ(FALSE, line21OutShutdownReceived);
-        ASSERT_EQ(FALSE, dtvccOutShutdownReceived);
-        ASSERT_EQ(0, NumAllocatedBuffers());
+    isDone = TRUE;
+    mccOutputShutdownSuccessfully = FALSE;
+    retval = MpegFileProcNextBuffer( &ctx, &isDone );
+    ASSERT_EQ(FALSE, retval);
+    ASSERT_EQ(TRUE, mccEncodeShutdownReceived);
+    ASSERT_EQ(TRUE, mccOutShutdownReceived);
+    ASSERT_EQ(TRUE, line21DecodeShutdownReceived);
+    ASSERT_EQ(TRUE, dtvccDecodeShutdownReceived);
+    ASSERT_EQ(FALSE, ccDataOutShutdownReceived);
+    ASSERT_EQ(FALSE, line21OutShutdownReceived);
+    ASSERT_EQ(FALSE, dtvccOutShutdownReceived);
+    ASSERT_EQ(0, NumAllocatedBuffers());
     TEST_END
 }  // itest__MockMpegPipelineTests()
 

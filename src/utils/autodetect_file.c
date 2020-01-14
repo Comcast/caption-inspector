@@ -73,8 +73,8 @@ static void gpacLoggingSink( void*, GF_LOG_Level, GF_LOG_Tool, const char*, va_l
  | INPUT PARAMETERS:
  |    fileNameStr - The name of the source file.
  |    saveMediaInfo - Save the MediaInfo output into a file: <fileNameStr>.inf
- |    artifactPath - Path to save the MediaInfo output, or NULL to save in
- |                   the input dir.
+ |    outputPath - Path to save the MediaInfo output, or NULL to save in
+ |                  the input dir.
  |
  | RETURN VALUES:
  |    boolean - Was the Call Successful: Successful = TRUE; Failure = FALSE
@@ -84,25 +84,18 @@ static void gpacLoggingSink( void*, GF_LOG_Level, GF_LOG_Tool, const char*, va_l
  |    This determine whether this is likely a MPEG file or likely a Caption
  |    file. This is done by examining the first few bytes of the file.
  ------------------------------------------------------------------------------*/
-boolean DetermineDropFrame( char* fileNameStr, boolean saveMediaInfo, char* artifactPath, boolean* isDropFramePtr ) {
+boolean DetermineDropFrame( char* fileNameStr, boolean saveMediaInfo, char* outputPath ) {
     FILE* filePtr;
     FILE* outFilePtr = NULL;
     char invocationString[MAX_FILE_NAME_LEN*2];
     char buffer[1035];
     boolean dfFound = FALSE;
+    boolean isDropFrame = FALSE;
 
     if( saveMediaInfo == TRUE ) {
         char tempFilename[MAX_FILE_NAME_LEN];
-        if( artifactPath != NULL ) {
-            strncpy(tempFilename, artifactPath, MAX_FILE_NAME_LEN);
-        } else {
-            strncpy(tempFilename, fileNameStr, MAX_FILE_NAME_LEN);
-            char *tmpCharPtr = strrchr(tempFilename, '.');
-            if( tmpCharPtr != NULL ) {
-                *tmpCharPtr = '\0';
-            }
-        }
-        strncat(tempFilename, ".inf", (MAX_FILE_NAME_LEN - strlen(tempFilename)));
+
+        buildOutputPath(fileNameStr, outputPath, "inf", tempFilename);
         outFilePtr = fileOutputInit(tempFilename);
 
         sprintf(invocationString, "%s %s", mediaInfoInvokeStr, mediaInfoVerStr);
@@ -148,15 +141,14 @@ boolean DetermineDropFrame( char* fileNameStr, boolean saveMediaInfo, char* arti
             tmpCharPtr = tmpCharPtr+2;
             if( tmpCharPtr[8] == ';' ) {
                 dfFound = TRUE;
-                *isDropFramePtr = TRUE;
+                isDropFrame = TRUE;
                 LOG(DEBUG_LEVEL_INFO, DBG_FILE_IN, "File: %s is determined to be dropframe", fileNameStr );
             } else if( tmpCharPtr[8] == ':' ) {
                 dfFound = TRUE;
-                *isDropFramePtr = FALSE;
+                isDropFrame = FALSE;
                 LOG(DEBUG_LEVEL_INFO, DBG_FILE_IN, "File: %s is determined to be non-dropframe", fileNameStr );
             } else {
                 LOG(DEBUG_LEVEL_ERROR, DBG_FILE_IN, "Unable to determine DropFrame: %s %s", tmpCharPtr, buffer );
-                return FALSE;
             }
         }
         if( saveMediaInfo == TRUE ) {
@@ -172,7 +164,7 @@ boolean DetermineDropFrame( char* fileNameStr, boolean saveMediaInfo, char* arti
     }
 
     if( dfFound == TRUE ) {
-        return TRUE;
+        return isDropFrame;
     } else {
         LOG(DEBUG_LEVEL_WARN, DBG_FILE_IN, "Unable to determine DropFrame from MediaInfo.");
         return FALSE;

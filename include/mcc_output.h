@@ -42,7 +42,7 @@
 /*--                           Exposed Methods                              --*/
 /*----------------------------------------------------------------------------*/
 
-LinkInfo MccOutInitialize( Context*, char* );
+LinkInfo MccOutInitialize( Context* );
 uint8 MccOutProcNextBuffer( void*, Buffer* );
 uint8 MccOutShutdown( void* );
 

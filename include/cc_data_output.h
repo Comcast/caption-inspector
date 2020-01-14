@@ -104,7 +104,7 @@ typedef struct {
 /*--                           Exposed Methods                              --*/
 /*----------------------------------------------------------------------------*/
 
-LinkInfo CcDataOutInitialize( Context*, char* );
+LinkInfo CcDataOutInitialize( Context* );
 uint8 CcDataOutProcNextBuffer( void*, Buffer* );
 uint8 CcDataOutShutdown( void* );
 

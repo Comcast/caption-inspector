@@ -40,7 +40,7 @@ class TestClass(object):
         if os.path.exists('./tmp') is not True:
             os.mkdir('tmp')
         retval = clib.ExtrnlAdptrPlumbSccPipeline('../media/Plan9fromOuterSpace.scc'.encode('utf-8'),
-                                                  './tmp/Plan9fromOuterSpace'.encode('utf-8'), 2400, 1)
+                                                  './tmp/Plan9fromOuterSpace'.encode('utf-8'), 2400)
         assert retval is 1
         clib.ExtrnlAdptrDriveDecodePipeline()
         assert os.path.exists('./tmp/Plan9fromOuterSpace-C1.608'.encode('utf-8')) is True
@@ -65,7 +65,7 @@ class TestClass(object):
         if os.path.exists('./tmp') is not True:
             os.mkdir('tmp')
         retval = clib.ExtrnlAdptrPlumbMccPipeline('../media/NightOfTheLivingDead.mcc'.encode('utf-8'),
-                                                  './tmp/NightOfTheLivingDead'.encode('utf-8'), 1)
+                                                  './tmp/NightOfTheLivingDead'.encode('utf-8'))
         assert retval is 1
         clib.ExtrnlAdptrDriveDecodePipeline()
         assert os.path.exists('./tmp/NightOfTheLivingDead-C1.608'.encode('utf-8')) is True
@@ -90,8 +90,7 @@ class TestClass(object):
         if os.path.exists('./tmp') is not True:
             os.mkdir('tmp')
         retval = clib.ExtrnlAdptrPlumbMpegPipeline('../media/BigBuckBunny_256x144-24fps.ts'.encode('utf-8'),
-                                                   './tmp/BigBuckBunny_256x144-24fps'.encode('utf-8'), 1,
-                                                   './tmp/BigBuckBunny_256x144-24fps'.encode('utf-8'))
+                                                   './tmp/BigBuckBunny_256x144-24fps'.encode('utf-8'), 1)
         assert retval is 1
         clib.ExtrnlAdptrDriveDecodePipeline()
         assert os.path.exists('./tmp/BigBuckBunny_256x144-24fps-C1.608'.encode('utf-8')) is True

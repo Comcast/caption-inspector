@@ -273,7 +273,6 @@ boolean ExtrnlAdptrShutdown( void* rootCtxPtr ) {
  |                                               +--------------+       +------------------+
  -------------------------------------------------------------------------------*/
 boolean ExtrnlAdptrPlumbFileDecodePipeline( char* inputFilename, uint32 framerate ) {
-    boolean isDropframe;
     boolean retval;
 
     pipelineEstablished = FALSE;
@@ -312,14 +311,14 @@ boolean ExtrnlAdptrPlumbFileDecodePipeline( char* inputFilename, uint32 framerat
     }
 
     memset(&rootContext, 0, sizeof(Context));
+    rootContext.config.inputFilename = inputFilename;
 
     if( (fileType == MPEG_BINARY_FILE) || (fileType == MOV_BINARY_FILE) ) {
-        boolean wasSuccessful = DetermineDropFrame(inputFilename, FALSE, NULL, &isDropframe);
         if (fileType == MPEG_BINARY_FILE) {
 #ifdef DONT_COMPILE_FFMPEG
             LOG(DEBUG_LEVEL_FATAL, DBG_EXT_ADPT, "Executable was compiled without FFMPEG, unable to process Binary MPEG File");
 #else
-            retval = MpegFileInitialize(&rootContext, inputFilename, wasSuccessful, isDropframe, FALSE);
+            retval = MpegFileInitialize(&rootContext, FALSE);
             if( retval == FALSE ) {
                 LOG(DEBUG_LEVEL_ERROR, DBG_EXT_ADPT, "Problem Establishing Pipeline, bailing.");
                 return FALSE;
@@ -338,7 +337,7 @@ boolean ExtrnlAdptrPlumbFileDecodePipeline( char* inputFilename, uint32 framerat
             }
 #endif
         } else {
-            retval = MovFileInitialize(&rootContext, inputFilename, wasSuccessful, isDropframe, FALSE);
+            retval = MovFileInitialize(&rootContext, FALSE);
             if( retval == FALSE ) {
                 LOG(DEBUG_LEVEL_ERROR, DBG_EXT_ADPT, "Problem Establishing Pipeline, bailing.");
                 return FALSE;
@@ -452,10 +451,18 @@ boolean ExtrnlAdptrPlumbFileDecodePipeline( char* inputFilename, uint32 framerat
  |    external entity.
  -------------------------------------------------------------------------------*/
 boolean ExtrnlAdptrPlumbSccPipeline( char* inputFilename, char* outputFilename, uint32 framerate ) {
+    ASSERT(inputFilename);
+    ASSERT(outputFilename);
+    static char InputFilename[MAX_FILE_NAME_LEN];
     memset(&rootContext, 0, sizeof(Context));
     rootContext.config.passedInFramerate = framerate;
     rootContext.config.artifacts = TRUE;
-    pipelineEstablished = PlumbSccPipeline( &rootContext, inputFilename, outputFilename );
+    rootContext.config.inputFilename = InputFilename;
+    strncpy(InputFilename, inputFilename, MAX_FILE_NAME_LEN);
+    InputFilename[(MAX_FILE_NAME_LEN-1)] = '\0';
+    strncpy(rootContext.config.outputDirectory, outputFilename, MAX_FILE_NAME_LEN);
+    rootContext.config.outputDirectory[(MAX_FILE_NAME_LEN-1)] = '\0';
+    pipelineEstablished = PlumbSccPipeline( &rootContext );
     fileType = SCC_CAPTIONS_FILE;
     return pipelineEstablished;
 } // ExtrnlAdptrPlumbSccPipeline()
@@ -476,9 +483,17 @@ boolean ExtrnlAdptrPlumbSccPipeline( char* inputFilename, char* outputFilename, 
  |    external entity.
  -------------------------------------------------------------------------------*/
 boolean ExtrnlAdptrPlumbMccPipeline( char* inputFilename, char* outputFilename ) {
+    ASSERT(inputFilename);
+    ASSERT(outputFilename);
+    static char InputFilename[MAX_FILE_NAME_LEN];
     memset(&rootContext, 0, sizeof(Context));
     rootContext.config.artifacts = TRUE;
-    pipelineEstablished = PlumbMccPipeline( &rootContext, inputFilename, outputFilename );
+    rootContext.config.inputFilename = InputFilename;
+    strncpy(InputFilename, inputFilename, MAX_FILE_NAME_LEN);
+    InputFilename[(MAX_FILE_NAME_LEN-1)] = '\0';
+    strncpy(rootContext.config.outputDirectory, outputFilename, MAX_FILE_NAME_LEN);
+    rootContext.config.outputDirectory[(MAX_FILE_NAME_LEN-1)] = '\0';
+    pipelineEstablished = PlumbMccPipeline( &rootContext );
     fileType = MCC_CAPTIONS_FILE;
     return pipelineEstablished;
 } // ExtrnlAdptrPlumbMccPipeline()
@@ -500,9 +515,17 @@ boolean ExtrnlAdptrPlumbMccPipeline( char* inputFilename, char* outputFilename )
  |    convert it to an MCC File on behalf of an external entity.
  -------------------------------------------------------------------------------*/
 boolean ExtrnlAdptrPlumbMpegPipeline( char* inputFilename, char* outputFilename, boolean artifacts ) {
+    ASSERT(inputFilename);
+    ASSERT(outputFilename);
+    static char InputFilename[MAX_FILE_NAME_LEN];
     memset(&rootContext, 0, sizeof(Context));
     rootContext.config.artifacts = artifacts;
-    pipelineEstablished = PlumbMpegPipeline( &rootContext, inputFilename, outputFilename );
+    rootContext.config.inputFilename = InputFilename;
+    strncpy(InputFilename, inputFilename, MAX_FILE_NAME_LEN);
+    InputFilename[(MAX_FILE_NAME_LEN-1)] = '\0';
+    strncpy(rootContext.config.outputDirectory, outputFilename, MAX_FILE_NAME_LEN);
+    rootContext.config.outputDirectory[(MAX_FILE_NAME_LEN-1)] = '\0';
+    pipelineEstablished = PlumbMpegPipeline( &rootContext );
     fileType = MPEG_BINARY_FILE;
     return pipelineEstablished;
 } // ExtrnlAdptrPlumbMpegPipeline()
@@ -524,9 +547,17 @@ boolean ExtrnlAdptrPlumbMpegPipeline( char* inputFilename, char* outputFilename,
  |    convert it to an MCC File on behalf of an external entity.
  -------------------------------------------------------------------------------*/
 boolean ExtrnlAdptrPlumbMovPipeline( char* inputFilename, char* outputFilename, boolean artifacts ) {
+    ASSERT(inputFilename);
+    ASSERT(outputFilename);
+    static char InputFilename[MAX_FILE_NAME_LEN];
     memset(&rootContext, 0, sizeof(Context));
     rootContext.config.artifacts = artifacts;
-    pipelineEstablished = PlumbMovPipeline( &rootContext, inputFilename, outputFilename );
+    rootContext.config.inputFilename = InputFilename;
+    strncpy(InputFilename, inputFilename, MAX_FILE_NAME_LEN);
+    InputFilename[(MAX_FILE_NAME_LEN-1)] = '\0';
+    strncpy(rootContext.config.outputDirectory, outputFilename, MAX_FILE_NAME_LEN);
+    rootContext.config.outputDirectory[(MAX_FILE_NAME_LEN-1)] = '\0';
+    pipelineEstablished = PlumbMovPipeline( &rootContext );
     fileType = MOV_BINARY_FILE;
     return pipelineEstablished;
 } // ExtrnlAdptrPlumbMovPipeline()

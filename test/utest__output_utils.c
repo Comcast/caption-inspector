@@ -93,222 +93,225 @@ void utest__uint8toBitArray( TEST_SUITE_RECEIVED_ARGUMENTS ) {
 void utest__buildOutputPath( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_INITIALIZE
     char outputPath[MAX_FILE_NAME_LEN];
-    char tmpStr[MAX_FILE_NAME_LEN];
+    char outputDir[MAX_FILE_NAME_LEN];
+
+    // Function Under Test Prototype --> void buildOutputPath( char* inputFilename, char* outputDir, char* extension, char* artifactPath );
 
     TEST_START("Test Case: buildOutputPath() - No Output Directory. Input in working.");
-    tmpStr[0] = '\0';
-    buildOutputPath( "filename.mpg", tmpStr, outputPath );
-    ASSERT_STREQ("filename", outputPath);
+    outputDir[0] = '\0';
+    buildOutputPath("filename.mpg", outputDir, "rob", outputPath );
+    ASSERT_STREQ("filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - No Output Directory. Input below working.");
-    tmpStr[0] = '\0';
-    buildOutputPath( "path/filename.mpg", tmpStr, outputPath );
-    ASSERT_STREQ("path/filename", outputPath);
+    outputDir[0] = '\0';
+    buildOutputPath("path/filename.mpg", outputDir, "rob", outputPath );
+    ASSERT_STREQ("path/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - No Output Directory. Input two below working.");
-    tmpStr[0] = '\0';
-    buildOutputPath( "path/two/filename.mpg", tmpStr, outputPath );
-    ASSERT_STREQ("path/two/filename", outputPath);
+    outputDir[0] = '\0';
+    buildOutputPath("path/two/filename.mpg", outputDir, "rob", outputPath );
+    ASSERT_STREQ("path/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - No Output Directory. Absolute Path to Input One Deep.");
-    tmpStr[0] = '\0';
-    buildOutputPath( "/path/filename.mpg", tmpStr, outputPath );
-    ASSERT_STREQ("/path/filename", outputPath);
+    outputDir[0] = '\0';
+    buildOutputPath("/path/filename.mpg", outputDir, "rob", outputPath );
+    ASSERT_STREQ("/path/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - No Output Directory. Absolute Path to Input Two Deep.");
-    tmpStr[0] = '\0';
-    buildOutputPath( "/path/two/filename.mpg", tmpStr, outputPath );
-    ASSERT_STREQ("/path/two/filename", outputPath);
+    outputDir[0] = '\0';
+    buildOutputPath("/path/two/filename.mpg", outputDir, "rob", outputPath );
+    ASSERT_STREQ("/path/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory '.' Input in working.");
-    buildOutputPath( "filename.mpg", ".", outputPath );
-    ASSERT_STREQ("./filename", outputPath);
+    buildOutputPath( "filename.mpg", ".", "rob", outputPath );
+    ASSERT_STREQ("./filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory '.' Input below working.");
-    buildOutputPath( "path/filename.mpg", ".", outputPath );
-    ASSERT_STREQ("./filename", outputPath);
+    buildOutputPath( "path/filename.mpg", ".", "rob", outputPath );
+    ASSERT_STREQ("./filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory '.' Input two below working.");
-    buildOutputPath( "path/two/filename.mpg", ".", outputPath );
-    ASSERT_STREQ("./filename", outputPath);
+    buildOutputPath( "path/two/filename.mpg", ".", "rob", outputPath );
+    ASSERT_STREQ("./filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory '.' Absolute Path to Input One Deep.");
-    buildOutputPath( "/path/filename.mpg", ".", outputPath );
-    ASSERT_STREQ("./filename", outputPath);
+    buildOutputPath( "/path/filename.mpg", ".", "rob", outputPath );
+    ASSERT_STREQ("./filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory '.' Absolute Path to Input Two Deep.");
-    buildOutputPath( "/path/two/filename.mpg", ".", outputPath );
-    ASSERT_STREQ("./filename", outputPath);
+    buildOutputPath( "/path/two/filename.mpg", ".", "rob", outputPath );
+    ASSERT_STREQ("./filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Below Working. Input in working.");
-    buildOutputPath( "filename.mpg", "outpath/", outputPath );
-    ASSERT_STREQ("outpath/filename", outputPath);
+    buildOutputPath( "filename.mpg", "outpath/", "rob", outputPath );
+    ASSERT_STREQ("outpath/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Below Working. Input below working.");
-    buildOutputPath( "path/filename.mpg", "outpath/", outputPath );
-    ASSERT_STREQ("outpath/filename", outputPath);
+    buildOutputPath( "path/filename.mpg", "outpath/", "rob", outputPath );
+    ASSERT_STREQ("outpath/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Below Working. Input two below working.");
-    buildOutputPath( "path/two/filename.mpg", "outpath/", outputPath );
-    ASSERT_STREQ("outpath/filename", outputPath);
+    buildOutputPath( "path/two/filename.mpg", "outpath/", "rob", outputPath );
+    ASSERT_STREQ("outpath/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Below Working. Absolute Path to Input One Deep.");
-    buildOutputPath( "/path/filename.mpg", "outpath/", outputPath );
-    ASSERT_STREQ("outpath/filename", outputPath);
+    buildOutputPath( "/path/filename.mpg", "outpath/", "rob", outputPath );
+    ASSERT_STREQ("outpath/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Below Working. Absolute Path to Input Two Deep.");
-    buildOutputPath( "/path/two/filename.mpg", "outpath/", outputPath );
-    ASSERT_STREQ("outpath/filename", outputPath);
+    buildOutputPath( "/path/two/filename.mpg", "outpath/", "rob", outputPath );
+    ASSERT_STREQ("outpath/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Below Working (no slash). Input in working.");
-    buildOutputPath( "filename.mpg", "outpath", outputPath );
-    ASSERT_STREQ("outpath/filename", outputPath);
+    buildOutputPath( "filename.mpg", "outpath", "rob", outputPath );
+    ASSERT_STREQ("outpath/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Below Working (no slash). Input below working.");
-    buildOutputPath( "path/filename.mpg", "outpath", outputPath );
-    ASSERT_STREQ("outpath/filename", outputPath);
+    buildOutputPath( "path/filename.mpg", "outpath", "rob", outputPath );
+    ASSERT_STREQ("outpath/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Below Working (no slash). Input two below working.");
-    buildOutputPath( "path/two/filename.mpg", "outpath", outputPath );
-    ASSERT_STREQ("outpath/filename", outputPath);
+    buildOutputPath( "path/two/filename.mpg", "outpath", "rob", outputPath );
+    ASSERT_STREQ("outpath/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Below Working (no slash). Absolute Path to Input One Deep.");
-    buildOutputPath( "/path/filename.mpg", "outpath", outputPath );
-    ASSERT_STREQ("outpath/filename", outputPath);
+    buildOutputPath( "/path/filename.mpg", "outpath", "rob", outputPath );
+    ASSERT_STREQ("outpath/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Below Working (no slash). Absolute Path to Input Two Deep.");
-    buildOutputPath( "/path/two/filename.mpg", "outpath", outputPath );
-    ASSERT_STREQ("outpath/filename", outputPath);
+    buildOutputPath( "/path/two/filename.mpg", "outpath", "rob", outputPath );
+    ASSERT_STREQ("outpath/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Two Below Working. Input in working.");
-    buildOutputPath( "filename.mpg", "outpath/two/", outputPath );
-    ASSERT_STREQ("outpath/two/filename", outputPath);
+    buildOutputPath( "filename.mpg", "outpath/two/", "rob", outputPath );
+    ASSERT_STREQ("outpath/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Two Below Working. Input below working.");
-    buildOutputPath( "path/filename.mpg", "outpath/two/", outputPath );
-    ASSERT_STREQ("outpath/two/filename", outputPath);
+    buildOutputPath( "path/filename.mpg", "outpath/two/", "rob", outputPath );
+    ASSERT_STREQ("outpath/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Two Below Working. Input two below working.");
-    buildOutputPath( "path/two/filename.mpg", "outpath/two/", outputPath );
-    ASSERT_STREQ("outpath/two/filename", outputPath);
+    buildOutputPath( "path/two/filename.mpg", "outpath/two/", "rob", outputPath );
+    ASSERT_STREQ("outpath/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Two Below Working. Absolute Path to Input One Deep.");
-    buildOutputPath( "/path/filename.mpg", "outpath/two/", outputPath );
-    ASSERT_STREQ("outpath/two/filename", outputPath);
+    buildOutputPath( "/path/filename.mpg", "outpath/two/", "rob", outputPath );
+    ASSERT_STREQ("outpath/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Two Below Working. Absolute Path to Input Two Deep.");
-    buildOutputPath( "/path/two/filename.mpg", "outpath/two/", outputPath );
-    ASSERT_STREQ("outpath/two/filename", outputPath);
+    buildOutputPath( "/path/two/filename.mpg", "outpath/two/", "rob", outputPath );
+    ASSERT_STREQ("outpath/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Two Below Working (no slash). Input in working.");
-    buildOutputPath( "filename.mpg", "outpath/two", outputPath );
-    ASSERT_STREQ("outpath/two/filename", outputPath);
+    buildOutputPath( "filename.mpg", "outpath/two", "rob", outputPath );
+    ASSERT_STREQ("outpath/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Two Below Working (no slash). Input below working.");
-    buildOutputPath( "path/filename.mpg", "outpath/two", outputPath );
-    ASSERT_STREQ("outpath/two/filename", outputPath);
+    buildOutputPath( "path/filename.mpg", "outpath/two", "rob", outputPath );
+    ASSERT_STREQ("outpath/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Two Below Working (no slash). Input two below working.");
-    buildOutputPath( "path/two/filename.mpg", "outpath/two", outputPath );
-    ASSERT_STREQ("outpath/two/filename", outputPath);
+    buildOutputPath( "path/two/filename.mpg", "outpath/two", "rob", outputPath );
+    ASSERT_STREQ("outpath/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Two Below Working (no slash). Absolute Path to Input One Deep.");
-    buildOutputPath( "/path/filename.mpg", "outpath/two", outputPath );
-    ASSERT_STREQ("outpath/two/filename", outputPath);
+    buildOutputPath( "/path/filename.mpg", "outpath/two", "rob", outputPath );
+    ASSERT_STREQ("outpath/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Output Directory Two Below Working (no slash). Absolute Path to Input Two Deep.");
-    buildOutputPath( "/path/two/filename.mpg", "outpath/two", outputPath );
-    ASSERT_STREQ("outpath/two/filename", outputPath);
+    buildOutputPath( "/path/two/filename.mpg", "outpath/two", "rob", outputPath );
+    ASSERT_STREQ("outpath/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Absolute Path One Deep. Input in working.");
-    buildOutputPath( "filename.mpg", "/outpath/", outputPath );
-    ASSERT_STREQ("/outpath/filename", outputPath);
+    buildOutputPath( "filename.mpg", "/outpath/", "rob", outputPath );
+    ASSERT_STREQ("/outpath/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Absolute Path One Deep. Input below working.");
-    buildOutputPath( "path/filename.mpg", "/outpath/", outputPath );
-    ASSERT_STREQ("/outpath/filename", outputPath);
+    buildOutputPath( "path/filename.mpg", "/outpath/", "rob", outputPath );
+    ASSERT_STREQ("/outpath/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Absolute Path One Deep. Input two below working.");
-    buildOutputPath( "path/two/filename.mpg", "/outpath/", outputPath );
-    ASSERT_STREQ("/outpath/filename", outputPath);
+    buildOutputPath( "path/two/filename.mpg", "/outpath/", "rob", outputPath );
+    ASSERT_STREQ("/outpath/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Absolute Path One Deep. Absolute Path to Input One Deep.");
-    buildOutputPath( "/path/filename.mpg", "/outpath/", outputPath );
-    ASSERT_STREQ("/outpath/filename", outputPath);
+    buildOutputPath( "/path/filename.mpg", "/outpath/", "rob", outputPath );
+    ASSERT_STREQ("/outpath/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Absolute Path One Deep. Absolute Path to Input Two Deep.");
-    buildOutputPath( "/path/two/filename.mpg", "/outpath/", outputPath );
-    ASSERT_STREQ("/outpath/filename", outputPath);
+    buildOutputPath( "/path/two/filename.mpg", "/outpath/", "rob", outputPath );
+    ASSERT_STREQ("/outpath/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Absolute Path Two Deep. Input in working.");
-    buildOutputPath( "filename.mpg", "/outpath/two/", outputPath );
-    ASSERT_STREQ("/outpath/two/filename", outputPath);
+    buildOutputPath( "filename.mpg", "/outpath/two/", "rob", outputPath );
+    ASSERT_STREQ("/outpath/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Absolute Path Two Deep. Input below working.");
-    buildOutputPath( "path/filename.mpg", "/outpath/two/", outputPath );
-    ASSERT_STREQ("/outpath/two/filename", outputPath);
+    buildOutputPath( "path/filename.mpg", "/outpath/two/", "rob", outputPath );
+    ASSERT_STREQ("/outpath/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Absolute Path Two Deep. Input two below working.");
-    buildOutputPath( "path/two/filename.mpg", "/outpath/two/", outputPath );
-    ASSERT_STREQ("/outpath/two/filename", outputPath);
+    buildOutputPath( "path/two/filename.mpg", "/outpath/two/", "rob", outputPath );
+    ASSERT_STREQ("/outpath/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Absolute Path Two Deep. Absolute Path to Input One Deep.");
-    buildOutputPath( "/path/filename.mpg", "/outpath/two/", outputPath );
-    ASSERT_STREQ("/outpath/two/filename", outputPath);
+    buildOutputPath( "/path/filename.mpg", "/outpath/two/", "rob", outputPath );
+    ASSERT_STREQ("/outpath/two/filename.rob", outputPath);
     TEST_END
 
     TEST_START("Test Case: buildOutputPath() - Absolute Path Two Deep. Absolute Path to Input Two Deep.");
-    buildOutputPath( "/path/two/filename.mpg", "/outpath/two/", outputPath );
-    ASSERT_STREQ("/outpath/two/filename", outputPath);
+    buildOutputPath( "/path/two/filename.mpg", "/outpath/two/", "rob", outputPath );
+    ASSERT_STREQ("/outpath/two/filename.rob", outputPath);
     TEST_END
-
+#if 0
     TEST_START("Test Case: buildOutputPath() - Output Directory has a super long name that is not too long. Input in working.");
-    buildOutputPath( "filename.mpg", "/outpath/is/incredibly/long/probably/not/a/full/256/bytes/long/but/certainly/longer/than/anything/that/is/reasonable/or/is/likely/to/come/up/in/production/", outputPath );
-    ASSERT_STREQ("/outpath/is/incredibly/long/probably/not/a/full/256/bytes/long/but/certainly/longer/than/anything/that/is/reasonable/or/is/likely/to/come/up/in/production/filename", outputPath);
+    buildOutputPath( "filename.mpg", "/outpath/is/incredibly/long/probably/not/a/full/256/bytes/long/but/certainly/longer/than/anything/that/is/reasonable/or/is/likely/to/come/up/in/production/", "rob", outputPath );
+    ASSERT_STREQ("/outpath/is/incredibly/long/probably/not/a/full/256/bytes/long/but/certainly/longer/than/anything/that/is/reasonable/or/is/likely/to/come/up/in/production/filename.rob", outputPath);
     TEST_END
 
-    TEST_START("Test Case: buildOutputPath() - Output Directory has a super long name that is long. Input in working.");
-    buildOutputPath( "filename.mpg", "/outpath/is/incredibly/long/probably/not/a/full/256/bytes/long/but/certainly/longer/than/anything/that/is/reasonable/or/is/likely/to/come/up/in/production/ok/now/it/is/even/longer/this/would/cause/real/problems/if/it/happened/but/look/how/absurd/and/unlikely/it/is/", outputPath );
-    ASSERT_STREQ("/outpath/is/incredibly/long/probably/not/a/full/256/bytes/long/but/certainly/longer/than/anything/that/is/reasonable/or/is/likely/to/come/up/in/production/ok/now/it/is/even/longer/this/would/cause/real/problems/if/it/happened/but/look/how/abs/filename", outputPath);
+    TEST_START("Test Case: buildOutputPath() - Output Directory has a super long name that is too long. Input in working.");
+    buildOutputPath( "filename.mpg", "/outpath/is/incredibly/long/probably/not/a/full/256/bytes/long/but/certainly/longer/than/anything/that/is/reasonable/or/is/likely/to/come/up/in/production/ok/now/it/is/even/longer/this/would/cause/real/problems/if/it/happened/but/look/how/absurd/and/unlikely/it/is/", "rob", outputPath );
+    ASSERT_STREQ("/outpath/is/incredibly/long/probably/not/a/full/256/bytes/long/but/certainly/longer/than/anything/that/is/reasonable/or/is/likely/to/come/up/in/production/ok/now/it/is/even/longer/this/would/cause/real/problems/if/it/happened/but/look/how/filename.rob", outputPath);
     TEST_END
+#endif
 }  // utest__buildOutputPath()
 
 /*----------------------------------------------------------------------------*/

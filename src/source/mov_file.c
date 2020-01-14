@@ -87,9 +87,6 @@ static void loggingCallback( void*, GF_LOG_Level, GF_LOG_Tool, const char*, va_l
  |
  | INPUT PARAMETERS:
  |    rootCtxPtr - Pointer to all Pipeline Elements Contexts, including this one.
- |    fileNameStr - The name of the source file.
- |    overrideDropframe - Use passed in dropframe value rather than calculated.
- |    isDropframe - Passed in dropframe value.
  |    bailAfterMins - Whether or not to stop processing at x mins if no text found.
  |
  | RETURN VALUES:
@@ -97,10 +94,10 @@ static void loggingCallback( void*, GF_LOG_Level, GF_LOG_Tool, const char*, va_l
  |
  | DESCRIPTION:
  -------------------------------------------------------------------------------*/
-boolean MovFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe, uint8 bailAfterMins ) {
+boolean MovFileInitialize( Context* rootCtxPtr, uint8 bailAfterMins ) {
 #ifdef COMPILE_GPAC
-    ASSERT(fileNameStr);
     ASSERT(rootCtxPtr);
+    ASSERT(rootCtxPtr->config.inputFilename);
     ASSERT(!rootCtxPtr->movFileCtxPtr);
 
     rootCtxPtr->movFileCtxPtr = malloc(sizeof(MovFileCtx));
@@ -110,14 +107,20 @@ boolean MovFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overr
 
     gf_log_set_callback(NULL, loggingCallback);
 
-    LOG(DEBUG_LEVEL_INFO, DBG_MOV_FILE, "Opening \'%s\'", fileNameStr);
+    LOG(DEBUG_LEVEL_INFO, DBG_MOV_FILE, "Opening \'%s\'", rootCtxPtr->config.inputFilename);
 
-    ctxPtr->movFile = gf_isom_open(fileNameStr, GF_ISOM_OPEN_READ, NULL);
+    ctxPtr->movFile = gf_isom_open(rootCtxPtr->config.inputFilename, GF_ISOM_OPEN_READ, NULL);
     if( ctxPtr->movFile == NULL ) {
         LOG(DEBUG_LEVEL_FATAL, DBG_MOV_FILE, "failed to open");
         free(ctxPtr);
         rootCtxPtr->movFileCtxPtr = NULL;
         return FALSE;
+    }
+
+    if( rootCtxPtr->config.forceDropframe == TRUE ) {
+        ctxPtr->isDropframe = rootCtxPtr->config.forcedDropframe;
+    } else {
+        ctxPtr->isDropframe = DetermineDropFrame(rootCtxPtr->config.inputFilename, rootCtxPtr->config.artifacts, rootCtxPtr->config.outputDirectory);
     }
 
     ctxPtr->trackCount = gf_isom_get_track_count(ctxPtr->movFile);
@@ -126,8 +129,6 @@ boolean MovFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overr
     ctxPtr->avcTrackCount = 0;
     ctxPtr->ccTrackCount = 0;
     ctxPtr->framerateOneshot = FALSE;
-    ctxPtr->overrideDropframe = rootCtxPtr->config.forceDropframe;
-    ctxPtr->isDropframe = rootCtxPtr->config.forcedDropframe;
     ctxPtr->bailNoCaptions = bailAfterMins;
 
     for(int loop = 0; loop < ctxPtr->trackCount; loop++) {
@@ -305,16 +306,7 @@ uint8 MovFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
                         } else {
                             outputBuffer->captionTime.frameRatePerSecTimesOneHundred = ctxPtr->timescale;
                         }
-                        if( ctxPtr->overrideDropframe == FALSE ) {
-                            if ((outputBuffer->captionTime.frameRatePerSecTimesOneHundred / 100 == 29) ||
-                                (outputBuffer->captionTime.frameRatePerSecTimesOneHundred / 100 == 59)) {
-                                outputBuffer->captionTime.dropframe = TRUE;
-                            } else {
-                                outputBuffer->captionTime.dropframe = FALSE;
-                            }
-                        } else {
-                            outputBuffer->captionTime.dropframe = ctxPtr->isDropframe;
-                        }
+                        outputBuffer->captionTime.dropframe = ctxPtr->isDropframe;
                         CaptionTimeFromPts(&outputBuffer->captionTime, pts);
 
                         for( int loop = 0; loop < ccCount; loop++, ccData += 3 ) {

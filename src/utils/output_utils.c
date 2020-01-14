@@ -216,48 +216,58 @@ const char* uint8toBitArray( uint8 byteToBits )
  |    buildOutputPath()
  |
  | INPUT PARAMETERS:
- |    byteToBits
+ |    inputFileName - The input file name and path (maybe on the path).
+ |    outputDir - Output Directory, if specified, otherwise null.
+ |    extension - Extension to add to the base input file name.
  |
  | RETURN VALUES:
- |    const char* - Contains the bit array for printf()ing
+ |    artifactPath - The filename and path to write the specific artifact.
  |
  | DESCRIPTION:
- |    This function will take the basename (from the input path) and the
- |    output directory to build the output path
+ |    This function will piece together a filename and path using the following:
+ |    artifactPath = <Output Directory>/<Input Filename Base>.<Extension>
  |
  -------------------------------------------------------------------------------*/
-void buildOutputPath( char* inputPath, char* outputDir, char* outputPath ) {
-    char* tmpCharPtr;
+void buildOutputPath(char* inputFilename, char* outputDir, char* extension, char* artifactPath ) {
+    ASSERT(inputFilename);
+    ASSERT(outputDir);
+    ASSERT(artifactPath);
+    ASSERT(extension);
+
+    char *tmpCharPtr;
     char baseFilename[MAX_FILE_NAME_LEN];
 
-    tmpCharPtr = strrchr(inputPath, '/');
-    if( (tmpCharPtr != NULL) && (outputDir[0] == '\0') ) {
-        strncpy(outputDir, inputPath, MAX_FILE_NAME_LEN);
-        baseFilename[MAX_FILE_NAME_LEN-1] = '\0';
-        tmpCharPtr = strrchr(outputDir, '/');
-        tmpCharPtr[1] = '\0';
-    }
+    artifactPath[0] = '\0';
 
-    tmpCharPtr = strrchr(inputPath, '/');
-    if( tmpCharPtr == NULL ) {
-        tmpCharPtr = inputPath;
+    tmpCharPtr = strrchr(inputFilename, '/');
+    if (tmpCharPtr == NULL) {
+        strncpy(baseFilename, inputFilename, MAX_FILE_NAME_LEN);
+        baseFilename[MAX_FILE_NAME_LEN - 1] = '\0';
     } else {
-        tmpCharPtr = tmpCharPtr + 1;
+        strncpy(baseFilename, tmpCharPtr + 1, MAX_FILE_NAME_LEN);
+        baseFilename[MAX_FILE_NAME_LEN - 1] = '\0';
     }
 
-    ASSERT(strlen(baseFilename) < 100);
-
-    strcpy(baseFilename, tmpCharPtr);
     tmpCharPtr = strrchr(baseFilename, '.');
     if( tmpCharPtr != NULL ) *tmpCharPtr = '\0';
 
-    strncpy(outputPath, outputDir, (MAX_FILE_NAME_LEN - 6 - strlen(baseFilename)));
-    outputPath[MAX_FILE_NAME_LEN - 6 - strlen(baseFilename)] = '\0';
-    if( (outputPath[strlen(outputPath)-1] != '/') && (strlen(outputPath) > 0) ) {
-        strncat(outputPath, "/", (MAX_FILE_NAME_LEN - strlen(outputPath)));
+    if( outputDir[0] == '\0' ) {
+        char tmpInputFilename[MAX_FILE_NAME_LEN];
+        memcpy(tmpInputFilename, inputFilename, MAX_FILE_NAME_LEN);
+        tmpInputFilename[MAX_FILE_NAME_LEN-1] = '\0';
+        tmpCharPtr = strrchr(tmpInputFilename, '/');
+        if( tmpCharPtr == NULL ) {
+            sprintf(artifactPath, "%s.%s", baseFilename, extension);
+        } else {
+            *tmpCharPtr = '\0';
+            sprintf(artifactPath, "%s/%s.%s", tmpInputFilename, baseFilename, extension);
+        }
+    } else {
+        if( outputDir[strlen(outputDir)-1] == '/') outputDir[strlen(outputDir)-1] = '\0';
+        sprintf(artifactPath, "%s/%s.%s", outputDir, baseFilename, extension );
     }
-    strncat(outputPath, baseFilename, (MAX_FILE_NAME_LEN - strlen(outputPath) - 1));
 
+    ASSERT(strlen(artifactPath) < MAX_FILE_NAME_LEN);
 }  // buildOutputPath()
 
 /*----------------------------------------------------------------------------*/

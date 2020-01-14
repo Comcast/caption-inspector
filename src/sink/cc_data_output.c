@@ -63,8 +63,6 @@ static void decodeExtCmdCode( CcDataOutputCtx*, uint8, char*, char*, TextString*
  |
  | INPUT PARAMETERS:
  |    rootCtxPtr - Pointer to all Pipeline Elements Contexts, including this one.
- |    outputFileNameStr - The name of the file to write the data to.
- |    suppressFill - Whether or not to output fill packets.
  |
  | RETURN VALUES:
  |    LinkInfo -  Information about this element of the pipeline, such that it can
@@ -74,14 +72,9 @@ static void decodeExtCmdCode( CcDataOutputCtx*, uint8, char*, char*, TextString*
  | DESCRIPTION:
  |    This initializes this element of the pipeline.
  -------------------------------------------------------------------------------*/
-LinkInfo CcDataOutInitialize( Context* rootCtxPtr, char* outputFileNameStr ) {
+LinkInfo CcDataOutInitialize( Context* rootCtxPtr ) {
     ASSERT(rootCtxPtr);
     ASSERT(!rootCtxPtr->ccDataOutputCtxPtr);
-    char tempFilename[MAX_FILE_NAME_LEN];
-
-    strncpy(tempFilename, outputFileNameStr, MAX_FILE_NAME_LEN-1);
-    tempFilename[MAX_FILE_NAME_LEN-1] = '\0';
-    strncat(tempFilename, ".ccd", (MAX_FILE_NAME_LEN - strlen(tempFilename) - 1));
 
     rootCtxPtr->ccDataOutputCtxPtr = malloc(sizeof(CcDataOutputCtx));
     CcDataOutputCtx* ctxPtr = rootCtxPtr->ccDataOutputCtxPtr;
@@ -95,7 +88,7 @@ LinkInfo CcDataOutInitialize( Context* rootCtxPtr, char* outputFileNameStr ) {
     ctxPtr->cea708State = CEA708_STATE_UNKNOWN;
     ctxPtr->cea708Code = CEA708_CODE_UNKNOWN;
     ctxPtr->cea708BytesRemaining = 0;
-    strncpy(ctxPtr->ccdFileName, tempFilename, MAX_FILE_NAME_LEN-1);
+    buildOutputPath(rootCtxPtr->config.inputFilename, rootCtxPtr->config.outputDirectory, "ccd", ctxPtr->ccdFileName);
 
     LinkInfo linkInfo;
     linkInfo.linkType = CC_DATA___TEXT_FILE;

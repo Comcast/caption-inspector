@@ -47,7 +47,6 @@
  |
  | INPUT PARAMETERS:
  |    ctxPtr - Pointer to all Pipeline Elements Contexts, including this one.
- |    outputFileNameStr - The name of the file to write the data to.
  |
  | RETURN VALUES:
  |    LinkInfo -  Information about this element of the pipeline, such that it can
@@ -57,18 +56,16 @@
  | DESCRIPTION:
  |    This initializes this element of the pipeline.
  -------------------------------------------------------------------------------*/
-LinkInfo MccOutInitialize( Context* ctxPtr, char* outputFileNameStr ) {
+LinkInfo MccOutInitialize( Context* ctxPtr ) {
     ASSERT(ctxPtr);
     ASSERT(!ctxPtr->mccOutputCtxPtr);
     char tempFilename[MAX_FILE_NAME_LEN];
 
-    strncpy(tempFilename, outputFileNameStr, MAX_FILE_NAME_LEN-1);
-    tempFilename[MAX_FILE_NAME_LEN-1] = '\0';
-    strncat(tempFilename, ".mcc", (MAX_FILE_NAME_LEN - strlen(tempFilename) - 1));
-
     ctxPtr->mccOutputCtxPtr = malloc(sizeof(MccOutputCtx));
     ctxPtr->mccOutputCtxPtr->fp = NULL;
-    strncpy(ctxPtr->mccOutputCtxPtr->mccFileName, tempFilename, MAX_FILE_NAME_LEN-1);
+
+    buildOutputPath(ctxPtr->config.inputFilename, ctxPtr->config.outputDirectory, "mcc",
+                    ctxPtr->mccOutputCtxPtr->mccFileName);
 
     LinkInfo linkInfo;
     linkInfo.linkType = MCC_DATA___TEXT_FILE;

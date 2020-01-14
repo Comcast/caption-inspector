@@ -54,7 +54,6 @@ static void loggingCallback( void*, int, const char*, va_list );
  |
  | INPUT PARAMETERS:
  |    rootCtxPtr - Pointer to all Pipeline Elements Contexts, including this one.
- |    fileNameStr - The name of the source file.
  |    overrideDropframe - Use passed in dropframe value rather than calculated.
  |    isDropframe - Passed in dropframe value.
  |    bailAfterMins - Whether or not to stop processing at x mins if no text found.
@@ -64,10 +63,10 @@ static void loggingCallback( void*, int, const char*, va_list );
  |
  | DESCRIPTION:
  -------------------------------------------------------------------------------*/
-boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe, uint8 bailAfterMins ) {
+boolean MpegFileInitialize( Context* rootCtxPtr, uint8 bailAfterMins ) {
 #ifndef DONT_COMPILE_FFMPEG
-    ASSERT(fileNameStr);
     ASSERT(rootCtxPtr);
+    ASSERT(rootCtxPtr->config.inputFilename);
     ASSERT(!rootCtxPtr->mpegFileCtxPtr);
 
     int ret = 0;
@@ -83,11 +82,15 @@ boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean over
     ctxPtr->fileSize = 0;
     ctxPtr->isFileOpen = FALSE;
 
-    ctxPtr->overrideDropframe = rootCtxPtr->config.forceDropframe;
-    ctxPtr->isDropframe = rootCtxPtr->config.forcedDropframe;
+    if( rootCtxPtr->config.forceDropframe == TRUE ) {
+        ctxPtr->isDropframe = rootCtxPtr->config.forcedDropframe;
+    } else {
+        ctxPtr->isDropframe = DetermineDropFrame(rootCtxPtr->config.inputFilename, rootCtxPtr->config.artifacts, rootCtxPtr->config.outputDirectory);
+    }
+
     ctxPtr->bailNoCaptions = bailAfterMins;
 
-    int fdesc = open(fileNameStr, O_RDONLY);
+    int fdesc = open(rootCtxPtr->config.inputFilename, O_RDONLY);
 
     if( fdesc == -1 ) {
         char filePath[PATH_MAX];
@@ -150,12 +153,12 @@ boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean over
     /**
      * Initialize decoder according to the name of input
      */
-    ret = avformat_open_input(&ctxPtr->formatContext, fileNameStr, NULL, NULL);
+    ret = avformat_open_input(&ctxPtr->formatContext, rootCtxPtr->config.inputFilename, NULL, NULL);
     if( ret < 0 ) {
         char filePath[PATH_MAX];
         filePath[0] = '\0';
         getcwd(filePath, sizeof(filePath));
-        av_log(NULL,AV_LOG_ERROR,"could not open input(%s) format. Looking Here: %s\n", fileNameStr, filePath);
+        av_log(NULL,AV_LOG_ERROR,"could not open input(%s) format. Looking Here: %s\n", rootCtxPtr->config.inputFilename, filePath);
         free(ctxPtr);
         rootCtxPtr->mpegFileCtxPtr = NULL;
         return FALSE;
@@ -194,14 +197,6 @@ boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean over
 
     AVRational retval = av_guess_frame_rate(ctxPtr->formatContext, ctxPtr->formatContext->streams[stream_index], ctxPtr->frame);
     ctxPtr->frameRatePerSecTimesOneHundred = ((retval.num * 100)/retval.den);
-
-    if( overrideDropframe == FALSE ) {
-        if (((retval.num == 30000) || (retval.num == 60000)) && (retval.den == 1001)) {
-            ctxPtr->isDropframe = TRUE;
-        } else {
-            ctxPtr->isDropframe = FALSE;
-        }
-    }
 
     LOG(DEBUG_LEVEL_INFO, DBG_MPEG_FILE, "Framerate = %d/%d - %d.%d", retval.num, retval.den, ctxPtr->frameRatePerSecTimesOneHundred / 100, ctxPtr->frameRatePerSecTimesOneHundred % 100 );
 

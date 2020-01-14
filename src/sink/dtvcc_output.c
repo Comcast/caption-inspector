@@ -153,14 +153,9 @@ static void writeTimeStamp( DtvccOutputCtx*, CaptionTime*, uint8 );
  | DESCRIPTION:
  |    This initializes this element of the pipeline.
  -------------------------------------------------------------------------------*/
-LinkInfo DtvccOutInitialize( Context* rootCtxPtr, char* outputFileNameStr, boolean nullEtxSuppressed, boolean msNotFrame ) {
+LinkInfo DtvccOutInitialize( Context* rootCtxPtr, boolean nullEtxSuppressed, boolean msNotFrame ) {
     ASSERT(rootCtxPtr);
     ASSERT(!rootCtxPtr->dtvccOutputCtxPtr);
-    char tempFilename[MAX_FILE_NAME_LEN];
-
-    strncpy(tempFilename, outputFileNameStr, MAX_FILE_NAME_LEN-1);
-    tempFilename[MAX_FILE_NAME_LEN-1] = '\0';
-    strncat(tempFilename, ".708", (MAX_FILE_NAME_LEN - strlen(tempFilename) - 1));
 
     rootCtxPtr->dtvccOutputCtxPtr = malloc(sizeof(DtvccOutputCtx));
     DtvccOutputCtx* ctxPtr = rootCtxPtr->dtvccOutputCtxPtr;
@@ -172,7 +167,8 @@ LinkInfo DtvccOutInitialize( Context* rootCtxPtr, char* outputFileNameStr, boole
         ctxPtr->textStream[loop] = FALSE;
         ctxPtr->fp[loop] = NULL;
     }
-    strncpy(ctxPtr->baseFileName, tempFilename, MAX_FILE_NAME_LEN-1);
+
+    buildOutputPath(rootCtxPtr->config.inputFilename, rootCtxPtr->config.outputDirectory, "708", ctxPtr->outputFileName);
 
     LinkInfo linkInfo;
     linkInfo.linkType = DTVCC_DATA___TEXT_FILE;
@@ -208,7 +204,7 @@ uint8 DtvccOutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
 
     if( ctxPtr->fp[dtvccDataPtr->serviceNumber-1] == NULL ) {
         char uniqueFileName[MAX_FILE_NAME_LEN];
-        strncpy(uniqueFileName, ctxPtr->baseFileName, MAX_FILE_NAME_LEN);
+        strncpy(uniqueFileName, ctxPtr->outputFileName, MAX_FILE_NAME_LEN);
         char* tmpCharPtr = strrchr(uniqueFileName, '.');
         ASSERT(tmpCharPtr);
         *tmpCharPtr = '\0';

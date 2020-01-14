@@ -100,7 +100,6 @@ static void writeLine21codeToText( Line21OutputCtx*, Line21Code, CaptionTime* );
  |
  | INPUT PARAMETERS:
  |    ctxPtr - Pointer to all Pipeline Elements Contexts, including this one.
- |    outputFileNameStr - The name of the file to write the data to.
  |
  | RETURN VALUES:
  |    LinkInfo -  Information about this element of the pipeline, such that it can
@@ -110,21 +109,18 @@ static void writeLine21codeToText( Line21OutputCtx*, Line21Code, CaptionTime* );
  | DESCRIPTION:
  |    This initializes this element of the pipeline.
  -------------------------------------------------------------------------------*/
-LinkInfo Line21OutInitialize( Context* ctxPtr, char* outputFileNameStr ) {
+LinkInfo Line21OutInitialize( Context* ctxPtr ) {
     ASSERT(ctxPtr);
     ASSERT(!ctxPtr->line21OutputCtxPtr);
     char tempFilename[MAX_FILE_NAME_LEN];
-
-    strncpy(tempFilename, outputFileNameStr, MAX_FILE_NAME_LEN-1);
-    tempFilename[MAX_FILE_NAME_LEN-1] = '\0';
-    strncat(tempFilename, ".608", (MAX_FILE_NAME_LEN - strlen(tempFilename) - 1));
 
     ctxPtr->line21OutputCtxPtr = malloc(sizeof(Line21OutputCtx));
     for( int loop = 0; loop < LINE21_MAX_NUM_CHANNELS; loop++ ) {
         ctxPtr->line21OutputCtxPtr->textStream[loop] = FALSE;
         ctxPtr->line21OutputCtxPtr->fp[loop] = NULL;
     }
-    strncpy(ctxPtr->line21OutputCtxPtr->baseFileName, tempFilename, MAX_FILE_NAME_LEN-1);
+    buildOutputPath(ctxPtr->config.inputFilename, ctxPtr->config.outputDirectory, "608",
+                    ctxPtr->line21OutputCtxPtr->outputFileName);
 
     LinkInfo linkInfo;
     linkInfo.linkType = LINE21_DATA___TEXT_FILE;
@@ -166,7 +162,7 @@ uint8 Line21OutProcNextBuffer( void* rootCtxPtr, Buffer* buffPtr ) {
 
         if( ctxPtr->fp[line21CodePtr[loop].channelNum-1] == NULL ) {
             char uniqueFileName[MAX_FILE_NAME_LEN];
-            strncpy(uniqueFileName, ctxPtr->baseFileName, MAX_FILE_NAME_LEN);
+            strncpy(uniqueFileName, ctxPtr->outputFileName, MAX_FILE_NAME_LEN);
             char* tmpCharPtr = strrchr(uniqueFileName, '.');
             ASSERT(tmpCharPtr);
             *tmpCharPtr = '\0';

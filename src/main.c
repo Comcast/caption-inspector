@@ -89,7 +89,6 @@ static struct option longOpts[] = {
  -------------------------------------------------------------------------------*/
 int main( int argc, char* argv[] ) {
     Context ctx;
-    char tempOutputPath[MAX_FILE_NAME_LEN];
     int opt;
     int longIndex = 0;
 
@@ -177,9 +176,19 @@ int main( int argc, char* argv[] ) {
         exit(EXIT_FAILURE);
     }
 
-    buildOutputPath( ctx.config.inputFilename, ctx.config.outputDirectory, tempOutputPath );
+    char* tmpCharPtr = strrchr(ctx.config.inputFilename, '/');
+    if( (tmpCharPtr != NULL) && (ctx.config.outputDirectory[0] == '\0') ) {
+        strncpy(ctx.config.outputDirectory, ctx.config.inputFilename, MAX_FILE_NAME_LEN);
+        tmpCharPtr = strrchr(ctx.config.outputDirectory, '/');
+        *tmpCharPtr = '\0';
+    } else if( (ctx.config.outputDirectory[0] != '\0') && (ctx.config.outputDirectory[strlen(ctx.config.outputDirectory)-1] == '/') ) {
+        ctx.config.outputDirectory[strlen(ctx.config.outputDirectory)-1] = '\0';
+    }
 
-    DebugInit(ctx.config.debugFile, ((tempOutputPath[0] == '\0')?NULL:tempOutputPath),  NULL);
+    char debugFilePath[MAX_FILE_NAME_LEN];
+    buildOutputPath(ctx.config.inputFilename, ctx.config.outputDirectory, "dbg", debugFilePath);
+
+    DebugInit(ctx.config.debugFile, debugFilePath,  NULL);
     BufferPoolInit();
     LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Version: %s (%s)", VERSION, BUILD);
 
@@ -196,7 +205,7 @@ int main( int argc, char* argv[] ) {
     FileType sourceType = DetermineFileType(ctx.config.inputFilename);
 
     LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Processing input file %s of type %s", ctx.config.inputFilename, DECODE_CAPTION_FILE_TYPE(sourceType));
-    LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Writing Output To: %s.???", tempOutputPath);
+    LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Writing Output To: %s", ctx.config.outputDirectory);
 
     if( ctx.config.artifacts == TRUE ) {
         LOG(DEBUG_LEVEL_INFO, DBG_GENERAL, "Writing all Artifacts.");
@@ -206,20 +215,20 @@ int main( int argc, char* argv[] ) {
 
     switch(sourceType) {
         case SCC_CAPTIONS_FILE:
-            retval = PlumbSccPipeline(&ctx, ctx.config.inputFilename, ((tempOutputPath[0] == '\0') ? NULL : tempOutputPath) );
+            retval = PlumbSccPipeline(&ctx);
             break;
         case MCC_CAPTIONS_FILE:
-            retval = PlumbMccPipeline(&ctx, ctx.config.inputFilename, ((tempOutputPath[0] == '\0') ? NULL : tempOutputPath));
+            retval = PlumbMccPipeline(&ctx);
             break;
         case MPEG_BINARY_FILE:
 #ifdef DONT_COMPILE_FFMPEG
             LOG(DEBUG_LEVEL_FATAL, DBG_GENERAL, "Executable was compiled without FFMPEG, unable to process Binary MPEG File");
 #else
-            retval = PlumbMpegPipeline(&ctx, ctx.config.inputFilename, ((tempOutputPath[0] == '\0') ? NULL : tempOutputPath));
+            retval = PlumbMpegPipeline(&ctx);
 #endif
             break;
         case MOV_BINARY_FILE:
-            retval = PlumbMovPipeline(&ctx, ctx.config.inputFilename, ((tempOutputPath[0] == '\0') ? NULL : tempOutputPath));
+            retval = PlumbMovPipeline(&ctx);
             break;
         default:
             LOG(DEBUG_LEVEL_ERROR, DBG_GENERAL, "Impossible Branch - %d", sourceType);

@@ -164,11 +164,8 @@ void DebugInit( boolean writeToFile, char* filePathStr, EXTERNAL_DBG_FN_PTR extD
     
     if( writeToFile == TRUE ) {
         if( filePathStr != NULL ) {
-            strncpy(fileNameStr, filePathStr, MAX_FILE_NAME_LEN-1);
-            fileNameStr[MAX_FILE_NAME_LEN-1] = '\0';
-            strncat(fileNameStr, ".dbg", (MAX_FILE_NAME_LEN - strlen(fileNameStr) - 1));
-            fpLog = fopen(fileNameStr, "w");
-            if(fpLog == NULL) LOG(DEBUG_LEVEL_FATAL, DBG_GENERAL, "Unable to Open File: %s - [Errno %d] %s", fileNameStr, errno, strerror(errno));
+            fpLog = fopen(filePathStr, "w");
+            if(fpLog == NULL) LOG(DEBUG_LEVEL_FATAL, DBG_GENERAL, "Unable to Open File: %s - [Errno %d] %s", filePathStr, errno, strerror(errno));
         } else {
             sprintf(fileNameStr, "%d_%d_%d__%d_%d_%d__debug_log.txt", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
             fpLog = fopen(fileNameStr, "w");

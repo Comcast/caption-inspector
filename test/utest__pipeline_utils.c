@@ -168,17 +168,17 @@ boolean AnySpuriousFunctionsCalled( void ) {
 /*--                           Stub Functions                               --*/
 /*----------------------------------------------------------------------------*/
 
-LinkInfo CcDataOutInitialize( Context* rootCtxPtr, char* outputFileNameStr ) {
+LinkInfo CcDataOutInitialize( Context* rootCtxPtr ) {
     LinkInfo linkInfo;
     linkInfo.sourceType = 1;
 
     CcDataOutInitializeCalled++;
-    CcDataOutInitializeFileNameStr = outputFileNameStr;
+    CcDataOutInitializeFileNameStr = rootCtxPtr->config.outputDirectory;
 
     return linkInfo;
 }
 
-boolean DetermineDropFrame( char* fileNameStr, boolean saveMediaInfo, char* artifactPath, boolean* isDropFramePtr ) {
+boolean DetermineDropFrame( char* fileNameStr, boolean saveMediaInfo, char* artifactPath ) {
 
     DetermineDropFrameCalled++;
     DetermineDropFrameInputFilename = fileNameStr;
@@ -186,9 +186,8 @@ boolean DetermineDropFrame( char* fileNameStr, boolean saveMediaInfo, char* arti
         DetermineDropFrameArtifactPath = artifactPath;
     }
     DetermineDropFrameSaveArtifacts = saveMediaInfo;
-    *isDropFramePtr = DetermineDropFrame__isDropFrame;
 
-    return DetermineDropFrame__wasSuccessful;
+    return DetermineDropFrame__isDropFrame;
 }
 
 boolean DtvccDecodeAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
@@ -208,12 +207,12 @@ LinkInfo DtvccDecodeInitialize( Context* rootCtxPtr, boolean processOnly ) {
     return linkInfo;
 }
 
-LinkInfo DtvccOutInitialize( Context* rootCtxPtr, char* outputFileNameStr, boolean nullEtxSuppressed, boolean msNotFrame ) {
+LinkInfo DtvccOutInitialize( Context* rootCtxPtr, boolean nullEtxSuppressed, boolean msNotFrame ) {
     LinkInfo linkInfo;
     linkInfo.sourceType = 1;
 
     DtvccOutInitializeCalled++;
-    DtvccOutInitializeFileNameStr = outputFileNameStr;
+    DtvccOutInitializeFileNameStr = rootCtxPtr->config.outputDirectory;
 
     return linkInfo;
 }
@@ -235,12 +234,12 @@ LinkInfo Line21DecodeInitialize( Context* rootCtxPtr, boolean processOnly ) {
     return linkInfo;
 }
 
-LinkInfo Line21OutInitialize( Context* ctxPtr, char* outputFileNameStr ) {
+LinkInfo Line21OutInitialize( Context* ctxPtr ) {
     LinkInfo linkInfo;
     linkInfo.sourceType = 1;
 
     Line21OutInitializeCalled++;
-    Line21OutInitializeFileNameStr = outputFileNameStr;
+    Line21OutInitializeFileNameStr = ctxPtr->config.outputDirectory;
 
     return linkInfo;
 }
@@ -316,12 +315,12 @@ boolean MccFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
     return retval;
 }
 
-LinkInfo MccOutInitialize( Context* ctxPtr, char* outputFileNameStr ) {
+LinkInfo MccOutInitialize( Context* ctxPtr ) {
     LinkInfo linkInfo;
     linkInfo.sourceType = 1;
 
     MccOutInitializeCalled++;
-    MccOutInitializeFileNameStr = outputFileNameStr;
+    MccOutInitializeFileNameStr = ctxPtr->config.outputDirectory;
 
     return linkInfo;
 }
@@ -334,13 +333,13 @@ boolean MovFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
     return retval;
 }
 
-boolean MovFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe, boolean bailAtTwenty ) {
+boolean MovFileInitialize( Context* rootCtxPtr, boolean bailAtTwenty ) {
     boolean retval = TRUE;
 
     MovFileInitializeCalled++;
-    MovFileInitializeFileNameStr = fileNameStr;
-    MovFileInitializeisDropframe = isDropframe;
-    MovFileInitializeOverrideDf = overrideDropframe;
+    MovFileInitializeFileNameStr = rootCtxPtr->config.inputFilename;
+    MovFileInitializeisDropframe = rootCtxPtr->config.forcedDropframe;
+    MovFileInitializeOverrideDf = rootCtxPtr->config.forceDropframe;
 
     return retval;
 }
@@ -359,13 +358,13 @@ boolean MpegFileAddSink( Context* rootCtxPtr, LinkInfo linkInfo ) {
     return retval;
 }
 
-boolean MpegFileInitialize( Context* rootCtxPtr, char* fileNameStr, boolean overrideDropframe, boolean isDropframe, boolean bailAtTwenty ) {
+boolean MpegFileInitialize( Context* rootCtxPtr, boolean bailAtTwenty ) {
     boolean retval = TRUE;
 
     MpegFileInitializeCalled++;
-    MpegFileInitializeFileNameStr = fileNameStr;
-    MpegFileInitializeisDropframe = isDropframe;
-    MpegFileInitializeOverrideDf = overrideDropframe;
+    MpegFileInitializeFileNameStr = rootCtxPtr->config.inputFilename;
+    MpegFileInitializeisDropframe = rootCtxPtr->config.forcedDropframe;
+    MpegFileInitializeOverrideDf = rootCtxPtr->config.forceDropframe;
 
     return retval;
 }
@@ -1148,7 +1147,9 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     ctx.config.passedInFramerate = 2400;
     ctx.config.artifacts = TRUE;
-    retval = PlumbSccPipeline(&ctx, inputFilename, outputFilename);
+    ctx.config.inputFilename = inputFilename;
+    strcpy(ctx.config.outputDirectory, outputFilename);
+    retval = PlumbSccPipeline(&ctx);
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, SccFileInitializeCalled);
     ASSERT_EQ(1, SccFileAddSinkCalled);
@@ -1163,7 +1164,7 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_EQ(1, CcDataOutInitializeCalled);
     ASSERT_PTREQ(inputFilename, SccFileInitializeFileNameStr);
     ASSERT_EQ(2400, SccFileInitializeFramerate);
-    ASSERT_PTREQ(outputFilename, Line21OutInitializeFileNameStr);
+    ASSERT_PTREQ(ctx.config.outputDirectory, Line21OutInitializeFileNameStr);
     SccFileInitializeCalled = 0;
     SccFileAddSinkCalled = 0;
     SccEncodeAddSinkCalled = 0;
@@ -1182,7 +1183,9 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     ctx.config.passedInFramerate = 2400;
     ctx.config.artifacts = FALSE;
-    retval = PlumbSccPipeline(&ctx, inputFilename, outputFilename);
+    ctx.config.inputFilename = inputFilename;
+    strcpy(ctx.config.outputDirectory, outputFilename);
+    retval = PlumbSccPipeline(&ctx);
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, SccFileInitializeCalled);
     ASSERT_EQ(1, SccFileAddSinkCalled);
@@ -1205,7 +1208,9 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     ctx.config.passedInFramerate = 2400;
     ctx.config.artifacts = FALSE;
-    retval = PlumbSccPipeline(&ctx, NULL, outputFilename);
+    ctx.config.inputFilename = NULL;
+    strcpy(ctx.config.outputDirectory, outputFilename);
+    retval = PlumbSccPipeline(&ctx);
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, SccFileInitializeCalled);
     ASSERT_EQ(0, SccFileAddSinkCalled);
@@ -1222,7 +1227,9 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     ctx.config.passedInFramerate = 2400;
     ctx.config.artifacts = FALSE;
-    retval = PlumbSccPipeline(&ctx, inputFilename, NULL);
+    ctx.config.inputFilename = inputFilename;
+    ctx.config.outputDirectory[0] = '\0';
+    retval = PlumbSccPipeline(&ctx);
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, SccFileInitializeCalled);
     ASSERT_EQ(0, SccFileAddSinkCalled);
@@ -1239,7 +1246,9 @@ void utest__PlumbSccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     InitStubs();
     ctx.config.passedInFramerate = 2600;
     ctx.config.artifacts = FALSE;
-    retval = PlumbSccPipeline(&ctx, inputFilename, outputFilename);
+    ctx.config.inputFilename = inputFilename;
+    strcpy(ctx.config.outputDirectory, outputFilename);
+    retval = PlumbSccPipeline(&ctx);
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, SccFileInitializeCalled);
     ASSERT_EQ(0, SccFileAddSinkCalled);
@@ -1271,7 +1280,9 @@ void utest__PlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: PlumbMccPipeline() - Successfully Plumb MCC Pipeline with Artifacts.");
     InitStubs();
     ctx.config.artifacts = TRUE;
-    retval = PlumbMccPipeline( &ctx, inputFilename, outputFilename );
+    ctx.config.inputFilename = inputFilename;
+    strcpy(ctx.config.outputDirectory, outputFilename);
+    retval = PlumbMccPipeline( &ctx );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, MccFileInitializeCalled);
     ASSERT_EQ(1, MccFileAddSinkCalled);
@@ -1285,9 +1296,9 @@ void utest__PlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_EQ(1, Line21OutInitializeCalled);
     ASSERT_EQ(1, CcDataOutInitializeCalled);
     ASSERT_PTREQ(inputFilename, MccFileInitializeFileNameStr);
-    ASSERT_PTREQ(outputFilename, DtvccOutInitializeFileNameStr);
-    ASSERT_PTREQ(outputFilename, Line21OutInitializeFileNameStr);
-    ASSERT_PTREQ(outputFilename, CcDataOutInitializeFileNameStr);
+    ASSERT_PTREQ(ctx.config.outputDirectory, DtvccOutInitializeFileNameStr);
+    ASSERT_PTREQ(ctx.config.outputDirectory, Line21OutInitializeFileNameStr);
+    ASSERT_PTREQ(ctx.config.outputDirectory, CcDataOutInitializeFileNameStr);
     MccFileInitializeCalled = 0;
     MccFileAddSinkCalled = 0;
     MccDecodeInitializeCalled = 0;
@@ -1305,7 +1316,9 @@ void utest__PlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     TEST_START("Test Case: PlumbMccPipeline() - Successfully Plumb MCC Pipeline with Artifacts.");
     InitStubs();
     ctx.config.artifacts = FALSE;
-    retval = PlumbMccPipeline( &ctx, inputFilename, outputFilename );
+    ctx.config.inputFilename = inputFilename;
+    strcpy(ctx.config.outputDirectory, outputFilename);
+    retval = PlumbMccPipeline( &ctx );
     ASSERT_EQ(TRUE, retval);
     ASSERT_EQ(1, MccFileInitializeCalled);
     ASSERT_EQ(1, MccFileAddSinkCalled);
@@ -1330,7 +1343,9 @@ void utest__PlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ERROR_EXPECTED
     InitStubs();
     ctx.config.artifacts = FALSE;
-    retval = PlumbMccPipeline( &ctx, NULL, outputFilename );
+    ctx.config.inputFilename = NULL;
+    strcpy(ctx.config.outputDirectory, outputFilename);
+    retval = PlumbMccPipeline( &ctx );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, MccFileInitializeCalled);
     ASSERT_EQ(0, MccFileAddSinkCalled);
@@ -1350,7 +1365,9 @@ void utest__PlumbMccPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ERROR_EXPECTED
     InitStubs();
     ctx.config.artifacts = FALSE;
-    retval = PlumbMccPipeline( &ctx, inputFilename, NULL );
+    ctx.config.inputFilename = inputFilename;
+    ctx.config.outputDirectory[0] = '\0';
+    retval = PlumbMccPipeline( &ctx );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, MccFileInitializeCalled);
     ASSERT_EQ(0, MccFileAddSinkCalled);
@@ -1393,9 +1410,10 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__wasSuccessful = TRUE;
     ctx.config.artifacts = TRUE;
     ctx.config.bailAfterMins = 0;
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename );
+    ctx.config.inputFilename = inputFilename;
+    strcpy(ctx.config.outputDirectory, outputFilename);
+    retval = PlumbMpegPipeline( &ctx );
     ASSERT_EQ(TRUE, retval);
-    ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MpegFileInitializeCalled);
     ASSERT_EQ(4, MpegFileAddSinkCalled);
     ASSERT_EQ(1, MccEncodeInitializeCalled);
@@ -1409,11 +1427,7 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_EQ(1, CcDataOutInitializeCalled);
     ASSERT_EQ(1, MccOutInitializeCalled);
     ASSERT_PTREQ(inputFilename, MpegFileInitializeFileNameStr);
-    ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
-    ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
-    ASSERT_EQ(TRUE, DetermineDropFrameSaveArtifacts);
-    ASSERT_EQ(TRUE, MpegFileInitializeisDropframe);
-    DetermineDropFrameCalled = 0;
+    ASSERT_PTREQ(ctx.config.outputDirectory, MccOutInitializeFileNameStr);
     MpegFileInitializeCalled = 0;
     MpegFileAddSinkCalled = 0;
     MccEncodeInitializeCalled = 0;
@@ -1435,9 +1449,10 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__wasSuccessful = TRUE;
     ctx.config.artifacts = TRUE;
     ctx.config.bailAfterMins = 0;
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename );
+    ctx.config.inputFilename = inputFilename;
+    strcpy(ctx.config.outputDirectory, outputFilename);
+    retval = PlumbMpegPipeline( &ctx );
     ASSERT_EQ(TRUE, retval);
-    ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MpegFileInitializeCalled);
     ASSERT_EQ(4, MpegFileAddSinkCalled);
     ASSERT_EQ(1, MccEncodeInitializeCalled);
@@ -1451,12 +1466,7 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_EQ(1, CcDataOutInitializeCalled);
     ASSERT_EQ(1, MccOutInitializeCalled);
     ASSERT_PTREQ(inputFilename, MpegFileInitializeFileNameStr);
-    ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
-    ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
-    ASSERT_EQ(TRUE, DetermineDropFrameSaveArtifacts);
-    ASSERT_EQ(FALSE, MpegFileInitializeisDropframe);
-    ASSERT_EQ(TRUE, MpegFileInitializeOverrideDf);
-    DetermineDropFrameCalled = 0;
+    ASSERT_PTREQ(ctx.config.outputDirectory, MccOutInitializeFileNameStr);
     MpegFileInitializeCalled = 0;
     MpegFileAddSinkCalled = 0;
     MccEncodeInitializeCalled = 0;
@@ -1478,9 +1488,10 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__wasSuccessful = TRUE;
     ctx.config.artifacts = FALSE;
     ctx.config.bailAfterMins = 0;
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename );
+    ctx.config.inputFilename = inputFilename;
+    strcpy(ctx.config.outputDirectory, outputFilename);
+    retval = PlumbMpegPipeline( &ctx );
     ASSERT_EQ(TRUE, retval);
-    ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MpegFileInitializeCalled);
     ASSERT_EQ(3, MpegFileAddSinkCalled);
     ASSERT_EQ(1, MccEncodeInitializeCalled);
@@ -1489,16 +1500,12 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_EQ(1, Line21DecodeInitializeCalled);
     ASSERT_EQ(1, MccOutInitializeCalled);
     ASSERT_PTREQ(inputFilename, MpegFileInitializeFileNameStr);
-    ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
-    ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
+    ASSERT_PTREQ(ctx.config.outputDirectory, MccOutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, DtvccOutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, Line21OutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, CcDataOutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, DetermineDropFrameArtifactPath);
     ASSERT_EQ(FALSE, DetermineDropFrameSaveArtifacts);
-    ASSERT_EQ(TRUE, MpegFileInitializeisDropframe);
-    ASSERT_EQ(TRUE, MpegFileInitializeOverrideDf);
-    DetermineDropFrameCalled = 0;
     MpegFileInitializeCalled = 0;
     MpegFileAddSinkCalled = 0;
     MccEncodeInitializeCalled = 0;
@@ -1515,9 +1522,10 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__wasSuccessful = FALSE;
     ctx.config.artifacts = FALSE;
     ctx.config.bailAfterMins = 0;
-    retval = PlumbMpegPipeline( &ctx, inputFilename, outputFilename );
+    ctx.config.inputFilename = inputFilename;
+    strcpy(ctx.config.outputDirectory, outputFilename);
+    retval = PlumbMpegPipeline( &ctx );
     ASSERT_EQ(TRUE, retval);
-    ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MpegFileInitializeCalled);
     ASSERT_EQ(3, MpegFileAddSinkCalled);
     ASSERT_EQ(1, MccEncodeInitializeCalled);
@@ -1526,16 +1534,12 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_EQ(1, Line21DecodeInitializeCalled);
     ASSERT_EQ(1, MccOutInitializeCalled);
     ASSERT_PTREQ(inputFilename, MpegFileInitializeFileNameStr);
-    ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
-    ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
+    ASSERT_PTREQ(ctx.config.outputDirectory, MccOutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, DtvccOutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, Line21OutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, CcDataOutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, DetermineDropFrameArtifactPath);
     ASSERT_EQ(FALSE, DetermineDropFrameSaveArtifacts);
-    ASSERT_EQ(FALSE, MpegFileInitializeisDropframe);
-    ASSERT_EQ(FALSE, MpegFileInitializeOverrideDf);
-    DetermineDropFrameCalled = 0;
     MpegFileInitializeCalled = 0;
     MpegFileAddSinkCalled = 0;
     MccEncodeInitializeCalled = 0;
@@ -1552,8 +1556,10 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__wasSuccessful = TRUE;
     ctx.config.artifacts = TRUE;
     ctx.config.bailAfterMins = 0;
+    ctx.config.inputFilename = NULL;
+    strcpy(ctx.config.outputDirectory, outputFilename);
     ERROR_EXPECTED
-    retval = PlumbMpegPipeline( &ctx, NULL, outputFilename );
+    retval = PlumbMpegPipeline( &ctx );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, DetermineDropFrameCalled);
     ASSERT_EQ(0, MpegFileInitializeCalled);
@@ -1577,8 +1583,10 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__wasSuccessful = TRUE;
     ctx.config.artifacts = TRUE;
     ctx.config.bailAfterMins = 0;
+    ctx.config.inputFilename = inputFilename;
+    ctx.config.outputDirectory[0] = '\0';
     ERROR_EXPECTED
-    retval = PlumbMpegPipeline( &ctx, inputFilename, NULL );
+    retval = PlumbMpegPipeline( &ctx );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, DetermineDropFrameCalled);
     ASSERT_EQ(0, MpegFileInitializeCalled);
@@ -1602,8 +1610,10 @@ void utest__PlumbMpegPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__wasSuccessful = TRUE;
     ctx.config.artifacts = TRUE;
     ctx.config.bailAfterMins = 0;
+    ctx.config.inputFilename = inputFilename;
+    ctx.config.outputDirectory[0] = '\0';
     ERROR_EXPECTED
-    retval = PlumbMpegPipeline( &ctx, inputFilename, NULL );
+    retval = PlumbMpegPipeline( &ctx );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, DetermineDropFrameCalled);
     ASSERT_EQ(0, MpegFileInitializeCalled);
@@ -1648,9 +1658,10 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__wasSuccessful = TRUE;
     ctx.config.artifacts = TRUE;
     ctx.config.bailAfterMins = 0;
-    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename );
+    ctx.config.inputFilename = inputFilename;
+    strcpy(ctx.config.outputDirectory, outputFilename);
+    retval = PlumbMovPipeline( &ctx );
     ASSERT_EQ(TRUE, retval);
-    ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MovFileInitializeCalled);
     ASSERT_EQ(4, MovFileAddSinkCalled);
     ASSERT_EQ(1, MccEncodeInitializeCalled);
@@ -1664,11 +1675,7 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_EQ(1, CcDataOutInitializeCalled);
     ASSERT_EQ(1, MccOutInitializeCalled);
     ASSERT_PTREQ(inputFilename, MovFileInitializeFileNameStr);
-    ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
-    ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
-    ASSERT_EQ(TRUE, DetermineDropFrameSaveArtifacts);
-    ASSERT_EQ(TRUE, MovFileInitializeisDropframe);
-    DetermineDropFrameCalled = 0;
+    ASSERT_PTREQ(ctx.config.outputDirectory, MccOutInitializeFileNameStr);
     MovFileInitializeCalled = 0;
     MovFileAddSinkCalled = 0;
     MccEncodeInitializeCalled = 0;
@@ -1690,9 +1697,10 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__wasSuccessful = TRUE;
     ctx.config.artifacts = TRUE;
     ctx.config.bailAfterMins = 0;
-    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename );
+    ctx.config.inputFilename = inputFilename;
+    strcpy(ctx.config.outputDirectory, outputFilename);
+    retval = PlumbMovPipeline( &ctx );
     ASSERT_EQ(TRUE, retval);
-    ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MovFileInitializeCalled);
     ASSERT_EQ(4, MovFileAddSinkCalled);
     ASSERT_EQ(1, MccEncodeInitializeCalled);
@@ -1706,12 +1714,7 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_EQ(1, CcDataOutInitializeCalled);
     ASSERT_EQ(1, MccOutInitializeCalled);
     ASSERT_PTREQ(inputFilename, MovFileInitializeFileNameStr);
-    ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
-    ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
-    ASSERT_EQ(TRUE, DetermineDropFrameSaveArtifacts);
-    ASSERT_EQ(FALSE, MovFileInitializeisDropframe);
-    ASSERT_EQ(TRUE, MovFileInitializeOverrideDf);
-    DetermineDropFrameCalled = 0;
+    ASSERT_PTREQ(ctx.config.outputDirectory, MccOutInitializeFileNameStr);
     MovFileInitializeCalled = 0;
     MovFileAddSinkCalled = 0;
     MccEncodeInitializeCalled = 0;
@@ -1733,9 +1736,10 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__wasSuccessful = TRUE;
     ctx.config.artifacts = FALSE;
     ctx.config.bailAfterMins = 0;
-    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename );
+    ctx.config.inputFilename = inputFilename;
+    strcpy(ctx.config.outputDirectory, outputFilename);
+    retval = PlumbMovPipeline( &ctx );
     ASSERT_EQ(TRUE, retval);
-    ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MovFileInitializeCalled);
     ASSERT_EQ(3, MovFileAddSinkCalled);
     ASSERT_EQ(1, MccEncodeInitializeCalled);
@@ -1744,16 +1748,12 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_EQ(1, Line21DecodeInitializeCalled);
     ASSERT_EQ(1, MccOutInitializeCalled);
     ASSERT_PTREQ(inputFilename, MovFileInitializeFileNameStr);
-    ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
-    ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
+    ASSERT_PTREQ(ctx.config.outputDirectory, MccOutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, DtvccOutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, Line21OutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, CcDataOutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, DetermineDropFrameArtifactPath);
     ASSERT_EQ(FALSE, DetermineDropFrameSaveArtifacts);
-    ASSERT_EQ(TRUE, MovFileInitializeisDropframe);
-    ASSERT_EQ(TRUE, MovFileInitializeOverrideDf);
-    DetermineDropFrameCalled = 0;
     MovFileInitializeCalled = 0;
     MovFileAddSinkCalled = 0;
     MccEncodeInitializeCalled = 0;
@@ -1764,15 +1764,16 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_EQ_MSG(FALSE, AnySpuriousFunctionsCalled(), "Unexpected Functions Called.");
     TEST_END
 
-    TEST_START("Test Case: PlumbMovPipeline() - Successfully Plumb MPEG Ambiguous Dropframe Pipeline without Artifacts.");
+    TEST_START("Test Case: PlumbMovPipeline() - Successfully Plumb MOV Ambiguous Dropframe Pipeline without Artifacts.");
     InitStubs();
     DetermineDropFrame__isDropFrame = FALSE;
     DetermineDropFrame__wasSuccessful = FALSE;
     ctx.config.artifacts = FALSE;
     ctx.config.bailAfterMins = 0;
-    retval = PlumbMovPipeline( &ctx, inputFilename, outputFilename );
+    ctx.config.inputFilename = inputFilename;
+    strcpy(ctx.config.outputDirectory, outputFilename);
+    retval = PlumbMovPipeline( &ctx );
     ASSERT_EQ(TRUE, retval);
-    ASSERT_EQ(1, DetermineDropFrameCalled);
     ASSERT_EQ(1, MovFileInitializeCalled);
     ASSERT_EQ(3, MovFileAddSinkCalled);
     ASSERT_EQ(1, MccEncodeInitializeCalled);
@@ -1781,16 +1782,12 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     ASSERT_EQ(1, Line21DecodeInitializeCalled);
     ASSERT_EQ(1, MccOutInitializeCalled);
     ASSERT_PTREQ(inputFilename, MovFileInitializeFileNameStr);
-    ASSERT_PTREQ(inputFilename, DetermineDropFrameInputFilename);
-    ASSERT_PTREQ(outputFilename, MccOutInitializeFileNameStr);
+    ASSERT_PTREQ(ctx.config.outputDirectory, MccOutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, DtvccOutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, Line21OutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, CcDataOutInitializeFileNameStr);
     ASSERT_PTREQ(NULL, DetermineDropFrameArtifactPath);
     ASSERT_EQ(FALSE, DetermineDropFrameSaveArtifacts);
-    ASSERT_EQ(FALSE, MovFileInitializeisDropframe);
-    ASSERT_EQ(FALSE, MovFileInitializeOverrideDf);
-    DetermineDropFrameCalled = 0;
     MovFileInitializeCalled = 0;
     MovFileAddSinkCalled = 0;
     MccEncodeInitializeCalled = 0;
@@ -1807,8 +1804,10 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__wasSuccessful = TRUE;
     ctx.config.artifacts = TRUE;
     ctx.config.bailAfterMins = 0;
+    ctx.config.inputFilename = NULL;
+    strcpy(ctx.config.outputDirectory, outputFilename);
     ERROR_EXPECTED
-    retval = PlumbMovPipeline( &ctx, NULL, outputFilename );
+    retval = PlumbMovPipeline( &ctx );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, DetermineDropFrameCalled);
     ASSERT_EQ(0, MovFileInitializeCalled);
@@ -1832,8 +1831,10 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__wasSuccessful = TRUE;
     ctx.config.artifacts = TRUE;
     ctx.config.bailAfterMins = 0;
+    ctx.config.inputFilename = inputFilename;
+    ctx.config.outputDirectory[0] = '\0';
     ERROR_EXPECTED
-    retval = PlumbMovPipeline( &ctx, inputFilename, NULL );
+    retval = PlumbMovPipeline( &ctx );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, DetermineDropFrameCalled);
     ASSERT_EQ(0, MovFileInitializeCalled);
@@ -1857,8 +1858,10 @@ void utest__PlumbMovPipeline( TEST_SUITE_RECEIVED_ARGUMENTS ) {
     DetermineDropFrame__wasSuccessful = TRUE;
     ctx.config.artifacts = TRUE;
     ctx.config.bailAfterMins = 0;
+    ctx.config.inputFilename = inputFilename;
+    ctx.config.outputDirectory[0] = '\0';
     ERROR_EXPECTED
-    retval = PlumbMovPipeline( &ctx, inputFilename, NULL );
+    retval = PlumbMovPipeline( &ctx );
     ASSERT_EQ(FALSE, retval);
     ASSERT_EQ(0, DetermineDropFrameCalled);
     ASSERT_EQ(0, MovFileInitializeCalled);
