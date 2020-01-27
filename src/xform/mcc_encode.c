@@ -245,12 +245,12 @@ uint8 MccEncodeShutdown( void* rootCtxPtr ) {
         sprintf(&scratchBuffer[strlen(scratchBuffer)], "%d  ", ((Context*)rootCtxPtr)->mccEncodeCtxPtr->framesPerSec[loop]);
         if(loop == 29 ) {
             sprintf(&scratchBuffer[strlen(scratchBuffer)], "\n");
-            printf("%s", scratchBuffer);
+            LOG(DEBUG_LEVEL_INFO, DBG_MCC_ENC, "%s", scratchBuffer);
             scratchBuffer[0] = '\0';
         }
     }
     if( scratchBuffer[0] != '\0' ) {
-        printf("%s", scratchBuffer);
+        LOG(DEBUG_LEVEL_INFO, DBG_MCC_ENC, "%s", scratchBuffer);
     }
 
     LOG(DEBUG_LEVEL_VERBOSE, DBG_MCC_ENC, "Shutting down MCC Encode pipeline element.");
@@ -472,7 +472,7 @@ static uint8 handleSkew( Context* rootCtxPtr, CaptionTime* inCaptionTimePtr ) {
         for( int loop = 0; loop < 60; loop++ ) {
             if( (ctxPtr->framesPerSec[loop] != framerateLow) && (ctxPtr->framesPerSec[loop] != framerateHigh) ) {
                 sprintf(&scratchBuffer[strlen(scratchBuffer)], "%02d* ", ctxPtr->framesPerSec[loop]);
-                ASSERT(ctxPtr->framesPerSec[loop] > framerateHigh);
+                ASSERT(ctxPtr->framesPerSec[loop] < framerateHigh);
                 minuteSkew = minuteSkew + (framerateHigh - ctxPtr->framesPerSec[loop]);
             } else if( ctxPtr->framesPerSec[loop] == framerateLow ) {
                 sprintf(&scratchBuffer[strlen(scratchBuffer)], "%02d! ", ctxPtr->framesPerSec[loop]);
@@ -483,7 +483,7 @@ static uint8 handleSkew( Context* rootCtxPtr, CaptionTime* inCaptionTimePtr ) {
             ctxPtr->framesPerSec[loop] = 0;
             if(loop == 29 ) {
                 sprintf(&scratchBuffer[strlen(scratchBuffer)], "\n");
-                printf("%s", scratchBuffer);
+                LOG(DEBUG_LEVEL_INFO, DBG_MCC_ENC, "%s", scratchBuffer);
                 scratchBuffer[0] = '\0';
             }
         }
@@ -496,7 +496,7 @@ static uint8 handleSkew( Context* rootCtxPtr, CaptionTime* inCaptionTimePtr ) {
                     ctxPtr->lastCaptionTime.hour, ctxPtr->lastCaptionTime.minute, inCaptionTimePtr->hour,
                     inCaptionTimePtr->minute, minuteFrames, minuteSkew);
         }
-        printf("%s", scratchBuffer);
+        LOG(DEBUG_LEVEL_INFO, DBG_MCC_ENC, "%s", scratchBuffer);
         ctxPtr->totalSkew = ctxPtr->totalSkew + minuteSkew;
         ctxPtr->framesPerSec[inCaptionTimePtr->second]++;
     } else if( ctxPtr->lastCaptionTime.second != inCaptionTimePtr->second ) {
