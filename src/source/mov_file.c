@@ -271,8 +271,27 @@ uint8 MovFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
             } else {
                 tmpFramerate = ctxPtr->timescale;
             }
+
             if( ctxPtr->framerateOneshot == FALSE ) {
                 LOG(DEBUG_LEVEL_INFO, DBG_MOV_FILE, "Framerate = %d.%d", tmpFramerate / 100, tmpFramerate % 100);
+                if( rootCtxPtr->config.forceDropframe == TRUE ) {
+                    if( rootCtxPtr->config.forcedDropframe == TRUE ) {
+                        ASSERT(ctxPtr->isDropframe);
+                        LOG(DEBUG_LEVEL_INFO, DBG_MOV_FILE, "Dropframe forced to TRUE");
+                        if( (tmpFramerate / 100 != 29) && (tmpFramerate / 100 != 30) && (tmpFramerate / 100 != 59) && (tmpFramerate / 100 != 60) ) {
+                            LOG(DEBUG_LEVEL_ERROR, DBG_MOV_FILE, "Likely invalid combination of Forced Dropframe and Framerate");
+                        }
+                    } else {
+                        ASSERT(!ctxPtr->isDropframe);
+                        LOG(DEBUG_LEVEL_INFO, DBG_MOV_FILE, "Dropframe forced to FALSE");
+                    }
+                } else {
+                    if( ctxPtr->isDropframe ) {
+                        LOG(DEBUG_LEVEL_INFO, DBG_MOV_FILE, "Dropframe = TRUE");
+                    } else {
+                        LOG(DEBUG_LEVEL_INFO, DBG_MOV_FILE, "Dropframe = FALSE");
+                    }
+                }
                 ctxPtr->framerateOneshot = TRUE;
             }
 

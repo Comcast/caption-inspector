@@ -52,7 +52,7 @@ static void printVersion();
 
 static char* executibleName;
  
-static const char *optString = "o:f:b:d:hv?";
+static const char *optString = "o:f:b:d:phv?";
 
 static struct option longOpts[] = {
     { "output",           required_argument, NULL, 'o' },
@@ -113,7 +113,8 @@ int main( int argc, char* argv[] ) {
         exit(EXIT_FAILURE);
     }
 
-    ctx.config.outputDirectory[0] = '\0';
+    ctx.config.outputDirectory[0] = '.';
+    ctx.config.outputDirectory[1] = '\0';
 
     while ((opt = getopt_long(argc, argv, optString, longOpts, &longIndex )) != -1) {
         switch (opt) {

@@ -195,9 +195,13 @@ typedef struct {
     boolean headerPrinted;
     uint16 cdpHeaderSequence;
     CaptionTime nextCaptionTime;
+    CaptionTime lastCaptionTime;
     uint32 numFillFrames;
     int64 maxPositiveDelta;
     int64 maxNegativeDelta;
+    boolean fullSecondFound;
+    uint32 totalSkew;
+    uint8 framesPerSec[60];
 } MccEncodeCtx;
 
 typedef struct {

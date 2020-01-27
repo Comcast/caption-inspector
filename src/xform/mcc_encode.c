@@ -48,7 +48,8 @@ const char* DayOfWeekStr[7] = { "Sunday", "Monday", "Tuesday", "Wednesday",
 
 static boolean generateMccHeader( Context*, CaptionTime* );
 static void addFillPacket( Context*, CaptionTime* );
-static CaptionTime convertCaptionTime( Context*, CaptionTime* );
+static uint8 handleSkew( Context*, CaptionTime* );
+static CaptionTime convertCaptionTime( Context*, Buffer* );
 static boolean sendMccText( Context*, char*, CaptionTime* );
 static Buffer* addBoilerplate( MccEncodeCtx*, Buffer* );
 static uint16 countChars( uint8*, uint16 );
@@ -80,12 +81,22 @@ LinkInfo MccEncodeInitialize( Context* rootCtxPtr ) {
     rootCtxPtr->mccEncodeCtxPtr = malloc(sizeof(MccEncodeCtx));
     MccEncodeCtx* ctxPtr = rootCtxPtr->mccEncodeCtxPtr;
 
+    if( rootCtxPtr->config.matchPtsTime == TRUE ) {
+        LOG(DEBUG_LEVEL_INFO, DBG_MCC_ENC, "Configured to Match PTS Time to MCC Time");
+    }
+
     ctxPtr->matchPtsTime = rootCtxPtr->config.matchPtsTime;
     ctxPtr->headerPrinted = FALSE;
     ctxPtr->cdpHeaderSequence = 0;
     ctxPtr->numFillFrames = 0;
     ctxPtr->maxPositiveDelta = 0;
     ctxPtr->maxNegativeDelta = 0;
+    ctxPtr->fullSecondFound = FALSE;
+    ctxPtr->totalSkew = 0;
+
+    for( int loop = 0; loop < 60; loop++ ) {
+        ctxPtr->framesPerSec[loop] = 0;
+    }
 
     InitSinks(&ctxPtr->sinks, CC_DATA___MCC_DATA);
 
@@ -158,6 +169,11 @@ uint8 MccEncodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
         ctxPtr->nextCaptionTime.hour = inBuffer->captionTime.hour;
         ctxPtr->nextCaptionTime.minute = inBuffer->captionTime.minute;
         ctxPtr->nextCaptionTime.second = inBuffer->captionTime.second;
+
+        ctxPtr->lastCaptionTime.hour = inBuffer->captionTime.hour;
+        ctxPtr->lastCaptionTime.minute = inBuffer->captionTime.minute;
+        ctxPtr->lastCaptionTime.second = inBuffer->captionTime.second;
+
         uint64 frameNumber = inBuffer->captionTime.millisecond * inBuffer->captionTime.frameRatePerSecTimesOneHundred;
         frameNumber = frameNumber / 100000;
         if( frameNumber > (inBuffer->captionTime.frameRatePerSecTimesOneHundred / 100) ) {
@@ -175,7 +191,7 @@ uint8 MccEncodeProcNextBuffer( void* rootCtxPtr, Buffer* inBuffer ) {
         inBuffer->captionTime.second, inBuffer->captionTime.frame);
     Buffer* withBoilerPlateBuffer = addBoilerplate(ctxPtr, inBuffer);
     if( inBuffer->captionTime.source == CAPTION_TIME_PTS_NUMBERING ) {
-        withBoilerPlateBuffer->captionTime = convertCaptionTime(rootCtxPtr, &inBuffer->captionTime);
+        withBoilerPlateBuffer->captionTime = convertCaptionTime(rootCtxPtr, inBuffer);
     } else {
         withBoilerPlateBuffer->captionTime = inBuffer->captionTime;
     }
@@ -219,10 +235,35 @@ uint8 MccEncodeShutdown( void* rootCtxPtr ) {
     ASSERT(rootCtxPtr);
     ASSERT(((Context*)rootCtxPtr)->mccEncodeCtxPtr);
     Sinks sinks = ((Context*)rootCtxPtr)->mccEncodeCtxPtr->sinks;
+    char scratchBuffer[256];
+    scratchBuffer[0] = '\0';
+
+    for( int loop = 0; loop < 60; loop++ ) {
+        if( ((Context*)rootCtxPtr)->mccEncodeCtxPtr->framesPerSec[loop] == 0 ) {
+            break;
+        }
+        sprintf(&scratchBuffer[strlen(scratchBuffer)], "%d  ", ((Context*)rootCtxPtr)->mccEncodeCtxPtr->framesPerSec[loop]);
+        if(loop == 29 ) {
+            sprintf(&scratchBuffer[strlen(scratchBuffer)], "\n");
+            printf("%s", scratchBuffer);
+            scratchBuffer[0] = '\0';
+        }
+    }
+    if( scratchBuffer[0] != '\0' ) {
+        printf("%s", scratchBuffer);
+    }
 
     LOG(DEBUG_LEVEL_VERBOSE, DBG_MCC_ENC, "Shutting down MCC Encode pipeline element.");
 
-    LOG(DEBUG_LEVEL_INFO, DBG_MCC_ENC, "Added %ld Fill Frames", ((Context*)rootCtxPtr)->mccEncodeCtxPtr->numFillFrames);
+    if( ((Context*)rootCtxPtr)->mccEncodeCtxPtr->totalSkew != 0 ) {
+        LOG(DEBUG_LEVEL_ERROR, DBG_MCC_ENC, "Adding %d frames to correct skew from missing frames in source", ((Context*)rootCtxPtr)->mccEncodeCtxPtr->totalSkew);
+    }
+    if( ((Context*)rootCtxPtr)->config.matchPtsTime == TRUE ) {
+        LOG(DEBUG_LEVEL_INFO, DBG_MCC_ENC, "Added %ld Fill Frames to match PTS Time", ((Context *) rootCtxPtr)->mccEncodeCtxPtr->numFillFrames);
+    }
+    if( ((Context*)rootCtxPtr)->config.matchPtsTime == TRUE ) {
+        LOG(DEBUG_LEVEL_INFO, DBG_MCC_ENC, "Added %ld Fill Frames to match PTS Time", ((Context *) rootCtxPtr)->mccEncodeCtxPtr->numFillFrames);
+    }
     LOG(DEBUG_LEVEL_INFO, DBG_MCC_ENC, "Frame Time Ahead High Water Mark - %lld ms", ((Context*)rootCtxPtr)->mccEncodeCtxPtr->maxPositiveDelta);
     LOG(DEBUG_LEVEL_INFO, DBG_MCC_ENC, "Frame Time Behind High Water Mark - %lld ms", ((Context*)rootCtxPtr)->mccEncodeCtxPtr->maxNegativeDelta);
 
@@ -391,20 +432,116 @@ static void addFillPacket( Context* rootCtxPtr, CaptionTime* captionTimePtr ) {
 
 /*------------------------------------------------------------------------------
  | NAME:
+ |    handleSkew()
+ |
+ | DESCRIPTION:
+ |    This function will determine if skew is being added as a result of missing
+ |    closed captioning frames. If it is, this function will notify the calling
+ |    function to add fill packets to compensate. All of the results of this
+ |    function will be logged.
+ ------------------------------------------------------------------------------*/
+static uint8 handleSkew( Context* rootCtxPtr, CaptionTime* inCaptionTimePtr ) {
+    uint8 framerateLow = 0;
+    uint8 framerateHigh = 0;
+    MccEncodeCtx* ctxPtr = rootCtxPtr->mccEncodeCtxPtr;
+    uint8 retval = 0;
+
+    if( ((inCaptionTimePtr->frameRatePerSecTimesOneHundred / 100) == 29) || ((inCaptionTimePtr->frameRatePerSecTimesOneHundred / 100) == 30) ) {
+        framerateHigh = 30;
+        framerateLow = 29;
+    } else if( ((inCaptionTimePtr->frameRatePerSecTimesOneHundred / 100) == 59) || ((inCaptionTimePtr->frameRatePerSecTimesOneHundred / 100) == 60) ) {
+        framerateHigh = 60;
+        framerateLow = 59;
+    } else if( ((inCaptionTimePtr->frameRatePerSecTimesOneHundred / 100) == 23) || ((inCaptionTimePtr->frameRatePerSecTimesOneHundred / 100) == 24) ) {
+        framerateHigh = 24;
+        framerateLow = 23;
+    } else if( (inCaptionTimePtr->frameRatePerSecTimesOneHundred / 100) == 25 ) {
+        framerateHigh = 25;
+        framerateLow = 25;
+    } else {
+        LOG(DEBUG_LEVEL_FATAL, DBG_MCC_ENC, "Unexpected and unhandled framerate: %ld", inCaptionTimePtr->frameRatePerSecTimesOneHundred);
+    }
+
+    if( (ctxPtr->lastCaptionTime.minute == inCaptionTimePtr->minute) && (ctxPtr->lastCaptionTime.second == inCaptionTimePtr->second) ) {
+        ctxPtr->framesPerSec[inCaptionTimePtr->second]++;
+    } else if( ctxPtr->lastCaptionTime.minute != inCaptionTimePtr->minute ) {
+        uint32 minuteSkew = 0;
+        uint32 minuteFrames = 0;
+        char scratchBuffer[256];
+        scratchBuffer[0] = '\0';
+        for( int loop = 0; loop < 60; loop++ ) {
+            if( (ctxPtr->framesPerSec[loop] != framerateLow) && (ctxPtr->framesPerSec[loop] != framerateHigh) ) {
+                sprintf(&scratchBuffer[strlen(scratchBuffer)], "%02d* ", ctxPtr->framesPerSec[loop]);
+                ASSERT(ctxPtr->framesPerSec[loop] > framerateHigh);
+                minuteSkew = minuteSkew + (framerateHigh - ctxPtr->framesPerSec[loop]);
+            } else if( ctxPtr->framesPerSec[loop] == framerateLow ) {
+                sprintf(&scratchBuffer[strlen(scratchBuffer)], "%02d! ", ctxPtr->framesPerSec[loop]);
+            } else {
+                sprintf(&scratchBuffer[strlen(scratchBuffer)], "%02d  ", ctxPtr->framesPerSec[loop]);
+            }
+            minuteFrames = minuteFrames + ctxPtr->framesPerSec[loop];
+            ctxPtr->framesPerSec[loop] = 0;
+            if(loop == 29 ) {
+                sprintf(&scratchBuffer[strlen(scratchBuffer)], "\n");
+                printf("%s", scratchBuffer);
+                scratchBuffer[0] = '\0';
+            }
+        }
+        if( minuteSkew == 0 ) {
+            sprintf(&scratchBuffer[strlen(scratchBuffer)], "%d:%02d -> %d:%02d = %ld\n",
+                    ctxPtr->lastCaptionTime.hour, ctxPtr->lastCaptionTime.minute, inCaptionTimePtr->hour,
+                    inCaptionTimePtr->minute, minuteFrames);
+        } else {
+            sprintf(&scratchBuffer[strlen(scratchBuffer)], "%d:%02d -> %d:%02d = %ld  --- Skew %ld\n",
+                    ctxPtr->lastCaptionTime.hour, ctxPtr->lastCaptionTime.minute, inCaptionTimePtr->hour,
+                    inCaptionTimePtr->minute, minuteFrames, minuteSkew);
+        }
+        printf("%s", scratchBuffer);
+        ctxPtr->totalSkew = ctxPtr->totalSkew + minuteSkew;
+        ctxPtr->framesPerSec[inCaptionTimePtr->second]++;
+    } else if( ctxPtr->lastCaptionTime.second != inCaptionTimePtr->second ) {
+        ctxPtr->framesPerSec[inCaptionTimePtr->second]++;
+        if( (ctxPtr->framesPerSec[ctxPtr->lastCaptionTime.second] == framerateLow) || (ctxPtr->framesPerSec[ctxPtr->lastCaptionTime.second] == framerateHigh) ) {
+            ctxPtr->fullSecondFound = TRUE;
+        } else if( ctxPtr->fullSecondFound == TRUE ) {
+            ASSERT(ctxPtr->framesPerSec[ctxPtr->lastCaptionTime.second] < framerateHigh);
+            retval = framerateHigh - ctxPtr->framesPerSec[ctxPtr->lastCaptionTime.second];
+            LOG(DEBUG_LEVEL_ERROR, DBG_MCC_ENC, "Adding %d frames to correct skew from missing frames at: %02d:%02d:%02d.%03d", retval,
+                inCaptionTimePtr->hour, inCaptionTimePtr->minute, inCaptionTimePtr->second, inCaptionTimePtr->millisecond);
+        } else {
+            LOG(DEBUG_LEVEL_WARN, DBG_MCC_ENC, "Missing %d frames in the front of the asset: %02d:%02d:%02d.%03d Ignoring.",
+                (framerateHigh - ctxPtr->framesPerSec[ctxPtr->lastCaptionTime.second]), inCaptionTimePtr->hour,
+                inCaptionTimePtr->minute, inCaptionTimePtr->second, inCaptionTimePtr->millisecond);
+        }
+    } else {
+        ASSERT(0);
+    }
+
+    ctxPtr->lastCaptionTime.hour = inCaptionTimePtr->hour;
+    ctxPtr->lastCaptionTime.minute = inCaptionTimePtr->minute;
+    ctxPtr->lastCaptionTime.second = inCaptionTimePtr->second;
+
+    return retval;
+} // handleSkew()
+
+/*------------------------------------------------------------------------------
+ | NAME:
  |    convertCaptionTime()
  |
  | DESCRIPTION:
  |    This function will convert the time derived from PTS (in Milliseconds)
  |    to frame number, which matches the time specified in SCC or MCC.
  ------------------------------------------------------------------------------*/
-static CaptionTime convertCaptionTime( Context* rootCtxPtr, CaptionTime* inCaptionTimePtr ) {
+static CaptionTime convertCaptionTime( Context* rootCtxPtr, Buffer* inBufferPtr ) {
     MccEncodeCtx* ctxPtr = rootCtxPtr->mccEncodeCtxPtr;
+    CaptionTime* inCaptionTimePtr = &inBufferPtr->captionTime;
     CaptionTime captionTime;
     boolean timeSynch = FALSE;
     int64 actualTimeInMs = 0;
     int64 frameTimeInMs = 0;
     int64 deltaInMs;
     int64 frameSizeMs = (100000 / inCaptionTimePtr->frameRatePerSecTimesOneHundred) + 1;
+    uint8 skewFillPackets = 0;
 
     while( timeSynch == FALSE ) {
         captionTime.frameRatePerSecTimesOneHundred = inCaptionTimePtr->frameRatePerSecTimesOneHundred;
@@ -438,7 +575,7 @@ static CaptionTime convertCaptionTime( Context* rootCtxPtr, CaptionTime* inCapti
         }
 
         if( (captionTime.dropframe == TRUE) && (ctxPtr->nextCaptionTime.second == 0) &&
-            (ctxPtr->nextCaptionTime.frame == 0) && ((ctxPtr->nextCaptionTime.minute % 10) == 0) ){
+            (ctxPtr->nextCaptionTime.frame == 0) && ((ctxPtr->nextCaptionTime.minute % 10) != 0) ){
             ctxPtr->nextCaptionTime.frame = 2;
         }
 
@@ -475,7 +612,29 @@ static CaptionTime convertCaptionTime( Context* rootCtxPtr, CaptionTime* inCapti
                 timeSynch = TRUE;
             }
         } else {
-            timeSynch = TRUE;
+            if( skewFillPackets == 0 ) {
+#if 0
+                printf("%02d:%02d:%02d:%03d | %02d:%02d:%02d:%02d - ", inCaptionTimePtr->hour, inCaptionTimePtr->minute,
+                       inCaptionTimePtr->second, inCaptionTimePtr->millisecond, captionTime.hour, captionTime.minute,
+                       captionTime.second, captionTime.frame);
+                for( int loop = 0; loop < inBufferPtr->numElements; loop++ ) {
+                    uint8 msn, lsn;
+                    byteToAscii(inBufferPtr->dataPtr[loop], &msn, &lsn );
+                    printf("%c%c ", msn, lsn);
+                }
+                printf("\n");
+#endif
+                skewFillPackets = handleSkew(rootCtxPtr, inCaptionTimePtr);
+                if( skewFillPackets == 0 ) {
+                    timeSynch = TRUE;
+                }
+            } else {
+                addFillPacket(rootCtxPtr, &captionTime);
+                skewFillPackets = skewFillPackets - 1;
+                if( skewFillPackets == 0 ) {
+                    timeSynch = TRUE;
+                }
+            }
         }
     }
 

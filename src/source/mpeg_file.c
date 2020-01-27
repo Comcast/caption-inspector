@@ -199,6 +199,24 @@ boolean MpegFileInitialize( Context* rootCtxPtr, uint8 bailAfterMins ) {
     ctxPtr->frameRatePerSecTimesOneHundred = ((retval.num * 100)/retval.den);
 
     LOG(DEBUG_LEVEL_INFO, DBG_MPEG_FILE, "Framerate = %d/%d - %d.%d", retval.num, retval.den, ctxPtr->frameRatePerSecTimesOneHundred / 100, ctxPtr->frameRatePerSecTimesOneHundred % 100 );
+    if( rootCtxPtr->config.forceDropframe == TRUE ) {
+        if( rootCtxPtr->config.forcedDropframe == TRUE ) {
+            ASSERT(ctxPtr->isDropframe);
+            LOG(DEBUG_LEVEL_INFO, DBG_MPEG_FILE, "Dropframe forced to TRUE");
+            if( (ctxPtr->frameRatePerSecTimesOneHundred / 100 != 29) && (ctxPtr->frameRatePerSecTimesOneHundred / 100 != 30) && (ctxPtr->frameRatePerSecTimesOneHundred / 100 != 59) && (ctxPtr->frameRatePerSecTimesOneHundred / 100 != 60) ) {
+                LOG(DEBUG_LEVEL_ERROR, DBG_MPEG_FILE, "Likely invalid combination of Forced Dropframe and Framerate");
+            }
+        } else {
+            ASSERT(!ctxPtr->isDropframe);
+            LOG(DEBUG_LEVEL_INFO, DBG_MPEG_FILE, "Dropframe forced to FALSE");
+        }
+    } else {
+        if( ctxPtr->isDropframe ) {
+            LOG(DEBUG_LEVEL_INFO, DBG_MPEG_FILE, "Dropframe = TRUE");
+        } else {
+            LOG(DEBUG_LEVEL_INFO, DBG_MPEG_FILE, "Dropframe = FALSE");
+        }
+    }
 
     ctxPtr->isFileOpen = TRUE;
 
