@@ -1,5 +1,5 @@
 $(window).on("load resize", function() {
-  var w = $(window).width();
+  const w = $(window).width();
   if (w >= 1200) {
     $("#docs-sidebar")
       .addClass("sidebar-visible")
@@ -12,8 +12,6 @@ $(window).on("load resize", function() {
 });
 const LEVEL = { ROOT: 0, PARENT: 1, CHILD: 2, NUB: 3 };
 const LEVEL_LABELS = ["ROOT", "PARENT", "CHILD", "NUB"];
-
-("use strict");
 const PAGE_URL = (() => {
   let url = window.location.href.toString();
   if (url.includes("#")) {
@@ -81,7 +79,7 @@ class BuildNav {
   static formatLabel(label, maxLength = 20) {
     if (!label) {
       try {
-        throw "Null Value: BuildNav.formatLabel( label < NULL VALUE )";
+        //throw "Null Value: BuildNav.formatLabel( label < NULL VALUE )";
       } catch (er) {
         //console.trace(er);
       }
@@ -98,10 +96,8 @@ class BuildNav {
     if(element){
       let label = $(element).attr("alt") || $(element).attr("data-title") || $(element).attr("data-menu") || $(element).attr("title") || $(element).text();
       if(!label || label === ""){
-        console.log($(element).id)
+        //console.log($(element).id)
       }
-      
-  
       return BuildNav.formatLabel(label, maxLength);
     } else {
       return "LABEL NF"
