@@ -40,7 +40,7 @@
                 </button>
                 <div class="site-logo">
                     <div class="logo-container">
-                        <svg data-name="CaptionInspectorLayer" id="CaptionInspectorCircle"
+                        <svg id="CaptionInspectorCircle"
                              viewBox="0 0 432 432" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                             </defs>
@@ -136,7 +136,7 @@
         <div class="container-fluid">
             <article class="docs-article" id="section-1">
                 <header class="docs-header">
-                    <img class="img-fluid" src="./assets/brand/logo-horizontal.png" />
+                    <img class="img-fluid" src="./assets/brand/logo-horizontal.png" alt="Logo" />
                     <h1 class="docs-heading bump">Introduction <span
                             class="docs-time">Last updated: 2019-06-01</span>
                     </h1>
@@ -205,11 +205,20 @@
                 </header>
                 <section class="docs-section" id="section-1-0">
                      <h2 class="section-heading">Overview</h2>
-                    <p>Caption Inspector extracts and decodes Closed-Captions (CC) from various Video or Caption File Formats.</p>
-                    <img class="img-fluid float-right" src="./assets/content-images/ico-generate.png" style="max-width:200px" />
-                    <P>The Caption Inspector project builds a <span class="language">C library</span>, <span class="language">C executable</span>, and <span
-                            class="language">Docker</span> image that can be used to extract and decode CC.
-                    </P>
+                    <div class="row">
+                        <div class="col-8">
+                            <p>Closed captions were created to assist in comprehension. Caption Inspector extracts and decodes
+                               Closed-Captions (CC) from various Video or Caption File Formats to validate and ensure Closed Captioning is available.</p>
+                            <P>The Caption Inspector project builds a <span class="language">C library</span>, <span class="language">C executable</span>, and <span
+                                class="language">Docker</span> image that can be used to extract and decode CC.
+                            </P>
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid float-right" src="./assets/content-images/ico-generate.png" alt="Caption Inspector Generates Files" />
+                        </div>
+                    </div>
+                    
+                    
                     <h4>Supported Formats</h4>
                     <p>Caption Inspector Supports <span class="tag"></span>CEA-608 and
                         <span class="tag">CEA-708</span> in <span class="tag">MPEG-2</span> and <span class="tag">MPEG-4</span> (.mpg, .ts, and .mp4 containers), <span class="tag">MCC</span> (MacCaption Closed Captions),
@@ -219,16 +228,17 @@
                     
                     <a data-toggle="lightbox" href="./assets/content-images/Overview.png">
                         <caption class="diagram">OVERVIEW DIAGRAM 1.0</caption>
-                        <img class="img-fluid" src="./assets/content-images/Overview.png">
+                        <img class="img-fluid" src="./assets/content-images/Overview.png"
+                             alt="Overview Diagram; Displays a process of importing files, converting and analyzing Closed Captions, and then exporting to file formats available per the given imported file format.">
                     </a>
                     <div class="callout-block callout-block-info">
                         <div class="content">
                             <h4 class="callout-title"><span class="callout-icon-holder mr-1">
 		                                <i class="fas fa-info-circle"></i>
-		                            </span>Note </h4>
-                            <p>Closed captions were created for deaf or hard of hearing individuals to assist in comprehension. They can also be used as a tool
-                               by those learning to read, learning to speak a non-native language, or in an environment where the audio is difficult to hear or
-                               is intentionally muted.
+		                            </span>PURPOSE </h4>
+                            <p>Closed captions were created to assist in comprehension for those who are <b>deaf or hard of hearing</b>.
+                               In other cases these are used as a <b>tool</b> by those <b>learning to read</b>, or learning to speak a <b>non-native language</b>.
+                               And, for anyone to use in an environment where the audio is <b>difficult to hear</b> or is <b>intentionally muted</b>.
                             </p>
                         </div>
                     </div>
@@ -265,13 +275,15 @@
                     </blockquote>
                     <p><b>Caption Inspector decodes the Closed Captioning Data into two basic types of output files.</b></p>
                     <ol class="outline">
-                        <li>The first type has the Closed Captioning Data demultiplexed into output files for each service/channel with closed caption tags and
-                            text in the file.
+                        <li><b>The first type (demultiplexed)</b> has the Closed Captioning Data demultiplexed
+                            into output files for each service/channel with closed caption tags and text in the file.
+                            Simply put, <b>demultiplexed Closed Captioning Data exists in external files</b>.
                         </li>
-                        <li>The second type has all of the Closed Captioning Data decoded in place, still multiplexed together.</li>
+                        <li><b>The second type (multiplexed)</b> has all of the Closed Captioning Data decoded <b>in place</b>,
+                         still <a href="./docs-page.html#section-7-8" data-placement="top" data-toggle="tooltip" class="bold tooltip" title="See Term: multiplexed">multiplexed</a> together.</li>
                     </ol>
                     <h3 class="mt-5" id="section-2-1">Developer Reference</h3>
-                    As a extra benefit the Caption Inspector Codebase can be utilized as a reference. Developers can leverage the implementation of the Closed
+                    <p>As a extra benefit the Caption Inspector Codebase can be utilized as a reference. Developers can leverage the implementation of the Closed
                     Captioning code without knowing the exact Specifications by examining the output and logs.</p>
                     <p>Caption Inspector has a plugin pipeline architecture that can be configured in various ways and allows the user to add new plugins to
                        perform various transformations. Currently, the following are the main use cases that the Caption Inspector Software covers:
@@ -332,7 +344,7 @@
                         <span data-placement="top" data-toggle="tooltip" class="tooltip" title="MCC: MacCaption Closed Captions">`.mcc`</span>, or
                         <span data-placement="top" data-toggle="tooltip" class="tooltip" title="SCC: Scenarist Closed Captions">`.scc`</span> file format. Yet, this tool is not simply an extractor of embedded data, but a primary purpose of this tool is to validate the embedded transcript for errors.
                     </p>
-                    <p><b>Processing content will create several files</b>, which includes:
+                    <p><b>Processing content will create several files</b>, which includes:</p>
                     <ul>
                         <li><b>Content Descriptor Document (CDD) File.</b> A single CDD `.ccd file` shows each frame's binary caption data as hex values
                                                                            followed by decoded characters and control-codes (much like how the output of the
@@ -342,7 +354,7 @@
                             frame-indexed, service-specific, human-readable text and control-codes for analysis.
                         </li>
                     </ul>
-                    </p>
+                    
                 </section>
                 <section class="docs-section" id="section-4-0">
                     <h2 class="section-heading">Prerequisites</h2>
@@ -374,7 +386,8 @@
                     <section class="docs-test">
                         <div class="info-cards">
                             <h3>Two Basic Types</h3>
-                            <p>Caption Inspector decodes the Closed Captioning Data into two basic types of output files. The first type has the Closed Captioning Data <span class="tag">demultiplexed</span> into output files for each service/channel with closed caption tags and text in the file.
+                            <p>Caption Inspector decodes the Closed Captioning Data into two basic types of output files.
+                               The first type has the Closed Captioning Data <span  class="tooltip" title="See Definitions Below">demultiplexed</span> into output files for each service/channel with closed caption tags and text in the file.
                             </p>
                                 <!-- Info Card  -->
                                 <div class="info-card" hidden>
@@ -408,9 +421,8 @@
                             <div class="clearfix"></div>
                         </div>
                     </section>
-                    
-                    
-                    <p>The second type has all of the Closed Captioning Data decoded in place, still multiplexed together. Beyond the current use case of
+                    <p>The second type has all of the Closed Captioning Data decoded in place, still
+                       "<a href="./docs-page.html#section-7-8" data-placement="top" data-toggle="tooltip" class="bold tooltip" title="See Term: multiplexed">multiplexed</a>" together. Beyond the current use case of
                        decoding and examining the Closed Captioning, the Caption Inspector Codebase can be leveraged as a reference implementation of the Closed
                        Captioning Specifications which would allow a developer to not have to understand the specifics of the specs just to access, manipulate,
                        and modify the encoded Closed Captioning.
@@ -514,11 +526,11 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                 </section>
                 <section class="docs-section" id="section-6-0">
                     <h2 class="section-heading" data-title="Regression Testing">Regression Testing</h2>
-                    <p>While the testing is not complete yet, there are several Unit Tests, Integration Tests, and System Tests that run on the Caption
-                       Inspector Codebase. These are intended to be run as integration tests and verify that nothing has broken as a result of a change. They
+                    <p>While the testing is not complete yet, <b>there are several Unit Tests, Integration Tests, and System Tests</b> that run on the Caption
+                       Inspector Codebase. These are intended to be run as <b>integration tests</b> and verify that <b>nothing has broken</b> as a result of a change. They
                        are run as part of a pull request, but for debugging purposes they can also be run locally (even in an IDE) before a pull request is
                        issued. The easiest way to run these is inside of docker, as the dependencies are handled for you. But if you need to run them with an
-                       IDE/debugger, they can also be run from the command line.
+                       IDE/debugger, <b>they can also be run from the command line</b>.
                     </p>
                     <p>To run the regression tests from inside of docker, simply call <code>make docker-test</code> at the root directory. This will build the
                        docker image and run the tests. The output generated by this activity can give information about any test case that does not pass, but
@@ -527,7 +539,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                        browser on your local machine. If there is a problem with that operation you can open the file manually from a browser.
                     </p>
                     <p>To run the regression tests from the command line, you need to install Xunit Viewer, which can be found
-                        <a href="https://github.com/lukejpreston/xunit-viewer">Xunit Viewer</a>
+                        <a href="https://github.com/lukejpreston/xunit-viewer" target="_blank">Xunit Viewer</a>
                        . Xunit Viewer is the application that takes the Xunit XML and converts it into a beautified HTML format. Once you have Xunit Viewer
                        installed, or if you ignore it, you just need to build and run the regression tests from the test directory.
                     </p>
@@ -600,23 +612,22 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                         </tr>
                         </thead>
                         <tr>
-                            <td>
+                            <td style="width:22%">
                                 <p>
-                                    <img alt="File Icon: CEA-608 Decode" border="0"
-                                         class="file-icon" data-toggle="lightbox" height="80"
+                                    <img alt="File Icon: CEA-608 Decode"
+                                         class="file-icon img-fluid" data-toggle="lightbox"
                                          id="CEA-608DecodeFile"
-                                         src="./assets/content-images/image003.png" width="80">
+                                         src="./assets/content-images/image003.png">
                                 </p>
                             </td>
                             <td>
                                 <h3 id="section-7-2" data-title="CEA-608 Decode File">
-                                    <a name="section-6-78">CEA-608 Decode File (</a>
+                                    <a id="section-7-2-1">CEA-608 Decode File (</a>
                                     <span class="file-ext">.608</span>)
                                 </h3>
                                 <p>Caption Inspector will output decoded CEA-608 as text with inline tags from the <span class="tag">
                     608</span>(
-                                    <a href="https://en.wikipedia.org/wiki/EIA-608">https://en.wikipedia.org/wiki/EIA-608</a>
-                                   .
+                                    <a href="https://en.wikipedia.org/wiki/EIA-608" target="_blank">https://en.wikipedia.org/wiki/EIA-608</a>.
                                 </p>
                                 <p>Each Channel of <span
                                         class="tag">608</span> captions that are found are written to their own file. Each file contains the channel number
@@ -630,19 +641,18 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                         <tr>
                             <td>
                                 <p>
-                                    <img alt="File Icon: CEA-708 Decode" border="0"
-                                         data-toggle="lightbox" height="80" id="CEA-708DecodeFile"
-                                         src="./assets/content-images/image004.png" width="80">
+                                    <img alt="File Icon: CEA-708 Decode" class="img-fluid"
+                                         data-toggle="lightbox" id="CEA-708DecodeFile"
+                                         src="./assets/content-images/image004.png">
                                 </p>
                             </td>
                             <td>
                                 <h3 id="section-7-3" data-title="CEA-708 Decode File">
-                                    <a name="section-7-3-1">CEA-708 Decode File (</a>
+                                    <a id="section-7-3-1">CEA-708 Decode File (</a>
                                     <span class="file-ext">.708</span>)
                                 </h3>
                                 <p>Caption Inspector will output decoded CEA-708 as text with inline tags from the 708
-                                    <a href="https://en.wikipedia.org/wiki/CEA-708">https://en.wikipedia.org/wiki/CEA-708</a>
-                                   .
+                                    <a href="https://en.wikipedia.org/wiki/CEA-708" target="_blank">https://en.wikipedia.org/wiki/CEA-708</a>.
                                 </p>
                                 <p>Similar to 608, each Service of 708 captions that are found are written in their own file, regardless of whether or not there
                                    are full and valid captions associated with the specific service. <br> <br>
@@ -653,22 +663,22 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                             <td>
                                 <p>
                                     <img alt="File Icon: Closed Caption Descriptor"
-                                         border="0" data-toggle="lightbox"
-                                         height="81" id="ClosedCaptionDescriptorFile"
-                                         src="./assets/content-images/image005.png" width="81">
+                                         class="img-fluid" data-toggle="lightbox" id="ClosedCaptionDescriptorFile"
+                                         src="./assets/content-images/image005.png">
                                 </p>
                             </td>
                             <td>
                                 <h3 id="section-7-4" data-title="Descriptor File">
-                                    <a name="section-6-80">Closed Caption Descriptor File (</a>
+                                    <a id="section-7-4-1">Closed Caption Descriptor File (</a>
                                     <span class="file-ext">.ccd</span>)
                                 </h3>
                                 <p>Caption Inspector will output a single Closed Caption Descriptor File for each asset that it processes. The Closed Caption
                                    Descriptor Files are intended to be annotated hex dumps of the closed captioning descriptors located on every frame of video
                                    or every line of an MCC file.
                                 </p>
-                                <p>Unlike the other artifacts, the CCD files are decoded inline, all channels and services have been left "<span
-                                        class="bold">multiplexed</span>" together and have traceability back to the original/unmodified hex that was extracted
+                                <p>Unlike the other artifacts, the CCD files are decoded inline, all channels and services have been left
+                                   <a href="./docs-page.html#section-7-8" data-placement="top" data-toggle="tooltip" class="bold tooltip" title="See Term: multiplexed">multiplexed</a>
+                                   together and have traceability back to the original/unmodified hex that was extracted
                                    from the asset or caption file.
                                 </p>
                                 <p><span>The Closed Caption Descriptor File contains a decoded binary representation of Closed
@@ -678,14 +688,14 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                         <tr>
                             <td>
                                 <p>
-                                    <img alt="File Icon: Media Info" border="0"
-                                         data-toggle="lightbox" height="81" id="MediaInfoFileIcon"
-                                         src="./assets/content-images/image006.png" width="81">
+                                    <img alt="File Icon: Media Info" class="img-fluid"
+                                         data-toggle="lightbox" id="MediaInfoFileIcon"
+                                         src="./assets/content-images/image006.png">
                                 </p>
                             </td>
                             <td>
                                 <h3 id="section-7-5" data-title="Media Info File">
-                                    <a name="section-7-5-1">Media Info File (</a>
+                                    <a id="section-7-5-1">Media Info File (</a>
                                     <span class="file-ext">.inf</span>)
                                 </h3>
                                 <p>Caption Inspector runs <span
@@ -698,14 +708,13 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                         <tr>
                             <td>
                                 <p data-toggle="lightbox">
-                                    <img alt="Debug File" border="0"
-                                         height="81" id="DebugFile"
-                                         src="./assets/content-images/image007.png" width="81">
+                                    <img alt="Debug File" class="img-fluid" id="DebugFile"
+                                         src="./assets/content-images/image007.png">
                                 </p>
                             </td>
                             <td>
                                 <h3 id="section-7-6" data-title="Debug File">
-                                    <a name="section-7-6-1">Debug File (</a>
+                                    <a id="section-7-6-1">Debug File (</a>
                                     <span class="file-ext">.dbg</span>)
                                 </h3>
                                 <p>Caption Inspector has a logging mechanism that aggregates information, warnings, and errors related to the processing of the
@@ -722,7 +731,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                        Files are intended to be annotated hex dumps of the closed captioning descriptors located on every frame of video or every line of an MCC
                        file.
                     </p>
-                    <p>Unlike the other artifacts, the CCD files are decoded inline, and all channels and services have been left "multiplexed" together and
+                    <p>Unlike the other artifacts, the CCD files are decoded inline, and all channels and services have been left "<a href="./docs-page.html#section-7-8" data-placement="top" data-toggle="tooltip" class="bold tooltip" title="See Term: multiplexed">multiplexed</a>" together and
                        have traceability back to the original/unmodified hex that was extracted from the asset or caption file. The Closed Caption Descriptor
                        File contains a decoded binary representation of Closed Captioning Data.
                     </p>
@@ -737,7 +746,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                             <h4 class="callout-title"><span class="callout-icon-holder mr-1">
 		                                <i class="fas fa-info-circle"></i>
 		                            </span>Note </h4>
-                            <p>A multiplex or mux (called virtual sub-channel in the United States and Canada, and bouquet in France) is a grouping of program
+                            <p>A <dfn><b>multiplex or mux</b></dfn> (called virtual sub-channel in the United States and Canada, and bouquet in France) is a grouping of program
                                services as interleaved data packets for broadcast over a network or modulated multiplexed medium. The program services are split
                                out at the receiving end.
                             </p>
@@ -747,7 +756,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                 <section class="docs-section" id="section-8-0">
                     <h2 class="section-heading" data-title="About Windows">About Closed Caption Windows</h2>
                     <h3 id="section-8-1" data-title="Timestamps">Timestamp</h3>
-                    <p>On the leftmost portion of the document is the timestamp. Each Closed Caption Data (CCD) packet has a timestamp, which corresponds with the frame of the asset containing the CCD packet. For readability sake, the timestamp is only printed out when specific <a href="section-8-2" class="tag">Global Control Codes</a> are encountered. There are three types of timestamps: Frame Number, Drop Frame Number, and Millisecond. This refers to the last number, and the symbol that separates it from the second to last number.
+                    <p>On the leftmost portion of the document is the timestamp. Each Closed Caption Data (CCD) packet has a timestamp, which corresponds with the frame of the asset containing the CCD packet. For readability sake, the timestamp is only printed out when specific <a href="./docs-page.html#section-8-2" class="tag">Global Control Codes</a> are encountered. There are three types of timestamps: Frame Number, Drop Frame Number, and Millisecond. This refers to the last number, and the symbol that separates it from the second to last number.
                     </p>
                     <p class="bold x-large text-black mb-0 pb-0">There are three types of timestamps:</p>
                     <ul class="mt-0">
@@ -835,7 +844,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                        text is underlined.
                     </p>
                     <div class="graphic-caption">[ 608 MidRow ] ( ccd608MidRowStyle.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox" alt="608 MidRow"
                          src="./assets/content-images/ccd608MidRowStyle.png">
                     <h3 id="section-9-6" data-title="Tab Control Code">Tab Control Code &nbsp;<span class="lite">(CEA-608)</span>
                     </h3>
@@ -847,22 +856,20 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                     <p>CEA-708 is able to support 64 services, rather than the 4 channels in 608, in part by defining a variable length packet structure and
                        then associating each group of packets to a specific service.
                     </p>
-                    <p>The packet structure is made up of a Packet Start followed by a number of Data Packets. Receiving another Packet Start ends the current
-                       packet and tells the closed captioning service to process all of the data that was in the previous packet structure.
-                    </p>
-                    <div class="callout-block callout-block-warning">
+                    
+                    <div class="callout-block callout-block-info">
                         <div class="content">
-                            <span class="callout-icon-holder mr-1"><i class="fas fa-bullhorn"></i></span>
+                            <span class="callout-icon-holder mr-1"><i class="fas fa-info"></i></span>
                             <h4 class="callout-title">Warning</h4>
-                            <p>THIS IS ONLY AN EXAMPLE. Its important to read warning messages when you see them, with the exception of this one because testing overlooked this warning.
-                               We figure its important that everyone has something to do...
+                            <p>The packet structure is made up of a Packet Start followed by a number of Data Packets. Receiving another Packet Start ends the current
+                               packet and tells the closed captioning service to process all of the data that was in the previous packet structure.
                             </p>
                         </div>
                     </div>
                     <p>To make the start of the packet structure stick out in the decoded data, it has an arrow on the Packet Start: `<-`.</p>
                     <div class="graphic-caption">[ 708 Packet Start ] ( ccd708PacketStart.png )</div>
                     <img class="img-fluid graphic-diagram" data-toggle="lightbox"
-                         src="./assets/content-images/ccd708PacketStart.png">
+                         src="./assets/content-images/ccd708PacketStart.png" alt="708 Packet Diagram">
                     <h3 id="section-10-2">Spurious Data &nbsp;<span class="lite">(CEA-708)</span>
                     </h3>
                     <p>When a byte is unexpected, it gets printed out in the below format. For this example, two unexpected 0 bytes were encountered.</p>
@@ -870,7 +877,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                             class="lite">(CEA-708)</span></h3>
                     <p>Set Current Window specifies the window to which all subsequent window style and pen commands are directed.</p>
                     <div class="graphic-caption">[ 708 Set Current Window ] ( ccd708SetCurrentWindow.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox" alt="708 Set Current Window"
                          src="./assets/content-images/ccd708SetCurrentWindow.png">
                     <h3 id="section-10-4">Define Window &nbsp;<span class="lite">(CEA-708)</span>
                     </h3>
@@ -882,28 +889,28 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                     Clear Windows removes any existing text from the specified windows in the window map and replaces the entire window with the window fill
                     color.
                     <div class="graphic-caption">[ 708 Clear Windows ] ( ccd708ClearWindow.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox" alt="708 Clear Window"
                          src="./assets/content-images/ccd708ClearWindow.png">
                     <h3 id="section-10-8">Delete Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Delete Windows removes all specified windows.</p>
                     <div class="graphic-caption">[ 708 Delete Windows ] ( ccd708DeleteWindow.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"  alt="708 Delete Windows"
                          src="./assets/content-images/ccd708DeleteWindow.png">
                      
                     <h3 id="section-10-9">Hide Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Hide Windows causes the specified windows to be removed from the screen.</p>
                     <div class="graphic-caption">[ 708 Hide Windows ] ( ccd708HideWindow.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox" alt="708 Hide Windows"
                          src="./assets/content-images/ccd708HideWindow.png">
                     <h3 id="section-10-10" data-title="Toggle Windows">Toggle Windows &nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Toggle Windows causes all specified windows to toggle whether they are displayed or hidden.</p>
                     <div class="graphic-caption">[ 708 Toggle Windows ] ( ccd708ToggleWindow.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox" alt="708 Toggle Windows"
                          src="./assets/content-images/ccd708ToggleWindow.png">
                     <h3 id="section-10-11" data-title="Set Window Attributes">Set Window Attributes &nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Set Window Attributes assigns the specified style attributes to the current window.</p>
                     <div class="graphic-caption">[ 708 Set Window Attributes ] ( ccd708SetWindowAttributes.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox" alt="708 Set Window Attributes"
                          src="./assets/content-images/ccd708SetWindowAttributes.png">
                     <div class="callout-block callout-block-info">
                         <div class="content">
@@ -912,7 +919,6 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
 		                            </span>Note </h4>
                             <p>You need to multiply the high bit (value above the 'H') by 4 and add it to the low bits (value above the 'L') to get the final
                                code for the Border Type.
-                                <a href="#"></a>
                             </p>
                         </div>
                     </div>
@@ -921,14 +927,14 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                        attributes specified by the most recent Set Pen Attributes command written to the window.
                     </p>
                     <div class="graphic-caption">[ 708 Set Pen Attributes ] ( ccd708SetPenAttributes.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox" alt="708 Set Pen Attributes"
                          src="./assets/content-images/ccd708SetPenAttributes.png">
                     <h3 id="section-10-13" data-title="Set Pen Color">Set Pen Color &nbsp;<span class="lite"></span></h3>
                     <p>Set Pen Color assigns the pen color attributes for the current window. Text written to that window will have the color attributes
                        specified by the most recent Set Pen Color command.
                     </p>
                     <div class="graphic-caption"> [ 708 Set Pen Color ] ( ccd708SetPenColor.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox" alt="708 Set Pen Color"
                          src="./assets/content-images/ccd708SetPenColor.png">
                     <h3 id="section-10-14" data-title="Set Pen Location">Set Pen Location &nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Set Pen Location repositions the pen cursor for the current window, as specified by the current window ID.</p>
@@ -946,29 +952,29 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                     </p>
                     <p>When the window justification type is not left, text shall be formatted based upon the current window justification type.</p>
                     <div class="graphic-caption">[ 708 Set Pen Location ] ( ccd708SetPenLocation.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox" alt="708 Set Pen Location"
                          src="./assets/content-images/ccd708SetPenLocation.png">
                     <h3 id="section-10-17" data-title="Delay">Delay &nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Delay suspends interpretation of the command input buffer. Once the delay expires captioning resumes.</p>
                     <div class="graphic-caption">[ 708 Delay ] ( ccd708Delay.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox" alt="708 Delay"
                          src="./assets/content-images/ccd708Delay.png">
                     <h3 id="section-10-18" data-title="Delay Cancel">Delay Cancel&nbsp;<span class="lite">(CEA-708)</span></h3>
                     <p>Delay Cancel terminates an active Delay command and captioning resumes.</p>
                     <div class="graphic-caption">[708 Delay Cancel ] ( ccd708DelayCancel.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"  alt="708 Delay Cancel"
                          src="./assets/content-images/ccd708DelayCancel.png">
                     <h3 id="section-10-19" data-title="Reset">Reset &nbsp;<span class="lite">(CEA-708)</span>
                     </h3>
                     <p>Reset command reinitializes the service for which it is received.</p>
                     <div class="graphic-caption">[ 708 Reset ] ( ccd708Reset.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"  alt="708 Reset"
                          src="./assets/content-images/ccd708Reset.png">
                     <h3 id="section-10-20" data-title="Reserved">Reserved <span class="lite">(CEA-708)</span>
                     </h3>
                     <p>Reserved Codes are just that, Reserved Codes. They are not believed to be used.</p>
                     <div class="graphic-caption">[ 708 Reserved ] ( ccd708Reserved.png )</div>
-                    <img class="img-fluid graphic-diagram" data-toggle="lightbox"
+                    <img class="img-fluid graphic-diagram" data-toggle="lightbox" alt="708 Reserved"
                          src="./assets/content-images/ccd708Reserved.png">
                 </section>
                 
@@ -1227,7 +1233,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                             <div class="panel-heading" role="tab" id="heading-2">
                                 <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2"> CEA-608 </a> </h4>
                             </div>
-                            <div id="collapse-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2" style="height: 0px;">
+                            <div id="collapse-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2" style="height: 0;">
                                 <div class="panel-body bg-accordian">
                                     <p>CEA-608 refers to the technical standard for captioning&nbsp;standard-definition&nbsp;NTSC video. It is also commonly referred to as "Line 21&nbsp;closed captioning".</p>
                                 </div>
@@ -1307,7 +1313,8 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                             <div class="panel-heading" role="tab" id="heading-10">
                                 <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-10" aria-expanded="false" aria-controls="collapse-10"> Closed Captioning </a> </h4>
                             </div>
-                            <div id="collapse-10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-10" style="height: 0px;">
+                            <div id="collapse-10" class="panel-collapse collapse" role="tabpanel"
+                                 aria-labelledby="heading-10" style="height: 0;">
                                 <div class="panel-body bg-accordian">
                                     <p>Closed Captioning is text that appears over video that can be turned on an off using a&nbsp;decoder&nbsp;which is built into most consumer television sets and cable boxes. Closed Captions differ from&nbsp;subtitles&nbsp;in that they contain information about all audio, not just dialogue.</p>
                                 </div>
@@ -1317,9 +1324,16 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                             <div class="panel-heading" role="tab" id="heading-11">
                                 <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-11" aria-expanded="false" aria-controls="collapse-11"> Codec </a> </h4>
                             </div>
-                            <div id="collapse-11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-11" style="height: 0px;">
+                            <div id="collapse-11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-11"
+                                 style="height: 0;">
                                 <div class="panel-body bg-accordian">
-                                    <p>Codec stands for "coder-decoder", it is a method of compressing video in order to strike a balance between file size and quality. Different codecs have different data rates, aspect ratios, and methods of closed captioning in order to achieve this balance. Some examples of codecs are DV,&nbsp;MPEG-2, WMV, H.264, Uncompressed, and ProRes. To watch a video, your computer needs the specific codec that video uses, otherwise it will not play. Not all codecs are available for all operating systems, and they may not be free to use.</p>
+                                    <p>Codec stands for "coder-decoder", it is a method of compressing video in
+                                       order to strike a balance between file size and quality. Different codecs
+                                       have different data rates, aspect ratios, and methods of closed captioning
+                                       in order to achieve this balance. Some examples of codecs are DV,&nbsp;MPEG-2,
+                                       WMV, H.264, Uncompressed, and ProRes. To watch a video, your computer needs
+                                       the specific codec that video uses, otherwise it will not play. Not all
+                                       codecs are available for all operating systems, and they may not be free to use.</p>
                                 </div>
                             </div>
                         </div>
@@ -1327,29 +1341,42 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                             <div class="panel-heading" role="tab" id="heading-12">
                                 <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-12" aria-expanded="false" aria-controls="collapse-12"> Container Format </a> </h4>
                             </div>
-                            <div id="collapse-12" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-12" style="height: 0px;">
+                            <div id="collapse-12" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-12" style="height: 0;">
                                 <div class="panel-body bg-accordian">
-                                    <p>A container format is a way to encapsulate video so that it can be viewed in a video player, edited in an non-linear editor, or processed in some other way. Examples of container formats are Quicktime, AVI and MXF.</p>
+                                    <p>A container format is a way to encapsulate video so that it can be viewed in a video player,
+                                       edited in an non-linear editor, or processed in some other way. Examples of container formats
+                                       are Quicktime, AVI and MXF.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading-13">
-                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-13" aria-expanded="false" aria-controls="collapse-13"> Decoder </a> </h4>
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse"
+                                   data-parent="#accordion" href="#collapse-13" aria-expanded="false" aria-controls="collapse-13"> Decoder </a> </h4>
                             </div>
-                            <div id="collapse-13" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-13" style="height: 0px;">
+                            <div id="collapse-13" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-13" style="height: 0;">
                                 <div class="panel-body bg-accordian">
-                                    <p>A decoder is a device that makes enables closed captions to be turned on if they are present in the video signal, essentially turning closed captions into open captions. Typically a decoder is inside your TV or cable box and you can turn captions on using your remote or a setting in the menus. There are also hardware and software decoders available that allow you to preview captions on your computer or a master tape to ensure that they are present.</p>
+                                    <p>A decoder is a device that makes enables closed captions to be turned on if they are
+                                       present in the video signal, essentially turning closed captions into open captions.
+                                       Typically a decoder is inside your TV or cable box and you can turn captions on using
+                                       your remote or a setting in the menus. There are also hardware and software decoders
+                                       available that allow you to preview captions on your computer or a master tape to
+                                       ensure that they are present.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading-14">
-                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-14" aria-expanded="false" aria-controls="collapse-14"> Drift </a> </h4>
+                                <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse"
+                                    data-parent="#accordion" href="#collapse-14" aria-expanded="false" aria-controls="collapse-14"> Drift </a> </h4>
                             </div>
                             <div id="collapse-14" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-14">
                                 <div class="panel-body bg-accordian">
-                                    <p>"Drift" is a term used to describe a specific type of behavior of closed captions. It can either mean they are appearing progressively later than they should, or progressively earlier. Most often, this occurs slowly over the duration of a program, resulting in a discrepancy of over three seconds by the end of an hour. Drift is most often caused by a&nbsp;drop-frame&nbsp;/&nbsp;non-drop&nbsp;discrepancy.</p>
+                                    <p>"Drift" is a term used to describe a specific type of behavior of closed captions.
+                                       It can either mean they are appearing progressively later than they should, or
+                                       progressively earlier. Most often, this occurs slowly over the duration of a program,
+                                       resulting in a discrepancy of over three seconds by the end of an hour. Drift is most
+                                       often caused by a&nbsp;drop-frame&nbsp;/&nbsp;non-drop&nbsp;discrepancy.</p>
                                 </div>
                             </div>
                         </div>
@@ -1471,7 +1498,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                             <div class="panel-heading" role="tab" id="heading-27">
                                 <h4 class="panel-title bold"> <a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-27" aria-expanded="false" aria-controls="collapse-27"> .MCC </a> </h4>
                             </div>
-                            <div id="collapse-27" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-27" style="height: 0px;">
+                            <div id="collapse-27" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-27" style="height: 0;">
                                 <div class="panel-body bg-accordian">
                                     <p>A .MCC is a MaCCaption closed captioning file, and the only file format that supports both 608 and 708 (SD&nbsp;and&nbsp;HD) closed captioning, unlike&nbsp;.SCC, which only can encode 608 (SD) closed captions. This comprehensive format is being used by several companies for integration in to their closed captioning workflows.</p>
                                 </div>
@@ -1685,15 +1712,15 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                 <section class="docs-section" id="section-13-0">
                     <h2 class="section-heading" data-title="Resources">Resources</h2>
                     <div class="lighthouse" data-toggle="lightbox" >
-                        <img class="icon_profile"
+                        <img class="icon_profile" alt="File: ci-icon-stamp-blue.png; Right click, and save;"
                              data-toggle="lightbox" src="./assets/brand/ci-icon-stamp-blue.png" />
                         
                         <img class="icon_profile"
-                             data-toggle="lightbox" src="./assets/brand/ci-icon-stamp-green.png" />
+                             data-toggle="lightbox" src="./assets/brand/ci-icon-stamp-green.png" alt="File: ci-icon-stamp-green.png; Right click, and save;" />
                         <img class="icon_profile"
-                             data-toggle="lightbox" src="./assets/brand/ci-icon-stamp-salmon.png" />
+                             data-toggle="lightbox" src="./assets/brand/ci-icon-stamp-salmon.png" alt="File: ci-icon-stamp-salmon.png; Right click, and save;" />
     
-                        <img class="icon_profile" src="./assets/brand/logo-duo.png" />
+                        <img class="icon_profile" src="./assets/brand/logo-duo.png" alt="File: logo-duo.png; Right click, and save;" />
                         
                     </div>
                 </section>
@@ -1708,8 +1735,9 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                 <div class="footer-bottom text-center py-5">
                     <ul class="social-list list-unstyled pb-5 mb-0">
                         <li class="list-inline-item"  style="background-color:#f9f9fa">
-                            <nobr><a href="https://github.com/Comcast/caption-inspector" target="Comcast/caption-inspector" title="Caption Inspector (https://github.com/Comcast/caption-inspector)"><i
-                                    class="fab fa-github fa-fw" style="color:#5579D1"></i></a></nobr>
+                            <a href="https://github.com/Comcast/caption-inspector" target="Comcast/caption-inspector"
+                                     title="Caption Inspector (https://github.com/Comcast/caption-inspector)"><i
+                                    class="fab fa-github fa-fw" style="color:#5579D1"></i></a>
                         </li>
                         <li class="list-inline-item" style="background-color:#f9f9fa">
                             <a href="https://comcast.github.io/" title="Comcast Open Source (https://comcast.github.io/)"><i class="fab fa-github fa-fw"
