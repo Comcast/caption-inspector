@@ -238,8 +238,9 @@
 		                            </span>PURPOSE </h4>
                             <p>Closed captions were created to assist in comprehension for those who are <b>deaf or hard of hearing</b>.
                                In other cases these are used as a <b>tool</b> by those <b>learning to read</b>, or learning to speak a <b>non-native language</b>.
-                               And, for anyone to use in an environment where the audio is <b>difficult to hear</b> or is <b>intentionally muted</b>.
-                            </p>
+                               And, for anyone to use in an environment where the audio is <b>difficult to hear</b> or is <b>intentionally muted</b>.</p>
+                            <p><a href="./docs-page.html#section-3-0">See <b>Expected Quality</b></a> below for the purpose in creating this software. </p>
+                            
                         </div>
                     </div>
                     
@@ -303,14 +304,16 @@
                 <section class="docs-section" id="section-3-0">
                     <h2 class="section-heading" data-title="Expected Quality">
                         The Expected Quality of Captions </h2>
-                    <p>Today, there is a gap in the process of Closed Caption Quality production caused by errors within the CC content. Prior to this software,
-                       content delivered to Distributors could not be easily validated without going through (watching) all of the video content, frame by
+                    <p>Today, there is a gap in the process of Closed Caption Quality production caused by errors within the CC content.
+                        <b>Prior to this software</b>,
+                       content delivered to Distributors <b>could not be easily validated</b> without going through (watching) all of the video content, frame by
                        frame. This makes checking content impractical, and its often overlooked when distributed.
                     </p>
-                    <p>This has caused the content to be delivered with Closed Caption errors. As a result, this content is then provided to consumers with
-                       errors, making the Distributors at fault for faulty content. Regardless of where the responsibility lies, whether the Content Provider,
-                       or the Distributor, each video can now be validated by each party in a relatively short period of time. Thus, Content Providers can be
-                       certain of what they deliver, and Distributors do not have to accept faulty content, and be at risk of providing a low-quality product.
+                    <p>This has caused the content to be <b>delivered with Closed Caption errors</b>. As a result, this content is then provided to consumers with
+                       errors, <b>putting the Distributors at fault for bad or faulty content</b>.
+                       Regardless of where the responsibility lies, whether the Content Provider,
+                       or the Distributor, <b>with Caption Inspector each video can now be validated by each party</b> in a relatively short period of time.
+                       Thus, Content Providers can be certain of what they deliver, and Distributors do not have to accept faulty content, and be at risk of providing a low-quality product.
                     </p>
                     <h3 id="section-3-1" data-title="Industry Guidelines">Industry Accepted Guidelines</h3>
                     <p>The following are the accepted industry guidelines and best practices for quality: (https://dcmp.org)
@@ -422,7 +425,7 @@
                         </div>
                     </section>
                     <p>The second type has all of the Closed Captioning Data decoded in place, still
-                       "<a href="./docs-page.html#section-7-8" data-placement="top" data-toggle="tooltip" class="bold tooltip" title="See Term: multiplexed">multiplexed</a>" together. Beyond the current use case of
+                       <a href="./docs-page.html#section-7-8" data-placement="top" data-toggle="tooltip" class="bold " title="See Term: multiplexed">multiplexed</a> together. Beyond the current use case of
                        decoding and examining the Closed Captioning, the Caption Inspector Codebase can be leveraged as a reference implementation of the Closed
                        Captioning Specifications which would allow a developer to not have to understand the specifics of the specs just to access, manipulate,
                        and modify the encoded Closed Captioning.
@@ -677,7 +680,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                                    or every line of an MCC file.
                                 </p>
                                 <p>Unlike the other artifacts, the CCD files are decoded inline, all channels and services have been left
-                                   <a href="./docs-page.html#section-7-8" data-placement="top" data-toggle="tooltip" class="bold tooltip" title="See Term: multiplexed">multiplexed</a>
+                                   <a href="./docs-page.html#section-7-8" data-placement="top" data-toggle="tooltip" class="bold " title="See Term: multiplexed">multiplexed</a>
                                    together and have traceability back to the original/unmodified hex that was extracted
                                    from the asset or caption file.
                                 </p>
@@ -731,7 +734,8 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Night
                        Files are intended to be annotated hex dumps of the closed captioning descriptors located on every frame of video or every line of an MCC
                        file.
                     </p>
-                    <p>Unlike the other artifacts, the CCD files are decoded inline, and all channels and services have been left "<a href="./docs-page.html#section-7-8" data-placement="top" data-toggle="tooltip" class="bold tooltip" title="See Term: multiplexed">multiplexed</a>" together and
+                    <p>Unlike the other artifacts, the CCD files are decoded inline, and all channels and services have been left
+                       "<a href="./docs-page.html#section-7-8" data-placement="top" data-toggle="tooltip" class="bold " title="See Term: multiplexed">multiplexed</a>" together and
                        have traceability back to the original/unmodified hex that was extracted from the asset or caption file. The Closed Caption Descriptor
                        File contains a decoded binary representation of Closed Captioning Data.
                     </p>
