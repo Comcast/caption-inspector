@@ -240,10 +240,11 @@ uint8 MccFileProcNextBuffer( Context* rootCtxPtr, boolean* isDonePtr ) {
     ASSERT(mccdata);
 
 // TODO - This is a kludge! Fully support the MCC 2.0 Stuff and remove this
+// These extra lines are generally? AFD and bardata, All I've seen so far from MacCaption
     if( (strlen(timecode) > 11) && (timecode[11] == '.') ) {
         if( ctxPtr->oneShotWarningFlag == FALSE ) {
             ctxPtr->oneShotWarningFlag = TRUE;
-            LOG(DEBUG_LEVEL_WARN, DBG_FILE_IN, "Detected MCC 2.0. Handling file (in a kludgy way), but MCC 2.0 is not fully supported.");
+            LOG(DEBUG_LEVEL_WARN, DBG_FILE_IN, "Detected MCC 2.0. Active Format Descriptions will be ignored.");
         }
         return TRUE;
     }
