@@ -41,7 +41,7 @@ make distclean
 While not required, Caption Inspector leverages a tool called MediaInfo to determine whether or not
 an asset is, or is not, Drop Frame. You can download the command line version of MediaInfo
 [here](https://mediaarea.net/en/MediaInfo/Download). Caption Inspector is known to run with
-MediaInfo Version 18.12.
+MediaInfo Version 18.12 (found [here](https://mediaarea.net/download/binary/mediainfo/18.08/MediaInfo_CLI_18.08_Mac.dmg)).
 
 ```
 make caption-inspector
