@@ -26,6 +26,18 @@ Caption Inspector requires FFMPEG to be installed on your machine. Please downlo
 version of FFMPEG from [here](https://ffmpeg.org/download.html) and install it in your machine.
 Caption Inspector is known to run with FFMPEG Version 4.0.2.
 
+To install FFMPEG Version 4.0.2, follow the below list (for Mac), using the Dockerfile as a reference:
+```
+brew install nasm
+brew install yasm
+curl -s http://ffmpeg.org/releases/ffmpeg-4.0.2.tar.gz | tar zxvf - -C . 
+cd ffmpeg-4.0.2/
+./configure  --enable-version3 --enable-hardcoded-tables --enable-shared --enable-static --enable-small --enable-libass --enable-postproc --enable-avresample --enable-libfreetype --disable-lzma --enable-opencl --enable-pthreads
+make
+make install
+make distclean
+```
+
 While not required, Caption Inspector leverages a tool called MediaInfo to determine whether or not
 an asset is, or is not, Drop Frame. You can download the command line version of MediaInfo
 [here](https://mediaarea.net/en/MediaInfo/Download). Caption Inspector is known to run with
