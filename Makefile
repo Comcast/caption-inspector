@@ -75,7 +75,7 @@ ci_with_gpac:
 	cd src ; make ci_with_gpac
 
 docker:
-	docker build -t caption-inspector .
+	docker build -t caption-inspector . --build-arg ARCH=${ARCH}
 
 docker-test:
 	cd test ; make docker
@@ -85,6 +85,7 @@ clean:
 
 VERSION_CLEANUP=make version-cleanup || { make version-cleanup; exit 1; }
 
+ARCH = x86_64
 GIT_VERSION = $(shell git describe --match "v[0-9]*" --always --long | sed -e "s/-.*//")
 GIT_BUILD = $(shell git describe --match "v[0-9]*" --always --long)
 GIT_COMMIT = $(shell git describe --match "v[0-9]*" --always --long | sed -e "s/.*-g//")
