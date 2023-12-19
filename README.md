@@ -90,6 +90,7 @@ docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/Plan9
 docker run -tv $(pwd):/files caption-inspector -o /files /files/test/media/NightOfTheLivingDead.mcc
 ```
 
+Use `make docker ARCH=aarch64` instead of `make docker` if you are using arm64 host.
 In the `docker run` command, your current working directory will be remapped to `/files` inside of the container, so
 you will need to prefix your input and output paths to that so that it can place the files in the correct spot. For
 this example, the output file is located in the current directory `./` and the input file is located in a directory
