@@ -1,4 +1,4 @@
-FROM debian:9-slim as base
+FROM debian:12-slim as base
 
 ENV FFMPEG_VERSION=4.0.2 LD_LIBRARY_PATH=/usr/local/lib
 
@@ -12,7 +12,7 @@ RUN apt-get install -y make curl gcc g++ nasm yasm && \
   apt-get install -y opencl-dev vim libass-dev libavformat-dev \
   libavutil-dev libavfilter-dev uuid-dev zlib1g-dev && \
   DIR=$(mktemp -d) && cd ${DIR} && \
-  curl -s http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.gz | tar zxvf - -C . && \
+  curl -s https://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.gz | tar zxvf - -C . && \
   cd ffmpeg-${FFMPEG_VERSION} && \
   ./configure  --enable-version3 --enable-hardcoded-tables --enable-shared --enable-static \
     --enable-small --enable-libass --enable-postproc --enable-avresample --enable-libfreetype \
@@ -43,7 +43,7 @@ RUN ldd /usr/bin/mediainfo
 #
 # Runtime Container
 #
-FROM debian:9-slim as slim
+FROM debian:12-slim as slim
 
 ENV FFMPEG_VERSION=4.0.2 LD_LIBRARY_PATH=/usr/local/lib
 
@@ -76,9 +76,12 @@ COPY --from=base /usr/lib/x86_64-linux-gnu/libnettle.so.* /usr/local/lib/
 COPY --from=base /usr/lib/x86_64-linux-gnu/libgnutls.so.* /usr/local/lib/
 COPY --from=base /usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.* /usr/local/lib/
 COPY --from=base /usr/lib/x86_64-linux-gnu/libkrb5.so.* /usr/local/lib/
+COPY --from=base /usr/lib/x86_64-linux-gnu/libcrypto.so.* /usr/local/lib/
 COPY --from=base /usr/lib/x86_64-linux-gnu/libk5crypto.so.* /usr/local/lib/
-COPY --from=base /usr/lib/x86_64-linux-gnu/liblber-2.4.so.* /usr/local/lib/
-COPY --from=base /usr/lib/x86_64-linux-gnu/libldap_r-2.4.so.* /usr/local/lib/
+COPY --from=base /usr/lib/x86_64-linux-gnu/liblber-2.5.so.* /usr/local/lib/
+COPY --from=base /usr/lib/x86_64-linux-gnu/libldap-2.5.so.* /usr/local/lib/
+COPY --from=base /usr/lib/x86_64-linux-gnu/libbrotlidec.so.* /usr/local/lib/
+COPY --from=base /usr/lib/x86_64-linux-gnu/libbrotlicommon.so.* /usr/local/lib/
 COPY --from=base /usr/lib/x86_64-linux-gnu/libunistring.so.* /usr/local/lib/
 COPY --from=base /usr/lib/x86_64-linux-gnu/libhogweed.so.* /usr/local/lib/
 COPY --from=base /usr/lib/x86_64-linux-gnu/libgmp.so.* /usr/local/lib/
